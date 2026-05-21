@@ -65,32 +65,4 @@ namespace PostMan.InputManagement
 }
 /*
 交互的放在这里 
-        /// <summary>
-        /// 由于要支持长按的交互,因此用一个变量记录是否“按下交互键”
-        /// </summary>
-        private bool isInteracting;
- 
-            //只要按下的时候认为是在交互
-            inputActions.Player.Interact.performed += (context) =>
-            {
-                this.isInteracting = true;
-            };
-            this.isInteracting = false;
-
-        /// <summary>
-        /// 获得交互输入
-        /// </summary>
-        /// <returns>是否按下交互键</returns>
-        public bool GetInteract()
-        {
-            return this.isInteracting;
-        }
-        private void Update()
-        {
-            if (inputActions.Player.Interact.WasReleasedThisFrame())
-            {
-                this.isInteracting = false;
-            }
-        }
-            this.isInteracting = false;//禁用的时候,要调用这个
  */

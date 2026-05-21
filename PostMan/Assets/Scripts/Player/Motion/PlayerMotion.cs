@@ -11,7 +11,7 @@ namespace PostMan.Player
         重构思路:
     用状态机控制状态之间的切换
     其他类<-----PlayerMotion-----> 状态机
-    一方面,PlayerMotion向外部的类提供状态信息,比如玩家是在移动、奔跑等等
+    一方面,让PlayerMotion向外部的类提供状态信息,比如玩家是在移动、奔跑等等
     另一方面,PlayerMotion提供状态机需要调用的方法和需要的数据,让状态类里能够执行真正的逻辑
      */
 
