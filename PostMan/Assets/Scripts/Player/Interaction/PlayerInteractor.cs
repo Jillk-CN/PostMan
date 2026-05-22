@@ -1,5 +1,6 @@
 using PostMan.Common;
 using PostMan.InputManagement;
+using System.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,30 +15,22 @@ namespace PostMan.Player
     {
         private PlayerInteractInputSource input;
 
-        [Header("交互设置")]
         [Tooltip("交互的最大距离")]
         [SerializeField]
         private float interactDistance;
-        [Tooltip("可交互物体的层级")]
-        [SerializeField]
-        private LayerMask detectLayer;
-
-        private Transform sightPoint;
+        private PlayerDetector detector;
 
         private void Start()
         {
-            sightPoint = this.transform.FindChildByName(nameof(sightPoint));
+            detector = this.GetComponent<PlayerDetector>();
             input = GameInputManager.Instance.
                 GetInputSystemSource<PlayerInteractInputSource>();
         }
 
         private void Update()
         {
-            DetectInteractable();
-
-            if (input != null && input.GetInteract())
+            if (input.GetInteract())
             {
-                //Debug.LogWarning("正在交互吗?"+interactInput.GetInteract());
                 Interact();
             }
         }
@@ -45,56 +38,37 @@ namespace PostMan.Player
         /// <summary>
         /// 与可交互物体交互
         /// </summary>
-        public void Interact()
+        private void Interact()
         {
-
+            IInteractable[] interactables = FindInteractables();
+            if (interactables==null)
+            {
+                return;
+            }
+            foreach (var interactable in interactables)
+            {
+                interactable.InteractWith(this);
+            }
         }
         /// <summary>
-        /// 检测可交互物体
+        /// 找到可交互的脚本,按优先级降序排序
         /// </summary>
-        private void DetectInteractable()
+        /// <returns></returns>
+        private IInteractable[] FindInteractables()
         {
-            //检测物体
-            bool detected = Physics.Raycast(sightPoint.transform.position, sightPoint.transform.forward, out RaycastHit hit, interactDistance, detectLayer);
-            if (!detected)
+            Transform detectedObject = this.detector.GetDetectedObject();
+            IInteractable[] interactables =
+                detectedObject.GetComponents<IInteractable>();
+            if (interactables.Length==0)
             {
-                //Deselect();
-                return;
+                return null;
             }
-            // 从命中物体向上查找 IInteractable（支持挂载在任意层级）
-            IInteractable[] detectedInteractables =
-                hit.collider.GetComponentsInParent<IInteractable>();
-            //如果没找到,去根物体查找,出于某些原因才这样写
-            if (detectedInteractables==null)
-            {
-                detectedInteractables = hit.collider.transform.root.
-                    GetComponents<IInteractable>();
-            }
-            Transform newTarget = hit.collider.transform.root;
-            bool hasInteractable = (detectedInteractables.Length != 0);
 
-           // Debug.LogWarningFormat("target:{0}, {1},{2}",
-           //     newTarget.name,hasInteractable,detectedInteractables?.Length);
-           /*
-            
-            if (!hasInteractable)
-            {
-                Deselect();
-                return;
-            }
-            // 检测到不同的可交互物体
-            if (newTarget !=target)
-            {
-                //取消选中之前的可交互物体
-                Deselect();
-
-                target = newTarget;
-                targetInteractables = detectedInteractables;
-                Select();
-            }
-            */
-
+            interactables = interactables.
+                Where((arg) => arg.CanInteract).
+                OrderByDescending((arg) => arg.Priority).ToArray();
+            return interactables;
         }
-
+            
     }
 }
