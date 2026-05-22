@@ -10,6 +10,7 @@ public class SubtitleUI : MonoBehaviour
     public TextMeshProUGUI ContentBox;  //获取文本框对象
     //public GameObject BackGround;  //获取UI背景
     [SerializeField] private SubtitleData SubtitleData;  //获取字幕表
+    private Coroutine currentCoroutine;
     
 
     [Header("字幕UI设置")]
@@ -137,6 +138,14 @@ public class SubtitleUI : MonoBehaviour
         canvasGroup.alpha = 0f;
         ContentBox.gameObject.SetActive(false);
         //BackGround.SetActive(false);
+
+        currentCoroutine = null;
+
+        //重置 UI 状态
+        canvasGroup.alpha = 0f;
+        ContentBox.maxVisibleCharacters = 0;
+        ContentBox.text = "";
+        currentCoroutine = null;
     }
 
     /// <summary>
@@ -146,7 +155,17 @@ public class SubtitleUI : MonoBehaviour
     /// <param name="EndID"></param>
     public void TypeSubtitle(int StartID , int EndID)
     {
-        StartCoroutine(TypeText(StartID , EndID));
+        if(currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+
+            //重置 UI 状态
+            canvasGroup.alpha = 0f;
+            ContentBox.maxVisibleCharacters = 0;
+            ContentBox.text = "";
+            currentCoroutine = null;
+        }
+        currentCoroutine = StartCoroutine(TypeText(StartID , EndID));
     }
 
     /// <summary>
@@ -155,7 +174,17 @@ public class SubtitleUI : MonoBehaviour
     /// <param name="ID"></param>
     public void TypeSubtitle(int ID)
     {
-        StartCoroutine(TypeText(ID , ID));
+        if(currentCoroutine != null)
+        {
+            StopCoroutine(currentCoroutine);
+
+            //重置 UI 状态
+            canvasGroup.alpha = 0f;
+            ContentBox.maxVisibleCharacters = 0;
+            ContentBox.text = "";
+            currentCoroutine = null;
+        }
+        currentCoroutine = StartCoroutine(TypeText(ID , ID));
     }
 
     //打字
@@ -222,6 +251,7 @@ public class SubtitleUI : MonoBehaviour
 
         //关闭UI
         yield return StartCoroutine(CloseUI(FadeOutTime));
+
     }
 
     public enum Language
