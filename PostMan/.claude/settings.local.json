@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"D:\\\\GitHub\\\\PostMan\\\\PostMan\" && openspec new change \"game-task-system\" 2>&1)",
+      "Bash(cd \"D:\\\\GitHub\\\\PostMan\\\\PostMan\" && openspec status --change \"game-task-system\" --json 2>&1)",
+      "Bash(cd \"D:\\\\GitHub\\\\PostMan\\\\PostMan\" && openspec status --change \"game-task-system\" 2>&1)",
+      "Bash(openspec --help 2>&1 || echo \"openspec not found in PATH\")",
+      "Bash(which openspec:*)",
+      "Bash(find \"D:/GitHub/PostMan/PostMan\" -name \"*.cs\" 2>/dev/null | head -20 || echo \"No .cs files found\")",
+      "Bash(dir \"D:\\\\GitHub\\\\PostMan\\\\PostMan\" 2>&1)"
+    ]
+  }
+}
