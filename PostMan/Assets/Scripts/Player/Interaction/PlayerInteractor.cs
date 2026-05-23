@@ -51,7 +51,7 @@ namespace PostMan.Player
             }
         }
         /// <summary>
-        /// 找到可交互的脚本,按优先级降序排序
+        /// 找到可交互的可交互脚本,按优先级降序排序
         /// </summary>
         /// <returns></returns>
         private IInteractable[] FindInteractables()

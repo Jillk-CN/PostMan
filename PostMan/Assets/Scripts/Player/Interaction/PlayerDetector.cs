@@ -9,7 +9,7 @@ using UnityEngine;
 namespace PostMan.Player
 {
     /// <summary>
-    /// 交互检测类,负责检测可被选中的物体
+    /// 交互检测类,负责检测可被选中的物体,这里认为,可交互物体一定是可被选中的物体
     /// </summary>
     public class PlayerDetector:MonoBehaviour
     {
@@ -24,6 +24,7 @@ namespace PostMan.Player
         private Transform sightPoint;
         private Transform detectedObject;
         private ISelectable[] detectedSelectables;
+
         private void Start()
         {
             sightPoint = this.transform.FindChildByName(nameof(sightPoint));
@@ -51,7 +52,6 @@ namespace PostMan.Player
 
             Transform newTarget = null;
             //只在射线检测到的物体或者根物体查找
-            // 从命中物体向上查找 IInteractable（支持挂载在任意层级）
             ISelectable[] selectables =
                 hit.collider.GetComponents<ISelectable>();
             //如果没找到,去根物体查找

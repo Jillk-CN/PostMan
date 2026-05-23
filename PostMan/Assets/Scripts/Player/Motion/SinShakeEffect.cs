@@ -12,7 +12,7 @@ namespace PostMan.Player
 
         #region 水平方向的偏移
         public const int LEFT = -1; 
-        public const int RIght = 1;
+        public const int RIGHT = 1;
         private const float HROIZONTAL_OFFSET_MAX=180f;
 
         private int horizontalDirection;//水平方向上朝哪里偏移

@@ -13,7 +13,12 @@ namespace PostMan.Player
         [SerializeField]
         private Outline[] outlineVisuals;
         private bool selected;
-        public bool Selected { get => selected; set => selected=value; }
+        public bool Selected
+        {
+            get => selected;
+            set => selected = value;
+        }
+
         private void Start()
         {
             this.selected = false;

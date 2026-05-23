@@ -123,18 +123,19 @@ namespace PostMan.Player
         }
 
         /// <summary>
-        /// 设置水平的震动的偏移方向,否则默认向右边偏
+        /// 设置水平的震动的偏移方向,否则默认向左边偏移
+        /// 暂时将这个方法放在这里
         /// </summary>
         /// <param name="moveVector">输入里的移动方向</param>
         public void SetHorizontalShakeDirection(Vector3 moveVector)
         {
             if (moveVector.x>0)
             {
-                shakeEffect.SetHorizontalDirection(SinShakeEffect.RIght);
+                shakeEffect.SetHorizontalDirection(SinShakeEffect.LEFT);
             }
             else if(moveVector.x<0)
             {
-                shakeEffect.SetHorizontalDirection(SinShakeEffect.LEFT);
+                shakeEffect.SetHorizontalDirection(SinShakeEffect.RIGHT);
             }
             else
             {

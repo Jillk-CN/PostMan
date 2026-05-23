@@ -12,7 +12,7 @@ namespace PostMan.Player
         /// </summary>
         public bool CanInteract { get; set; }
         /// <summary>
-        /// 交互优先级,如果多个可交互的脚本挂在同一个物体上,
+        /// 交互优先级,可能多个可交互的脚本挂在同一个物体上,组合出交互效果
         /// 优先级大的先交互
         /// </summary>
         public int Priority { get; set; }
