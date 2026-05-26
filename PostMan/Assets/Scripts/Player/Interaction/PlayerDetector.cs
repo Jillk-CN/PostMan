@@ -1,4 +1,5 @@
 ﻿using PostMan.Common;
+using PostMan.InputManagement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace PostMan.Player
 {
     /// <summary>
     /// 交互检测类,负责检测可被选中的物体,这里认为,可交互物体一定是可被选中的物体
+    /// 挂有可选中的脚本
     /// </summary>
     public class PlayerDetector:MonoBehaviour
     {
@@ -24,14 +26,25 @@ namespace PostMan.Player
         private Transform sightPoint;
         private Transform detectedObject;
         private ISelectable[] detectedSelectables;
+        private PlayerInteractInputSource input;
 
         private void Start()
         {
             sightPoint = this.transform.FindChildByName(nameof(sightPoint));
+            input = GameInputManager.Instance.
+                GetInputSystemSource<PlayerInteractInputSource>();
         }
         private void Update()
         {
-            Detect();     
+            //允许交互的时候才去检测物体
+            if (input.Enabled)
+            {
+                Detect();     
+            }
+            else
+            {
+                Deselect();
+            }
         }
 
         public Transform GetDetectedObject()
@@ -79,7 +92,7 @@ namespace PostMan.Player
         {
             foreach (var selectable in detectedSelectables)
             {
-                if (!selectable.Selected)
+                if (!selectable.Selected&&selectable.CanSelect)
                 {
                     selectable.Select();
                 }

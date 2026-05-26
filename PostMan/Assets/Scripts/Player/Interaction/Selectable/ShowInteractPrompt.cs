@@ -12,6 +12,20 @@ namespace PostMan.Player
             get => selected;
             set => selected = value;
         }
+        [SerializeField]
+        private bool canSelect=true;
+        public bool CanSelect 
+        { 
+            get => canSelect;
+            set
+            {
+                canSelect = value;
+                if (!canSelect)
+                {
+                    Deselect();
+                }
+            }
+        }
 
         public void Deselect()
         {

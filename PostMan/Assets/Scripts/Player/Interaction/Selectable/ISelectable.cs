@@ -10,6 +10,10 @@ namespace PostMan.Player
     public interface ISelectable 
     {
         /// <summary>
+        /// 当前物体是否可以选中
+        /// </summary>
+        public bool CanSelect { get; set; }
+        /// <summary>
         /// 当前物体是否被选中
         /// </summary>
         public bool Selected { get; set; }
