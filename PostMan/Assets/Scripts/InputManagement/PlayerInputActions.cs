@@ -178,6 +178,15 @@ namespace PostMan.InputManagement
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Return"",
+                    ""type"": ""Button"",
+                    ""id"": ""7aa193c8-b9ac-4bc7-82eb-3815146ce2e5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -213,6 +222,17 @@ namespace PostMan.InputManagement
                     ""action"": ""ContinueDialogue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""49f432ac-217d-4109-9a21-640caeecc8ea"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -229,6 +249,7 @@ namespace PostMan.InputManagement
             m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
             m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
             m_UI_ContinueDialogue = m_UI.FindAction("ContinueDialogue", throwIfNotFound: true);
+            m_UI_Return = m_UI.FindAction("Return", throwIfNotFound: true);
         }
 
         ~@PlayerInputActions()
@@ -368,12 +389,14 @@ namespace PostMan.InputManagement
         private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
         private readonly InputAction m_UI_Pause;
         private readonly InputAction m_UI_ContinueDialogue;
+        private readonly InputAction m_UI_Return;
         public struct UIActions
         {
             private @PlayerInputActions m_Wrapper;
             public UIActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @Pause => m_Wrapper.m_UI_Pause;
             public InputAction @ContinueDialogue => m_Wrapper.m_UI_ContinueDialogue;
+            public InputAction @Return => m_Wrapper.m_UI_Return;
             public InputActionMap Get() { return m_Wrapper.m_UI; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -389,6 +412,9 @@ namespace PostMan.InputManagement
                 @ContinueDialogue.started += instance.OnContinueDialogue;
                 @ContinueDialogue.performed += instance.OnContinueDialogue;
                 @ContinueDialogue.canceled += instance.OnContinueDialogue;
+                @Return.started += instance.OnReturn;
+                @Return.performed += instance.OnReturn;
+                @Return.canceled += instance.OnReturn;
             }
 
             private void UnregisterCallbacks(IUIActions instance)
@@ -399,6 +425,9 @@ namespace PostMan.InputManagement
                 @ContinueDialogue.started -= instance.OnContinueDialogue;
                 @ContinueDialogue.performed -= instance.OnContinueDialogue;
                 @ContinueDialogue.canceled -= instance.OnContinueDialogue;
+                @Return.started -= instance.OnReturn;
+                @Return.performed -= instance.OnReturn;
+                @Return.canceled -= instance.OnReturn;
             }
 
             public void RemoveCallbacks(IUIActions instance)
@@ -427,6 +456,7 @@ namespace PostMan.InputManagement
         {
             void OnPause(InputAction.CallbackContext context);
             void OnContinueDialogue(InputAction.CallbackContext context);
+            void OnReturn(InputAction.CallbackContext context);
         }
     }
 }

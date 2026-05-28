@@ -36,8 +36,7 @@ namespace PostMan.InputManagement
             inputActions = new PlayerInputActions();
 
             sources = this.GetComponents<IInputSource>().ToList();
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            //HideCursor();
             //this.GetInputSystemSource<PlayerSightInputSource>
         }
         private void OnDestroy()
@@ -75,13 +74,17 @@ namespace PostMan.InputManagement
         public void SetInputSystemSource<T>(bool enabled)where T :IInputSource
         {
             IInputSource src =GetInputSystemSource<T>();
-            if (enabled)
+            if (src==null)
             {
-                src?.Enable();
+                return;
             }
-            else
+            if (enabled&&!src.Enabled)
             {
-                src?.Disable();
+                src.Enable();
+            }
+            else if(!enabled&&src.Enabled)
+            {
+                src.Disable();
             }
         }
 
