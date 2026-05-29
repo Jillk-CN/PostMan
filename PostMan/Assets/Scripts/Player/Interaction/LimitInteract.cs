@@ -11,7 +11,9 @@ namespace PostMan.Player
     {
         //要禁用的可交互物体,可以自行拖拽
         private IInteractable[] limitedInteractables;
-        public bool CanInteract { get => this.enabled; set => this.enabled = value; }
+        [SerializeField]
+        private bool canInteract=true;
+        public bool CanInteract { get => this.canInteract; set => this.canInteract = value; }
 
         [SerializeField]
         [Tooltip("注意,优先级要是最低的")]

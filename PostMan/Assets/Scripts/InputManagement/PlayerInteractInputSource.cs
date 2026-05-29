@@ -38,12 +38,14 @@ namespace PostMan.InputManagement
         public void Enable()
         {
             this.inputActions.Player.Interact.Enable();
+            this.enabled = true;
         }
 
         public void Disable()
         {
             this.interacting = false;
             this.inputActions.Player.Interact.Disable();
+            this.enabled = false;
         }
         /// <summary>
         /// 获得交互输入

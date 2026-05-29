@@ -12,6 +12,10 @@ GameObject:
   - component: {fileID: 8715286887722580363}
   - component: {fileID: 4698213291387305591}
   - component: {fileID: 5975085871360403960}
+  - component: {fileID: 6309406180194993850}
+  - component: {fileID: 2746291183405845254}
+  - component: {fileID: 3598483547694282291}
+  - component: {fileID: 5775774318388340582}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -27,14 +31,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2887424777433423837}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7012826, z: 0, w: 0.7128834}
-  m_LocalPosition: {x: -37.24, y: 0, z: -6.77}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4106987589041924381}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: -89.06, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &8715286887722580363
 CharacterController:
   m_ObjectHideFlags: 0
@@ -54,13 +58,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 4
+  m_Height: 1.8
   m_Radius: 1
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 2, z: 0}
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!114 &4698213291387305591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +93,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd2e0a1ceb643ce49a98e7c4dc21b288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6309406180194993850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2887424777433423837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b77ec13da6bedb498930c50fe7d6744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectDistance: 5
+  detectLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &2746291183405845254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2887424777433423837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8ffc08ff8c7794485cb38d82231514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDistance: 5
+--- !u!114 &3598483547694282291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2887424777433423837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b77ec13da6bedb498930c50fe7d6744, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectDistance: 5
+  detectLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &5775774318388340582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2887424777433423837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8ffc08ff8c7794485cb38d82231514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDistance: 5
 --- !u!1 &3584005510048825822
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +234,7 @@ GameObject:
   - component: {fileID: 4106987589041924381}
   - component: {fileID: 8221644484248676143}
   m_Layer: 0
-  m_Name: SightRotationPoint
+  m_Name: sightPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -187,7 +249,7 @@ Transform:
   m_GameObject: {fileID: 5146509770283754649}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.6, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -210,10 +272,10 @@ MonoBehaviour:
   sightAngleMax: 70
   sightAngleMin: -70
   sensitivity: 1
-  amplitudeWalk: 2
-  frequencyWalk: 3
-  amplitudeRun: 3
-  frequencyRun: 5
+  amplitudeWalk: 0.2
+  frequencyWalk: 1
+  amplitudeRun: 0.4
+  frequencyRun: 2
 --- !u!1 &7393551666706870558
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f5f34e17efb2a94da409af0ecede0e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalOffset: 4
+  horizontalOffset: 1
   horizontalDuration: 0.8
   backHorizontalDuration: 0.8
   frequency: 1

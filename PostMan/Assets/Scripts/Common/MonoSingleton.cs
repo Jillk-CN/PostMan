@@ -16,7 +16,7 @@ namespace PostMan.Common
             {
                 if(instance ==null )
                 {
-                    instance = FindObjectOfType<T>();
+                    instance = FindObjectOfType<T>(true);
                     if (instance == null)
                     {
                         return null;

@@ -11,16 +11,19 @@ using UnityEngine.UI;
 namespace Fountain.UI
 {
     /// <summary>
-    /// 笔记UI,负责显示笔记内容
+    /// 单纯显示文字的UI,
     /// </summary>
-    public class NotePanel : MonoSingleton<NotePanel>
+    public class TextPanel : MonoSingleton<TextPanel>
     {
         //非常不情愿地做成单例
         private Button quitButton;
         private TextMeshProUGUI titleText;
         private TextMeshProUGUI noteContent;
-        private void Awake()
+        //输入来源
+        private UIReturnInputSource input;
+        protected override void Init()
         {
+            base.Init();
             titleText = this.transform.FindChildByName(nameof(titleText)).
                 GetComponent<TextMeshProUGUI>();
             noteContent = this.transform.FindChildByName(nameof(noteContent)).
@@ -29,13 +32,17 @@ namespace Fountain.UI
                 GetComponent<Button>();
             quitButton.onClick.AddListener(Hide);
             this.gameObject.SetActive(false);
+            input = GameInputManager.Instance.GetInputSystemSource<UIReturnInputSource>();
         }
-        private void Start()
+        private void Update()
         {
+            if (input.GetReturn())
+            {
+                Hide();
+            } 
         }
 
-
-        public void ShowNote(string content)
+        public void ShowText(string content)
         {
             //finishCallback = finishReading;
             if (content==null)
@@ -43,9 +50,9 @@ namespace Fountain.UI
                 return;
             }
             this.gameObject.SetActive(true);
+            GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(false);
             GameInputManager.Instance.SetInputSystemSource<UIReturnInputSource>(true);
-            GameInputManager.Instance.SetInputSystemSource<PlayerMotionInputSource>(false);
-            GameInputManager.Instance.SetInputSystemSource<PlayerSightInputSource>(false);
+            GameInputManager.Instance.DisablePlayerAllInput();
             GameInputManager.Instance.ShowCursor();
 
             /*
@@ -62,9 +69,9 @@ namespace Fountain.UI
         private void Hide()
         {
             this.gameObject.SetActive(false);
+            GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(true);
             GameInputManager.Instance.SetInputSystemSource<UIReturnInputSource>(false);
-            GameInputManager.Instance.SetInputSystemSource<PlayerMotionInputSource>(true);
-            GameInputManager.Instance.SetInputSystemSource<PlayerSightInputSource>(true);
+            GameInputManager.Instance.EnablePlayerAllInput();
             GameInputManager.Instance.HideCursor();
         }
     }

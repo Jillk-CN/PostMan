@@ -30,7 +30,6 @@ namespace PostMan.InputManagement
         public void Enable()
         {
             //都用了同一个Esc键
-            GameInputManager.Instance.SetInputSystemSource<UIReturnInputSource>(false);
             this.inputActions.UI.Pause.Enable();
             this.enabled = true;
         }

@@ -9,6 +9,10 @@ namespace PostMan.InputManagement
         private PlayerInputActions inputActions;
         public bool Enabled =>this.enabled;
 
+        private void Awake()
+        {
+            this.inputActions = GameInputManager.Instance.GetInputAction(); 
+        }
         private void OnEnable()
         {
             Enable();    
@@ -19,7 +23,6 @@ namespace PostMan.InputManagement
         }
         public void Disable()
         {
-            GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(true);
             this.enabled = false; 
             this.inputActions.UI.Return.Enable();
         }
@@ -27,7 +30,6 @@ namespace PostMan.InputManagement
         public void Enable()
         {
             //由于共用了Esc键,需要禁用
-            GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(false);
             this.inputActions.UI.Return.Enable();
             this.enabled = true;
         }
