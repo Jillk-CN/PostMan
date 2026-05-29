@@ -57,6 +57,10 @@ namespace PostMan.Player
         private IInteractable[] FindInteractables()
         {
             Transform detectedObject = this.detector.GetDetectedObject();
+            if (detectedObject==null)
+            {
+                return null;
+            }
             IInteractable[] interactables =
                 detectedObject.GetComponents<IInteractable>();
             if (interactables.Length==0)
