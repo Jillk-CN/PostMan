@@ -12,6 +12,6 @@ using UnityEngine;
 [Serializable]
 public class SubtitlePart
 {
-    int startIndex;
-    int endIndex;
+    public int startIndex;
+    public int endIndex;
 }
