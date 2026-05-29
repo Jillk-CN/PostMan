@@ -1,20 +1,121 @@
 schema: spec-driven
 
-# Project context (optional)
-# This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+# Project context — shown to AI when creating artifacts.
+context: |
+  ## Tech Stack
+  - Engine: Unity 2022.3 LTS, Universal Render Pipeline (URP 14)
+  - Language: C# (.NET Standard 2.1)
+  - Input: Unity Input System (new input system, not legacy)
+  - UI Text: TextMeshPro (TMPro.TextMeshProUGUI)
+  - Localization: Unity Localization 1.5.3 (imported, not yet heavily used)
+  - Post-processing: URP Volume + custom ScriptableRendererFeature/ScriptableRenderPass
+  - Outline highlight: third-party Outline component (Quick Outline or similar)
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+  ## Project Domain
+  Genre: First-person exploration / narrative game (postal/delivery theme — "PostMan")
+  Player: First-person CharacterController with walk/run FSM, raycast-based interaction, camera pitch control
+  Interaction model: Player looks at objects → PlayerDetector highlights via ISelectable → player presses interact → PlayerInteractor calls IInteractable.InteractWith sorted by priority
+
+  ## Implemented Systems
+
+  ### Common Utilities — Assets/Scripts/Common/
+  - MonoSingleton<T>: generic singleton base (lazy FindObjectOfType, virtual Init())
+  - UGUIEventListener: wraps all UGUI EventSystem interfaces into subscribable C# events
+  - TransformExtension: extension methods on Transform
+
+  ### FSM Framework — Assets/Scripts/FSM/
+  - MonoFSM + FSMState + FSMCondition + CompositeCondition
+  - Player motion states: PlayerIdleState, PlayerWalkState, PlayerRunState
+  - Player motion conditions: PlayerWalkCondition, PlayerStopWalkCondition, PlayerRunCondition, PlayerStopRunCondition
+  - Conditions instantiated via Activator.CreateInstance using naming convention (ConditionID + "Condition")
+
+  ### Input Management — Assets/Scripts/InputManagement/
+  - GameInputManager: singleton, owns PlayerInputActions, manages all IInputSource components
+  - IInputSource interface: Enable/Disable/Enabled
+  - Concrete sources: PlayerMotionInputSource, PlayerSightInputSource, PlayerInteractInputSource, PauseInputSource, UIReturnInputSource, VHSToggleInputSource
+  - Systems get their source via GetInputSystemSource<T>(); manager can disable all player input when UI opens
+
+  ### Player — Assets/Scripts/Player/
+  - Motion/PlayerMotion: CharacterController movement, owns and drives MonoFSM
+  - Motion/PlayerSight: camera pitch control
+  - Motion/SinShakeEffect: camera bob
+  - Interaction/PlayerDetector: raycast detection, manages ISelectable highlight state
+  - Interaction/PlayerInteractor: polls interact input, calls IInteractable.InteractWith sorted by priority
+  - Interaction/IInteractable: interface (CanInteract, Priority, InteractWith)
+  - Interaction/Selectable/ISelectable: interface (CanSelect, Selected, Select/Deselect)
+  - Interaction/Selectable/OutlineVisual: drives Outline[] components
+  - Interaction/Selectable/InteractPrompt: singleton, fade-in/out CanvasGroup
+  - PlayerInstance: top-level player GameObject reference
+
+  ### Interactable Objects — Assets/Scripts/InteractableObjects/
+  - ShowImageInteractable: opens ViewImagePanel with a Sprite
+  - ShowTextInteractable: opens TextPanel with text
+  - Named world props (all implement IInteractable): I_Bag, I_Bed, I_Box, I_Cabinet, I_Chair, I_Door, I_Door_S, I_Letter, I_MailBox, I_Message, I_PC, I_Photo, I_Piece, I_Telephone
+
+  ### Task System — Assets/Scripts/TaskSystem/
+  - Architecture: event-bus pattern (highly decoupled)
+  - Data/TaskSO: ScriptableObject (taskIndex, taskName, taskDescription, totalProgress)
+  - Data/TaskTransition: task transition data
+  - Runtime/TaskStatus: enum (Inactive, Active, Completed, Failed)
+  - Runtime/TaskRuntimeData: immutable sealed class; WithProgress/WithStatus return new instances
+  - Runtime/TaskEventBus: static event hub (OnTaskStarted, OnTaskAdvanced, OnTaskCompleted, OnTaskFailed); publish methods are internal
+  - Runtime/TaskManager: singleton (DontDestroyOnLoad); StartTask/AdvanceTask/FailTask/GetTask/IsTaskActive/IsTaskCompleted
+  - Triggers/BaseTaskTrigger + ColliderTaskTrigger: physics-trigger-based task starters
+  - Advancers/BaseTaskAdvancer + ColliderTaskAdvancer: physics-trigger-based task advancers
+  - UI/TaskUI: subscribes to TaskEventBus, slide-in/out animation, Tab toggle, TMP text
+
+  ### VHS Filter — Assets/Scripts/VHSFilter/
+  - VHSSettings: immutable struct; all effect parameters with With* copy methods and Default static factory
+  - VHSFilterEffect: ScriptableRendererFeature; Material lifecycle, single Apply(VHSSettings) API; caches shader property IDs in nested static ShaderIDs class
+  - VHSFilterPass: ScriptableRenderPass; two-step Blit (source → temp → source) using Blitter.BlitCameraTexture; skips non-Game cameras
+  - VHSVolumeController: drives URP Volume overrides (Bloom, ChromaticAberration, Vignette)
+  - VHSFilterController: UI controller; binds Toggles/Sliders, builds new VHSSettings snapshots, pushes to Effect + Volume via Push()
+
+  ### UI Panels — Assets/Scripts/UI/
+  - ViewImagePanel: singleton, wraps ImageViewer, manages input source switching on show/hide
+  - ImageViewer: drag + scroll-zoom image viewer; clamps position within parent boundary; uses UGUIEventListener
+  - TextPanel: singleton, shows title + body text, same input-switching pattern as ViewImagePanel
+  - NoteContent: note data holder
+  - VHSPanel: panel for VHS filter controls
+
+  ### Subtitle System — Assets/Scripts/Subtitle/
+  - SubtitleData: ScriptableObject list of SubtitlePart entries
+  - SubtitlePart: per-entry data (ContentCN, ContentEN, DelayTime)
+  - SubtitleUI: coroutine-driven typewriter with fade-in/out, random typing SFX, CN/EN language toggle
+
+  ## Architecture Patterns
+  - Event Bus: static C# Action<T> events; subscribe in OnEnable/OnDisable; publish methods are internal
+  - Singleton: MonoSingleton<T> generic base; also manual singletons with DontDestroyOnLoad
+  - Immutable State: state changes return new instances (WithX methods), never mutate in place
+  - FSM: MonoFSM + FSMState + FSMCondition; condition→stateID transition map
+  - Interface-based Interaction: IInteractable + ISelectable decouple player from concrete objects
+  - Input Source Abstraction: IInputSource + per-action sources managed centrally
+  - URP Renderer Feature: ScriptableRendererFeature + ScriptableRenderPass split
+
+  ## Coding Conventions
+  - Comments language: Simplified Chinese for all XML doc comments, [Tooltip], [Header], and inline // comments
+  - XML docs: /// <summary> on all public classes and methods
+  - Inspector: [Header] to group fields, [Tooltip] on key fields
+  - Naming: PascalCase classes/methods; _camelCase private fields (newer code); camelCase private fields (older code)
+  - World interactable objects prefixed I_ (e.g. I_Door, I_Letter)
+  - Namespaces: PostMan.Player, PostMan.InputManagement, PostMan.StateMachine, PostMan.Common, PostMan.UI
+  - TaskSystem and VHSFilter classes are in the global namespace (no namespace declaration)
+  - File size: small focused files, typically 50–200 lines
+  - Immutability enforced by convention — document "returns new instance" in XML comments
+
+# Per-artifact rules
+rules:
+  proposal:
+    - Write proposals in English
+    - Keep proposals under 400 words
+    - Always include a "Non-goals" section
+  design:
+    - Write designs in English
+    - Reference actual file paths from Assets/Scripts/ when describing components
+    - Follow existing architectural patterns (event bus, immutable state, interface-based)
+    - Prefer extending existing systems over creating new ones
+  tasks:
+    - Write tasks in English
+    - Reference concrete file paths for each task
+    - Include Unity Editor setup steps where relevant (creating assets, wiring Inspector references)
+    - Mark tasks as checkboxes (- [ ])

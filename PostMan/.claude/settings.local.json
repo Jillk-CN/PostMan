@@ -12,7 +12,15 @@
       "Bash(find \"D:/GitHub/PostMan/PostMan/Assets\" -name \"*.meta\" -exec grep -l \"d2a9b707d612b3b439b7e893d5472f27\"  \\\\; 2>/dev/null | head -5)",
       "Bash(grep -r \"99bf1a4dac1cae942bac841c166cabce\" \"D:/GitHub/PostMan/PostMan/Assets\" --include=\"*.meta\" -l 2>/dev/null | head -5)",
       "Bash(grep -r \"d2a9b707d612b3b439b7e893d5472f27\" \"D:/GitHub/PostMan/PostMan/Assets\" --include=\"*.meta\" 2>/dev/null | head -5)",
-      "Bash(grep -r \"99bf1a4dac1cae942bac841c166cabce\" \"D:/GitHub/PostMan/PostMan\" --include=\"*.meta\" 2>/dev/null | head -5)"
+      "Bash(grep -r \"99bf1a4dac1cae942bac841c166cabce\" \"D:/GitHub/PostMan/PostMan\" --include=\"*.meta\" 2>/dev/null | head -5)",
+      "Bash(cd \"D:/GitHub/PostMan/PostMan\" && openspec list --json 2>&1)",
+      "Bash(cd \"D:/GitHub/PostMan/PostMan\" && ls openspec/ 2>&1; ls .openspec* 2>&1)",
+      "Bash(dir /b 2>/dev/null || ls -la 2>/dev/null)",
+      "Bash(openspec status:*)",
+      "Bash(cd \"D:/GitHub/PostMan/PostMan\" && openspec new change \"update-config-yaml\" 2>&1)",
+      "Bash(cd \"D:/GitHub/PostMan/PostMan\" && openspec status --change \"update-config-yaml\" 2>&1; echo \"EXIT: $?\")",
+      "Bash(openspec --version 2>&1; echo \"exit: $?\")",
+      "Bash(echo \"test\" && openspec --version && echo \"done\")"
     ]
   }
 }
