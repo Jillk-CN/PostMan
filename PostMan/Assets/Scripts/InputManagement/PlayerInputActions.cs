@@ -187,6 +187,15 @@ namespace PostMan.InputManagement
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleVHS"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1b2c3d4-e5f6-7890-abcd-ef1234567890"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -233,6 +242,17 @@ namespace PostMan.InputManagement
                     ""action"": ""Return"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b2c3d4e5-f6a7-8901-bcde-f12345678901"",
+                    ""path"": ""<Keyboard>/o"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleVHS"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -250,6 +270,7 @@ namespace PostMan.InputManagement
             m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
             m_UI_ContinueDialogue = m_UI.FindAction("ContinueDialogue", throwIfNotFound: true);
             m_UI_Return = m_UI.FindAction("Return", throwIfNotFound: true);
+            m_UI_ToggleVHS = m_UI.FindAction("ToggleVHS", throwIfNotFound: true);
         }
 
         ~@PlayerInputActions()
@@ -390,6 +411,7 @@ namespace PostMan.InputManagement
         private readonly InputAction m_UI_Pause;
         private readonly InputAction m_UI_ContinueDialogue;
         private readonly InputAction m_UI_Return;
+        private readonly InputAction m_UI_ToggleVHS;
         public struct UIActions
         {
             private @PlayerInputActions m_Wrapper;
@@ -397,6 +419,7 @@ namespace PostMan.InputManagement
             public InputAction @Pause => m_Wrapper.m_UI_Pause;
             public InputAction @ContinueDialogue => m_Wrapper.m_UI_ContinueDialogue;
             public InputAction @Return => m_Wrapper.m_UI_Return;
+            public InputAction @ToggleVHS => m_Wrapper.m_UI_ToggleVHS;
             public InputActionMap Get() { return m_Wrapper.m_UI; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -415,6 +438,9 @@ namespace PostMan.InputManagement
                 @Return.started += instance.OnReturn;
                 @Return.performed += instance.OnReturn;
                 @Return.canceled += instance.OnReturn;
+                @ToggleVHS.started += instance.OnToggleVHS;
+                @ToggleVHS.performed += instance.OnToggleVHS;
+                @ToggleVHS.canceled += instance.OnToggleVHS;
             }
 
             private void UnregisterCallbacks(IUIActions instance)
@@ -428,6 +454,9 @@ namespace PostMan.InputManagement
                 @Return.started -= instance.OnReturn;
                 @Return.performed -= instance.OnReturn;
                 @Return.canceled -= instance.OnReturn;
+                @ToggleVHS.started -= instance.OnToggleVHS;
+                @ToggleVHS.performed -= instance.OnToggleVHS;
+                @ToggleVHS.canceled -= instance.OnToggleVHS;
             }
 
             public void RemoveCallbacks(IUIActions instance)
@@ -457,6 +486,7 @@ namespace PostMan.InputManagement
             void OnPause(InputAction.CallbackContext context);
             void OnContinueDialogue(InputAction.CallbackContext context);
             void OnReturn(InputAction.CallbackContext context);
+            void OnToggleVHS(InputAction.CallbackContext context);
         }
     }
 }

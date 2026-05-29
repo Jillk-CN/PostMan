@@ -7,7 +7,12 @@
       "Bash(openspec --help 2>&1 || echo \"openspec not found in PATH\")",
       "Bash(which openspec:*)",
       "Bash(find \"D:/GitHub/PostMan/PostMan\" -name \"*.cs\" 2>/dev/null | head -20 || echo \"No .cs files found\")",
-      "Bash(dir \"D:\\\\GitHub\\\\PostMan\\\\PostMan\" 2>&1)"
+      "Bash(dir \"D:\\\\GitHub\\\\PostMan\\\\PostMan\" 2>&1)",
+      "Bash(grep -r \"d2a9b707d612b3b439b7e893d5472f27\" \"D:/GitHub/PostMan/PostMan/Assets\" --include=\"*.meta\" -l 2>/dev/null | head -5)",
+      "Bash(find \"D:/GitHub/PostMan/PostMan/Assets\" -name \"*.meta\" -exec grep -l \"d2a9b707d612b3b439b7e893d5472f27\"  \\\\; 2>/dev/null | head -5)",
+      "Bash(grep -r \"99bf1a4dac1cae942bac841c166cabce\" \"D:/GitHub/PostMan/PostMan/Assets\" --include=\"*.meta\" -l 2>/dev/null | head -5)",
+      "Bash(grep -r \"d2a9b707d612b3b439b7e893d5472f27\" \"D:/GitHub/PostMan/PostMan/Assets\" --include=\"*.meta\" 2>/dev/null | head -5)",
+      "Bash(grep -r \"99bf1a4dac1cae942bac841c166cabce\" \"D:/GitHub/PostMan/PostMan\" --include=\"*.meta\" 2>/dev/null | head -5)"
     ]
   }
 }
