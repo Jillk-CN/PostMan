@@ -80,8 +80,8 @@ public class I_Door : MonoBehaviour, IInteractable
             StartCoroutine(OpenDoor1());
         }
 
-        else if(doorAnimator.GetBool("Opened_Side_1") == true 
-            && DetectPlayerSide(PlayerTF) < 0)
+        else if(doorAnimator.GetBool("Opened_Side_1") == true )
+            //&& DetectPlayerSide(PlayerTF) < 0)
         {
             StartCoroutine(CloseDoor1());
         }
@@ -99,8 +99,8 @@ public class I_Door : MonoBehaviour, IInteractable
             StartCoroutine(OpenDoor2());
         }
 
-        else if(doorAnimator.GetBool("Opened_Side_2") == true 
-            && DetectPlayerSide(PlayerTF) > 0)
+        else if(doorAnimator.GetBool("Opened_Side_2") == true)
+            //&& DetectPlayerSide(PlayerTF) > 0)
         {
             StartCoroutine(CloseDoor2());
         }
