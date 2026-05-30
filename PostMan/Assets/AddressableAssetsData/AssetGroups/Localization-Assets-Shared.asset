@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Localization-Assets-Shared
+  m_EditorClassIdentifier: 
+  m_GroupName: Localization-Assets-Shared
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 3f98553e3e11b8b4ca7f662d89c4aec5
+  m_SerializeEntries:
+  - m_GUID: 61765522672862a4e97c9c73ab99cdc1
+    m_Address: Assets/Localization/StringTables/Subtitle/SubtitleTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce70ad69756605c40b7b3fb24bb1f660
+    m_Address: Assets/Localization/StringTables/Task/TaskTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3c70e1c15463004ab983a0d87864bb3
+    m_Address: Assets/Localization/StringTables/Dialogue/DialogueTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 1
+  m_Settings: {fileID: 11400000, guid: 3b849f4098da8ed4e957d8c2545d97bd, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 32fcc5e340c1a36489a08a98a167165a, type: 2}
+    - {fileID: 11400000, guid: ab7a6d003e6de6e4288e1483ed57386b, type: 2}

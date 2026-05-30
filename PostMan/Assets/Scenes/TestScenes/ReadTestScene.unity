@@ -1463,16 +1463,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ImagePanel
       objectReference: {fileID: 0}
-    - target: {fileID: 3764330416269016161, guid: 38023f17de2b77c45a0c2872fa2de03c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4282446242892020965, guid: 38023f17de2b77c45a0c2872fa2de03c,
-        type: 3}
-      propertyPath: zoomSpeed
-      value: 0.0001
-      objectReference: {fileID: 0}
     - target: {fileID: 8631428243675078282, guid: 38023f17de2b77c45a0c2872fa2de03c,
         type: 3}
       propertyPath: m_Pivot.x
