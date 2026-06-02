@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1458482708874449331}
   - component: {fileID: 8546723166657353505}
   - component: {fileID: 9142855241478552384}
+  - component: {fileID: 8390240718059350253}
   m_Layer: 6
   m_Name: I_Door_3
   m_TagString: Untagged
@@ -85,6 +86,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8390240718059350253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69075733824945358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &137415639235217852
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +148,6 @@ GameObject:
   - component: {fileID: 8990594093715999399}
   - component: {fileID: 4077684432852575304}
   - component: {fileID: 5390006912421929654}
-  - component: {fileID: 4149119192445149618}
   - component: {fileID: 1128690951640687521}
   - component: {fileID: 6717929989179634911}
   - component: {fileID: 2757443332916930520}
@@ -221,24 +239,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.045, y: 2.185, z: 0.08000004}
   m_Center: {x: -0.5225, y: 1.0925002, z: 0.040000044}
---- !u!114 &4149119192445149618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 400181370877373682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &1128690951640687521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89205a00b61193c46bd591acc59403b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineVisuals: []
+  outlineVisuals:
+  - {fileID: 8390240718059350253}
   canSelect: 1
 --- !u!114 &6717929989179634911
 MonoBehaviour:

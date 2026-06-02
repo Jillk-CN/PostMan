@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4338551417863101489}
   - component: {fileID: 251840165222336442}
   - component: {fileID: 6190337517102382964}
+  - component: {fileID: 3011731998687370409}
   m_Layer: 6
   m_Name: I_Door_2
   m_TagString: Untagged
@@ -85,6 +86,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3011731998687370409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4297455069612548487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &5702039254740084250
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +223,6 @@ GameObject:
   - component: {fileID: 8000731400385847391}
   - component: {fileID: 9080409239660006435}
   - component: {fileID: 4958367633630753993}
-  - component: {fileID: 4809989493739549338}
   - component: {fileID: 8217518917182890974}
   - component: {fileID: 9197687681787153787}
   - component: {fileID: 3651301927198613913}
@@ -296,24 +314,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.1, y: 2.3, z: 0.08000004}
   m_Center: {x: -0.55, y: 1.1500002, z: 0.040000044}
---- !u!114 &4809989493739549338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5897952067022562515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  outlineWidth: 2
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!82 &8217518917182890974
 AudioSource:
   m_ObjectHideFlags: 0
@@ -422,7 +422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89205a00b61193c46bd591acc59403b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outlineVisuals: []
+  outlineVisuals:
+  - {fileID: 3011731998687370409}
   canSelect: 1
 --- !u!114 &3651301927198613913
 MonoBehaviour:

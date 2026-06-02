@@ -37,7 +37,6 @@ namespace PostMan.InputManagement
 
             sources = this.GetComponents<IInputSource>().ToList();
             HideCursor();
-            //this.GetInputSystemSource<PlayerSightInputSource>
         }
         private void OnDestroy()
         {
@@ -92,7 +91,6 @@ namespace PostMan.InputManagement
             SetInputSystemSource<PlayerMotionInputSource>(true);
             SetInputSystemSource<PlayerSightInputSource>(true);
             SetInputSystemSource<PlayerInteractInputSource>(true);
-
         }
         public void DisablePlayerAllInput()
         {
