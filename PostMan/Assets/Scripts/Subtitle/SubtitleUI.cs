@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using System.Linq;
+using PostMan.Localization;
 
 public class SubtitleUI : MonoBehaviour
 {
     public static SubtitleUI Instance;  //全局单例
     public TextMeshProUGUI ContentBox;  //获取文本框对象
     //public GameObject BackGround;  //获取UI背景
-    [SerializeField] private SubtitleData SubtitleData;  //获取字幕表
     private Coroutine currentCoroutine;
     
 
@@ -40,10 +41,6 @@ public class SubtitleUI : MonoBehaviour
     [Tooltip("打字音效列表")]
     public List<AudioClip> audioClips;
 
-
-    [Header("语言设置")]
-    public Language languageSet = Language.CN;
-
     void Awake()
     {
         //全局单例实现
@@ -67,11 +64,6 @@ public class SubtitleUI : MonoBehaviour
             Debug.LogError("字幕系统：文本框UI为空！");
             return;
         }
-        if(SubtitleData == null)
-        {
-            Debug.LogError("字幕系统：字幕表为空！");
-            return;
-        }
         if(audioSource == null)
         {
             Debug.LogError("字幕系统：声音组件为空！");
@@ -92,7 +84,7 @@ public class SubtitleUI : MonoBehaviour
         //测试
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            TypeSubtitle(1 , 3);
+            TypeSubtitle("stl_d2_3");
         }
     }
 
@@ -149,11 +141,10 @@ public class SubtitleUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 播放包括StartID和EndID之间所有ID对应的字幕
+    /// 播放subtitleKey对应的所有字幕
     /// </summary>
-    /// <param name="StartID"></param>
-    /// <param name="EndID"></param>
-    public void TypeSubtitle(int StartID , int EndID)
+    /// <param name="subtitleKey"></param>
+    public void TypeSubtitle(string subtitleKey)
     {
         if(currentCoroutine != null)
         {
@@ -165,37 +156,23 @@ public class SubtitleUI : MonoBehaviour
             ContentBox.text = "";
             currentCoroutine = null;
         }
-        currentCoroutine = StartCoroutine(TypeText(StartID , EndID));
-    }
 
-    /// <summary>
-    /// 播放对应ID的字幕
-    /// </summary>
-    /// <param name="ID"></param>
-    public void TypeSubtitle(int ID)
-    {
-        if(currentCoroutine != null)
-        {
-            StopCoroutine(currentCoroutine);
+        string text = LocalizationManager.Instance.GetLocalizedString(LocalizationManager.TableName.SubtitleTable,subtitleKey);
 
-            //重置 UI 状态
-            canvasGroup.alpha = 0f;
-            ContentBox.maxVisibleCharacters = 0;
-            ContentBox.text = "";
-            currentCoroutine = null;
-        }
-        currentCoroutine = StartCoroutine(TypeText(ID , ID));
+        SubtitleContent[] subtitles = LocalizationManager.Instance.GetLocalizedSubtitles(text);
+
+        currentCoroutine = StartCoroutine(TypeText(subtitles));
     }
 
     //打字
-    private IEnumerator TypeText(int StartID , int EndID)
+    private IEnumerator TypeText(SubtitleContent[] subtitles)
     {
         //开启UI
         yield return StartCoroutine(OpenUI(FadeInTime));
 
         int ConLength;
 
-        for(int currentIndex = StartID - 1 ; currentIndex <= EndID - 1 ; currentIndex ++)
+        for(int currentIndex = 0 ; currentIndex <= subtitles.Count() ; currentIndex ++)
         {
             //重置字幕框UI显示内容
             ContentBox.text = "";
@@ -203,15 +180,8 @@ public class SubtitleUI : MonoBehaviour
             //重置当前字幕要打印的内容
             string CurrentSubtitle = "";    
 
-            //按语言设置获取对应字幕内容
-            if(languageSet == Language.CN)    //中文
-            {
-                CurrentSubtitle = SubtitleData.subtitleList[currentIndex].ContentCN;
-            }
-            else if(languageSet == Language.EN)    //英文
-            {
-                CurrentSubtitle = SubtitleData.subtitleList[currentIndex].ContentEN;
-            }
+            //获取对应字幕内容
+            CurrentSubtitle = subtitles[currentIndex].Content;
 
             //获取当前需要打印的字幕的长度
             ConLength = CurrentSubtitle.Length;
@@ -243,7 +213,7 @@ public class SubtitleUI : MonoBehaviour
             }
 
             //延迟后进行下一段字幕打印（延迟间隔由字幕信息决定）
-            yield return new WaitForSeconds(SubtitleData.subtitleList[currentIndex].DelayTime);
+            yield return new WaitForSeconds(subtitles[currentIndex].DelayTime);
         }
 
         //延迟退出
@@ -252,11 +222,5 @@ public class SubtitleUI : MonoBehaviour
         //关闭UI
         yield return StartCoroutine(CloseUI(FadeOutTime));
 
-    }
-
-    public enum Language
-    {
-        CN,
-        EN
     }
 }

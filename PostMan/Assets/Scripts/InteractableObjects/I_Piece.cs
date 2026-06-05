@@ -7,7 +7,7 @@ using UnityEditor.Localization.Plugins.XLIFF.V12;
 public class I_Piece : MonoBehaviour, IInteractable
 {
     [Header("任务提示字幕索引（只有一条字幕两个就填一样）")]
-    [SerializeField] private SubtitlePart subtitlePart;
+    [SerializeField] private string subtitleKey;
 
     [Header("要推进的任务索引")]
     [SerializeField] private int taskIndex;
@@ -27,7 +27,7 @@ public class I_Piece : MonoBehaviour, IInteractable
 
         //阅读系统接口
 
-        SubtitleUI.Instance.TypeSubtitle(subtitlePart.startIndex , subtitlePart.endIndex);
+        SubtitleUI.Instance.TypeSubtitle(subtitleKey);
 
         TaskManager.Instance.AdvanceTask(taskIndex , advanceValue);
     }

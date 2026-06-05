@@ -16,8 +16,7 @@ public class SubtitleContent
     [Tooltip("字幕ID")]
     public int ID;
     [Tooltip("字幕内容")]
-    public string ContentCN;
-    public string ContentEN;
+    public string Content;
     [Tooltip("自动播放延迟时间（没有延迟时间设置为0即可）")]
     public float DelayTime;
 }

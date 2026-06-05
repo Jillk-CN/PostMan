@@ -15,8 +15,8 @@ public class I_Telephone : MonoBehaviour, IInteractable
     [Header("话筒对象")]
     [SerializeField] private GameObject handle;
 
-    [Header("字幕片段列表")]
-    [SerializeField] private List<SubtitlePart> subtitlePartList;
+    [Header("字幕片段Key列表")]
+    [SerializeField] private List<string> subtitleKeyList;
     [Header("延迟设置（设置为0，则字幕播放完毕后就放回话筒")]
     [SerializeField] private float delayTime = 0;
 
@@ -97,11 +97,10 @@ public class I_Telephone : MonoBehaviour, IInteractable
 
     private void OrderPlaySubtitle()
     {
-        //等待天数条件判断播放哪段字幕
+        //等待天数条件判断播放哪段字幕，先默认索引为0
         if(true)
         {
-            SubtitlePart subtitlePart = subtitlePartList[0];
-            SubtitleUI.Instance.TypeSubtitle(subtitlePart.startIndex , subtitlePart.endIndex);
+            SubtitleUI.Instance.TypeSubtitle(subtitleKeyList[0]);
         }
     }
 }

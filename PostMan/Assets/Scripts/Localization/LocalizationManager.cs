@@ -123,7 +123,7 @@ namespace PostMan.Localization
                     result[i] = new SubtitleContent() 
                     { 
                         DelayTime = delay,
-                        ContentCN=displaySubtitle 
+                        Content = displaySubtitle 
                     };
                 }
                 return result;
