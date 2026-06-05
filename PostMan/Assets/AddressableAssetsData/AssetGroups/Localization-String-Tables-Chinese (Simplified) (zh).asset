@@ -29,6 +29,7 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-zh
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d9b35d05f6cdd3349b56e805ba6e9804
     m_Address: DialogueTable_zh

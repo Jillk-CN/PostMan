@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 namespace PostMan.Localization
 {
     /// <summary>
-    /// 本地化管理器(单例),基于LeanLocalization插件来提供更改语言的方法和获取本地化资源的接口
+    /// 本地化管理器(单例),基于Unity内置插件来提供更改语言的方法和获取本地化资源的接口
     /// 这个类假定本地化资源在运行时不会增加/减少
     /// </summary>
     public class LocalizationManager : MonoSingleton<LocalizationManager>
@@ -23,8 +23,8 @@ namespace PostMan.Localization
         /// </summary>
         public enum LocaleID
         {
-            en=0,//中文
-            zh//英文
+            en=0,//英文
+            zh//
         }
 
         #region 资源表管理类

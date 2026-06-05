@@ -15,8 +15,36 @@ MonoBehaviour:
   m_TableCollectionName: DialogueTable
   m_TableCollectionNameGuidString: d3c70e1c15463004ab983a0d87864bb3
   m_Entries:
-  - m_Id: 390098575360
-    m_Key: dlg_d0_director_1
+  - m_Id: 2201622326272000
+    m_Key: dlg_d1_director_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2201622364020736
+    m_Key: dlg_d1_player_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2201622364020737
+    m_Key: dlg_d1_director_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2201622364020738
+    m_Key: dlg_d1_player_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2201622364020739
+    m_Key: dlg_d2_director_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2201622364020740
+    m_Key: dlg_d2_player_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2201622364020741
+    m_Key: dlg_d2_director_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2201622364020742
+    m_Key: dlg_d2_player_2
     m_Metadata:
       m_Items: []
   m_Metadata:
