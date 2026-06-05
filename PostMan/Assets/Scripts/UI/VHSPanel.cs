@@ -1,3 +1,4 @@
+using System;
 using PostMan.Common;
 using PostMan.InputManagement;
 using UnityEngine;
@@ -12,6 +13,9 @@ namespace PostMan.UI
     {
         [Tooltip("VHSFilterController 引用，用于在面板激活前同步 Toggle 状态")]
         [SerializeField] private VHSFilterController _filterController;
+
+        /// <summary>VHSPanel 关闭时触发，供调用方（如 SettingsPanel）重新激活自身。</summary>
+        public event Action OnHide;
 
         private void Awake()
         {
@@ -30,13 +34,14 @@ namespace PostMan.UI
             GameInputManager.Instance.ShowCursor();
         }
 
-        /// <summary>隐藏 VHS 面板，锁定鼠标，恢复玩家输入</summary>
+        /// <summary>隐藏 VHS 面板，锁定鼠标，恢复玩家输入，并通知订阅方</summary>
         public void Hide()
         {
             this.gameObject.SetActive(false);
             GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(true);
             GameInputManager.Instance.EnablePlayerAllInput();
             GameInputManager.Instance.HideCursor();
+            OnHide?.Invoke();
         }
 
         /// <summary>根据当前状态切换显隐，由 VHSToggleInputSource 调用</summary>

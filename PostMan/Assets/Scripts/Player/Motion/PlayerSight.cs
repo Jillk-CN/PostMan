@@ -52,6 +52,9 @@ namespace PostMan.Player
         {
             sightInput= GameInputManager.Instance.GetInputSystemSource<PlayerSightInputSource>();
             shakeEffect = this.GetComponentInChildren<SinShakeEffect>();
+            // 从 PlayerPrefs 读取标题场景保存的设置，缺省保留 Inspector 配置值
+            sensitivity = PlayerPrefs.GetFloat("MouseSensitivity", sensitivity);
+            enableShake = PlayerPrefs.GetInt("EnableShake", enableShake ? 1 : 0) == 1;
         }
 
         /// <summary>

@@ -20,7 +20,12 @@
       "Bash(cd \"D:/GitHub/PostMan/PostMan\" && openspec new change \"update-config-yaml\" 2>&1)",
       "Bash(cd \"D:/GitHub/PostMan/PostMan\" && openspec status --change \"update-config-yaml\" 2>&1; echo \"EXIT: $?\")",
       "Bash(openspec --version 2>&1; echo \"exit: $?\")",
-      "Bash(echo \"test\" && openspec --version && echo \"done\")"
+      "Bash(echo \"test\" && openspec --version && echo \"done\")",
+      "Bash(git -C \"D:/GitHub/PostMan/PostMan\" log --oneline -10)",
+      "Bash(openspec new:*)",
+      "Bash(openspec instructions:*)",
+      "Bash(ls \"D:/GitHub/PostMan/PostMan/openspec/changes/interactable-task-triggers/\" 2>&1; echo \"exit: $?\")",
+      "Bash(cmd /c \"dir D:\\\\GitHub\\\\PostMan\\\\PostMan\\\\openspec\\\\changes\\\\\" 2>&1)"
     ]
   }
 }

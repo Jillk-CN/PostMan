@@ -16,7 +16,27 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 45eb1ecf832889a4c99870d26f713a3e
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 0819955cb43ebd8409223875218b69f3
+    m_Address: ObjectInteractTest
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14d778ca5b46c14469a68cce1d3868ba
+    m_Address: VHSTestScene-CHY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16facb088e3f78f4db27b7b8577c9be1
+    m_Address: TaskTestScene-CHY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbf6f41987a98aa41926cc33df460b71
+    m_Address: TitleTestScene-CHY
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3b849f4098da8ed4e957d8c2545d97bd, type: 2}
   m_SchemaSet:
