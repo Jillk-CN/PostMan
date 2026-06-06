@@ -24,7 +24,7 @@ namespace PostMan.Localization
         public enum LocaleID
         {
             en=0,//英文
-            zh//
+            zh//中文
         }
 
         #region 资源表管理类
@@ -106,9 +106,12 @@ namespace PostMan.Localization
                 }
                 string[] subtitlesData = text.Split(SPLIT_CHAR);
                 SubtitleContent[] result = new SubtitleContent[subtitlesData.Length];
+
                 Match match;
                 float delay = 0;
                 string displaySubtitle;
+
+                //解析文本和延迟时间
                 for (int i = 0; i < subtitlesData.Length; i++)
                 {
                     delay = 0;
@@ -119,13 +122,14 @@ namespace PostMan.Localization
                         displaySubtitle = displaySubtitle.
                               Substring(0, match.Index);//丢弃末尾的<数字>
                     }
-                    //还要赋值字符串
+
                     result[i] = new SubtitleContent() 
                     { 
                         DelayTime = delay,
                         Content = displaySubtitle 
                     };
                 }
+
                 return result;
             }
             /// <summary>
@@ -255,10 +259,6 @@ namespace PostMan.Localization
             }
         }
 #endif
-        /* 
-         
-         */
-
         #region 更改语言的接口 
         public void SetLocale(LocaleID id)
         {
@@ -321,8 +321,8 @@ namespace PostMan.Localization
         /// <summary>
         /// 获取本地化字符串,在调用这个方法前,确保加载完成
         /// </summary>
-        /// <param name="table"></param>
-        /// <param name="entryKey"></param>
+        /// <param name="table">表明</param>
+        /// <param name="entryKey">文本的键</param>
         /// <returns>若失败,返回string.Empty</returns>
         public string GetLocalizedString(TableName table,string entryKey)
         {
@@ -332,7 +332,7 @@ namespace PostMan.Localization
             }
             if (this.stringTables==null)
             {
-                Debug.LogWarning("本地化资源未加载");
+                Debug.LogWarning("本地化资源未加载完成");
                 return string.Empty;
             }
             StringTableEntry entry = this.stringTables.
@@ -344,24 +344,25 @@ namespace PostMan.Localization
             return entry.GetLocalizedString();
         }
         /// <summary>
-        /// 获取字幕
+        /// 获取本地化的字幕
         /// </summary>
-        /// <param name="text"></param>
-        /// <returns></returns>
-        public SubtitleContent[] GetLocalizedSubtitles(string text)
+        /// <param name="localizedText">从LocalizationManager获取的本地化的文本</param>
+        /// <returns>一段字幕的每一句的文本和延迟</returns>
+        public SubtitleContent[] GetLocalizedSubtitles(string localizedText)
         {
-            return parser.GetSubtitle(text);
+            return parser.GetSubtitle(localizedText);
         }
-        public void GetLocalizedTaskInfo(string text,out string title,out string content)
+        /// <summary>
+        /// 获取本地化的任务内容文本
+        /// </summary>
+        /// <param name="localizedText">从LocalizationManager获取的本地化的文本</param>
+        /// <param name="title">任务标题</param>
+        /// <param name="content">任务内容</param>
+        public void GetLocalizedTaskInfo(string localizedText,out string title,out string content)
         {
-            parser.GetTaskInfo(text, out title, out content); 
+            parser.GetTaskInfo(localizedText, out title, out content); 
         }
-        /*调用示例
-        string str=
-        LocalizationManager.Instance.GetLocalizedString(TableName.SubtitleTable, "");
-        GetLocalizedSubtitles(str);
-         */
-        //缺少dialogue的
+        //TODO:缺少dialogue的
         #endregion
 
         //-------------下面这些做数据持久化的代码最好不写到这个类里--------------------------
