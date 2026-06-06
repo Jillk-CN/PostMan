@@ -417,41 +417,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3104773430289633097, guid: 04dbafcc3e67bb24f83fd3e56b808233,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3104773430289633097, guid: 04dbafcc3e67bb24f83fd3e56b808233,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3104773430289633097, guid: 04dbafcc3e67bb24f83fd3e56b808233,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1702704637}
-    - target: {fileID: 3104773430289633097, guid: 04dbafcc3e67bb24f83fd3e56b808233,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3104773430289633097, guid: 04dbafcc3e67bb24f83fd3e56b808233,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Hide
-      objectReference: {fileID: 0}
-    - target: {fileID: 3104773430289633097, guid: 04dbafcc3e67bb24f83fd3e56b808233,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: PostMan.UI.VHSPanel, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3104773430289633097, guid: 04dbafcc3e67bb24f83fd3e56b808233,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 4428294569746697243, guid: 04dbafcc3e67bb24f83fd3e56b808233,
         type: 3}
       propertyPath: m_Name
@@ -482,11 +447,6 @@ PrefabInstance:
       propertyPath: _filterController
       value: 
       objectReference: {fileID: 1498673367}
-    - target: {fileID: 5355872094389667310, guid: 04dbafcc3e67bb24f83fd3e56b808233,
-        type: 3}
-      propertyPath: m_text
-      value: Back
-      objectReference: {fileID: 0}
     - target: {fileID: 6069569183283992724, guid: 04dbafcc3e67bb24f83fd3e56b808233,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1562,7 +1522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 1736433632}
   _defaultFont: {fileID: 11400000, guid: 7aef14a4197baad41ba59c19e747ece7, type: 2}
-  _hoverFont: {fileID: 11400000, guid: 63e1fe7c124c4c644aedb11b42e33713, type: 2}
+  _hoverFont: {fileID: 11400000, guid: 18f013adfda3731418628efdc014deaa, type: 2}
 --- !u!114 &130988109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2246,7 +2206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 1609431418}
   _defaultFont: {fileID: 11400000, guid: 7aef14a4197baad41ba59c19e747ece7, type: 2}
-  _hoverFont: {fileID: 11400000, guid: 63e1fe7c124c4c644aedb11b42e33713, type: 2}
+  _hoverFont: {fileID: 11400000, guid: 18f013adfda3731418628efdc014deaa, type: 2}
 --- !u!114 &319827062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5281,7 +5241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 819458042}
   _defaultFont: {fileID: 11400000, guid: 7aef14a4197baad41ba59c19e747ece7, type: 2}
-  _hoverFont: {fileID: 11400000, guid: 63e1fe7c124c4c644aedb11b42e33713, type: 2}
+  _hoverFont: {fileID: 11400000, guid: 18f013adfda3731418628efdc014deaa, type: 2}
 --- !u!114 &1078666081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6333,7 +6293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 1004812005}
   _defaultFont: {fileID: 11400000, guid: 7aef14a4197baad41ba59c19e747ece7, type: 2}
-  _hoverFont: {fileID: 11400000, guid: 63e1fe7c124c4c644aedb11b42e33713, type: 2}
+  _hoverFont: {fileID: 11400000, guid: 18f013adfda3731418628efdc014deaa, type: 2}
 --- !u!114 &1247207837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7748,7 +7708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 1208725481}
   _defaultFont: {fileID: 11400000, guid: 7aef14a4197baad41ba59c19e747ece7, type: 2}
-  _hoverFont: {fileID: 11400000, guid: 63e1fe7c124c4c644aedb11b42e33713, type: 2}
+  _hoverFont: {fileID: 11400000, guid: 18f013adfda3731418628efdc014deaa, type: 2}
 --- !u!114 &1496892682
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8447,7 +8407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 824719492}
   _defaultFont: {fileID: 11400000, guid: 7aef14a4197baad41ba59c19e747ece7, type: 2}
-  _hoverFont: {fileID: 11400000, guid: 63e1fe7c124c4c644aedb11b42e33713, type: 2}
+  _hoverFont: {fileID: 11400000, guid: 18f013adfda3731418628efdc014deaa, type: 2}
 --- !u!114 &1566889480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9082,7 +9042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 1984674223}
   _defaultFont: {fileID: 11400000, guid: 7aef14a4197baad41ba59c19e747ece7, type: 2}
-  _hoverFont: {fileID: 11400000, guid: 63e1fe7c124c4c644aedb11b42e33713, type: 2}
+  _hoverFont: {fileID: 11400000, guid: 18f013adfda3731418628efdc014deaa, type: 2}
 --- !u!114 &1680505022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9093,18 +9053,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4eafd157b423834a87456b4b0d11d36, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1702704637 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5347699234316336607, guid: 04dbafcc3e67bb24f83fd3e56b808233,
-    type: 3}
-  m_PrefabInstance: {fileID: 65183170}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99bf1a4dac1cae942bac841c166cabce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1703324866
@@ -10118,7 +10066,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 1900775247}
   _defaultFont: {fileID: 11400000, guid: 7aef14a4197baad41ba59c19e747ece7, type: 2}
-  _hoverFont: {fileID: 11400000, guid: 63e1fe7c124c4c644aedb11b42e33713, type: 2}
+  _hoverFont: {fileID: 11400000, guid: 18f013adfda3731418628efdc014deaa, type: 2}
 --- !u!114 &1849977995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10552,7 +10500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 1164518963}
   _defaultFont: {fileID: 11400000, guid: 7aef14a4197baad41ba59c19e747ece7, type: 2}
-  _hoverFont: {fileID: 11400000, guid: 63e1fe7c124c4c644aedb11b42e33713, type: 2}
+  _hoverFont: {fileID: 11400000, guid: 18f013adfda3731418628efdc014deaa, type: 2}
 --- !u!114 &1915845026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10852,7 +10800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: {fileID: 2009569221}
   _defaultFont: {fileID: 11400000, guid: 7aef14a4197baad41ba59c19e747ece7, type: 2}
-  _hoverFont: {fileID: 11400000, guid: 63e1fe7c124c4c644aedb11b42e33713, type: 2}
+  _hoverFont: {fileID: 11400000, guid: 18f013adfda3731418628efdc014deaa, type: 2}
 --- !u!114 &1937337492
 MonoBehaviour:
   m_ObjectHideFlags: 0
