@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5f232f4a447a6eb4d931718d61ff92ff
+guid: 73f567f630de9ec47ae59d5e009a79a4
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,23 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: OF_Floor_1
-    second: {fileID: 2100000, guid: 69401364fcee4d944a02df90c582f060, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: OF_Floor_1_W
-    second: {fileID: 2100000, guid: e31a5ad13d67b1745b22a8bf7ce6cc50, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: OF_Floor_2
-    second: {fileID: 2100000, guid: 47f5d68d62bd5964497f37f17473d38e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: OF_Floor_3
-    second: {fileID: 2100000, guid: 4ac3f05a6290f6f4b9674b850b610e8b, type: 2}
+      name: Ground
+    second: {fileID: 2100000, guid: 54b4cc2de2526d1498a661396aefa830, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -68,7 +53,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1

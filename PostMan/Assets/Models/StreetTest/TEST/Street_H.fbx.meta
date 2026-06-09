@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5f232f4a447a6eb4d931718d61ff92ff
+guid: 6fb3a35d924e72f418bc66f69379ff95
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,25 +7,30 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: OF_Floor_1
-    second: {fileID: 2100000, guid: 69401364fcee4d944a02df90c582f060, type: 2}
+      name: tripo_mat_4df0cf0d
+    second: {fileID: 2100000, guid: 273be6a918bfe3d4aaa7cad9ffdba83f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: OF_Floor_1_W
-    second: {fileID: 2100000, guid: e31a5ad13d67b1745b22a8bf7ce6cc50, type: 2}
+      name: tripo_mat_836ebc4a
+    second: {fileID: 2100000, guid: 50ce4a85248077741abf66096957d4a6, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: OF_Floor_2
-    second: {fileID: 2100000, guid: 47f5d68d62bd5964497f37f17473d38e, type: 2}
+      name: tripo_mat_8a8a5d5c
+    second: {fileID: 2100000, guid: 4984aa97da4632a4b9561f3081da5bbd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: OF_Floor_3
-    second: {fileID: 2100000, guid: 4ac3f05a6290f6f4b9674b850b610e8b, type: 2}
+      name: tripo_mat_8f63acc9
+    second: {fileID: 2100000, guid: a4fbb4c467e65f943b6218ce6689523c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tripo_mat_ae90692d
+    second: {fileID: 2100000, guid: c6ebdcde174babb47a6fa0d739a73b3d, type: 2}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -68,7 +73,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1

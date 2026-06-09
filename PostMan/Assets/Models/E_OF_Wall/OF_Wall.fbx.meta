@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5f232f4a447a6eb4d931718d61ff92ff
+guid: 22466cb6802d7b646863442ac075cdd8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,23 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: OF_Floor_1
-    second: {fileID: 2100000, guid: 69401364fcee4d944a02df90c582f060, type: 2}
+      name: OF_Wall_1
+    second: {fileID: 2100000, guid: 273aa8fb9ce3b9e488cb891208d4e6dd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: OF_Floor_1_W
-    second: {fileID: 2100000, guid: e31a5ad13d67b1745b22a8bf7ce6cc50, type: 2}
+      name: OF_Wall_2
+    second: {fileID: 2100000, guid: 99f4a48572c4bf544b6ed151711a5e43, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: OF_Floor_2
-    second: {fileID: 2100000, guid: 47f5d68d62bd5964497f37f17473d38e, type: 2}
+      name: OF_Wall_3
+    second: {fileID: 2100000, guid: 12b5700089a5e224683344ab6af14410, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: OF_Floor_3
-    second: {fileID: 2100000, guid: 4ac3f05a6290f6f4b9674b850b610e8b, type: 2}
+      name: OF_Wall_4
+    second: {fileID: 2100000, guid: 0c3c9f0fc9b4c8244bef4c9cecf63b7b, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -52,12 +52,12 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1
