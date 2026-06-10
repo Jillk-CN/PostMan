@@ -5,6 +5,7 @@ using PostMan.Player;
 using PostMan.Common;
 using UnityEngine.UI;
 using Cinemachine;
+using PostMan.UI;
 
 
 /// <summary>
@@ -15,12 +16,6 @@ using Cinemachine;
 /// </summary>
 public class I_Bed : MonoBehaviour, IInteractable
 {
-    [Header("躺下后黑屏渐变设置")]
-    [Tooltip("黑屏UI图像，拖拽赋值，UI路径Canvas/BlackScreen")]
-    [SerializeField] private Image BlackScreen;   //黑屏UI图像
-    [Tooltip("渐变时长")]
-    [SerializeField] private float FadeTime;    //渐变时长
-
     [Header("音效")]
     [Tooltip("躺下音效")]
     [SerializeField] private AudioClip SleepSound;
@@ -164,65 +159,19 @@ public class I_Bed : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(3.5f);
 
         animator.ResetTrigger("Sleep");
-        BlackScreen.gameObject.SetActive(true); //激活黑屏UI
 
-        //强制完全透明
-        Color color = BlackScreen.color;
-        color.a = 0;
-        BlackScreen.color = color;
-        float Timer = 0f;
-
-        //黑屏渐入
-        while(BlackScreen.color.a < 1f)
-        {
-            Timer += Time.deltaTime;
-
-            color.a = Mathf.Lerp(0f , 1f , Timer/FadeTime);
-
-            BlackScreen.color = color;
-
-            yield return null;
-        }
-
-        //强制完全黑屏
-        color.a = 1;
-        BlackScreen.color = color;
+        yield return new WaitForSeconds(3.5f);
+       
+        // 黑屏淡入
+        BlackScreen.Instance.BlackIn("", 2f);
 
         Sleeping = true;
     }
 
     private IEnumerator WakeUp()
     {
-        
-        Color color = BlackScreen.color;
-        //强制完全黑屏
-        color.a = 1;    
-        BlackScreen.color = color;
-        float Timer = 0f;
-
-        //黑屏渐出
-        while(BlackScreen.color.a > 0f)
-        {
-            Timer += Time.deltaTime;
-
-            color.a = Mathf.Lerp(1f , 0f , Timer/FadeTime);
-
-            BlackScreen.color = color;
-
-            if(Timer > FadeTime)
-            {
-
-                break;
-            }
-
-            yield return null;
-        }
-
-        //强制完全透明
-        color.a = 0;
-        BlackScreen.color = color;
-
-        BlackScreen.gameObject.SetActive(false); //失活黑屏UI
+        // 黑屏淡出
+        BlackScreen.Instance.BlackOut("", 2f);
 
         //执行起身动作
         animator.SetTrigger("WakeUp");

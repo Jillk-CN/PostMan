@@ -4,16 +4,17 @@ using UnityEngine;
 using PostMan.Player;
 using PostMan.Common;
 using Cinemachine;
+using PostMan.UI;
 
 public class I_PC : MonoBehaviour, IInteractable
 {
-
+    [Header("论坛界面（手动拖拽论坛UI）")]
+    [SerializeField]private GameObject forum;
     private Transform PCCamera; //PC挂载的虚拟相机
     private Transform PlayerCamera; //角色正常移动时的虚拟相机
     private PlayerMotion playerMotion;  //角色移动组件
     private ShowInteractPrompt showInteractPrompt;  //显示交互提示组件
     private bool focusing = false;  //是否与PC交互
-    private Coroutine currentCoroutine = null;
 
     [Header("交互设置")]
     public bool canInteract;
@@ -35,20 +36,6 @@ public class I_PC : MonoBehaviour, IInteractable
         if(showInteractPrompt == null)
         {
             Debug.LogError("[I_PC.cs] 获取显示交互提示组件失败");
-        }
-    }
-
-    void Update()
-    {
-        //若论坛系统有退出键，则此处按键应当与其同步
-        if(focusing && Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            focusing = false;
-            if(currentCoroutine != null)
-            {
-                StopCoroutine(currentCoroutine);
-            }
-            currentCoroutine = StartCoroutine(EscapePC());
         }
     }
 
@@ -76,11 +63,29 @@ public class I_PC : MonoBehaviour, IInteractable
 
         focusing = true;
 
-        //进入论坛界面（未完成，等待论坛系统接口）
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        BlackScreen.Instance.BlackIn("" , 0.5f);
+
+        StartCoroutine(OpenForum());
+    }
+
+    public void ClosePC()
+    {
+        StartCoroutine(EscapePC());
     }
 
     private IEnumerator EscapePC()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        BlackScreen.Instance.BlackOut("" , 0.5f);
+
+        //退出论坛界面
+        forum.SetActive(false);
+
         //激活玩家正常移动视角的虚拟相机
         PlayerCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = true;
         
@@ -93,6 +98,14 @@ public class I_PC : MonoBehaviour, IInteractable
         playerMotion.enabled = true;
 
         //恢复交互提示
-        showInteractPrompt.CanSelect = false;
+        showInteractPrompt.CanSelect = true;
+    }
+
+    private IEnumerator OpenForum()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        //进入论坛界面
+        forum.SetActive(true);
     }
 }
