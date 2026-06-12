@@ -80,6 +80,13 @@ namespace PostMan.UI
         [Tooltip("返回主菜单按钮")]
         [SerializeField] private Button btnBack;
 
+        /// <summary>
+        /// 返回按钮的自定义回调。
+        /// 注入此委托后，OnBack() 将调用它而非默认的 TitleUIManager.ReturnToMainMenu()。
+        /// 游戏内使用时由 PausePanel 注入"返回暂停面板"逻辑；标题场景不注入，走默认行为。
+        /// </summary>
+        public System.Action onBack;
+
         // ─────────────────────────────────────────────
         // 枚举映射表（与 Dropdown 选项顺序严格对应）
         // ─────────────────────────────────────────────
@@ -275,7 +282,8 @@ namespace PostMan.UI
 
         private void OnBack()
         {
-            TitleUIManager.Instance.ReturnToMainMenu();
+            if (onBack != null) onBack.Invoke();
+            else TitleUIManager.Instance.ReturnToMainMenu();
         }
 
         // ─────────────────────────────────────────────

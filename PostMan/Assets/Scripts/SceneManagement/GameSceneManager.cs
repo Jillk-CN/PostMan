@@ -153,20 +153,38 @@ public class GameSceneManager : MonoSingleton<GameSceneManager>
         // ── 路径 A：Addressables 句柄路径（已通过 GameSceneManager 加载）──
         if (_loadedScenes.TryGetValue(address, out AsyncOperationHandle<SceneInstance> handle))
         {
-            Log($"卸载场景（Addressables）：{address}");
-            AsyncOperationHandle<SceneInstance> unloadHandle = Addressables.UnloadSceneAsync(handle);
-            await unloadHandle.Task;
-
-            if (unloadHandle.Status == AsyncOperationStatus.Succeeded)
+            // 缓存句柄可能因 Addressables 内部 ref-count 归零而失效，先做有效性检查
+            if (!handle.IsValid())
             {
+                Debug.LogWarning($"[GameSceneManager] 场景 [{address}] 的缓存句柄已失效，清理缓存并降级到 fallback。");
                 _loadedScenes.Remove(address);
-                Log($"场景 [{address}] 卸载成功。");
+                // 降级到路径 B，尝试用 SceneManager 卸载
             }
             else
             {
-                Debug.LogError($"[GameSceneManager] 场景 [{address}] 卸载失败：{unloadHandle.OperationException}");
+                Log($"卸载场景（Addressables）：{address}");
+                AsyncOperationHandle<SceneInstance> unloadHandle = Addressables.UnloadSceneAsync(handle);
+                await unloadHandle.Task;
+
+                // unloadHandle 本身也可能在极端情况下变为无效（例如 handle 在 await 期间被释放）
+                if (!unloadHandle.IsValid())
+                {
+                    _loadedScenes.Remove(address);
+                    Debug.LogWarning($"[GameSceneManager] 场景 [{address}] 的卸载句柄在 await 后失效，已清理缓存。");
+                    return;
+                }
+
+                if (unloadHandle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    _loadedScenes.Remove(address);
+                    Log($"场景 [{address}] 卸载成功。");
+                }
+                else
+                {
+                    Debug.LogError($"[GameSceneManager] 场景 [{address}] 卸载失败：{unloadHandle.OperationException}");
+                }
+                return;
             }
-            return;
         }
 
         // ── 路径 B：Fallback — 通过 SceneManager 按名称卸载（初始场景等）──

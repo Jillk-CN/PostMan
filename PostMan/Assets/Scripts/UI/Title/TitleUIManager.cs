@@ -99,6 +99,7 @@ namespace PostMan.UI
         /// <summary>开始游戏：切换至游戏场景。</summary>
         private void OnStartGame()
         {
+            GameInputManager.Instance.HideCursor(); // 进入游戏前隐藏鼠标
             GameSceneManager.Instance.SwitchScenes(scenesToLoad, scenesToUnload);
         }
 
