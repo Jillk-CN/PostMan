@@ -31,6 +31,12 @@ MonoBehaviour:
     - Locale-zh
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca0a0b806436d84469ad70b9d9bbd67e
+    m_Address: Setting_zh
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d9b35d05f6cdd3349b56e805ba6e9804
     m_Address: DialogueTable_zh
     m_ReadOnly: 1

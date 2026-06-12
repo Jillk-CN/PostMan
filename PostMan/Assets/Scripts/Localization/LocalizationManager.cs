@@ -157,13 +157,25 @@ namespace PostMan.Localization
                     content = string.Empty;
                 }
             }
-            public string[] GetDialogueInfo(string text)
+            public void GetDialogueInfo(string text,out string speaker,out string[] dialogues)
             {
                 if (string.IsNullOrEmpty(text))
                 {
-                    return null;
+                    speaker = string.Empty;
+                    dialogues = null;
                 }
-                return text.Split(SPLIT_CHAR);
+                string[] results = text.Split(SPLIT_CHAR);
+                Match match = Regex.Match(results[0], @"^<(.+?)>");
+                if (match.Success)
+                {
+                    speaker = match.Groups[1].Value;
+                    results[0] = results[0].Substring(match.Index+match.Length);
+                }
+                else
+                {
+                    speaker = string.Empty;
+                }
+                dialogues = results;
             }
         }
         private StringParser parser;
@@ -362,7 +374,10 @@ namespace PostMan.Localization
         {
             parser.GetTaskInfo(localizedText, out title, out content); 
         }
-        //TODO:缺少dialogue的
+        public void GetLocalizedDialogue(string localizedText,out string speaker,out string[] dialogues)
+        {
+            parser.GetDialogueInfo(localizedText, out speaker, out dialogues);
+        }
         #endregion
 
         //-------------下面这些做数据持久化的代码最好不写到这个类里--------------------------
