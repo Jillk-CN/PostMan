@@ -32,6 +32,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3adf390aa0fef594686caabf34907add
+    m_Address: _Sample_Post
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cbf6f41987a98aa41926cc33df460b71
     m_Address: TitleTestScene-CHY
     m_ReadOnly: 0

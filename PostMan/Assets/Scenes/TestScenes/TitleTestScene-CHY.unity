@@ -3409,7 +3409,7 @@ MonoBehaviour:
   btnLanguage: {fileID: 1496892680}
   btnQuit: {fileID: 319827057}
   scenesToLoad:
-  - VHSTestScene-CHY
+  - _Sample_Post
   scenesToUnload:
   - TitleTestScene-CHY
 --- !u!114 &599888823
