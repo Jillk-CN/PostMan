@@ -3,20 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+namespace PostMan.Trigger
 {
-    public DialogueSequence dialogue;
-    public bool triggerOnce=true;
-    private bool canTrigger=true;
-    private void OnTriggerEnter(Collider other)
+    public class DialogueTrigger : MonoBehaviour
     {
-        if (other.CompareTag("Player")&&canTrigger)
+        [SerializeField]
+        private DialogueSequence dialogue;
+        [SerializeField]
+        private bool triggerOnce=true;
+        [SerializeField]
+        private bool canTrigger=true;
+        private void OnTriggerEnter(Collider other)
         {
-            DialogueManager.Instance.StartDialogue(dialogue, null);
-            if (triggerOnce) 
+            if (other.CompareTag("Player")&&canTrigger)
             {
-                this.canTrigger = false;
-            } 
+                DialogueManager.Instance.StartDialogue(dialogue, null);
+                if (triggerOnce) 
+                {
+                    this.canTrigger = false;
+                } 
+            }
         }
     }
 }
