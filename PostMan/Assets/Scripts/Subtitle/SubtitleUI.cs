@@ -141,10 +141,11 @@ public class SubtitleUI : MonoBehaviour
     }
 
     /// <summary>
-    /// 播放subtitleKey对应的所有字幕
+    /// 延迟delayTime后播放subtitleKey对应的所有字幕
     /// </summary>
     /// <param name="subtitleKey"></param>
-    public void TypeSubtitle(string subtitleKey)
+    /// <param name="delayTime"></param>
+    public void TypeSubtitle(string subtitleKey , float delayTime = 0f)
     {
         if(currentCoroutine != null)
         {
@@ -161,12 +162,14 @@ public class SubtitleUI : MonoBehaviour
 
         SubtitleContent[] subtitles = LocalizationManager.Instance.GetLocalizedSubtitles(text);
 
-        currentCoroutine = StartCoroutine(TypeText(subtitles));
+        currentCoroutine = StartCoroutine(TypeText(subtitles , delayTime));
     }
 
     //打字
-    private IEnumerator TypeText(SubtitleContent[] subtitles)
+    private IEnumerator TypeText(SubtitleContent[] subtitles , float delayTime = 0f)
     {
+        yield return new WaitForSeconds(delayTime);
+
         //开启UI
         yield return StartCoroutine(OpenUI(FadeInTime));
 
