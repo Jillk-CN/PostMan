@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 27
   m_EditorClassIdentifier: 
   taskIndex: 27
-  taskName: Sort Letters
-  taskDescription: 
+  taskLocalizationKey: task_27
   totalProgress: 1

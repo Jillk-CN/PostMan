@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 13
   m_EditorClassIdentifier: 
   taskIndex: 13
-  taskName: Investigate No. 410
-  taskDescription: Use the computer/phone to browse the forum.
+  taskLocalizationKey: task_13
   totalProgress: 1

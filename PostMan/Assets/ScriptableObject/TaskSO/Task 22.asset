@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 22
   m_EditorClassIdentifier: 
   taskIndex: 22
-  taskName: Sort letters
-  taskDescription: Sort the letters collected today.
+  taskLocalizationKey: task_22
   totalProgress: 1

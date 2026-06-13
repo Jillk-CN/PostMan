@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 2
   m_EditorClassIdentifier: 
   taskIndex: 2
-  taskName: Day 1 Mail Collection
-  taskDescription: Collect items from designated residents.
+  taskLocalizationKey: task_2
   totalProgress: 1

@@ -36,7 +36,7 @@ public class ColliderTaskTrigger : BaseTaskTrigger
     {
         TryTrigger(); // 尝试启动任务
 
-        Debug.Log($"[ColliderTaskTrigger] 碰撞触发器被 {other.name} 触发，尝试启动任务 {targetTask?.taskName}。");
+        Debug.Log($"[ColliderTaskTrigger] 碰撞触发器被 {other.name} 触发，尝试启动任务 {targetTask?.taskLocalizationKey}。");
 
         // 触发成功后销毁指定物体
         if (destroyOnTrigger && objectToDestroy != null)

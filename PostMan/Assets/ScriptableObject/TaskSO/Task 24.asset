@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 24
   m_EditorClassIdentifier: 
   taskIndex: 24
-  taskName: Day 5 Mail Delivery
-  taskDescription: 
+  taskLocalizationKey: task_24
   totalProgress: 1

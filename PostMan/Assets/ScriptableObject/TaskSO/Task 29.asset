@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 29
   m_EditorClassIdentifier: 
   taskIndex: 29
-  taskName: Get the Package
-  taskDescription: 
+  taskLocalizationKey: task_29
   totalProgress: 1

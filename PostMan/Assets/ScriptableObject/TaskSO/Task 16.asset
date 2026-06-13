@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 16
   m_EditorClassIdentifier: 
   taskIndex: 16
-  taskName: Sort Letters
-  taskDescription: Sort and arrange the collected express items.
+  taskLocalizationKey: task_16
   totalProgress: 1

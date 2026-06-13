@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 31
   m_EditorClassIdentifier: 
   taskIndex: 31
-  taskName: The Last Delivery
-  taskDescription: Go to 410.
+  taskLocalizationKey: task_31
   totalProgress: 1

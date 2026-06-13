@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 10
   m_EditorClassIdentifier: 
   taskIndex: 10
-  taskName: Answer the Phone
-  taskDescription: Interact with the phone.
+  taskLocalizationKey: task_10
   totalProgress: 1

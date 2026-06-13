@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 7
   m_EditorClassIdentifier: 
   taskIndex: 7
-  taskName: Day 2 Mail Collection
-  taskDescription: Collect regular items and the package for 410.
+  taskLocalizationKey: task_7
   totalProgress: 1

@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 0
   m_EditorClassIdentifier: 
   taskIndex: 0
-  taskName: Rest
-  taskDescription: Interact with the bed.
+  taskLocalizationKey: task_0
   totalProgress: 1

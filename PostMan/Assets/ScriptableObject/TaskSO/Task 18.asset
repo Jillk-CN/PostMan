@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 18
   m_EditorClassIdentifier: 
   taskIndex: 18
-  taskName: Day 4 Mail Delivery
-  taskDescription: Go to the block to deliver letters.
+  taskLocalizationKey: task_18
   totalProgress: 1

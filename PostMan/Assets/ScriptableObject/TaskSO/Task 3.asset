@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 3
   m_EditorClassIdentifier: 
   taskIndex: 3
-  taskName: Organize Delivery Bag
-  taskDescription: Take out delivery items from the sorting cabinet.
+  taskLocalizationKey: task_3
   totalProgress: 1

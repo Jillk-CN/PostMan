@@ -1,4 +1,5 @@
 using System.Collections;
+using PostMan.Localization;
 using TMPro;
 using UnityEngine;
 
@@ -48,6 +49,7 @@ public class TaskUI : MonoBehaviour
 
     private bool _isVisible;          // 面板当前是否可见
     private Coroutine _slideCoroutine; // 当前正在运行的滑动协程
+    private TaskRuntimeData _currentData; // 缓存当前任务，供语言切换时刷新
 
     // ─────────────────────────────────────────────
     // Unity 生命周期
@@ -67,6 +69,9 @@ public class TaskUI : MonoBehaviour
         TaskEventBus.OnTaskAdvanced += HandleTaskAdvanced;
         TaskEventBus.OnTaskCompleted += HandleTaskCompleted;
         TaskEventBus.OnTaskFailed += HandleTaskFailed;
+
+        if (LocalizationManager.Instance != null)
+            LocalizationManager.Instance.LocaleChanged += HandleLocaleChanged;
     }
 
     private void OnDisable()
@@ -76,6 +81,9 @@ public class TaskUI : MonoBehaviour
         TaskEventBus.OnTaskAdvanced -= HandleTaskAdvanced;
         TaskEventBus.OnTaskCompleted -= HandleTaskCompleted;
         TaskEventBus.OnTaskFailed -= HandleTaskFailed;
+
+        if (LocalizationManager.Instance != null)
+            LocalizationManager.Instance.LocaleChanged -= HandleLocaleChanged;
     }
 
     private void Update()
@@ -119,14 +127,31 @@ public class TaskUI : MonoBehaviour
     /// <summary>根据任务运行时数据更新所有文本内容。</summary>
     private void UpdateTexts(TaskRuntimeData data)
     {
-        if (nameText != null)
-            nameText.text = data.Definition.taskName;
+        _currentData = data;
 
-        if (descText != null)
-            descText.text = data.Definition.taskDescription;
+        string title = string.Empty;
+        string content = string.Empty;
 
-        if (progressText != null)
-            progressText.text = $"{data.CurrentProgress} / {data.Definition.totalProgress}";
+        if (LocalizationManager.Instance != null)
+        {
+            string raw = LocalizationManager.Instance.GetLocalizedString(
+                LocalizationManager.TableName.TaskTable,
+                data.Definition.taskLocalizationKey);
+
+            if (!string.IsNullOrEmpty(raw))
+                LocalizationManager.Instance.GetLocalizedTaskInfo(raw, out title, out content);
+        }
+
+        if (nameText     != null) nameText.text     = title;
+        if (descText     != null) descText.text     = content;
+        if (progressText != null) progressText.text = $"{data.CurrentProgress} / {data.Definition.totalProgress}";
+    }
+
+    /// <summary>语言切换时刷新当前显示的任务文本。</summary>
+    private void HandleLocaleChanged(LocalizationManager.LocaleID _)
+    {
+        if (_currentData != null)
+            UpdateTexts(_currentData);
     }
 
     // ─────────────────────────────────────────────

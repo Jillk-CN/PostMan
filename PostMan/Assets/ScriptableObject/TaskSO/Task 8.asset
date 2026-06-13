@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 8
   m_EditorClassIdentifier: 
   taskIndex: 8
-  taskName: Sort letters
-  taskDescription: Put the 410 package into the back room cabinet.
+  taskLocalizationKey: task_8
   totalProgress: 1

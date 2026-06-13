@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 14
   m_EditorClassIdentifier: 
   taskIndex: 14
-  taskName: Rest
-  taskDescription: Take a nap.
+  taskLocalizationKey: task_14
   totalProgress: 1

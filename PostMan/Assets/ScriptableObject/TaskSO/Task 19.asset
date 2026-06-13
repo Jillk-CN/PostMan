@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 19
   m_EditorClassIdentifier: 
   taskIndex: 19
-  taskName: Investigate 410
-  taskDescription: Crouch down and look inside the door.
+  taskLocalizationKey: task_19
   totalProgress: 1

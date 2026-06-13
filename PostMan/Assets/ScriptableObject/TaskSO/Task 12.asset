@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 12
   m_EditorClassIdentifier: 
   taskIndex: 12
-  taskName: Day 3 Mail Delivery
-  taskDescription: Go to the front desk.
+  taskLocalizationKey: task_12
   totalProgress: 1

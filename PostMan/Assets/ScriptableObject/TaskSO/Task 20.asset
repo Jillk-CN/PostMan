@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 20
   m_EditorClassIdentifier: 
   taskIndex: 20
-  taskName: Return to the Post Office
-  taskDescription: Rest.
+  taskLocalizationKey: task_20
   totalProgress: 1

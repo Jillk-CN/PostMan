@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 11
   m_EditorClassIdentifier: 
   taskIndex: 11
-  taskName: Rest
-  taskDescription: Return to the room.
+  taskLocalizationKey: task_11
   totalProgress: 1

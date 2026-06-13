@@ -13,7 +13,5 @@ MonoBehaviour:
   m_Name: Task 1
   m_EditorClassIdentifier: 
   taskIndex: 1
-  taskName: Day 1 Mail Delivery
-  taskDescription: Retrieve parcels from the sorting cabinet and deliver them to
-    the designated residents.
+  taskLocalizationKey: task_1
   totalProgress: 1

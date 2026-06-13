@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 21
   m_EditorClassIdentifier: 
   taskIndex: 21
-  taskName: Day 4 Mail Collection
-  taskDescription: 
+  taskLocalizationKey: task_21
   totalProgress: 1

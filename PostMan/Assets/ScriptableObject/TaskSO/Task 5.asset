@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 5
   m_EditorClassIdentifier: 
   taskIndex: 5
-  taskName: Pick Up Letter 410
-  taskDescription: Interact with the dropped letter.
+  taskLocalizationKey: task_5
   totalProgress: 1

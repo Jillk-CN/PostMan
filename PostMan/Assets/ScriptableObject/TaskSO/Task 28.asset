@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 28
   m_EditorClassIdentifier: 
   taskIndex: 28
-  taskName: Find the Director
-  taskDescription: Return to the front desk.
+  taskLocalizationKey: task_28
   totalProgress: 1

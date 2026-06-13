@@ -36,7 +36,7 @@ public class ColliderTaskAdvancer : BaseTaskAdvancer
     {
         TryAdvance(); // 尝试推进任务
 
-        Debug.Log($"[ColliderTaskAdvancer] 碰撞推进器被 {other.name} 触发，尝试推进任务 {targetTask?.taskName}。");
+        Debug.Log($"[ColliderTaskAdvancer] 碰撞推进器被 {other.name} 触发，尝试推进任务 {targetTask?.taskLocalizationKey}。");
 
         // 推进后销毁指定物体
         if (destroyOnAdvance && objectToDestroy != null)

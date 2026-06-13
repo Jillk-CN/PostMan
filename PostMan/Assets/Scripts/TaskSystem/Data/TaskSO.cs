@@ -18,20 +18,9 @@ public class TaskSO : ScriptableObject
     [Tooltip("任务唯一序号，用作字典键，同一项目中不可重复")]
     public int taskIndex;
 
-    /// <summary>任务名称，显示在 UI 标题处。</summary>
-    [Tooltip("任务名称，显示在 UI 标题处")]
-    public string taskName;
-
-    // ─────────────────────────────────────────────
-    // 任务描述
-    // ─────────────────────────────────────────────
-
-    [Header("任务描述")]
-
-    /// <summary>任务内容说明，显示在 UI 描述区域。</summary>
-    [Tooltip("任务内容说明，显示在 UI 描述区域")]
-    [TextArea(2, 5)]
-    public string taskDescription;
+    /// <summary>TaskTable 中的本地化条目键，格式示例：task_1</summary>
+    [Tooltip("对应 TaskTable 中的本地化条目键，格式：task_1")]
+    public string taskLocalizationKey;
 
     // ─────────────────────────────────────────────
     // 任务进度

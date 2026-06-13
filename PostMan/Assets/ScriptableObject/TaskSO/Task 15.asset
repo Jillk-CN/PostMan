@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Task 15
   m_EditorClassIdentifier: 
   taskIndex: 15
-  taskName: Day 3 Mail Collection
-  taskDescription: Go out to the street to collect letters.
+  taskLocalizationKey: task_15
   totalProgress: 1
