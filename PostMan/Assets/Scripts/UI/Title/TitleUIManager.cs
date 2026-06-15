@@ -100,7 +100,24 @@ namespace PostMan.UI
         private void OnStartGame()
         {
             GameInputManager.Instance.HideCursor(); // 进入游戏前隐藏鼠标
+            HideTitleUI(); // 隐藏标题 UI，避免残留在游戏场景
             GameSceneManager.Instance.SwitchScenes(scenesToLoad, scenesToUnload);
+        }
+
+        /// <summary>开始游戏时隐藏标题 UI（Canvas 保留在 DontDestroyOnLoad，仅隐藏内容）。</summary>
+        public void HideTitleUI()
+        {
+            mainMenuPanel.SetActive(false);
+            languagePanelGO.SetActive(false);
+            settingsPanelGO.SetActive(false);
+        }
+
+        /// <summary>返回标题时重新显示主菜单面板。</summary>
+        public void ShowTitleUI()
+        {
+            mainMenuPanel.SetActive(true);
+            languagePanelGO.SetActive(false);
+            settingsPanelGO.SetActive(false);
         }
 
         /// <summary>打开设置面板。</summary>

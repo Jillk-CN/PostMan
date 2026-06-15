@@ -8,6 +8,7 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 using PostMan.Common;
+using PostMan.InputManagement;
 using PostMan.Player;
 
 /// <summary>
@@ -94,7 +95,10 @@ public class GameSceneManager : MonoSingleton<GameSceneManager>
                 Log("所有目标场景加载完成。");
             }
 
-            // ── 阶段 1.5：传送玩家到出生点 ──
+            // ── 阶段 1.5：重置输入源 + 传送玩家到出生点 ──
+            // 所有目标场景已加载完毕，在卸载旧场景前将输入源归位，防止旧会话状态污染
+            GameInputManager.Instance?.ResetToGameDefaults();
+
             if (spawnPoint.HasValue)
                 TeleportPlayer(spawnPoint.Value);
 

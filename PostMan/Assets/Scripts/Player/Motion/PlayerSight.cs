@@ -14,7 +14,7 @@ namespace PostMan.Player
         /// <summary>
         ///是否允许旋转 
         /// </summary>
-        public bool enableShake=false;
+        public bool enableShake = true;
         [Header("相机旋转相关设置")]
         [Tooltip("相机最小旋转角度")]
         [SerializeField]
@@ -48,9 +48,15 @@ namespace PostMan.Player
         [SerializeField]
         private float frequencyRun;
         #endregion
+        private void Awake()
+        {
+            // 在任何 Start() 执行前完成赋值，避免 PlayerMotion.Start() 先于本脚本
+            // Start() 执行时访问 GetInputSource() 返回 null 导致 NullReferenceException
+            sightInput = GameInputManager.Instance.GetInputSystemSource<PlayerSightInputSource>();
+        }
+
         private void Start()
         {
-            sightInput= GameInputManager.Instance.GetInputSystemSource<PlayerSightInputSource>();
             shakeEffect = this.GetComponentInChildren<SinShakeEffect>();
             // 从 PlayerPrefs 读取标题场景保存的设置，缺省保留 Inspector 配置值
             sensitivity = PlayerPrefs.GetFloat("MouseSensitivity", sensitivity);

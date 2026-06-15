@@ -27,7 +27,10 @@
       "Bash(ls \"D:/GitHub/PostMan/PostMan/openspec/changes/interactable-task-triggers/\" 2>&1; echo \"exit: $?\")",
       "Bash(cmd /c \"dir D:\\\\GitHub\\\\PostMan\\\\PostMan\\\\openspec\\\\changes\\\\\" 2>&1)",
       "Bash(find \"D:/GitHub/PostMan/PostMan/Assets/Scripts\" -type f -name \"*.cs\" 2>/dev/null | sort)",
-      "Bash(ls -la \"D:/GitHub/PostMan/PostMan/Assets/Scripts/\" 2>/dev/null || dir \"D:\\\\GitHub\\\\PostMan\\\\PostMan\\\\Assets\\\\Scripts\" 2>/dev/null)"
+      "Bash(ls -la \"D:/GitHub/PostMan/PostMan/Assets/Scripts/\" 2>/dev/null || dir \"D:\\\\GitHub\\\\PostMan\\\\PostMan\\\\Assets\\\\Scripts\" 2>/dev/null)",
+      "Bash(ls openspec/changes/audio-manager-system/ 2>&1 || echo \"Path not found, checking...\"\nfind . -name \"*.openspec.yaml\" 2>/dev/null | head -5\nls openspec/ 2>/dev/null)",
+      "Bash(cmd /c \"dir /s openspec 2>&1 | head -30\")",
+      "Bash(openspec --help 2>&1; echo \"Exit: $?\")"
     ]
   }
 }

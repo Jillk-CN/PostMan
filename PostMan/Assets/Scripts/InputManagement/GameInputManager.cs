@@ -1,4 +1,5 @@
 using PostMan.Common;
+using PostMan.Dialogue;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,9 +29,10 @@ namespace PostMan.InputManagement
         protected override void Init()
         {
             base.Init();
-            if (Instance!=this)
+            if (Instance != this)
             {
                 Destroy(this.gameObject);
+                return; // 重复实例提前返回，避免继续初始化
             }
             DontDestroyOnLoad(this.gameObject);
             inputActions = new PlayerInputActions();
@@ -40,7 +42,7 @@ namespace PostMan.InputManagement
         }
         private void OnDestroy()
         {
-            inputActions.Dispose();
+            inputActions?.Dispose(); // null 检查：重复实例被 Destroy 时 inputActions 可能未赋值
             inputActions = null;
         }
 
@@ -97,6 +99,26 @@ namespace PostMan.InputManagement
             SetInputSystemSource<PlayerMotionInputSource>(false);
             SetInputSystemSource<PlayerSightInputSource>(false);
             SetInputSystemSource<PlayerInteractInputSource>(false);
+        }
+
+        /// <summary>
+        /// 将所有输入源重置为游戏场景默认状态。
+        /// 在每次加载游戏场景后调用，防止上一次游戏会话中的启用/禁用状态污染新会话。
+        /// </summary>
+        public void ResetToGameDefaults()
+        {
+            // 玩家核心输入：默认全部启用
+            SetInputSystemSource<PlayerMotionInputSource>(true);
+            SetInputSystemSource<PlayerSightInputSource>(true);
+            SetInputSystemSource<PlayerInteractInputSource>(true);
+
+            // 暂停键：游戏开始即可用
+            SetInputSystemSource<PauseInputSource>(true);
+
+            // 按需输入源：由各自系统在需要时启用，此处确保初始为关闭
+            SetInputSystemSource<UIReturnInputSource>(false);
+            SetInputSystemSource<VHSToggleInputSource>(false);
+            SetInputSystemSource<DialogueInputSource>(false);
         }
 
         /// <summary>

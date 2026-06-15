@@ -90,6 +90,8 @@ namespace PostMan.Dialogue
 
             //禁用输入,注意对话时不允许打开设置面板,会有bug,要修有点麻烦
             GameInputManager.Instance.DisablePlayerAllInput();
+            // 启用对话推进输入
+            GameInputManager.Instance.SetInputSystemSource<DialogueInputSource>(true);
 
             //UI显示
             dialoguePanel.SetVisible(true);
@@ -132,6 +134,8 @@ namespace PostMan.Dialogue
             //TriggerPerform(IPerformDataProvider.END_INDEX, currentDialogues.dialogueEndPerformName);
 
             //恢复输入
+            // 对话结束，禁用对话推进输入
+            GameInputManager.Instance.SetInputSystemSource<DialogueInputSource>(false);
             GameInputManager.Instance.EnablePlayerAllInput();
 
             this.dialogueSO = null;

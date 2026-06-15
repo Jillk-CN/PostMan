@@ -77,10 +77,16 @@ namespace PostMan.Player
          */
 
 
-        private void Start()
+        private void Awake()
         {
+            // 防御性修复：与 PlayerSight.Awake() 保持一致，确保输入源在 Start() 前就绪
             motionInput = GameInputManager.Instance.GetInputSystemSource<PlayerMotionInputSource>();
             characterController = this.GetComponent<CharacterController>();
+        }
+
+        private void Start()
+        {
+            // sight 在 Start() 中获取，此时 PlayerSight.Awake() 必然已执行，sightInput 已就绪
             sight = this.GetComponentInChildren<PlayerSight>();
             //targetHeight = standingHeight;
            // this.heightChanging = false;

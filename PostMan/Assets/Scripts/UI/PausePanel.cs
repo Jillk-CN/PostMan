@@ -68,6 +68,9 @@ namespace PostMan.UI
         /// <summary>ESC 输入源，从 GameInputManager 获取。</summary>
         private PauseInputSource pauseInput;
 
+        /// <summary>子面板阻断计数器：大于 0 时 ESC 不触发暂停切换。</summary>
+        private int _subPanelBlockCount = 0;
+
         // ─────────────────────────────────────────────
         // Unity 生命周期
         // ─────────────────────────────────────────────
@@ -94,6 +97,7 @@ namespace PostMan.UI
         private void Update()
         {
             if (pauseInput == null || !pauseInput.Enabled) return;
+            if (_subPanelBlockCount > 0) return; // 子面板打开时屏蔽 ESC 切换暂停
 
             if (pauseInput.GetPause())
             {
@@ -140,6 +144,12 @@ namespace PostMan.UI
             GameInputManager.Instance.HideCursor();
         }
 
+        /// <summary>子面板打开时调用，阻止 ESC 切换暂停。</summary>
+        public void BlockEscToggle() => _subPanelBlockCount++;
+
+        /// <summary>子面板关闭时调用，恢复 ESC 切换暂停。</summary>
+        public void UnblockEscToggle() => _subPanelBlockCount = Mathf.Max(0, _subPanelBlockCount - 1);
+
         // ─────────────────────────────────────────────
         // 按钮回调
         // ─────────────────────────────────────────────
@@ -166,6 +176,7 @@ namespace PostMan.UI
             // 注入回调：设置面板返回时重新显示暂停面板
             settingsPanel.onBack = OnSettingsPanelBack;
 
+            BlockEscToggle(); // 设置面板打开时屏蔽 ESC
             panelContent.SetActive(false);
             settingsPanel.gameObject.SetActive(true);
         }
@@ -176,6 +187,7 @@ namespace PostMan.UI
             settingsPanel.onBack = null; // 清理回调，避免下次从标题打开设置时误触发
             settingsPanel.gameObject.SetActive(false);
             panelContent.SetActive(true);
+            UnblockEscToggle(); // 设置面板关闭，恢复 ESC
         }
 
         /// <summary>
@@ -189,6 +201,7 @@ namespace PostMan.UI
             if (pauseVolume != null)
                 pauseVolume.enabled = false;
 
+            TitleUIManager.Instance?.ShowTitleUI(); // 场景切换前恢复标题 UI
             GameSceneManager.Instance.SwitchScenes(titleScenesToLoad, titleScenesToUnload);
         }
     }

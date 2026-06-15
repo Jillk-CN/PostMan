@@ -1,4 +1,6 @@
+using PostMan.AudioSystem;
 using PostMan.InputManagement;
+using PostMan.Player;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,10 +44,10 @@ namespace PostMan.UI
         [SerializeField] private Button btnOpenVHS;
 
         // ─────────────────────────────────────────────
-        // 音量设置（暂留空）
+        // 音量设置
         // ─────────────────────────────────────────────
 
-        [Header("音量设置（暂留空）")]
+        [Header("音量设置")]
         [Tooltip("总音量 Slider")]
         [SerializeField] private Slider sliderMasterVolume;
 
@@ -155,7 +157,9 @@ namespace PostMan.UI
             dropdownResolution.onValueChanged.AddListener(OnResolutionChanged);
             dropdownWindowMode.onValueChanged.AddListener(OnWindowModeChanged);
             sliderGamma.onValueChanged.AddListener(OnGammaChanged);
-            // 三个音量 Slider 暂不绑定逻辑
+            sliderMasterVolume.onValueChanged.AddListener(OnMasterVolumeChanged);
+            sliderMusicVolume.onValueChanged.AddListener(OnMusicVolumeChanged);
+            sliderSFXVolume.onValueChanged.AddListener(OnSFXVolumeChanged);
         }
 
         private void UnbindControls()
@@ -166,6 +170,9 @@ namespace PostMan.UI
             dropdownResolution.onValueChanged.RemoveListener(OnResolutionChanged);
             dropdownWindowMode.onValueChanged.RemoveListener(OnWindowModeChanged);
             sliderGamma.onValueChanged.RemoveListener(OnGammaChanged);
+            sliderMasterVolume.onValueChanged.RemoveListener(OnMasterVolumeChanged);
+            sliderMusicVolume.onValueChanged.RemoveListener(OnMusicVolumeChanged);
+            sliderSFXVolume.onValueChanged.RemoveListener(OnSFXVolumeChanged);
         }
 
         // ─────────────────────────────────────────────
@@ -195,6 +202,13 @@ namespace PostMan.UI
 
             sliderGamma.SetValueWithoutNotify(
                 PlayerPrefs.GetFloat("Gamma", 1f));
+
+            sliderMasterVolume.SetValueWithoutNotify(
+                PlayerPrefs.GetFloat(AudioManager.KeyMasterVolume, 1f));
+            sliderMusicVolume.SetValueWithoutNotify(
+                PlayerPrefs.GetFloat(AudioManager.KeyBGMVolume, 1f));
+            sliderSFXVolume.SetValueWithoutNotify(
+                PlayerPrefs.GetFloat(AudioManager.KeySFXVolume, 1f));
         }
 
         // ─────────────────────────────────────────────
@@ -205,12 +219,22 @@ namespace PostMan.UI
         {
             PlayerPrefs.SetFloat(KeySensitivity, value);
             PlayerPrefs.Save();
+            // 游戏场景内实时推送；标题场景无 PlayerSight，FindObjectOfType 返回 null 安全跳过
+            var sight = FindObjectOfType<PlayerSight>();
+            if (sight != null) sight.sensitivity = value;
         }
 
         private void OnEnableShakeChanged(bool value)
         {
             PlayerPrefs.SetInt(KeyEnableShake, value ? 1 : 0);
             PlayerPrefs.Save();
+            // 游戏场景内实时推送；标题场景无 PlayerSight，FindObjectOfType 返回 null 安全跳过
+            var sight = FindObjectOfType<PlayerSight>();
+            if (sight != null)
+            {
+                if (value) sight.EnableShake();
+                else sight.DisableShake();
+            }
         }
 
         // ─────────────────────────────────────────────
@@ -254,6 +278,25 @@ namespace PostMan.UI
         }
 
         // ─────────────────────────────────────────────
+        // 控件响应：音量设置
+        // ─────────────────────────────────────────────
+
+        private void OnMasterVolumeChanged(float value)
+        {
+            AudioManager.Instance?.SetMasterVolume(value);
+        }
+
+        private void OnMusicVolumeChanged(float value)
+        {
+            AudioManager.Instance?.SetBGMVolume(value);
+        }
+
+        private void OnSFXVolumeChanged(float value)
+        {
+            AudioManager.Instance?.SetSFXVolume(value);
+        }
+
+        // ─────────────────────────────────────────────
         // 控件响应：VHS / 导航
         // ─────────────────────────────────────────────
 
@@ -269,6 +312,7 @@ namespace PostMan.UI
                 Debug.LogWarning("[SettingsPanel] VHSPanel 实例不存在，请在场景中放置 VHSPanel 预制体。");
                 return;
             }
+            PausePanel.Instance?.BlockEscToggle(); // 游戏场景：VHSPanel 打开时屏蔽 ESC（标题场景无 PausePanel，安全跳过）
             this.gameObject.SetActive(false);   // 隐藏 SettingsPanel
             VHSPanel.Instance.Show();           // 显示 VHSPanel
         }
@@ -277,6 +321,7 @@ namespace PostMan.UI
         private void OnVHSPanelClosed()
         {
             this.gameObject.SetActive(true);
+            PausePanel.Instance?.UnblockEscToggle(); // 游戏场景：VHSPanel 关闭，恢复 ESC
             GameInputManager.Instance.ShowCursor();   // 恢复标题场景的鼠标显示状态
         }
 
