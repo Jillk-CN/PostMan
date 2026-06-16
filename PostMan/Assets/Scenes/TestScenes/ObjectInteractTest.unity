@@ -987,6 +987,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2842273387251952459, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
         type: 3}
+      propertyPath: footStepTileRun
+      value: 
+      objectReference: {fileID: 8300000, guid: a3cf5802cf8424d4195d74671b37e4a6, type: 3}
+    - target: {fileID: 2842273387251952459, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
+        type: 3}
+      propertyPath: footStepWoodRun
+      value: 
+      objectReference: {fileID: 8300000, guid: 2a55c1aaeab88a64d8d43b44f5c0088a, type: 3}
+    - target: {fileID: 2842273387251952459, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
+        type: 3}
       propertyPath: runInternetTime
       value: 0.4
       objectReference: {fileID: 0}
@@ -995,6 +1005,11 @@ PrefabInstance:
       propertyPath: walkInternetTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2842273387251952459, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
+        type: 3}
+      propertyPath: footStepWetRoadRun
+      value: 
+      objectReference: {fileID: 8300000, guid: 9dd6d5a514eb76e4eaa7e5bc6fe07bc7, type: 3}
     - target: {fileID: 2887424777433423837, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
         type: 3}
       propertyPath: m_Name

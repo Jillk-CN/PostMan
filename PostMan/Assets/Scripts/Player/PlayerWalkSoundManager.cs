@@ -37,6 +37,7 @@ namespace PostMan.Player
         
         private FSMState.StateID currentState = FSMState.StateID.Default;
         private CharacterController characterController;
+        private Coroutine _activeMovementCoroutine;
 
         void Start()
         {
@@ -168,38 +169,52 @@ namespace PostMan.Player
 
         private void PlayWalkSound()
         {
+            // 先停止当前正在运行的协程，确保只有一个协程在运行
+            if (_activeMovementCoroutine != null)
+            {
+                StopCoroutine(_activeMovementCoroutine);
+                _activeMovementCoroutine = null;
+            }
+            
             switch (currentMaterial)
             {
                 case MaterialState.Tile:
                     if (footStepTileWalk != null)
-                        StartCoroutine(WalkLoopPlay(footStepTileWalk));
+                        _activeMovementCoroutine = StartCoroutine(WalkLoopPlay(footStepTileWalk));
                     break;
                 case MaterialState.Wood:
                     if (footStepWoodWalk != null)
-                        StartCoroutine(WalkLoopPlay(footStepWoodWalk));
+                        _activeMovementCoroutine = StartCoroutine(WalkLoopPlay(footStepWoodWalk));
                     break;
                 case MaterialState.WetRoad:
                     if (footStepWetRoadWalk != null)
-                        StartCoroutine(WalkLoopPlay(footStepWetRoadWalk));
+                        _activeMovementCoroutine = StartCoroutine(WalkLoopPlay(footStepWetRoadWalk));
                     break;
             }
         }
 
         private void PlayRunSound()
         {
+            // 先停止当前正在运行的协程，确保只有一个协程在运行
+            if (_activeMovementCoroutine != null)
+            {
+                StopCoroutine(_activeMovementCoroutine);
+                _activeMovementCoroutine = null;
+            }
+            
             switch (currentMaterial)
             {
                 case MaterialState.Tile:
                     if (footStepTileRun != null)
-                        StartCoroutine(RunLoopPlay(footStepTileRun));
+                        _activeMovementCoroutine = StartCoroutine(RunLoopPlay(footStepTileRun));
                     break;
                 case MaterialState.Wood:
                     if (footStepWoodRun != null)
-                        StartCoroutine(RunLoopPlay(footStepWoodRun));
+                        _activeMovementCoroutine = StartCoroutine(RunLoopPlay(footStepWoodRun));
                     break;
                 case MaterialState.WetRoad:
                     if (footStepWetRoadRun != null)
-                        StartCoroutine(RunLoopPlay(footStepWetRoadRun));
+                        _activeMovementCoroutine = StartCoroutine(RunLoopPlay(footStepWetRoadRun));
                     break;
             }
         }
@@ -236,6 +251,13 @@ namespace PostMan.Player
         
         private void OnDestroy()
         {
+            // 清理：停止正在运行的协程
+            if (_activeMovementCoroutine != null)
+            {
+                StopCoroutine(_activeMovementCoroutine);
+                _activeMovementCoroutine = null;
+            }
+            
             // 清理：停止音效
             AudioManager.Instance?.Stop(AudioTrackId.Player, fadeOut: true, fadeOutDuration: 0.1f);
         }
@@ -247,6 +269,9 @@ namespace PostMan.Player
                 AudioManager.Instance.Play(AudioTrackId.Player , moveClip);
                 yield return new WaitForSeconds(walkInternetTime);
             }
+            
+            // 协程自然结束时清空引用
+            _activeMovementCoroutine = null;
         }
 
         private IEnumerator RunLoopPlay(AudioClip moveClip)
@@ -256,6 +281,9 @@ namespace PostMan.Player
                 AudioManager.Instance.Play(AudioTrackId.Player , moveClip);
                 yield return new WaitForSeconds(runInternetTime);
             }
+            
+            // 协程自然结束时清空引用
+            _activeMovementCoroutine = null;
         }
     }
 
