@@ -985,6 +985,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2842273387251952459, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
+        type: 3}
+      propertyPath: runInternetTime
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842273387251952459, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
+        type: 3}
+      propertyPath: walkInternetTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2887424777433423837, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
         type: 3}
       propertyPath: m_Name

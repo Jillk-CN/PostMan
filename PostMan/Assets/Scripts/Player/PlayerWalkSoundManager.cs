@@ -21,6 +21,10 @@ namespace PostMan.Player
         private FieldInfo currentStateField;
 
         [Header("音效")]
+        [Tooltip("走路音效播放间隔")]
+        public float walkInternetTime = 0.2f;
+        [Tooltip("跑步音效播放间隔")]
+        public float runInternetTime = 0.01f;
         public AudioClip footStepTileWalk;
         public AudioClip footStepTileRun;
         public AudioClip footStepWoodWalk;
@@ -168,15 +172,15 @@ namespace PostMan.Player
             {
                 case MaterialState.Tile:
                     if (footStepTileWalk != null)
-                        AudioManager.Instance.Play(AudioTrackId.Player, footStepTileWalk, true);
+                        StartCoroutine(WalkLoopPlay(footStepTileWalk));
                     break;
                 case MaterialState.Wood:
                     if (footStepWoodWalk != null)
-                        AudioManager.Instance.Play(AudioTrackId.Player, footStepWoodWalk, true);
+                        StartCoroutine(WalkLoopPlay(footStepWoodWalk));
                     break;
                 case MaterialState.WetRoad:
                     if (footStepWetRoadWalk != null)
-                        AudioManager.Instance.Play(AudioTrackId.Player, footStepWetRoadWalk, true);
+                        StartCoroutine(WalkLoopPlay(footStepWetRoadWalk));
                     break;
             }
         }
@@ -187,15 +191,15 @@ namespace PostMan.Player
             {
                 case MaterialState.Tile:
                     if (footStepTileRun != null)
-                        AudioManager.Instance.Play(AudioTrackId.Player, footStepTileRun, true);
+                        StartCoroutine(RunLoopPlay(footStepTileRun));
                     break;
                 case MaterialState.Wood:
                     if (footStepWoodRun != null)
-                        AudioManager.Instance.Play(AudioTrackId.Player, footStepWoodRun, true);
+                        StartCoroutine(RunLoopPlay(footStepWoodRun));
                     break;
                 case MaterialState.WetRoad:
                     if (footStepWetRoadRun != null)
-                        AudioManager.Instance.Play(AudioTrackId.Player, footStepWetRoadRun, true);
+                        StartCoroutine(RunLoopPlay(footStepWetRoadRun));
                     break;
             }
         }
@@ -234,6 +238,24 @@ namespace PostMan.Player
         {
             // 清理：停止音效
             AudioManager.Instance?.Stop(AudioTrackId.Player, fadeOut: true, fadeOutDuration: 0.1f);
+        }
+
+        private IEnumerator WalkLoopPlay(AudioClip moveClip)
+        {
+            while (currentState == FSMState.StateID.PlayerWalk)
+            {
+                AudioManager.Instance.Play(AudioTrackId.Player , moveClip);
+                yield return new WaitForSeconds(walkInternetTime);
+            }
+        }
+
+        private IEnumerator RunLoopPlay(AudioClip moveClip)
+        {
+            while (currentState == FSMState.StateID.PlayerRun)
+            {
+                AudioManager.Instance.Play(AudioTrackId.Player , moveClip);
+                yield return new WaitForSeconds(runInternetTime);
+            }
         }
     }
 
