@@ -387,26 +387,13 @@ GameObject:
   m_Component:
   - component: {fileID: 105876734}
   - component: {fileID: 105876733}
-  - component: {fileID: 105876732}
   m_Layer: 0
-  m_Name: "NecessaryScript(\u6682\u65F6\u6302\u8F7D\u6D4B\u8BD5\u6240\u9700\u811A\u672C)"
+  m_Name: LocalizationManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &105876732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 105876731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aaa8628b20f4e2e49beca4e2a8886bcb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &105876733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -985,31 +972,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2842273387251952459, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
-        type: 3}
-      propertyPath: footStepTileRun
-      value: 
-      objectReference: {fileID: 8300000, guid: a3cf5802cf8424d4195d74671b37e4a6, type: 3}
-    - target: {fileID: 2842273387251952459, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
-        type: 3}
-      propertyPath: footStepWoodRun
-      value: 
-      objectReference: {fileID: 8300000, guid: 2a55c1aaeab88a64d8d43b44f5c0088a, type: 3}
-    - target: {fileID: 2842273387251952459, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
-        type: 3}
-      propertyPath: runInternetTime
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2842273387251952459, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
-        type: 3}
-      propertyPath: walkInternetTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2842273387251952459, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
-        type: 3}
-      propertyPath: footStepWetRoadRun
-      value: 
-      objectReference: {fileID: 8300000, guid: 9dd6d5a514eb76e4eaa7e5bc6fe07bc7, type: 3}
     - target: {fileID: 2887424777433423837, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
         type: 3}
       propertyPath: m_Name

@@ -16,8 +16,7 @@ namespace PostMan.Player
         private PlayerMotion playerMotion;
         private object stateMachine;
         private MethodInfo getStateMethod;
-        
-        // 备用方案：通过 PlayerMotion 的公开字段获取（如果有）
+        private PostMan.InputManagement.PlayerMotionInputSource motionInput;
         private FieldInfo currentStateField;
 
         [Header("音效")]
@@ -48,6 +47,13 @@ namespace PostMan.Player
             {
                 Debug.LogError("[PlayerWalkSoundManager] 未找到 PlayerMotion 组件");
                 return;
+            }
+            
+            // 获取输入源
+            motionInput = playerMotion.GetInputSource();
+            if (motionInput == null)
+            {
+                Debug.LogError("[PlayerWalkSoundManager] 未找到输入源");
             }
             
             // 获取 stateMachine 字段
@@ -87,7 +93,7 @@ namespace PostMan.Player
                 Debug.LogError("未找到 stateMachine 字段");
             }
             
-            // 方案2：尝试获取 PlayerMotion 中的 currentState 字段（DEBUG 模式下的公开字段）
+            // 尝试获取 PlayerMotion 中的 currentState 字段（DEBUG 模式下的公开字段）
             if (getStateMethod == null)
             {
                 currentStateField = typeof(PlayerMotion).GetField("currentState", 
@@ -138,31 +144,47 @@ namespace PostMan.Player
             if (getStateMethod == null && currentStateField == null) return;
             
             FSMState.StateID lastState = GetCurrentPlayerState();
+            
+            // 检测是否有实际移动输入
+            bool hasMovementInput = motionInput != null && motionInput.GetMove() != Vector3.zero;
 
             //弃用地面标签检测
             //currentMaterial = DetectGroundMaterial();
 
-            if (currentState != lastState)
+            bool stateChanged = currentState != lastState;
+    
+            if (stateChanged)
             {
                 // 状态变化时，先停止之前的音效
                 if (currentState == FSMState.StateID.PlayerWalk || currentState == FSMState.StateID.PlayerRun)
                 {
-                    AudioManager.Instance.Stop(AudioTrackId.Player, fadeOut: true, fadeOutDuration: 0.1f);
+                    AudioManager.Instance.Stop(AudioTrackId.Player, fadeOut: true, fadeOutDuration: 0.05f);
                 }
                 
                 currentState = lastState;
-
-                if (currentState == FSMState.StateID.PlayerIdle)
-                {
-                    // 空闲状态不播放音效，已经停止了
-                }
-                else if (currentState == FSMState.StateID.PlayerWalk)
+                
+                // 状态变化时立即启动音效
+                if (currentState == FSMState.StateID.PlayerWalk && hasMovementInput)
                 {
                     PlayWalkSound();
                 }
-                else if (currentState == FSMState.StateID.PlayerRun)
+                else if (currentState == FSMState.StateID.PlayerRun && hasMovementInput)
                 {
                     PlayRunSound();
+                }
+            }
+            else
+            {
+                // 状态没变化，保持原有逻辑
+                if (currentState == FSMState.StateID.PlayerWalk || currentState == FSMState.StateID.PlayerRun)
+                {
+                    if (hasMovementInput && _activeMovementCoroutine == null)
+                    {
+                        if (currentState == FSMState.StateID.PlayerWalk)
+                            PlayWalkSound();
+                        else
+                            PlayRunSound();
+                    }
                 }
             }
         }
@@ -264,7 +286,7 @@ namespace PostMan.Player
 
         private IEnumerator WalkLoopPlay(AudioClip moveClip)
         {
-            while (currentState == FSMState.StateID.PlayerWalk)
+            while (currentState == FSMState.StateID.PlayerWalk && motionInput != null && motionInput.GetMove() != Vector3.zero)
             {
                 AudioManager.Instance.Play(AudioTrackId.Player , moveClip);
                 yield return new WaitForSeconds(walkInternetTime);
@@ -276,10 +298,20 @@ namespace PostMan.Player
 
         private IEnumerator RunLoopPlay(AudioClip moveClip)
         {
-            while (currentState == FSMState.StateID.PlayerRun)
+            // 启动协程时立即播放第一声，消除延迟
+            AudioManager.Instance.Play(AudioTrackId.Player , moveClip);
+            
+            while (true)
             {
-                AudioManager.Instance.Play(AudioTrackId.Player , moveClip);
                 yield return new WaitForSeconds(runInternetTime);
+                
+                // 每次循环前检查条件
+                if (currentState != FSMState.StateID.PlayerRun || motionInput == null || motionInput.GetMove() == Vector3.zero)
+                {
+                    break;
+                }
+                
+                AudioManager.Instance.Play(AudioTrackId.Player , moveClip);
             }
             
             // 协程自然结束时清空引用
