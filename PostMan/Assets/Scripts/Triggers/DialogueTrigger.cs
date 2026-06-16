@@ -1,6 +1,7 @@
 using PostMan.Dialogue;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace PostMan.Trigger
@@ -17,7 +18,8 @@ namespace PostMan.Trigger
         {
             if (other.CompareTag("Player")&&canTrigger)
             {
-                DialogueManager.Instance.StartDialogue(dialogue, null);
+                DialogueManager.Instance.StartDialogue
+                    (dialogue, this.GetComponents<IPerformDataProvider>().ToList());
                 if (triggerOnce) 
                 {
                     this.canTrigger = false;

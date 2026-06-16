@@ -19,7 +19,7 @@ namespace PostMan.Dialogue
      */    
 
     /// <summary>
-    /// 对话管理器(单例),提供开启对话、继续对话的接口,并调用对话中的演出事件
+    /// 对话管理器(单例),提供开启对话的接口,并调用对话中的演出事件
     /// </summary>
     public class DialogueManager :MonoSingleton<DialogueManager>
     {
