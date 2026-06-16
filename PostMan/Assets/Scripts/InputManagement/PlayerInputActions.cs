@@ -72,7 +72,7 @@ namespace PostMan.InputManagement
                     ""id"": ""e1697177-4cc9-47dc-bc56-3e580893c9c5"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""NormalizeVector2"",
                     ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": true,

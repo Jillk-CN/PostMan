@@ -4,6 +4,7 @@ using PostMan.Player;
 using PostMan.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace PostMan.Dialogue
@@ -22,6 +23,8 @@ namespace PostMan.Dialogue
     /// </summary>
     public class DialogueManager :MonoSingleton<DialogueManager>
     {
+        #region 对话文本显示相关
+
         private DialoguePanel dialoguePanel;
         /// <summary>
         /// 当前进行的对话的SO
@@ -39,12 +42,19 @@ namespace PostMan.Dialogue
         /// 当前对话的索引
         /// </summary>
         private int dialogueIndex;
+        #endregion
 
+        #region 演出相关
+        /// <summary>
+        /// 当没有中间的演出时,只可能末尾有演出时,会给perfomIndex赋值
+        /// </summary>
+        private const int NO_MIDDLE_PERFORM = -2;
         /// <summary>
         /// 演出数据
         /// </summary>
         private List<IPerformDataProvider> performDatas;
         private DialoguePerformFactory performFactory;
+        #endregion
 
         //输入来源
         private DialogueInputSource dialogueInput;
@@ -81,17 +91,23 @@ namespace PostMan.Dialogue
             {
                 return;
             }
+
             //记录对话数据
             dialogueIndex = -1;
             dialogueCompleted = false;
             this.dialogueSO = dialogues;
             this.dialogueSequence = dialogueSO.GetSequence();
-            this.performDatas = dataProviders;
+
+            //处理演出数据
+            //按照在哪个对话进行演出,以及在同一个对话演出时的优先级来进行排序
+            this.performDatas = dataProviders.
+                OrderBy((data) => data.TargetDialogueIndex).
+                ThenByDescending((data) => data.Priority).ToList();
 
             //禁用输入,注意对话时不允许打开设置面板,会有bug,要修有点麻烦
             GameInputManager.Instance.DisablePlayerAllInput();
-            // 启用对话推进输入
-            GameInputManager.Instance.SetInputSystemSource<DialogueInputSource>(true);
+            GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(false);
+            dialogueInput.Enable();
 
             //UI显示
             dialoguePanel.SetVisible(true);
@@ -124,18 +140,20 @@ namespace PostMan.Dialogue
             
             DialogueSequence.DialogueInfo dialogueInfo =dialogueSequence[dialogueIndex];
             dialoguePanel.ShowDialogue(dialogueInfo);
-            //TriggerPerform(dialogueIndex,dialogueNode.performName);
+            TriggerPerform(dialogueIndex);
         }
         private void EndDialogue()
         {
             dialogueCompleted = true;
             dialoguePanel.SetVisible(false);
             //触发结束时的演出
-            //TriggerPerform(IPerformDataProvider.END_INDEX, currentDialogues.dialogueEndPerformName);
+            TriggerPerform(IPerformDataProvider.END_INDEX);
 
             //恢复输入
             // 对话结束，禁用对话推进输入
-            GameInputManager.Instance.SetInputSystemSource<DialogueInputSource>(false);
+            GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(true);
+            dialogueInput.Disable();
+
             GameInputManager.Instance.EnablePlayerAllInput();
 
             this.dialogueSO = null;
@@ -145,27 +163,30 @@ namespace PostMan.Dialogue
         /// 实现演出效果
         /// </summary>
         /// <param name="dialogueIndex">这个对话在序列里的索引</param>
-        /// <param name="performName">演出效果实现类名称</param>
-        private void TriggerPerform(int dialogueIndex,string performName)
+        private void TriggerPerform(int dialogueIndex)
         {
-            if (this.performDatas==null||string.IsNullOrEmpty(performName))
+            if (this.performDatas==null)
             {
                 return;
             }
 
-            //找到对话演出要用到的数据
-            IPerformDataProvider data = performDatas.Find
-                ((data) => { return data.GetTargetIndex() == dialogueIndex; });
-            if (data==null)
+            //找到对话演出要用到的数据,依次触发
+            int dataIndex = performDatas.FindIndex
+                ((data) => { return data.TargetDialogueIndex == dialogueIndex; });
+            if (dataIndex==-1)
             {
                 return;
             }
-            DialoguePerform perform = performFactory.GetPerform(performName);
-            if (perform!=null)
+            DialoguePerform perform;
+            while ( (dataIndex < performDatas.Count) &&
+                (performDatas[dataIndex].TargetDialogueIndex == dialogueIndex)) 
             {
-                perform.ReceiveData(data);
+                perform = performFactory.GetPerform(performDatas[dataIndex].PerformName);
+                perform.ReceiveData(performDatas[dataIndex]);
                 perform.Perform();
-            }
+                dataIndex++;
+
+            } 
         }
     }
 }

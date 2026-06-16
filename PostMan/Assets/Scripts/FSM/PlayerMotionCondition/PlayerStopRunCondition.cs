@@ -16,8 +16,9 @@ namespace PostMan.StateMachine
         public override bool Evaluate(MonoFSM stateMachine)
         {
             PlayerMotion motion = stateMachine.Owner.GetComponent<PlayerMotion>();
-            return stateMachine.GetCurrentStateID()==FSMState.StateID.PlayerRun &&
-                !motion.GetInputSource().GetRun();
+            return stateMachine.GetCurrentStateID() == FSMState.StateID.PlayerRun &&
+                (!motion.GetInputSource().GetRun() ||
+                motion.GetInputSource().GetMove() == UnityEngine.Vector3.zero);
         }
     }
 }

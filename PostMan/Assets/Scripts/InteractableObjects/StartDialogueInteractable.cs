@@ -1,6 +1,7 @@
 using PostMan.Dialogue;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace PostMan.Player
@@ -18,7 +19,8 @@ namespace PostMan.Player
 
         public void InteractWith(PlayerInteractor player)
         {
-            DialogueManager.Instance.StartDialogue(sequence, null);
+            DialogueManager.Instance.StartDialogue(sequence, 
+                this.GetComponents<IPerformDataProvider>().ToList());
         }
 
     }
