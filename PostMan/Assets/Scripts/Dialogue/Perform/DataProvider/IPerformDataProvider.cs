@@ -12,9 +12,17 @@ namespace PostMan.Dialogue
     {
         public const int END_INDEX = -1;
         /// <summary>
-        /// 返回的数字说明这份数据是用于哪个DialogueNode的演出,如果是-1,说明是结束时用的演出
+        /// 返回的索引标识在那句对话执行,如果是-1,说明是结束时用的演出
         /// </summary>
-        /// <returns></returns>
-        public int GetTargetIndex();
+        public int TargetDialogueIndex { get; }
+        /// <summary>
+        /// 由于要简单地组合出演出效果,因此需要优先级,
+        /// 越大越先执行
+        /// </summary>
+        public int Priority { get; }
+        /// <summary>
+        /// 数据类对应的演出类的名称
+        /// </summary>
+        public string PerformName { get; }
     }
 }

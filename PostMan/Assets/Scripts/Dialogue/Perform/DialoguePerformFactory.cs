@@ -10,7 +10,7 @@ namespace PostMan.Dialogue
     /// </summary>
     public class DialoguePerformFactory
     {
-        //反射消耗性能,简单地缓存一下,假设不会同时使用同一个对象
+        //反射消耗性能,简单地缓存一下,假设不会同时使用同一个对象(暂时先这样定)
         private Dictionary<string, DialoguePerform> cache;
 
         public DialoguePerformFactory()
@@ -35,7 +35,7 @@ namespace PostMan.Dialogue
             }
             //这个字符串与规定的命名规范一致
             object instance = Activator.CreateInstance(Type.GetType
-                ("Fountain.Dialogue." + name));
+                ("PostMan.Dialogue." + name));
             if (instance == null)
             {
                 return null;
