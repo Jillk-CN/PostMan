@@ -119,6 +119,12 @@ namespace PostMan.AudioSystem
                          bool fadeIn = false, float fadeInDuration = 0.5f,
                          float volume = 1f)
         {
+            if(clip == null)
+            {
+                Debug.LogError("音频为空");
+                return;
+            }
+
             if (!TryGetSource(trackId, out AudioSource source)) return;
 
             StopFadeCoroutine(trackId);

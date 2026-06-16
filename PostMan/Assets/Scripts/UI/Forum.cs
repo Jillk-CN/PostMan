@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PostMan.AudioSystem;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,8 @@ public class Forum : MonoBehaviour
     [Header("交互物PC，手动拖拽")]
     [SerializeField]
     private GameObject PC;
+    public AudioClip clickSound;
+    public AudioClip returnSound;
 
     void Start()
     {
@@ -43,6 +46,11 @@ public class Forum : MonoBehaviour
         {
             post.postUI.SetActive(true);
         }
+
+        if(clickSound != null)
+        {
+            AudioManager.Instance.Play(AudioTrackId.FX , clickSound , false , false , 0f , 1f);
+        }
         
         Debug.Log($"打开帖子 {postIndex}");
     }
@@ -51,6 +59,11 @@ public class Forum : MonoBehaviour
     {
         ForumPost post = forumPosts[postIndex];
         
+        if(returnSound != null)
+        {
+            AudioManager.Instance.Play(AudioTrackId.FX , returnSound , false , false , 0f , 1f);
+        }
+
         if (post.postUI != null)
         {
             post.postUI.SetActive(false);

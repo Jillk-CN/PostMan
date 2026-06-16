@@ -12,6 +12,7 @@ public class SubtitleUI : MonoBehaviour
     public TextMeshProUGUI ContentBox;  //获取文本框对象
     //public GameObject BackGround;  //获取UI背景
     private Coroutine currentCoroutine;
+    public bool isTyping = false;
     
 
     [Header("字幕UI设置")]
@@ -79,15 +80,6 @@ public class SubtitleUI : MonoBehaviour
         //BackGround.SetActive(false);
     }
 
-    void Update()
-    {
-        //测试
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            TypeSubtitle("stl_d2_3");
-        }
-    }
-
     //开启UI
     private IEnumerator OpenUI(float FadeInTime)
     {
@@ -147,6 +139,7 @@ public class SubtitleUI : MonoBehaviour
     /// <param name="delayTime"></param>
     public void TypeSubtitle(string subtitleKey , float delayTime = 0f)
     {
+
         if(currentCoroutine != null)
         {
             StopCoroutine(currentCoroutine);
@@ -168,6 +161,8 @@ public class SubtitleUI : MonoBehaviour
     //打字
     private IEnumerator TypeText(SubtitleContent[] subtitles , float delayTime = 0f)
     {
+        isTyping = true;
+
         yield return new WaitForSeconds(delayTime);
 
         //开启UI
@@ -175,7 +170,7 @@ public class SubtitleUI : MonoBehaviour
 
         int ConLength;
 
-        for(int currentIndex = 0 ; currentIndex <= subtitles.Count() ; currentIndex ++)
+        for(int currentIndex = 0 ; currentIndex < subtitles.Count() ; currentIndex ++)
         {
             //重置字幕框UI显示内容
             ContentBox.text = "";
@@ -218,6 +213,8 @@ public class SubtitleUI : MonoBehaviour
             //延迟后进行下一段字幕打印（延迟间隔由字幕信息决定）
             yield return new WaitForSeconds(subtitles[currentIndex].DelayTime);
         }
+
+        isTyping = false;
 
         //延迟退出
         yield return new WaitForSeconds(DelayOutTime);

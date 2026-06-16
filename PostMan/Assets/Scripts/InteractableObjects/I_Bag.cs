@@ -4,6 +4,7 @@ using UnityEngine;
 using PostMan.Player;
 using PostMan.Common;
 using UnityEngine.UIElements;
+using PostMan.AudioSystem;
 
 public class I_Bag : MonoBehaviour, IInteractable
 {
@@ -25,6 +26,8 @@ public class I_Bag : MonoBehaviour, IInteractable
     public int priority;
     public bool CanInteract { get => canInteract; set => canInteract=value; }
     public int Priority { get => priority; set => priority=value; }
+    public AudioClip takeSound;
+    public AudioClip putSound;
 
     void Start()
     {
@@ -49,6 +52,11 @@ public class I_Bag : MonoBehaviour, IInteractable
     {
         Debug.LogFormat("[I_Bag.cs] 与黑袋交互");
 
+        if(takeSound != null)
+        {
+            AudioManager.Instance.Play(AudioTrackId.FX , takeSound , false , false , 0f , 1f);
+        }
+
         Player = player.gameObject.transform;
 
         gameObject.transform.parent = player.gameObject.transform;
@@ -60,6 +68,11 @@ public class I_Bag : MonoBehaviour, IInteractable
 
     private void QuitBag()
     {
+        if(putSound != null)
+        {
+            AudioManager.Instance.Play(AudioTrackId.FX , putSound , false , false , 0f , 1f);
+        }
+
         inHand = false;
     
         gameObject.transform.parent = null;

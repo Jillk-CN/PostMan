@@ -4,6 +4,7 @@ using UnityEngine;
 using PostMan.Player;
 using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEditor.PackageManager;
+using PostMan.AudioSystem;
 
 public class I_Door : MonoBehaviour, IInteractable
 {
@@ -17,7 +18,6 @@ public class I_Door : MonoBehaviour, IInteractable
     [SerializeField] private AudioClip openSound;
     [SerializeField] private AudioClip closeSound;
     [SerializeField] private AudioClip stuckSound;
-    private AudioSource audioSource;
     
     [Header("门初始设置")]
     [Tooltip("门绕门轴逆时针打开")]
@@ -36,11 +36,6 @@ public class I_Door : MonoBehaviour, IInteractable
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        if(audioSource == null)
-        {
-            Debug.LogError(gameObject.name + "获取音效组件失败");
-        }
 
         doorAnimator.SetBool("Opened_Side_1" , openedSide1);
         doorAnimator.SetBool("Opened_Side_2" , openedSide2);
@@ -123,7 +118,7 @@ public class I_Door : MonoBehaviour, IInteractable
         handleAnimator.SetTrigger("Open");
         if(openSound != null)
         {
-            audioSource.PlayOneShot(openSound);
+            AudioManager.Instance.Play(AudioTrackId.FX , openSound , false , false , 0f , 1f);
         }
 
         yield return new WaitForSeconds(0.3f);
@@ -141,7 +136,7 @@ public class I_Door : MonoBehaviour, IInteractable
         doorAnimator.SetTrigger("Close_Side_1");
         if(closeSound != null)
         {
-            audioSource.PlayOneShot(closeSound);
+            AudioManager.Instance.Play(AudioTrackId.FX , closeSound , false , false , 0f , 1f);
         }
 
         yield return new WaitForSeconds(0.4f);
@@ -159,7 +154,7 @@ public class I_Door : MonoBehaviour, IInteractable
         handleAnimator.SetTrigger("Stuck");
         if(stuckSound)
         {
-            audioSource.PlayOneShot(stuckSound);
+            AudioManager.Instance.Play(AudioTrackId.FX , stuckSound , false , false , 0f , 1f);
         }
 
         yield return new WaitForSeconds(0.3f);
@@ -178,7 +173,7 @@ public class I_Door : MonoBehaviour, IInteractable
         handleAnimator.SetTrigger("Open");
         if(openSound != null)
         {
-            audioSource.PlayOneShot(openSound);
+            AudioManager.Instance.Play(AudioTrackId.FX , openSound , false , false , 0f , 1f);
         }
 
         yield return new WaitForSeconds(0.3f);
@@ -196,7 +191,7 @@ public class I_Door : MonoBehaviour, IInteractable
         doorAnimator.SetTrigger("Close_Side_2");
         if(closeSound != null)
         {
-            audioSource.PlayOneShot(closeSound);
+            AudioManager.Instance.Play(AudioTrackId.FX , closeSound , false , false , 0f , 1f);
         }
 
         yield return new WaitForSeconds(0.3f);
@@ -214,7 +209,7 @@ public class I_Door : MonoBehaviour, IInteractable
         handleAnimator.SetTrigger("Stuck");
         if(stuckSound)
         {
-            audioSource.PlayOneShot(stuckSound);
+            AudioManager.Instance.Play(AudioTrackId.FX , stuckSound , false , false , 0f , 1f);
         }
 
         yield return new WaitForSeconds(0.3f);

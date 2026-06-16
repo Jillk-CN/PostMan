@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using PostMan.Player;
 using PostMan.Common;
+using PostMan.AudioSystem;
 
 public class I_Cabinet : MonoBehaviour, IInteractable
 {
@@ -14,7 +15,14 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     [SerializeField] private AudioClip openSound;
     [SerializeField] private AudioClip closeSound;
     [SerializeField] private AudioClip stuckSound;
-    private AudioSource audioSource;
+    [SerializeField] private AudioClip openHeavySound;
+    [SerializeField] private AudioClip closeHeavySound;
+    [SerializeField] private AudioClip knockLightSound;
+    [SerializeField] private AudioClip knockHeavySound;
+    [SerializeField] private AudioClip insideScrapeSound;
+    [SerializeField] private AudioClip metalVibrateSound;
+    [SerializeField] private AudioClip cabinetDropSound;
+    
     
     [Header("门初始设置")]
     [Tooltip("门是否卡住")]
@@ -29,16 +37,6 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     // 门的状态
     private bool isOpen = false;
 
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-        if (audioSource == null)
-        {
-            Debug.LogError(gameObject.name + "获取音效组件失败");
-        }
-
-    }
-
     void Update()
     {
         doorAnimator.SetBool("Stucked", stucked);
@@ -51,14 +49,28 @@ public class I_Cabinet : MonoBehaviour, IInteractable
         // 根据门的状态和是否卡住执行对应操作
         if (doorAnimator.GetBool("Stucked"))
         {
+            if (stuckSound != null)
+            {
+                AudioManager.Instance.Play(AudioTrackId.FX , stuckSound , false , false , 0f , 1f);
+            }
+            
             StartCoroutine(Stuck());
         }
         else if (!isOpen)
         {
+            if (openSound != null)
+            {
+                AudioManager.Instance.Play(AudioTrackId.FX , openSound , false , false , 0f , 1f);
+            }
+
             StartCoroutine(OpenDoor());
         }
         else
         {
+            if (closeSound != null)
+            {
+                AudioManager.Instance.Play(AudioTrackId.FX , closeSound , false , false , 0f , 1f);
+            }
             StartCoroutine(CloseDoor());
         }
     }
@@ -70,10 +82,7 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     {
         doorAnimator.SetTrigger("Open_Side_2");
         
-        if (openSound != null)
-        {
-            audioSource.PlayOneShot(openSound);
-        }
+        
 
         yield return new WaitForSeconds(0.3f);
         
@@ -93,10 +102,7 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     {
         doorAnimator.SetTrigger("Close_Side_2");
         
-        if (closeSound != null)
-        {
-            audioSource.PlayOneShot(closeSound);
-        }
+        
 
         yield return new WaitForSeconds(0.4f);
         
@@ -116,10 +122,7 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     {
         doorAnimator.SetTrigger("Stuck_Side_1");
         
-        if (stuckSound != null)
-        {
-            audioSource.PlayOneShot(stuckSound);
-        }
+        
 
         yield return new WaitForSeconds(0.3f);
 
@@ -139,5 +142,43 @@ public class I_Cabinet : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(1f);
         
         canInteract = true;
+    }
+
+    public void OpenHeavy()
+    {
+        AudioManager.Instance.Play(AudioTrackId.FX , openHeavySound);
+        StartCoroutine(OpenDoor());
+    }
+
+    public void CloseHeavy()
+    {
+        AudioManager.Instance.Play(AudioTrackId.FX , closeHeavySound);
+        StartCoroutine(CloseDoor());
+    }
+
+    public void KnockLight()
+    {
+        AudioManager.Instance.Play(AudioTrackId.FX , knockLightSound);
+    }
+
+    public void KnockHeavy()
+    {
+        AudioManager.Instance.Play(AudioTrackId.FX , knockHeavySound);
+    }
+
+    public void InsideScrape()
+    {
+        AudioManager.Instance.Play(AudioTrackId.FX , insideScrapeSound);
+    }
+
+    public void MetalVibrate()
+    {
+        AudioManager.Instance.Play(AudioTrackId.FX , metalVibrateSound);
+        StartCoroutine(Stuck());
+    }
+
+    public void CabinetDrop()
+    {
+        AudioManager.Instance.Play(AudioTrackId.FX , cabinetDropSound);
     }
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2746291183405845254}
   - component: {fileID: 3598483547694282291}
   - component: {fileID: 5775774318388340582}
+  - component: {fileID: 2842273387251952459}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -151,6 +152,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactDistance: 5
+--- !u!114 &2842273387251952459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2887424777433423837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1cf40d4a1bf1414cae87e91cf432da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheckDistance: 0.2
+  groundCheckRadius: 0.3
+  footStepTileWalk: {fileID: 8300000, guid: a3cf5802cf8424d4195d74671b37e4a6, type: 3}
+  footStepTileRun: {fileID: 0}
+  footStepWoodWalk: {fileID: 8300000, guid: 2a55c1aaeab88a64d8d43b44f5c0088a, type: 3}
+  footStepWoodRun: {fileID: 0}
+  footStepWetRoadWalk: {fileID: 8300000, guid: 9dd6d5a514eb76e4eaa7e5bc6fe07bc7, type: 3}
+  footStepWetRoadRun: {fileID: 0}
+  currentMaterial: 0
 --- !u!1 &3584005510048825822
 GameObject:
   m_ObjectHideFlags: 0

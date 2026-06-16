@@ -6,6 +6,7 @@ using PostMan.Common;
 using UnityEngine.UI;
 using Cinemachine;
 using PostMan.UI;
+using PostMan.AudioSystem;
 
 
 /// <summary>
@@ -21,7 +22,6 @@ public class I_Bed : MonoBehaviour, IInteractable
     [SerializeField] private AudioClip SleepSound;
     [Tooltip("起床音效")]
     [SerializeField] private AudioClip WakeUpSound;
-    private AudioSource audioSource;
 
     [Header("休息任务索引(填Current Index)及下一任务SO(填Next Task)列表")]
     [SerializeField] private List<TaskTransition> taskTransitionList;
@@ -62,13 +62,6 @@ public class I_Bed : MonoBehaviour, IInteractable
         if(animator == null)
         {
             Debug.LogError("[I_Bed.cs] 获取动画组件失败");
-        }
-
-        //获取音效组件
-        audioSource = GetComponent<AudioSource>();
-        if(audioSource == null)
-        {
-            Debug.LogError("[I_Bed.cs] 获取音效组件失败");
         }
     }
 
@@ -153,7 +146,7 @@ public class I_Bed : MonoBehaviour, IInteractable
         //播放躺下音效
         if(SleepSound != null)
         {
-            audioSource.PlayOneShot(SleepSound);
+            AudioManager.Instance.Play(AudioTrackId.FX , SleepSound , false , false , 0f , 1f);
         }
 
         yield return new WaitForSeconds(3.5f);
@@ -179,7 +172,7 @@ public class I_Bed : MonoBehaviour, IInteractable
         //播放起床音效
         if(WakeUpSound != null)
         {
-            audioSource.PlayOneShot(WakeUpSound);
+            AudioManager.Instance.Play(AudioTrackId.FX , WakeUpSound , false , false , 0f , 1f);
         }
 
         yield return new WaitForSeconds(3.5f);

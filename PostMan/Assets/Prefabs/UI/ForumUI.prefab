@@ -2419,6 +2419,8 @@ MonoBehaviour:
     CloseButton: {fileID: 2447354112339115756}
     readed: 0
   PC: {fileID: 0}
+  clickSound: {fileID: 8300000, guid: 712ec0282d4f23140ae1ced144b9bd56, type: 3}
+  returnSound: {fileID: 8300000, guid: 712ec0282d4f23140ae1ced144b9bd56, type: 3}
 --- !u!1 &9183029925467690901
 GameObject:
   m_ObjectHideFlags: 0

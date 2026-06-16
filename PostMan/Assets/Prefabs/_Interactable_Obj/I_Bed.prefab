@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd4d1e1b921149449015b06d60a423c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SleepSound: {fileID: 0}
-  WakeUpSound: {fileID: 0}
+  SleepSound: {fileID: 8300000, guid: cff91dfaae884ec4ea38b411e12547da, type: 3}
+  WakeUpSound: {fileID: 8300000, guid: 9844929238c68e74a89515e4ab203059, type: 3}
   taskTransitionList:
   - currentIndex: 0
     nextTask: {fileID: 11400000, guid: a4d51bd86af125c479d4192d6a9cfe8e, type: 2}

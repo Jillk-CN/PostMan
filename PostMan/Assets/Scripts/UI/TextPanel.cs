@@ -1,3 +1,4 @@
+using PostMan.AudioSystem;
 using PostMan.Common;
 using PostMan.InputManagement;
 using PostMan.Player;
@@ -21,6 +22,7 @@ namespace Fountain.UI
         private TextMeshProUGUI noteContent;
         //输入来源
         private UIReturnInputSource input;
+        public AudioClip clickSound;
         protected override void Init()
         {
             base.Init();
@@ -68,11 +70,18 @@ namespace Fountain.UI
         /// </summary>
         private void Hide()
         {
+               if(clickSound != null)
+            {
+                AudioManager.Instance.Play(AudioTrackId.FX , clickSound);
+            }
+
             this.gameObject.SetActive(false);
             GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(true);
             GameInputManager.Instance.SetInputSystemSource<UIReturnInputSource>(false);
             GameInputManager.Instance.EnablePlayerAllInput();
             GameInputManager.Instance.HideCursor();
+            
+            
         }
     }
 }

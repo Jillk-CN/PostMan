@@ -9,7 +9,7 @@ public class I_Chair : MonoBehaviour, IInteractable
 {
     [Header("音效")]
     [Tooltip("坐下音效")]
-    [SerializeField] private AudioClip SleepSound;
+    [SerializeField] private AudioClip sitDownSound;
     private AudioSource audioSource;
 
     private Transform SitCamera; //用于坐下动作挂载的虚拟相机

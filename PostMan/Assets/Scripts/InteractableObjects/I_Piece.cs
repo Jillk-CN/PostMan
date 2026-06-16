@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PostMan.Player;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
+using PostMan.AudioSystem;
 
 public class I_Piece : MonoBehaviour, IInteractable
 {
+    public AudioClip takeSound;
     [Header("任务提示字幕索引（只有一条字幕两个就填一样）")]
     [SerializeField] private string subtitleKey;
 
@@ -25,7 +26,10 @@ public class I_Piece : MonoBehaviour, IInteractable
     {
         Debug.LogFormat("[I_Piece.cs] 与纸条 / 回执交互");
 
-        //阅读系统接口
+        if(takeSound != null)
+        {
+            AudioManager.Instance.Play(AudioTrackId.FX , takeSound);
+        }
 
         SubtitleUI.Instance.TypeSubtitle(subtitleKey);
 

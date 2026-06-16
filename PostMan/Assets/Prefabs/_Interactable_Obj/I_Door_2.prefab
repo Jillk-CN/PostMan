@@ -75,9 +75,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handleAnimator: {fileID: 8779400738063988196}
   doorAnimator: {fileID: 8000731400385847391}
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
-  stuckSound: {fileID: 0}
+  openSound: {fileID: 8300000, guid: ed26f006248742546b5b28727aa2979b, type: 3}
+  closeSound: {fileID: 8300000, guid: be788153111e37c4f9b354f41cefdaea, type: 3}
+  stuckSound: {fileID: 8300000, guid: e90e989c578ae5c4d96e1b27cc6b0f4d, type: 3}
   openedSide1: 0
   openedSide2: 0
   stucked: 0

@@ -5,12 +5,16 @@ using PostMan.Player;
 using PostMan.Common;
 using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine.XR;
+using PostMan.AudioSystem;
 
 public class I_Telephone : MonoBehaviour, IInteractable
 {
     [Header("音效")]
     [SerializeField]private AudioClip phoneSound;
-    private AudioSource audioSource;
+    [SerializeField]private AudioClip abnormalPhoneSound;
+    [SerializeField]private AudioClip pickUp;
+    [SerializeField]private AudioClip handUp;
+
 
     [Header("话筒对象")]
     [SerializeField] private GameObject handle;
@@ -35,12 +39,6 @@ public class I_Telephone : MonoBehaviour, IInteractable
 
     void Start()
     {
-        //获取音效组件
-        audioSource = GetComponent<AudioSource>();
-        if(audioSource == null)
-        {
-            Debug.LogError("[I_Telephone.cs] 获取音效组件失败");
-        }
 
         //获取显示交互提示组件
         showInteractPrompt = gameObject.GetComponent<ShowInteractPrompt>();
@@ -60,11 +58,19 @@ public class I_Telephone : MonoBehaviour, IInteractable
         playerMotion = player.gameObject.GetComponent<PlayerMotion>();
         sightTrans = player.gameObject.transform.FindChildByName("sightPoint").transform;
 
+
+
         StartCoroutine(Call());
     }
 
     private IEnumerator Call()
     {
+        AudioManager.Instance.Stop(AudioTrackId.FX, fadeOut: true, fadeOutDuration: 0f);
+
+        AudioManager.Instance.Play(AudioTrackId.FX , pickUp);
+
+        //AudioManager.Instance.Play(AudioTrackId.FX , phoneStatic , true);
+
         playerMotion.enabled = false;
 
         showInteractPrompt.CanSelect = false;
@@ -75,14 +81,13 @@ public class I_Telephone : MonoBehaviour, IInteractable
 
         handle.transform.localRotation = Quaternion.Euler(-233.1f , -1.809f , -69.83f);
 
-        if(phoneSound != null)
-        {
-            audioSource.PlayOneShot(phoneSound);
-        }
+        yield return StartCoroutine(OrderPlaySubtitle());
 
-        OrderPlaySubtitle();
+        //AudioManager.Instance.Stop(AudioTrackId.FX, fadeOut: true, fadeOutDuration: 0f);
 
         yield return new WaitForSeconds(delayTime);
+
+        AudioManager.Instance.Play(AudioTrackId.FX , handUp);
 
         handle.transform.parent = gameObject.transform;
 
@@ -95,12 +100,32 @@ public class I_Telephone : MonoBehaviour, IInteractable
         showInteractPrompt.CanSelect = true;
     }
 
-    private void OrderPlaySubtitle()
+    private IEnumerator OrderPlaySubtitle()
     {
+
         //等待天数条件判断播放哪段字幕，先默认索引为0
-        if(true)
+        if(subtitleKeyList != null && subtitleKeyList.Count > 0)
         {
             SubtitleUI.Instance.TypeSubtitle(subtitleKeyList[0]);
         }
+        else
+        {
+            Debug.LogWarning("[I_Telephone] subtitleKeyList 为空，无法播放字幕");
+        }
+
+        while(SubtitleUI.Instance.isTyping)
+        {
+            yield return null;
+        }
+    }
+
+    public void PhoneRing()
+    {
+        AudioManager.Instance.Play(AudioTrackId.FX , phoneSound , true , false , 0f , 1f);
+    }
+
+    public void AbnormalPhoneRing()
+    {
+        AudioManager.Instance.Play(AudioTrackId.FX , abnormalPhoneSound , true , false , 0f , 1f);
     }
 }
