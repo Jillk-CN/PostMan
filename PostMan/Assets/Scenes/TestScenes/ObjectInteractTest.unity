@@ -2981,21 +2981,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4077684432852575304, guid: 93667435745b18146a31b21257e2f354,
-        type: 3}
-      propertyPath: openSound
-      value: 
-      objectReference: {fileID: 8300000, guid: ed26f006248742546b5b28727aa2979b, type: 3}
-    - target: {fileID: 4077684432852575304, guid: 93667435745b18146a31b21257e2f354,
-        type: 3}
-      propertyPath: closeSound
-      value: 
-      objectReference: {fileID: 8300000, guid: be788153111e37c4f9b354f41cefdaea, type: 3}
-    - target: {fileID: 4077684432852575304, guid: 93667435745b18146a31b21257e2f354,
-        type: 3}
-      propertyPath: stuckSound
-      value: 
-      objectReference: {fileID: 8300000, guid: e90e989c578ae5c4d96e1b27cc6b0f4d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3195,21 +3180,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9080409239660006435, guid: 108e4cfa8fc31f846b76a0a4c97d4ee6,
-        type: 3}
-      propertyPath: openSound
-      value: 
-      objectReference: {fileID: 8300000, guid: ed26f006248742546b5b28727aa2979b, type: 3}
-    - target: {fileID: 9080409239660006435, guid: 108e4cfa8fc31f846b76a0a4c97d4ee6,
-        type: 3}
-      propertyPath: closeSound
-      value: 
-      objectReference: {fileID: 8300000, guid: be788153111e37c4f9b354f41cefdaea, type: 3}
-    - target: {fileID: 9080409239660006435, guid: 108e4cfa8fc31f846b76a0a4c97d4ee6,
-        type: 3}
-      propertyPath: stuckSound
-      value: 
-      objectReference: {fileID: 8300000, guid: e90e989c578ae5c4d96e1b27cc6b0f4d, type: 3}
     - target: {fileID: 9218477935809507938, guid: 108e4cfa8fc31f846b76a0a4c97d4ee6,
         type: 3}
       propertyPath: m_Name
@@ -3364,16 +3334,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2797672533397914623, guid: 3b1dcc304f4afad49bc7f10d45e0f4de,
-        type: 3}
-      propertyPath: SleepSound
-      value: 
-      objectReference: {fileID: 8300000, guid: cff91dfaae884ec4ea38b411e12547da, type: 3}
-    - target: {fileID: 2797672533397914623, guid: 3b1dcc304f4afad49bc7f10d45e0f4de,
-        type: 3}
-      propertyPath: WakeUpSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 9844929238c68e74a89515e4ab203059, type: 3}
     - target: {fileID: 3788175585918784808, guid: 3b1dcc304f4afad49bc7f10d45e0f4de,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3578,21 +3538,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 503276473551076964, guid: b02ac8f46f2d772459f09cce5879e4da,
-        type: 3}
-      propertyPath: openSound
-      value: 
-      objectReference: {fileID: 8300000, guid: ed26f006248742546b5b28727aa2979b, type: 3}
-    - target: {fileID: 503276473551076964, guid: b02ac8f46f2d772459f09cce5879e4da,
-        type: 3}
-      propertyPath: closeSound
-      value: 
-      objectReference: {fileID: 8300000, guid: be788153111e37c4f9b354f41cefdaea, type: 3}
-    - target: {fileID: 503276473551076964, guid: b02ac8f46f2d772459f09cce5879e4da,
-        type: 3}
-      propertyPath: stuckSound
-      value: 
-      objectReference: {fileID: 8300000, guid: e90e989c578ae5c4d96e1b27cc6b0f4d, type: 3}
     - target: {fileID: 691494626491136880, guid: b02ac8f46f2d772459f09cce5879e4da,
         type: 3}
       propertyPath: m_LocalPosition.x
