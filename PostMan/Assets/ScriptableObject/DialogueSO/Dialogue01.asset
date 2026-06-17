@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue01
   m_EditorClassIdentifier: 
   dialogueKeys:
-  - dlg_d1_director_1
+  - dlg_d1_postmaster_1
   - dlg_d1_player_1
-  - dlg_d1_director_2
+  - dlg_d1_postmaster_2
   - dlg_d1_player_2
   id: 1
   dialogueEndPerformName: 

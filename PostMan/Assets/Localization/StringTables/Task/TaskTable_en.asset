@@ -19,131 +19,134 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 801001955328
-    m_Localized: null
+    m_Localized: Rest#Interact with the bed.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979777441792
-    m_Localized: null
+    m_Localized: First Delivery#Retrieve the items from the sorting cabinet and deliver
+      them to the designated addresses.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607616
-    m_Localized: null
+    m_Localized: First Collection#Collect the items from the designated addresses.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607617
-    m_Localized: null
+    m_Localized: Pack the Mailbag#Retrieve the outgoing mail from the sorting cabinet.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607618
-    m_Localized: null
+    m_Localized: Day Two Delivery#Head to the neighborhood and make the deliveries.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607619
-    m_Localized: null
+    m_Localized: Pick Up Letter 410#Interact with the dropped letter.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607620
-    m_Localized: null
+    m_Localized: Deliver Letter 410#Put the letter into 410's mailbox.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607621
-    m_Localized: null
+    m_Localized: Day Two Collection#Collect the regular items and the package from
+      410.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607622
-    m_Localized: null
+    m_Localized: Sort the Mail#Place the package from 410 in the back-room locker.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607623
-    m_Localized: null
+    m_Localized: Rest#Return to your room.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607624
-    m_Localized: null
+    m_Localized: Answer the Phone#Interact with the phone.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607625
-    m_Localized: null
+    m_Localized: Rest#Return to your room.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607626
-    m_Localized: null
+    m_Localized: Day Three Delivery#Check the front desk for instructions.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607627
-    m_Localized: null
+    m_Localized: Investigate 410#Use the computer or phone to browse the forum.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607628
-    m_Localized: null
+    m_Localized: Rest#Get some sleep.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607629
-    m_Localized: null
+    m_Localized: Day Three Collection#Go out and collect the mail.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607630
-    m_Localized: null
+    m_Localized: Sort the Mail#Sort and store the collected items.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607631
-    m_Localized: null
+    m_Localized: Rest#Return to your room.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607632
-    m_Localized: null
+    m_Localized: Day Four Delivery#Head to the neighborhood and make the deliveries.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607633
-    m_Localized: null
+    m_Localized: Investigate 410#Crouch down and look inside.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607634
-    m_Localized: null
+    m_Localized: Return to the Post Office#Get some rest.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607635
-    m_Localized: null
+    m_Localized: Day Four Collection#Go out and collect today's items.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607636
-    m_Localized: null
+    m_Localized: Sort the Mail#Sort today's collected mail.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607637
-    m_Localized: null
+    m_Localized: Rest#Get some sleep.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607638
-    m_Localized: null
+    m_Localized: Day Five Delivery#Head to the neighborhood and make the deliveries.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607639
-    m_Localized: null
+    m_Localized: Day Five Collection#Go out and collect the mail.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607640
-    m_Localized: null
+    m_Localized: Return to the Post Office#Return to the post office.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607641
-    m_Localized: null
+    m_Localized: Sort the Mail#Sort the mail collected on Day 5.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607642
-    m_Localized: null
+    m_Localized: Find the Postmaster#Return to the front desk.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607643
-    m_Localized: null
+    m_Localized: Retrieve the Package#Go to the back room and retrieve the final
+      delivery item.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607644
-    m_Localized: null
+    m_Localized: Ask the Postmaster#Speak with the postmaster.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607645
-    m_Localized: null
+    m_Localized: Final Delivery#Go to 410 and complete the final delivery.
     m_Metadata:
       m_Items: []
   references:
