@@ -10,7 +10,6 @@ public class I_Chair : MonoBehaviour, IInteractable
     [Header("音效")]
     [Tooltip("坐下音效")]
     [SerializeField] private AudioClip sitDownSound;
-    private AudioSource audioSource;
 
     private Transform SitCamera; //用于坐下动作挂载的虚拟相机
     private Transform PlayerCamera; //角色正常移动时的虚拟相机
@@ -46,13 +45,6 @@ public class I_Chair : MonoBehaviour, IInteractable
         if(animator == null)
         {
             Debug.LogError("[I_Chair.cs] 获取动画组件失败");
-        }
-
-        //获取音效组件
-        audioSource = GetComponent<AudioSource>();
-        if(audioSource == null)
-        {
-            Debug.LogError("[I_Chair.cs] 获取音效组件失败");
         }
     }
 

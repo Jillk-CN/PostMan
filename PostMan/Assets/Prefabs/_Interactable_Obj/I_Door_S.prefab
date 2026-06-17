@@ -490,7 +490,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2014487608d1784b8b4da20b3a3b73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FrightSound: {fileID: 0}
+  _PlaceBox: 0
+  _Knock: 0
+  _CheckDoor: 1
+  placeGroundSound: {fileID: 8300000, guid: 4c18f7685b5d4504fa9ba4bc7529915f, type: 3}
+  dragSlowSound: {fileID: 8300000, guid: 497440e866e798e40a280b3824a411e3, type: 3}
+  doorCreakSound: {fileID: 8300000, guid: 689e3895bed8e2c41900aa1732988728, type: 3}
+  door410KnockSound: {fileID: 8300000, guid: 7786002579e63984f80985d9aa172440, type: 3}
+  door410KnockBackSound: {fileID: 8300000, guid: 0048f491f4ebe444bb527c2958c09927,
+    type: 3}
   canInteract: 1
   priority: 0
 --- !u!1001 &4192301925328678171

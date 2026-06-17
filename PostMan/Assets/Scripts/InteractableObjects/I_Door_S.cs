@@ -5,13 +5,24 @@ using PostMan.Player;
 using PostMan.Common;
 using Cinemachine;
 using UnityEngine.Rendering.Universal;
+using PostMan.AudioSystem;
 
 public class I_Door_S : MonoBehaviour, IInteractable
 {
+    [Header("当前410门需要执行的动作\n（执行后自动复位，一次交互只能执行一个行为，单选）")]
+    [Tooltip("放下包裹，黑手拖包裹")]
+    public bool _PlaceBox = false;
+    [Tooltip("轻敲门，门后回应")]
+    public bool _Knock = false;
+    [Tooltip("蹲下查看宠物门")]
+    public bool _CheckDoor = true;
+
     [Header("音效")]
-    [Tooltip("突脸音效")]
-    [SerializeField] private AudioClip FrightSound;
-    private AudioSource audioSource;
+    [SerializeField] private AudioClip placeGroundSound;
+    [SerializeField] private AudioClip dragSlowSound;
+    [SerializeField] private AudioClip doorCreakSound;
+    [SerializeField] private AudioClip door410KnockSound;
+    [SerializeField] private AudioClip door410KnockBackSound;
 
     private Transform SquatCamera; //用于蹲下动作挂载的虚拟相机
     private Transform PlayerCamera; //角色正常移动时的虚拟相机
@@ -50,41 +61,59 @@ public class I_Door_S : MonoBehaviour, IInteractable
         {
             Debug.LogError("[I_Door_S.cs] 获取动画组件失败");
         }
-
-        //获取音效组件
-        audioSource = GetComponent<AudioSource>();
-        if(audioSource == null)
-        {
-            Debug.LogError("[I_Door_S.cs] 获取音效组件失败");
-        }
     }
 
     public void InteractWith(PlayerInteractor player)
     {
         Debug.LogFormat("[I_Door_S.cs] 与宠物门交互");
 
-        showInteractPrompt.CanSelect = false;
-
-        //获取玩家正常移动视角的虚拟相机
-        PlayerCamera = player.gameObject.transform.FindChildByName("FPVcam");
-
-        //获取角色移动组件
-        playerMotion = player.gameObject.GetComponent<PlayerMotion>();
-
-        //暂时禁用角色移动组件
-        playerMotion.enabled = false;
-
-        //激活蹲下视角的虚拟相机
-        SquatCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = true;
-
-        //失活玩家正常移动视角的虚拟相机，让视角自动过渡到蹲下视角
-        PlayerCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = false;
-
-        if(currentCoroutine != null)
+        if(_PlaceBox && !_CheckDoor && !_Knock)
         {
-            StopCoroutine(currentCoroutine);
+            StartCoroutine(PlaceBox());
+
+            _PlaceBox = false;
+
+            return;
         }
-        currentCoroutine = StartCoroutine(SquatDown());
+
+        if(_Knock && !_CheckDoor && !_PlaceBox)
+        {
+            StartCoroutine(KnockDoor());
+
+            _Knock = false;
+
+            return;
+        }
+
+        if(_CheckDoor && !_Knock && !_PlaceBox)
+        {
+            showInteractPrompt.CanSelect = false;
+
+            //获取玩家正常移动视角的虚拟相机
+            PlayerCamera = player.gameObject.transform.FindChildByName("FPVcam");
+
+            //获取角色移动组件
+            playerMotion = player.gameObject.GetComponent<PlayerMotion>();
+
+            //暂时禁用角色移动组件
+            playerMotion.enabled = false;
+
+            //激活蹲下视角的虚拟相机
+            SquatCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = true;
+
+            //失活玩家正常移动视角的虚拟相机，让视角自动过渡到蹲下视角
+            PlayerCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = false;
+
+            if(currentCoroutine != null)
+            {
+                StopCoroutine(currentCoroutine);
+            }
+            currentCoroutine = StartCoroutine(SquatDown());
+
+            _CheckDoor = true;
+
+            return;
+        }
     }
 
     private IEnumerator SquatDown()
@@ -98,13 +127,9 @@ public class I_Door_S : MonoBehaviour, IInteractable
         cameraAnimator.ResetTrigger("Down");
         doorAnimator.SetTrigger("Open");
 
-        //Day4黑手惊吓（未完成）
+        AudioManager.Instance.Play(AudioTrackId.FX , doorCreakSound);
 
-        //突脸音效
-        if(FrightSound != null)
-        {
-            audioSource.PlayOneShot(FrightSound);
-        }
+        //Day4黑手惊吓（未完成）
 
         yield return new WaitForSeconds(3f);
 
@@ -132,5 +157,32 @@ public class I_Door_S : MonoBehaviour, IInteractable
         //启用角色移动组件
         playerMotion.enabled = true;
 
+    }
+
+    /// <summary>
+    /// 在410门前放置箱子
+    /// </summary>
+    private IEnumerator PlaceBox()
+    {
+        //在门前放置箱子
+
+        AudioManager.Instance.Play(AudioTrackId.FX , placeGroundSound);
+
+        yield return new WaitForSeconds(3f);
+
+        //黑手拖包裹动作
+
+        AudioManager.Instance.Play(AudioTrackId.FX , dragSlowSound);
+    }
+
+    private IEnumerator KnockDoor()
+    {
+        //敲门
+
+        AudioManager.Instance.Play(AudioTrackId.FX , door410KnockSound);
+
+        yield return new WaitForSeconds(2f);
+
+        AudioManager.Instance.Play(AudioTrackId.FX , door410KnockBackSound);
     }
 }

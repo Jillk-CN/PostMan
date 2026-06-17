@@ -247,8 +247,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe71da7cd05bcb4ab8b8e7db348125e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  openSound: {fileID: 0}
-  closeSound: {fileID: 0}
+  is410MailBox: 0
+  openSound: {fileID: 8300000, guid: 6387ecf72b289dc43966f651b0d9c5a9, type: 3}
+  closeSound: {fileID: 8300000, guid: 506f51dfc5a01b24db249cbbe15233f9, type: 3}
+  takeLetterSound: {fileID: 8300000, guid: 25ea68b00b81fb04b974327f329ef77b, type: 3}
+  insertLetterSound: {fileID: 8300000, guid: 5a6e101e07a14f44a9e379ad98851358, type: 3}
+  mailbox410OpenSound: {fileID: 8300000, guid: 50fc33ca63a1b2a4ba66d1f50ef254c1, type: 3}
+  mailbox410PopSound: {fileID: 8300000, guid: 6ec27d71857bd4d409a9433c9cf0c1e4, type: 3}
+  mailbox410HitInsideSound: {fileID: 8300000, guid: cc8ff9b588a159241972bf1dfbaed1fd,
+    type: 3}
   taskTransitionList: []
   canInteract: 1
   priority: 0

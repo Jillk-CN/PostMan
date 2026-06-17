@@ -4,13 +4,20 @@ using UnityEngine;
 using PostMan.Player;
 using UnityEngine.XR;
 using PostMan.Common;
+using PostMan.AudioSystem;
 
 public class I_MailBox : MonoBehaviour, IInteractable
 {
+    [Header("是否为410信箱")]
+    [SerializeField] private bool is410MailBox = false;
     [Header("音效")]
-    private AudioSource audioSource;
     [SerializeField] private AudioClip openSound;
     [SerializeField] private AudioClip closeSound;
+    [SerializeField] private AudioClip takeLetterSound;
+    [SerializeField] private AudioClip insertLetterSound;
+    [SerializeField] private AudioClip mailbox410OpenSound;
+    [SerializeField] private AudioClip mailbox410PopSound;
+    [SerializeField] private AudioClip mailbox410HitInsideSound;
 
     [Header("每日普通任务索引列表")]
     [Tooltip("填入每日普通任务的任务索引 以及 下一任务的SO文件")]
@@ -35,13 +42,6 @@ public class I_MailBox : MonoBehaviour, IInteractable
         {
             Debug.LogError("[I_MailBox.cs] 获取显示交互提示组件失败");
         }
-
-        //获取音效组件
-        audioSource = GetComponent<AudioSource>();
-        if(audioSource == null)
-        {
-            Debug.LogError("[I_MailBox.cs] 获取音效组件失败");
-        }
         
         handleAnimator = gameObject.transform.FindChildByName("I_MB_H").GetComponent<Animator>();
         doorAnimator = gameObject.transform.FindChildByName("I_MB_D").GetComponent<Animator>();
@@ -64,9 +64,13 @@ public class I_MailBox : MonoBehaviour, IInteractable
 
         doorAnimator.SetTrigger("Open");
 
-        if(openSound != null)
+        if(openSound != null && !is410MailBox)
         {
-            audioSource.PlayOneShot(openSound);
+            AudioManager.Instance.Play(AudioTrackId.FX , openSound);
+        }
+        else if(openSound != null && is410MailBox)
+        {
+            AudioManager.Instance.Play(AudioTrackId.FX , mailbox410OpenSound);
         }
 
         yield return new WaitForSeconds(1f);
@@ -81,7 +85,7 @@ public class I_MailBox : MonoBehaviour, IInteractable
 
         if(closeSound != null)
         {
-            audioSource.PlayOneShot(closeSound);
+            AudioManager.Instance.Play(AudioTrackId.FX , closeSound);
         }
 
         yield return new WaitForSeconds(0.3f);
@@ -95,12 +99,20 @@ public class I_MailBox : MonoBehaviour, IInteractable
     {
         if(isMail == false)
         {
+            AudioManager.Instance.Play(AudioTrackId.FX , insertLetterSound);
+
+            yield return new WaitForSeconds(0.7f);
+
             handleAnimator.SetTrigger("Up");
 
             isMail = true;
         }
         else if(isMail)
         {
+            AudioManager.Instance.Play(AudioTrackId.FX , takeLetterSound);
+
+            yield return new WaitForSeconds(0.7f);
+
             handleAnimator.SetTrigger("Down");
 
             isMail = false;
@@ -124,5 +136,15 @@ public class I_MailBox : MonoBehaviour, IInteractable
                 TaskManager.Instance.StartTask(task.nextTask);
             }
         }
+    }
+
+    public void MailBox410Pop()
+    {
+        AudioManager.Instance.Play(AudioTrackId.FX , mailbox410PopSound);
+    }
+
+    public void MailBox410HitInside()
+    {
+        AudioManager.Instance.Play(AudioTrackId.FX , mailbox410HitInsideSound);
     }
 }

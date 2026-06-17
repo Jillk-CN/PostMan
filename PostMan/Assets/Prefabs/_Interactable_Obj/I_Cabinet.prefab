@@ -78,10 +78,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3095219715569586594}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 6b69c27d2b50df64db51634423d52d7a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -246,6 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2aa66bbff70f747af6e3c4bd5f297a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  is410Cabinet: 0
   doorAnimator: {fileID: 1042221489865451400}
   openSound: {fileID: 8300000, guid: 9b96064adc1a638498e45f9774c7e231, type: 3}
   closeSound: {fileID: 8300000, guid: a201fae13dba9df418767b11a27e7f1b, type: 3}
@@ -256,7 +257,7 @@ MonoBehaviour:
   knockHeavySound: {fileID: 8300000, guid: edf8cdc1f8543a24483400edb7b934c6, type: 3}
   insideScrapeSound: {fileID: 8300000, guid: 6e078791d7da2614c9d75ca48e8b5909, type: 3}
   metalVibrateSound: {fileID: 8300000, guid: fd1a769c08947314e91efec4feb5996c, type: 3}
-  cabinetDropSound: {fileID: 0}
+  cabinetDropSound: {fileID: 8300000, guid: 6b69c27d2b50df64db51634423d52d7a, type: 3}
   stucked: 0
   canInteract: 1
   priority: 0

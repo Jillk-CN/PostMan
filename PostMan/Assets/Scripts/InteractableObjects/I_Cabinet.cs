@@ -7,6 +7,9 @@ using PostMan.AudioSystem;
 
 public class I_Cabinet : MonoBehaviour, IInteractable
 {
+    [Header("是否为410货柜")]
+    [SerializeField]private bool is410Cabinet = false;
+
     [Header("动画组件")]
     [Tooltip("挂载该脚本的门对象上")]
     [SerializeField] private Animator doorAnimator;
@@ -58,18 +61,26 @@ public class I_Cabinet : MonoBehaviour, IInteractable
         }
         else if (!isOpen)
         {
-            if (openSound != null)
+            if (openSound != null && !is410Cabinet)
             {
                 AudioManager.Instance.Play(AudioTrackId.FX , openSound , false , false , 0f , 1f);
+            }
+            else if(openSound != null && is410Cabinet)
+            {
+                AudioManager.Instance.Play(AudioTrackId.FX , openHeavySound , false , false , 0f , 1f);
             }
 
             StartCoroutine(OpenDoor());
         }
         else
         {
-            if (closeSound != null)
+            if (closeSound != null && !is410Cabinet)
             {
                 AudioManager.Instance.Play(AudioTrackId.FX , closeSound , false , false , 0f , 1f);
+            }
+            else if(closeSound != null && is410Cabinet)
+            {
+                AudioManager.Instance.Play(AudioTrackId.FX , closeHeavySound , false , false , 0f , 1f);
             }
             StartCoroutine(CloseDoor());
         }
