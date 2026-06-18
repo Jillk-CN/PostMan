@@ -88,17 +88,11 @@ namespace PostMan.InputManagement
                 src.Disable();
             }
         }
-        public void EnablePlayerAllInput()
+        public void SetPlayerAllInput(bool enable)
         {
-            SetInputSystemSource<PlayerMotionInputSource>(true);
-            SetInputSystemSource<PlayerSightInputSource>(true);
-            SetInputSystemSource<PlayerInteractInputSource>(true);
-        }
-        public void DisablePlayerAllInput()
-        {
-            SetInputSystemSource<PlayerMotionInputSource>(false);
-            SetInputSystemSource<PlayerSightInputSource>(false);
-            SetInputSystemSource<PlayerInteractInputSource>(false);
+            SetInputSystemSource<PlayerMotionInputSource>(enable);
+            SetInputSystemSource<PlayerSightInputSource>(enable);
+            SetInputSystemSource<PlayerInteractInputSource>(enable);
         }
 
         /// <summary>

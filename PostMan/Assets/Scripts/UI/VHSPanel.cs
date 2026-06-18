@@ -30,7 +30,7 @@ namespace PostMan.UI
             _filterController?.SyncBeforeShow();
             this.gameObject.SetActive(true);
             GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(false);
-            GameInputManager.Instance.DisablePlayerAllInput();
+            GameInputManager.Instance.SetPlayerAllInput(false);
             GameInputManager.Instance.ShowCursor();
         }
 
@@ -39,7 +39,7 @@ namespace PostMan.UI
         {
             this.gameObject.SetActive(false);
             GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(true);
-            GameInputManager.Instance.EnablePlayerAllInput();
+            GameInputManager.Instance.SetPlayerAllInput(true);
             GameInputManager.Instance.HideCursor();
             OnHide?.Invoke();
         }

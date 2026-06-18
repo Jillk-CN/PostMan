@@ -1905,6 +1905,8 @@ GameObject:
   - component: {fileID: 876083778}
   - component: {fileID: 876083779}
   - component: {fileID: 876083777}
+  - component: {fileID: 876083781}
+  - component: {fileID: 876083780}
   m_Layer: 6
   m_Name: Man (4)
   m_TagString: Untagged
@@ -2076,6 +2078,36 @@ MonoBehaviour:
   priority: 10
   dialogueIndex: -1
   subtitleKey: stl_d2_7
+--- !u!114 &876083780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876083768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e7211d6907b4a439c03cb857dbd411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: -100
+  dialogueIndex: -1
+  enableInput: 1
+--- !u!114 &876083781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876083768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e7211d6907b4a439c03cb857dbd411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 100
+  dialogueIndex: 0
+  enableInput: 0
 --- !u!1001 &1118327581
 PrefabInstance:
   m_ObjectHideFlags: 0

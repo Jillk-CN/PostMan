@@ -34,7 +34,7 @@ namespace PostMan.Player
         }
         private IEnumerator DelayBlackScreen()
         {
-            GameInputManager.Instance.DisablePlayerAllInput();
+            GameInputManager.Instance.SetPlayerAllInput(false);
 
             if (delayBeforeScreen!=0)
             {
@@ -44,7 +44,7 @@ namespace PostMan.Player
             BlackScreen.Instance.BlackInOut(blackText, fadeInTime, blackDuration, fadeOutTime);
             BlackScreen.Instance.BlackInOut(blackText, fadeInTime, blackDuration, fadeOutTime);
             yield return new WaitForSeconds(fadeInTime+blackDuration+fadeOutTime);
-            GameInputManager.Instance.EnablePlayerAllInput();
+            GameInputManager.Instance.SetPlayerAllInput(true);
         }
 
     }

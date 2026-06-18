@@ -54,7 +54,7 @@ namespace Fountain.UI
             this.gameObject.SetActive(true);
             GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(false);
             GameInputManager.Instance.SetInputSystemSource<UIReturnInputSource>(true);
-            GameInputManager.Instance.DisablePlayerAllInput();
+            GameInputManager.Instance.SetPlayerAllInput(false);
             GameInputManager.Instance.ShowCursor();
 
             /*
@@ -78,7 +78,7 @@ namespace Fountain.UI
             this.gameObject.SetActive(false);
             GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(true);
             GameInputManager.Instance.SetInputSystemSource<UIReturnInputSource>(false);
-            GameInputManager.Instance.EnablePlayerAllInput();
+            GameInputManager.Instance.SetPlayerAllInput(true);
             GameInputManager.Instance.HideCursor();
             
             

@@ -104,9 +104,6 @@ namespace PostMan.Dialogue
                 OrderBy((data) => data.TargetDialogueIndex).
                 ThenByDescending((data) => data.Priority).ToList();
 
-            //禁用输入,注意对话时不允许打开设置面板,会有bug,要修有点麻烦
-            GameInputManager.Instance.DisablePlayerAllInput();
-            GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(false);
             dialogueInput.Enable();
 
             //UI显示
@@ -149,12 +146,8 @@ namespace PostMan.Dialogue
             //触发结束时的演出
             TriggerPerform(IPerformDataProvider.END_INDEX);
 
-            //恢复输入
             // 对话结束，禁用对话推进输入
-            GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(true);
             dialogueInput.Disable();
-
-            GameInputManager.Instance.EnablePlayerAllInput();
 
             this.dialogueSO = null;
             this.performDatas = null;

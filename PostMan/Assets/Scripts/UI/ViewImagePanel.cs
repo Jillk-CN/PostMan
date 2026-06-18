@@ -43,7 +43,7 @@ namespace PostMan.UI
             //没办法,由于没有好的框架,这里还要手动禁用Pause
             GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(false);
             GameInputManager.Instance.SetInputSystemSource<UIReturnInputSource>(true);
-            GameInputManager.Instance.DisablePlayerAllInput();
+            GameInputManager.Instance.SetPlayerAllInput(false);
             GameInputManager.Instance.ShowCursor();
         }
         /// <summary>
@@ -54,7 +54,7 @@ namespace PostMan.UI
             this.gameObject.SetActive(false);
             GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(true);
             GameInputManager.Instance.SetInputSystemSource<UIReturnInputSource>(false);
-            GameInputManager.Instance.EnablePlayerAllInput();
+            GameInputManager.Instance.SetPlayerAllInput(true);
             GameInputManager.Instance.HideCursor();
         }
     }

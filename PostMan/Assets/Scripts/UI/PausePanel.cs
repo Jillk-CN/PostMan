@@ -123,7 +123,7 @@ namespace PostMan.UI
             if (pauseVolume != null)
                 pauseVolume.enabled = true;
 
-            GameInputManager.Instance.DisablePlayerAllInput();
+            GameInputManager.Instance.SetPlayerAllInput(false);
             GameInputManager.Instance.ShowCursor();
             // 禁用 UIReturn，避免与 ESC（Pause）键冲突
             GameInputManager.Instance.SetInputSystemSource<UIReturnInputSource>(false);
@@ -140,7 +140,7 @@ namespace PostMan.UI
             if (pauseVolume != null)
                 pauseVolume.enabled = false;
 
-            GameInputManager.Instance.EnablePlayerAllInput();
+            GameInputManager.Instance.SetPlayerAllInput(true);
             GameInputManager.Instance.HideCursor();
         }
 
