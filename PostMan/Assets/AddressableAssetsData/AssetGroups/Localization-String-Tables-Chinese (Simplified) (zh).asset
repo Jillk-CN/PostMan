@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: eae8f402771b9044b8d59e2b261889ce
   m_SerializeEntries:
+  - m_GUID: 44be36d4d7ba67f4397af37176332e03
+    m_Address: ReadingMaterials_zh
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a4fe9e15ab9b19e44a8d39ca74f1f65a
     m_Address: TaskTable_zh
     m_ReadOnly: 1

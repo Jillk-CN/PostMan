@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: ReadingMaterials Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: ReadingMaterials
+  m_TableCollectionNameGuidString: baf54db9044317f40999a84b92f1ca6d
+  m_Entries:
+  - m_Id: 111512600576
+    m_Key: read_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932224
+    m_Key: read_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932225
+    m_Key: read_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932226
+    m_Key: read_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932227
+    m_Key: read_5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932228
+    m_Key: read_6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932229
+    m_Key: read_7
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932230
+    m_Key: read_8
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932231
+    m_Key: read_9
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932232
+    m_Key: read_10
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932233
+    m_Key: read_11
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932234
+    m_Key: read_12
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2803184416911261698
+  references:
+    version: 2
+    RefIds:
+    - rid: 2803184416911261698
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1781769414338

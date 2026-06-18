@@ -1,4 +1,4 @@
-using Fountain.UI;
+using PostMan.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,9 +14,11 @@ namespace PostMan.Player
         private int priority;
         public int Priority { get => priority; set => priority=value; }
 
+        [SerializeField]
+        private ReadingContent content;
         public void InteractWith(PlayerInteractor player)
         {
-            TextPanel.Instance.ShowText("a");
+            TextPanel.Instance.ShowText(content);
         }
 
     }

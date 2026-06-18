@@ -35,7 +35,8 @@ namespace PostMan.Localization
         {
             DialogueTable,//对话表 
             SubtitleTable,//字幕表
-            TaskTable//任务内容表
+            TaskTable,//任务内容表
+            ReadingMaterials//阅读文本表
         }
         /// <summary>
         /// 表格资源管理类,管理本地化资源

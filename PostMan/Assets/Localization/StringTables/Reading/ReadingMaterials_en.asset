@@ -1,0 +1,192 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: ReadingMaterials_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: baf54db9044317f40999a84b92f1ca6d, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 111512600576
+    m_Localized: 'Use the first day to learn the routine.
+
+      There are not many
+      items today. Just follow the markings.
+
+      - Postmaster'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932224
+    m_Localized: 'The early-morning mail has been placed on the sorting rack.
+
+      Deliver
+      it in order, from 400 to 410.
+
+      Do not miss any.
+
+      - Postmaster'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932225
+    m_Localized: '410:
+
+      Last night, the new mail carrier came once already.
+
+      He
+      placed the first letter in the mailbox.
+
+      He saw the note.
+
+      He did
+      not ask any questions.
+
+      Before dawn today, he will come again.
+
+      He
+      will fall in front of 410.
+
+      The envelope will tear.
+
+      He will eventually
+      read this letter to the end.
+
+      When he is finished,
+
+      have him put
+      the letter into the mailbox.
+
+      Do not open the door.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932226
+    m_Localized: 'Evening collection.
+
+      Collect from 400 to 410 in order.
+
+      If
+      there is an item, bring it back. If not, move on.
+
+      If there is anything
+      at 410, place it separately in the back room.
+
+      Do not log it.
+
+      -
+      Postmaster'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932227
+    m_Localized: 'The early-morning mail has been sorted.
+
+      There are two items
+      for 410 today.
+
+      One letter and one small package.
+
+      Put the letter
+      in the mailbox.
+
+      Leave the package by the door.
+
+      Leave immediately
+      after setting it down.
+
+      Do not confirm who takes it.
+
+      - Postmaster'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932228
+    m_Localized: 'Leave it by the door.
+
+      Do not bring it back.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932229
+    m_Localized: 'Today, you will deliver two things to 410.
+
+      The first is
+      a letter.
+
+      The letter will be accepted.
+
+      The second is a package.
+
+      The
+      package will be returned.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932230
+    m_Localized: 'Evening collection.
+
+      400 through 409 as usual.
+
+      If
+      there is anything at 410, bring it to the back room.
+
+      Do not leave the
+      locker open for too long.
+
+      - Postmaster'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932231
+    m_Localized: 'Make the usual deliveries before dawn today.
+
+      Deliver to
+      400 through 409 according to the markings.
+
+      There is nothing for 410
+      today.
+
+      - Postmaster'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932232
+    m_Localized: 'Evening collection.
+
+      400 through 409 as usual.
+
+      If
+      you find an item that does not belong to the current address, bring it back
+      to the post office.
+
+      Do not deliver it yourself.
+
+      - Postmaster'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932233
+    m_Localized: 'The letter has been accepted.
+
+      The package has been returned.
+
+      410
+      is still waiting for one last thing.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 111562932234
+    m_Localized: 'The letter is not the final item.
+
+      The package is not the
+      final item either.
+
+      One item is still missing.
+
+      Bring it tomorrow.'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -9,7 +9,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Fountain.UI
+namespace PostMan.UI
 {
     /// <summary>
     /// 单纯显示文字的UI,
@@ -44,7 +44,7 @@ namespace Fountain.UI
             } 
         }
 
-        public void ShowText(string content)
+        public void ShowText(ReadingContent content)
         {
             //finishCallback = finishReading;
             if (content==null)
@@ -57,20 +57,15 @@ namespace Fountain.UI
             GameInputManager.Instance.SetPlayerAllInput(false);
             GameInputManager.Instance.ShowCursor();
 
-            /*
-            this.gameObject.SetActive(true);
-
             this.titleText.text = content.GetTitle();
             this.noteContent.text = content.GetText();
-             */
-                    
         }
         /// <summary>
         /// 隐藏笔记内容
         /// </summary>
         private void Hide()
         {
-               if(clickSound != null)
+            if (clickSound != null) 
             {
                 AudioManager.Instance.Play(AudioTrackId.FX , clickSound);
             }
