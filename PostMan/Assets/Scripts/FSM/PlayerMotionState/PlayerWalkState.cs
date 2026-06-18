@@ -14,11 +14,14 @@ namespace PostMan.StateMachine
         private PlayerMotion motion;
         private PlayerMotionInputSource input;
         private PlayerSight sight;
+        private PlayerSound sound;
+
         public PlayerWalkState(MonoFSM stateMachine) : base(stateMachine)
         {
             this.ID = StateID.PlayerWalk;
             motion = stateMachine.Owner.GetComponent<PlayerMotion>();
             sight = motion.GetComponentInChildren<PlayerSight>();
+            sound = motion.GetComponent<PlayerSound>();
         }
 
         public override void EnterState()
@@ -40,6 +43,7 @@ namespace PostMan.StateMachine
             //给一点向下的速度(Vector3.down)保持贴在地面的状态
             direction += Vector3.down;
             motion.Move(direction, motion.walkSpeed);
+            sound.PlaySoundWalk();
 
             motion.Rotate(sight.GetInputSource().GetSightMove().x, sight.sensitivity);
             sight.Rotate(sight.GetInputSource().GetSightMove().y, sight.sensitivity);

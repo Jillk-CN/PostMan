@@ -7,11 +7,79 @@ using System.Reflection;
 
 namespace PostMan.Player
 {
-    public class PlayerWalkSoundManager : MonoBehaviour
+    /// <summary>
+    /// 提供玩家需要的音效播放方法
+    /// </summary>
+    public class PlayerSound : MonoBehaviour
     {
         [Header("地面检测")]
-        [SerializeField] private float groundCheckDistance = 0.2f;
-        [SerializeField] private float groundCheckRadius = 0.3f;
+        [SerializeField] 
+        private float groundCheckDistance = 0.2f;
+        [SerializeField] 
+        private LayerMask groundLayer;
+        [Header("音效间隔")]
+        [SerializeField]
+        private float intervalWalk = 0.5f;
+        [SerializeField]
+        private float intervalRun = 0.2f;
+
+        private float elapsed=0;
+
+        //走路音效
+        private AudioClip sfxWalk;
+        //跑步音效
+        private AudioClip sfxRun;
+        private void Update()
+        {
+            elapsed += Time.deltaTime;
+            CheckGroundSFX(); 
+        }
+        public void PlaySoundWalk()
+        {
+            if (elapsed>intervalWalk)
+            {
+                elapsed = 0;
+                if (sfxWalk==null)
+                {
+                    return;
+                }
+                AudioManager.Instance.Play(AudioTrackId.Player , sfxWalk);
+            }
+        }
+        public void PlaySoundRun()
+        {
+            if (elapsed>intervalRun)
+            {
+                elapsed = 0;
+                if (sfxRun==null)
+                {
+                    return;
+                }
+                AudioManager.Instance.Play(AudioTrackId.Player, sfxRun);
+            }
+
+        }
+
+        private void CheckGroundSFX()
+        {
+            RaycastHit hit;
+            if( Physics.Raycast(this.transform.position,-this.transform.up,out hit,
+                groundCheckDistance,groundLayer))
+            {
+                MotionSoundTag tag = hit.collider.GetComponent<MotionSoundTag>();
+                if (tag!=null)
+                {
+                    sfxRun = tag.sfxRun;
+                    sfxWalk = tag.sfxWalk;
+                }
+                else
+                {
+                    sfxRun = null;
+                    sfxWalk = null;
+                }
+            }
+        }
+        /*
 
         private PlayerMotion playerMotion;
         private object stateMachine;
@@ -269,8 +337,6 @@ namespace PostMan.Player
             }
             return currentMaterial;
         }
-        */
-        
         private void OnDestroy()
         {
             // 清理：停止正在运行的协程
@@ -324,5 +390,9 @@ namespace PostMan.Player
         Tile,
         Wood,
         WetRoad
+    }
+
+         */
+
     }
 }
