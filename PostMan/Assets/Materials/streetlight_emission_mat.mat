@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-2840980117972288588
+--- !u!114 &-6882402233052826256
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -26,8 +26,10 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords:
+  - _ALPHAPREMULTIPLY_ON
   - _EMISSION
   - _NORMALMAP
+  - _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -39,11 +41,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: a7403d2bdd6f689499ae0fbb14c0b9dc, type: 3}
+        m_Texture: {fileID: 2800000, guid: a4599953a7a59d5459468da804f6fea1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: cf9bf696ad3ff054eac89843b4c401f9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 14fbc33f352a56242adf9e10c2ccaf6c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -59,11 +61,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: ed4a3a470defcc9439105f908ed8a913, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a7403d2bdd6f689499ae0fbb14c0b9dc, type: 3}
+        m_Texture: {fileID: 2800000, guid: a4599953a7a59d5459468da804f6fea1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -128,8 +130,8 @@ Material:
     - _Surface: 0
     - _UVSec: 0
     - _UseAoMap: 0
-    - _UseColorMap: 1
-    - _UseEmissiveMap: 1
+    - _UseColorMap: 0
+    - _UseEmissiveMap: 0
     - _UseMetallicMap: 0
     - _UseNormalMap: 0
     - _UseRoughnessMap: 0
@@ -138,7 +140,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0.34545454}
     - _Color: {r: 1, g: 1, b: 1, a: 0.34545454}
-    - _EmissionColor: {r: 9.941715, g: 6.499405, b: 1.4068451, a: 0}
+    - _EmissionColor: {r: 8.716, g: 8.716, b: 8.716, a: 15}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _UvOffset: {r: 0, g: 0, b: 0, a: 0}
     - _UvTiling: {r: 1, g: 1, b: 0, a: 0}
