@@ -898,6 +898,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5f232f4a447a6eb4d931718d61ff92ff,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5f232f4a447a6eb4d931718d61ff92ff,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -909,6 +914,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 888091534}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5f232f4a447a6eb4d931718d61ff92ff,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 888091535}
   m_SourcePrefab: {fileID: 100100000, guid: 5f232f4a447a6eb4d931718d61ff92ff, type: 3}
 --- !u!1 &190566882
 GameObject:
@@ -1014,6 +1023,8 @@ GameObject:
   - component: {fileID: 191461640}
   - component: {fileID: 191461639}
   - component: {fileID: 191461641}
+  - component: {fileID: 191461643}
+  - component: {fileID: 191461642}
   m_Layer: 0
   m_Name: DialogueTrigger
   m_TagString: Untagged
@@ -1116,6 +1127,36 @@ MonoBehaviour:
   priority: 1
   dialogueIndex: -1
   subtitleKey: stl_d0_1
+--- !u!114 &191461642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191461634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e7211d6907b4a439c03cb857dbd411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 100
+  dialogueIndex: -1
+  enableInput: 1
+--- !u!114 &191461643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191461634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e7211d6907b4a439c03cb857dbd411, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  priority: 100
+  dialogueIndex: 0
+  enableInput: 0
 --- !u!1 &203453045
 GameObject:
   m_ObjectHideFlags: 0
@@ -5653,6 +5694,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 18, y: 0, z: 13}
   m_Center: {x: 0, y: 0.25, z: 0}
+--- !u!114 &888091535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609768447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4acb539fae5b3b4c9f93b3b2090fb4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxWalk: {fileID: 8300000, guid: a3cf5802cf8424d4195d74671b37e4a6, type: 3}
+  sfxRun: {fileID: 8300000, guid: a3cf5802cf8424d4195d74671b37e4a6, type: 3}
 --- !u!1 &890313811
 GameObject:
   m_ObjectHideFlags: 0
@@ -5747,8 +5802,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2842273387251952459, guid: 239363dbf8b34b44f9bfbe712af6e3d2, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
