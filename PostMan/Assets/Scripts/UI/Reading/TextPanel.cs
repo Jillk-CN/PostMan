@@ -18,7 +18,7 @@ namespace PostMan.UI
     {
         //非常不情愿地做成单例
         private Button quitButton;
-        private TextMeshProUGUI titleText;
+        //private TextMeshProUGUI titleText;
         private TextMeshProUGUI noteContent;
         //输入来源
         private UIReturnInputSource input;
@@ -26,8 +26,8 @@ namespace PostMan.UI
         protected override void Init()
         {
             base.Init();
-            titleText = this.transform.FindChildByName(nameof(titleText)).
-                GetComponent<TextMeshProUGUI>();
+           // titleText = this.transform.FindChildByName(nameof(titleText)).
+           //     GetComponent<TextMeshProUGUI>();
             noteContent = this.transform.FindChildByName(nameof(noteContent)).
                 GetComponent<TextMeshProUGUI>();
             quitButton = this.transform.FindChildByName(nameof(quitButton)).
@@ -57,7 +57,7 @@ namespace PostMan.UI
             GameInputManager.Instance.SetPlayerAllInput(false);
             GameInputManager.Instance.ShowCursor();
 
-            this.titleText.text = content.GetTitle();
+            //this.titleText.text = content.GetTitle();
             this.noteContent.text = content.GetText();
         }
         /// <summary>
