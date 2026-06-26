@@ -1,14 +1,11 @@
+using PostMan.InputManagement;
+using PostMan.Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PostMan.Player
+public class DisablePlayer : MonoBehaviour
 {
-    /// <summary>
-    /// 如果要限制指定Interactable的交互,只允许一次,挂这个脚本
-    /// </summary>
-    public class LimitPlayer : MonoBehaviour, IInteractable
-    {
         //要禁用的可交互物体,可以自行拖拽
         private IInteractable[] limitedInteractables;
         [SerializeField]
@@ -16,7 +13,6 @@ namespace PostMan.Player
         public bool CanInteract { get => this.canInteract; set => this.canInteract = value; }
 
         [SerializeField]
-        [Tooltip("注意,优先级要是最低的")]
         private int priority = -1;
         public int Priority { get => priority; set => priority = value; }
 
@@ -27,17 +23,6 @@ namespace PostMan.Player
 
         public void InteractWith(PlayerInteractor player)
         {
-            if(limitedInteractables==null)
-            {
-                this.CanInteract = false;
-                return;
-            }
-            foreach (var interactable in limitedInteractables)
-            {
-                interactable.CanInteract = false;
-            }
-            this.CanInteract = false;            
-
+        GameInputManager.Instance.SetPlayerAllInput(false);
         }
-    }
 }

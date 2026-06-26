@@ -1,4 +1,4 @@
-﻿using PostMan.Common;
+using PostMan.Common;
 using PostMan.InputManagement;
 using UnityEngine.SceneManagement;
 using System;
@@ -31,10 +31,7 @@ namespace PostMan.Player
         private void Start()
         {
             sightPoint = this.transform.FindChildByName(nameof(sightPoint));
-            SceneManager.sceneLoaded += (arg1, arg2) =>
-            { 
-                Debug.Log("Clear Select"); 
-                this.detectedSelectables = null; }; 
+            SceneManager.sceneLoaded += (arg1,arg2) => { Debug.Log("Clear Select"); this.detectedSelectables = null;  }
         }
         private void Update()
         {

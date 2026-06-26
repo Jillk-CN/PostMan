@@ -866,6 +866,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2809202437391905289, guid: b02ac8f46f2d772459f09cce5879e4da,
         type: 3}
+      insertIndex: 6
+      addedObject: {fileID: 1822529736}
+    - targetCorrespondingSourceObject: {fileID: 2809202437391905289, guid: b02ac8f46f2d772459f09cce5879e4da,
+        type: 3}
       insertIndex: -1
       addedObject: {fileID: 1822529735}
   m_SourcePrefab: {fileID: 100100000, guid: b02ac8f46f2d772459f09cce5879e4da, type: 3}
@@ -2282,7 +2286,7 @@ Light:
   m_BounceIntensity: 0.7
   m_ColorTemperature: 4260
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 8.94e-43, y: 0.0006811707, z: 8.94e-43, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -3882,7 +3886,7 @@ Light:
   m_BounceIntensity: 0.5
   m_ColorTemperature: 2508
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 8.97e-43, y: 0, z: 4.591775e-39, w: 1e-45}
+  m_BoundingSphereOverride: {x: 1.02e-43, y: 2.2e-44, z: 1.2196e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -4167,7 +4171,7 @@ Light:
   m_BounceIntensity: 0.6
   m_ColorTemperature: 9595
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.7e-44, z: 0, w: 7.8e-44}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -8.371724e-36}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -5671,7 +5675,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 5.5e-44, z: 1.9816e-41, w: 1.4915605e-30}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -6145,6 +6149,20 @@ MonoBehaviour:
   _canInteract: 1
   _priority: 0
   _interactOnce: 1
+--- !u!114 &1822529736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822529726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d8a7a4a7ca12f4d8ee24960a08226d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInteract: 1
+  priority: 1000
 --- !u!1001 &1864245133
 PrefabInstance:
   m_ObjectHideFlags: 0
