@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using PostMan.Player;
 using UnityEngine;
 
 /// <summary>
@@ -147,4 +148,6 @@ public class TaskManager : MonoBehaviour
     public bool IsTaskCompleted(int taskIndex) =>
         _activeTasks.TryGetValue(taskIndex, out TaskRuntimeData data) &&
         data.Status == TaskStatus.Completed;
+
+    
 }
