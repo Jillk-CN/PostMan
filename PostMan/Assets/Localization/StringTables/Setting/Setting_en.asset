@@ -22,6 +22,150 @@ MonoBehaviour:
     m_Localized: space/LMB to continue
     m_Metadata:
       m_Items: []
+  - m_Id: 5068438916554752
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582308552704
+    m_Localized: Filter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582308552705
+    m_Localized: Camera Shake
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747008
+    m_Localized: 'Master Volume:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747009
+    m_Localized: 'BGM Volume:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747010
+    m_Localized: 'SFX Volume:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747011
+    m_Localized: Resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747012
+    m_Localized: Display Mode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747013
+    m_Localized: 'Gamma:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747014
+    m_Localized: Frame Limit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747015
+    m_Localized: Done
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747016
+    m_Localized: 'Mouse Sensitivity:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747017
+    m_Localized: Fullscreen (Exclusive)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747018
+    m_Localized: Fullscreen (Borderless)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747019
+    m_Localized: Windowed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747020
+    m_Localized: 30FPS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747021
+    m_Localized: 60FPS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747022
+    m_Localized: 90FPS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747023
+    m_Localized: 120FPS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747024
+    m_Localized: 144FPS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747025
+    m_Localized: No limit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747026
+    m_Localized: On
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747027
+    m_Localized: Off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747028
+    m_Localized: 'FPS:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747029
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747030
+    m_Localized: Start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747031
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747032
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747033
+    m_Localized: "\u7B80\u4F53\u4E2D\u6587"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747034
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747035
+    m_Localized: 'Selected:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747036
+    m_Localized: Respawn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747037
+    m_Localized: Main menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747038
+    m_Localized: Setting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5064582312747039
+    m_Localized: resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5068438916554753
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
