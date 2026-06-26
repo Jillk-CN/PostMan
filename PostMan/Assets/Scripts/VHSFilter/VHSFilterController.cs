@@ -83,8 +83,11 @@ public sealed class VHSFilterController : MonoBehaviour
     // 运行时状态
     // ─────────────────────────────────────────────
 
+    // 跨场景持久化：静态字段在场景重新加载后仍保持上次的设置
+    private static VHSSettings s_persistedSettings = VHSSettings.Default;
+
     // 当前参数快照（不可变，每次修改返回新实例）
-    private VHSSettings _settings = VHSSettings.Default;
+    private VHSSettings _settings = s_persistedSettings;
 
     // ─────────────────────────────────────────────
     // Unity 生命周期
@@ -186,6 +189,7 @@ public sealed class VHSFilterController : MonoBehaviour
     private void Push(VHSSettings newSettings)
     {
         _settings = newSettings;
+        s_persistedSettings = newSettings;   // 持久化到静态字段，跨场景保留
         _effect?.Apply(_settings);
         _volumeCtrl?.Apply(_settings);
         SyncUI();

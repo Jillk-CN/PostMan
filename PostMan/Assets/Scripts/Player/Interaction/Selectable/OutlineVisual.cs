@@ -56,6 +56,10 @@ namespace PostMan.Player
         /// <param name="visible">显示或隐藏</param>
         public void SetOutline(bool visible)
         {
+            if (outlineVisuals == null)
+            {
+                return;
+            }
             foreach (var outline in outlineVisuals)
             {
                 outline.enabled = visible;

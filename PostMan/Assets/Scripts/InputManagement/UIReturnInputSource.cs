@@ -33,6 +33,16 @@ namespace PostMan.InputManagement
             this.inputActions.UI.Return.Enable();
             this.enabled = true;
         }
+        public void RefreshInputActions()
+        {
+            this.inputActions = GameInputManager.Instance.GetInputAction();
+            // 若当前处于启用状态，需重新 Enable 以激活新 inputActions 上的 Action
+            if (this.enabled)
+            {
+                Enable();
+            }
+        }
+
         public bool GetReturn()
         {
             return this.inputActions.UI.Return.WasPressedThisFrame();

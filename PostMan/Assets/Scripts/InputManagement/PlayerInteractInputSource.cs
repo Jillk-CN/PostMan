@@ -27,6 +27,21 @@ namespace PostMan.InputManagement
         {
             Disable();
         }
+        public void RefreshInputActions()
+        {
+            this.inputActions = GameInputManager.Instance.GetInputAction();
+            // 重新注册 performed 回调到新的 inputActions 实例
+            this.inputActions.Player.Interact.performed += (context) =>
+            {
+                this.interacting = true;
+            };
+            // 若当前处于启用状态，需重新 Enable 以激活新 inputActions 上的 Action
+            if (this.enabled)
+            {
+                Enable();
+            }
+        }
+
         private void Update()
         {
             if (inputActions.Player.Interact.WasReleasedThisFrame())

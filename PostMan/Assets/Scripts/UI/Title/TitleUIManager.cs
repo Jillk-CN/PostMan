@@ -57,13 +57,16 @@ namespace PostMan.UI
         [Tooltip("开始游戏时卸载的场景 Addressable key 列表")]
         [SerializeField] private List<string> scenesToUnload = new List<string>();
 
+        [Tooltip("开始游戏时玩家的位置")]
+        [SerializeField] private Vector3 playerStartPosition;
+
         // ─────────────────────────────────────────────
         // Unity 生命周期
         // ─────────────────────────────────────────────
 
         protected override void Init()
         {
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
 
         private void Start()
@@ -101,7 +104,7 @@ namespace PostMan.UI
         {
             GameInputManager.Instance.HideCursor(); // 进入游戏前隐藏鼠标
             HideTitleUI(); // 隐藏标题 UI，避免残留在游戏场景
-            GameSceneManager.Instance.SwitchScenes(scenesToLoad, scenesToUnload);
+            GameSceneManager.Instance.SwitchScenes(scenesToLoad, scenesToUnload, playerStartPosition);
         }
 
         /// <summary>开始游戏时隐藏标题 UI（Canvas 保留在 DontDestroyOnLoad，仅隐藏内容）。</summary>

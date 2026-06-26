@@ -53,6 +53,16 @@ namespace PostMan.InputManagement
             this.enabled = true;
         }
 
+        public void RefreshInputActions()
+        {
+            this.inputActions = GameInputManager.Instance.GetInputAction();
+            // 若当前处于启用状态，需重新 Enable 以激活新 inputActions 上的 Action
+            if (this.enabled)
+            {
+                Enable();
+            }
+        }
+
         /// <summary>本帧是否按下了 O 键</summary>
         public bool GetToggle()
         {

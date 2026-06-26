@@ -45,7 +45,7 @@ public class GameSceneManager : MonoSingleton<GameSceneManager>
     /// <summary>初始化单例，确保跨场景不销毁。</summary>
     protected override void Init()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         Log("GameSceneManager 初始化完成，已标记 DontDestroyOnLoad。");
     }
 

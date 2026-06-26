@@ -190,7 +190,7 @@ namespace PostMan.Localization
         #region 初始化
         private void Awake()
         {
-            DontDestroyOnLoad(this.gameObject);
+            //DontDestroyOnLoad(this.gameObject);
             parser = new StringParser();
             //等待本地化插件初始化完成(插件是异步初始化的)
             if (LocalizationSettings.InitializationOperation.IsDone)

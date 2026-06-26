@@ -42,6 +42,16 @@ namespace PostMan.InputManagement
             this.enabled = false;
         }
 
+        public void RefreshInputActions()
+        {
+            this.inputActions = GameInputManager.Instance.GetInputAction();
+            // 若当前处于启用状态，需重新 Enable 以激活新 inputActions 上的 Action
+            if (this.enabled)
+            {
+                Enable();
+            }
+        }
+
         /// <summary>
         /// 获得移动输入
         /// </summary>

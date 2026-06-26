@@ -15,5 +15,7 @@ namespace PostMan.InputManagement
         public bool Enabled { get; }
         public void Enable();
         public void Disable();
+        /// <summary>在场景切换后重新从 GameInputManager 获取 PlayerInputActions 引用。</summary>
+        public void RefreshInputActions();
     }
 }

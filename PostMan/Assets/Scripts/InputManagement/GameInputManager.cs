@@ -38,6 +38,13 @@ namespace PostMan.InputManagement
             inputActions = new PlayerInputActions();
 
             sources = this.GetComponents<IInputSource>().ToList();
+
+            // 场景切换后重新绑定：所有 InputSource 重新获取当前 inputActions 引用
+            foreach (var src in sources)
+            {
+                src.RefreshInputActions();
+            }
+
             HideCursor();
         }
         private void OnDestroy()

@@ -26,20 +26,18 @@ namespace PostMan.Player
         private Transform sightPoint;
         private Transform detectedObject;
         private ISelectable[] detectedSelectables;
-        private PlayerInteractInputSource input;
 
         private void Start()
         {
             sightPoint = this.transform.FindChildByName(nameof(sightPoint));
-            input = GameInputManager.Instance.
-                GetInputSystemSource<PlayerInteractInputSource>();
         }
         private void Update()
         {
             //允许交互的时候才去检测物体
-            if (input.Enabled)
+            var input = GameInputManager.Instance?.GetInputSystemSource<PlayerInteractInputSource>();
+            if (input != null && input.Enabled)
             {
-                Detect();     
+                Detect();
             }
             else
             {

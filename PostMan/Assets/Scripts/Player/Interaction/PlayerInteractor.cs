@@ -13,8 +13,6 @@ namespace PostMan.Player
     /// </summary>
     public class PlayerInteractor : MonoBehaviour
     {
-        private PlayerInteractInputSource input;
-
         [Tooltip("交互的最大距离")]
         [SerializeField]
         private float interactDistance;
@@ -23,13 +21,12 @@ namespace PostMan.Player
         private void Start()
         {
             detector = this.GetComponent<PlayerDetector>();
-            input = GameInputManager.Instance.
-                GetInputSystemSource<PlayerInteractInputSource>();
         }
 
         private void Update()
         {
-            if (input.GetInteract())
+            var input = GameInputManager.Instance?.GetInputSystemSource<PlayerInteractInputSource>();
+            if (input != null && input.GetInteract())
             {
                 Interact();
             }
