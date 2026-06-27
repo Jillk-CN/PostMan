@@ -1,5 +1,6 @@
 using PostMan.Common;
 using PostMan.InputManagement;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -36,13 +37,17 @@ namespace PostMan.UI
         /// <param name="fadeInTime"></param>
         /// <param name="duration"></param>
         /// <param name="fadeOutTime"></param>
+        /// <param name="completed">整个过程结束时的回调</param>
         public void BlackInOut(string text="",
             float fadeInTime=0.1f,
             float duration=0.5f,
-            float fadeOutTime=0.1f)
+            float fadeOutTime=0.1f,Action completed=null)
         {
-            fadeEffect.FadeIn(fadeInTime, 
-                () => { StartCoroutine(DelayFadeOut(duration, fadeOutTime)); }
+            fadeEffect.FadeIn(fadeInTime,
+                () =>
+                {
+                    StartCoroutine(DelayFadeOut(duration, fadeOutTime, completed));
+                }
                 );
             blackText.text = text;
         }
@@ -70,10 +75,10 @@ namespace PostMan.UI
             blackText.text = text;
         }
 
-        private IEnumerator DelayFadeOut(float delay,float fadeOutTime)
+        private IEnumerator DelayFadeOut(float delay,float fadeOutTime,Action complete)
         {
             yield return new WaitForSeconds(delay);
-            fadeEffect.FadeOut(fadeOutTime);
+            fadeEffect.FadeOut(fadeOutTime,complete);
         }
     }
 }

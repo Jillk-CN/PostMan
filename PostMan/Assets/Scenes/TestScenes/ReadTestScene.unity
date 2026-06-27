@@ -4127,17 +4127,17 @@ PrefabInstance:
     - target: {fileID: 1557414667974442021, guid: e1903e685ab500d4b899a657f3b6d3c4,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1557414667974442021, guid: e1903e685ab500d4b899a657f3b6d3c4,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1557414667974442021, guid: e1903e685ab500d4b899a657f3b6d3c4,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.34612048
       objectReference: {fileID: 0}
     - target: {fileID: 2917068517242096921, guid: e1903e685ab500d4b899a657f3b6d3c4,
         type: 3}
@@ -4242,12 +4242,32 @@ PrefabInstance:
     - target: {fileID: 3935062390375063600, guid: e1903e685ab500d4b899a657f3b6d3c4,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 1267.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239323305585478821, guid: e1903e685ab500d4b899a657f3b6d3c4,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239323305585478821, guid: e1903e685ab500d4b899a657f3b6d3c4,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239323305585478821, guid: e1903e685ab500d4b899a657f3b6d3c4,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -2.5165005
       objectReference: {fileID: 0}
     - target: {fileID: 6380330103712192699, guid: e1903e685ab500d4b899a657f3b6d3c4,
         type: 3}
       propertyPath: m_Name
       value: TextPanel(Untitled)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380330103712192699, guid: e1903e685ab500d4b899a657f3b6d3c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

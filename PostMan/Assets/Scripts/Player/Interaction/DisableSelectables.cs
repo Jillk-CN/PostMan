@@ -16,6 +16,7 @@ namespace PostMan.Player
         private bool canInteract = true;
         public bool CanInteract { get => this.canInteract; set => this.canInteract = value; }
         [SerializeField]
+        [Tooltip("优先级要最高")]
         private int priority;
         public int Priority { get => priority; set => priority=value; }
 

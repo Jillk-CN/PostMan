@@ -41,10 +41,11 @@ namespace PostMan.Player
                 yield return new WaitForSeconds(delayBeforeScreen);
             }
 
-            BlackScreen.Instance.BlackInOut(blackText, fadeInTime, blackDuration, fadeOutTime);
-            BlackScreen.Instance.BlackInOut(blackText, fadeInTime, blackDuration, fadeOutTime);
-            yield return new WaitForSeconds(fadeInTime+blackDuration+fadeOutTime);
-            GameInputManager.Instance.SetPlayerAllInput(true);
+            BlackScreen.Instance.BlackInOut
+                (blackText, fadeInTime, blackDuration, fadeOutTime,
+                () => { GameInputManager.Instance.SetPlayerAllInput(true);});
+            //yield return new WaitForSeconds(fadeInTime+blackDuration+fadeOutTime);
+            
         }
 
     }
