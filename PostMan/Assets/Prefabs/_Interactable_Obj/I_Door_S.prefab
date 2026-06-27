@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 7564306381308384825}
   - component: {fileID: 6892268098787299242}
   - component: {fileID: 502985167910176373}
+  - component: {fileID: 7781491547982291783}
   m_Layer: 6
   m_Name: I_Door_S
   m_TagString: Untagged
@@ -501,6 +502,19 @@ MonoBehaviour:
     type: 3}
   canInteract: 1
   priority: 0
+--- !u!114 &7781491547982291783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9013503122907628741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457e88612351c214daa5d462fa8b5a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 
 --- !u!1001 &4192301925328678171
 PrefabInstance:
   m_ObjectHideFlags: 0

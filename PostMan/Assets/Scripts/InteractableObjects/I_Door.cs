@@ -60,11 +60,8 @@ public class I_Door : MonoBehaviour, IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
-
+        if(CanInteract == false) return;
         //触发对话（未完成，等待对话系统接口）
-
-
-        Debug.LogFormat("[I_Door.cs] 与门交互");
 
         Transform PlayerTF = player.gameObject.transform;
 

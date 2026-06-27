@@ -15,8 +15,7 @@ public class I_Message : MonoBehaviour, IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
-        Debug.LogFormat("[I_Message.cs] 与前台便签(Message)交互");
-
+        if(CanInteract == false) return;
         if(takeSound != null)
         {
             AudioManager.Instance.Play(AudioTrackId.FX , takeSound , false , false , 0f , 1f);

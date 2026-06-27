@@ -53,8 +53,7 @@ public class I_MailBox : MonoBehaviour, IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
-        Debug.LogFormat("[I_MailBox.cs] 与信箱交互");
-
+        if(CanInteract == false) return;
         StartCoroutine(Door());
     }
 

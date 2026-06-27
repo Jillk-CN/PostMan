@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3752794568200889834}
   - component: {fileID: 6150861758417111279}
   - component: {fileID: 8867145404292516054}
+  - component: {fileID: 2159808257864178025}
   m_Layer: 6
   m_Name: I_Bag
   m_TagString: Untagged
@@ -127,6 +128,19 @@ MonoBehaviour:
   priority: 0
   takeSound: {fileID: 8300000, guid: 54a4c20e9af073244b77e7c4605f033f, type: 3}
   putSound: {fileID: 8300000, guid: 4ebb2b00ef00562448cc4b38b8f243af, type: 3}
+--- !u!114 &2159808257864178025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3729603946703729270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457e88612351c214daa5d462fa8b5a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 
 --- !u!1001 &4693079200032233888
 PrefabInstance:
   m_ObjectHideFlags: 0

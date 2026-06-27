@@ -14,7 +14,6 @@ public class I_PC : MonoBehaviour, IInteractable
     private Transform PlayerCamera; //角色正常移动时的虚拟相机
     private PlayerMotion playerMotion;  //角色移动组件
     private ShowInteractPrompt showInteractPrompt;  //显示交互提示组件
-    private bool focusing = false;  //是否与PC交互
 
     [Header("交互设置")]
     public bool canInteract;
@@ -39,8 +38,19 @@ public class I_PC : MonoBehaviour, IInteractable
         }
     }
 
+    void Update()
+    {
+        if(gameObject.GetComponent<BlackScreenInteractable>().CanInteract != CanInteract)
+        {
+            gameObject.GetComponent<BlackScreenInteractable>().CanInteract = CanInteract;
+        }
+    }
+
+
     public void InteractWith(PlayerInteractor player)
     {
+        if(CanInteract == false) return;
+
         Debug.LogFormat("[I_PC.cs] 与电脑交互");
 
         //获取玩家正常移动视角的虚拟相机
@@ -60,8 +70,6 @@ public class I_PC : MonoBehaviour, IInteractable
 
         //失活玩家正常移动视角的虚拟相机，让视角自动过渡到睡觉视角
         PlayerCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = false;
-
-        focusing = true;
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

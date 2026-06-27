@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6812688787972879094}
   - component: {fileID: 4160962802361072809}
   - component: {fileID: 8976776222187935823}
+  - component: {fileID: 5564334825161341632}
   m_Layer: 6
   m_Name: I_Box
   m_TagString: Untagged
@@ -135,6 +136,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   priority: -1
+--- !u!114 &5564334825161341632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030904986680036236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457e88612351c214daa5d462fa8b5a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 
 --- !u!1001 &4189323973695788684
 PrefabInstance:
   m_ObjectHideFlags: 0

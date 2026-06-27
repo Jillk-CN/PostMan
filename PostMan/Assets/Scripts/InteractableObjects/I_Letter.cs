@@ -17,8 +17,7 @@ public class I_Letter : MonoBehaviour , IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
-        Debug.LogFormat("[I_Letter.cs] 与信(Letter)交互");
-
+        if(CanInteract == false) return;
         if(takeSound != null)
         {
             AudioManager.Instance.Play(AudioTrackId.FX , takeSound , false , false , 0f , 1f);

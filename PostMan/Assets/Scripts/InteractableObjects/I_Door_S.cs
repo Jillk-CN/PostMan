@@ -65,8 +65,7 @@ public class I_Door_S : MonoBehaviour, IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
-        Debug.LogFormat("[I_Door_S.cs] 与宠物门交互");
-
+        if(CanInteract == false) return;
         if(_PlaceBox && !_CheckDoor && !_Knock)
         {
             StartCoroutine(PlaceBox());

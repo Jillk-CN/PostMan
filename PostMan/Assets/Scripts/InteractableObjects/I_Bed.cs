@@ -65,9 +65,17 @@ public class I_Bed : MonoBehaviour, IInteractable
         }
     }
 
+    void Update()
+    {
+        if(gameObject.GetComponent<BlackScreenInteractable>().CanInteract != CanInteract)
+        {
+            gameObject.GetComponent<BlackScreenInteractable>().CanInteract = CanInteract;
+        }
+    }
+
     public void InteractWith(PlayerInteractor player)
     {
-        Debug.LogFormat("[I_Bed.cs] 与床交互");
+        if(CanInteract == false) return;
 
         //获取玩家正常移动视角的虚拟相机
         PlayerCamera = player.gameObject.transform.FindChildByName("FPVcam");

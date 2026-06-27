@@ -24,7 +24,8 @@ public class I_Piece : MonoBehaviour, IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
-        Debug.LogFormat("[I_Piece.cs] 与纸条 / 回执交互");
+        if(CanInteract == false) return;
+
 
         if(takeSound != null)
         {

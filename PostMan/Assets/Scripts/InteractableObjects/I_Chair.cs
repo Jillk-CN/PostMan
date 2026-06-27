@@ -50,8 +50,7 @@ public class I_Chair : MonoBehaviour, IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
-        Debug.LogFormat("[I_Chair.cs] 与椅子交互");
-
+        if(CanInteract == false) return;
         showInteractPrompt.CanSelect = false;
 
         //获取玩家正常移动视角的虚拟相机

@@ -47,8 +47,7 @@ public class I_Cabinet : MonoBehaviour, IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
-        Debug.LogFormat("[I_Cabinet.cs] 与410后仓柜子交互");
-
+        if(CanInteract == false) return;
         // 根据门的状态和是否卡住执行对应操作
         if (doorAnimator.GetBool("Stucked"))
         {

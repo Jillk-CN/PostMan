@@ -50,7 +50,7 @@ public class I_Bag : MonoBehaviour, IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
-        Debug.LogFormat("[I_Bag.cs] 与黑袋交互");
+        if(CanInteract == false) return;
 
         if(takeSound != null)
         {

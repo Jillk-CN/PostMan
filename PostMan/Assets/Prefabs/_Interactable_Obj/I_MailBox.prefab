@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 2024505759985595177}
   - component: {fileID: 7273969567596796867}
   - component: {fileID: 3490009437645799706}
+  - component: {fileID: 8970829447062299665}
   m_Layer: 6
   m_Name: I_MailBox
   m_TagString: Untagged
@@ -259,6 +260,19 @@ MonoBehaviour:
   taskTransitionList: []
   canInteract: 1
   priority: 0
+--- !u!114 &8970829447062299665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030647194753977809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457e88612351c214daa5d462fa8b5a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 
 --- !u!1 &6538166562081239655
 GameObject:
   m_ObjectHideFlags: 0

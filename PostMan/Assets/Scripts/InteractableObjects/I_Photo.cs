@@ -15,7 +15,7 @@ public class I_Photo : MonoBehaviour, IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
-        Debug.LogFormat("[I_Photo.cs] 与预知照片交互");
+        if(CanInteract == false) return;
 
         AudioManager.Instance.Play(AudioTrackId.FX , pickSound);
     }

@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 4440924163215305259}
   - component: {fileID: 7937885517577059636}
   - component: {fileID: 6587834432197120094}
+  - component: {fileID: 259615075338201620}
   m_Layer: 6
   m_Name: I_Bed
   m_TagString: Untagged
@@ -346,6 +347,19 @@ MonoBehaviour:
   blackDuration: 1.7
   fadeOutTime: 2
   blackText: 
+--- !u!114 &259615075338201620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6147368619725233418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457e88612351c214daa5d462fa8b5a9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueID: 
 --- !u!1 &8779100281765330163
 GameObject:
   m_ObjectHideFlags: 0

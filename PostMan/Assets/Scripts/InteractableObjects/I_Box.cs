@@ -16,7 +16,7 @@ public class I_Box : MonoBehaviour , IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
-        Debug.LogFormat("[I_Box.cs] 与箱子交互");
+        if(CanInteract == false) return;
 
         if(takeSound != null)
         {

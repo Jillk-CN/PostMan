@@ -52,7 +52,7 @@ public class I_Telephone : MonoBehaviour, IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
-        Debug.LogFormat("[I_Telephone.cs] 与电话交互");
+        if(CanInteract == false) return;
 
         //获取角色移动组件
         playerMotion = player.gameObject.GetComponent<PlayerMotion>();
