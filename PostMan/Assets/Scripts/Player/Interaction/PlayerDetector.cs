@@ -33,8 +33,8 @@ namespace PostMan.Player
             sightPoint = this.transform.FindChildByName(nameof(sightPoint));
             SceneManager.sceneLoaded += (arg1, arg2) =>
             { 
-                Debug.Log("Clear Select"); 
-                this.detectedSelectables = null; }; 
+                this.detectedSelectables = null;
+            }; 
         }
         private void Update()
         {
