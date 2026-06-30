@@ -12,6 +12,10 @@ namespace PostMan.Scene
     {
         [Header("初始化参数,编辑器内手动配置")]
         [SerializeField]
+        private InteractablesProcessListSO processListSO;
+
+        /*旧实现,现在改为调用InteractableManager
+        [SerializeField]
         [Tooltip("这些可交互物体刚进入场景时可以交互吗")]
         private bool interactableOnInit;
         [SerializeField]
@@ -27,12 +31,15 @@ namespace PostMan.Scene
         [SerializeField]
         [Tooltip("要初始化的可交互物体")]
         private GameObject[] selectableObjects;
+         
+         */
         private void OnEnable()
         {
             SceneInitializer.Instance.Register(Init); 
         }
         private void Init(int sceneOrder,string sceneName)
         {
+            /*旧的实现
             if (targetSceneOrder!=sceneOrder)
             {
                 return;
@@ -54,7 +61,9 @@ namespace PostMan.Scene
                 {
                     item.CanSelect = selectableOnInit;
                 }
-            }
+            } 
+             */
+            InteractableManager.Instance.ApplyState(processListSO);
         }
     }
 }

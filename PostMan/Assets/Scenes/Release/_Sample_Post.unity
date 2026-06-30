@@ -916,6 +916,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: I_Door_1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658535512423155777, guid: b02ac8f46f2d772459f09cce5879e4da,
+        type: 3}
+      propertyPath: uniqueID
+      value: Door_post_close
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1109,7 +1114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &234967420
 Transform:
   m_ObjectHideFlags: 0
@@ -4619,7 +4624,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1067705100
 Transform:
   m_ObjectHideFlags: 0
@@ -4842,17 +4847,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: I_Door_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7658535512423155777, guid: b02ac8f46f2d772459f09cce5879e4da,
+        type: 3}
+      propertyPath: uniqueID
+      value: door_post_bed
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b02ac8f46f2d772459f09cce5879e4da, type: 3}
---- !u!1 &1152513691 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2809202437391905289, guid: b02ac8f46f2d772459f09cce5879e4da,
-    type: 3}
-  m_PrefabInstance: {fileID: 1152513690}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1175136542
 GameObject:
   m_ObjectHideFlags: 0
@@ -6301,7 +6305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1761092320
 Transform:
   m_ObjectHideFlags: 0
@@ -6478,12 +6482,12 @@ GameObject:
   - component: {fileID: 1866244129}
   - component: {fileID: 1866244130}
   m_Layer: 0
-  m_Name: InactiveInteractables
+  m_Name: InitInteractables
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1866244129
 Transform:
   m_ObjectHideFlags: 0
@@ -6511,13 +6515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab62ecc570dad440b1f76e1e40f1bb1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactableOnInit: 0
-  selectableOnInit: 0
-  targetSceneOrder: 1
-  interactableObjects:
-  - {fileID: 1152513691}
-  selectableObjects:
-  - {fileID: 1152513691}
+  processListSO: {fileID: 11400000, guid: cda4524adcff90444be146b0bd35f60a, type: 2}
 --- !u!1001 &1878957072
 PrefabInstance:
   m_ObjectHideFlags: 0

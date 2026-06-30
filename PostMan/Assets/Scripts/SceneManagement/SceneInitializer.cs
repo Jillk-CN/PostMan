@@ -20,7 +20,8 @@ namespace PostMan.Scene
         [SerializeField]
 #endif
         private int sceneOrder = 0;
-        private SceneInitHandler initOperation;//换种方式写,防止与公开的场景加载到位的事件冲突
+        //毕竟在语义上这不能算是个事件,且防止与公开的场景加载到位的事件冲突
+        private SceneInitHandler initOperation;
         private void Awake()
         {
 

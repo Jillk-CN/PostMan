@@ -22,7 +22,7 @@ namespace PostMan.InputManagement
         /// </summary>
         private PlayerInputActions inputActions;
         /// <summary>
-        /// 整个游戏的InputProviders
+        /// 整个游戏的InputSource
         /// </summary>
         private List<IInputSource> sources;
 
