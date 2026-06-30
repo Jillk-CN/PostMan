@@ -105,28 +105,16 @@ public class InteractableManager : MonoSingleton<InteractableManager>
 
             _objectState.gameObject = objectId.gameObject;
 
-            //获取交互组件，用于管理CanInteract
-            IInteractable interactScript = GetInteractScript(objectId.gameObject);
+            //获取交互组件，从第一个IInteractable读取初始CanInteract状态
+            IInteractable[] interactScripts = GetInteractScripts(objectId.gameObject);
 
-            if(interactScript != null)
+            if(interactScripts.Length > 0)
             {
-                //_objectState.isCanInteract = interactScript.CanInteract;
+                _objectState.isCanInteract = interactScripts[0].CanInteract;
             }
-            else if(interactScript == null)
+            else
             {
                 Debug.LogWarning($"[交互物全局管理器] 对象 {objectId.name} 缺失交互组件");
-            }
-
-            //获取Outline Visual组件，用于管理是否可选中
-            OutlineVisual outlineVisual = GetOutlineVisual(objectId.gameObject);
-
-            if(outlineVisual != null)
-            {
-                _objectState.isCanInteract = outlineVisual.CanSelect;
-            }
-            else if(outlineVisual == null)
-            {
-                Debug.LogWarning($"[交互物全局管理器] 对象 {objectId.name} 缺失交互组件OutlineVisual");
             }
 
             _objectState.isVisuable = objectId.transform.gameObject.activeSelf;
@@ -177,10 +165,10 @@ public class InteractableManager : MonoSingleton<InteractableManager>
                 newState.uniqueID = objectId.uniqueID;
                 newState.gameObject = objectId.gameObject;
 
-                IInteractable interactScript = GetInteractScript(objectId.gameObject);
-                if(interactScript != null)
+                IInteractable[] interactScripts = GetInteractScripts(objectId.gameObject);
+                if(interactScripts.Length > 0)
                 {
-                    newState.isCanInteract = interactScript.CanInteract;
+                    newState.isCanInteract = interactScripts[0].CanInteract;
                 }
 
                 newState.isVisuable = objectId.transform.gameObject.activeSelf;
@@ -193,40 +181,40 @@ public class InteractableManager : MonoSingleton<InteractableManager>
     }
 
     /// <summary>
-    /// 安全获取 IInteractable 
+    /// 安全获取物体上所有 IInteractable 组件
     /// </summary>
-    private IInteractable GetInteractScript(GameObject obj)
+    private IInteractable[] GetInteractScripts(GameObject obj)
     {
-        if (obj == null) return null;
+        if (obj == null) return Array.Empty<IInteractable>();
 
-        var interactable = obj.GetComponent<IInteractable>();
-        if (interactable != null) return interactable;
+        var interactables = obj.GetComponents<IInteractable>();
+        if (interactables.Length > 0) return interactables;
 
-        interactable = obj.GetComponentInChildren<IInteractable>();
-        if (interactable != null) return interactable;
+        interactables = obj.GetComponentsInChildren<IInteractable>();
+        if (interactables.Length > 0) return interactables;
 
-        return null;
+        return Array.Empty<IInteractable>();
     }
 
     /// <summary>
-    /// 安全获取 OutlineVisual 
+    /// 安全获取物体上所有 OutlineVisual 组件
     /// </summary>
-    private OutlineVisual GetOutlineVisual(GameObject obj)
+    private OutlineVisual[] GetOutlineVisuals(GameObject obj)
     {
-        if (obj == null) return null;
+        if (obj == null) return Array.Empty<OutlineVisual>();
 
-        var outlineVisual = obj.GetComponent<OutlineVisual>();
-        if (outlineVisual != null) return outlineVisual;
+        var outlineVisuals = obj.GetComponents<OutlineVisual>();
+        if (outlineVisuals.Length > 0) return outlineVisuals;
 
-        outlineVisual = obj.GetComponentInChildren<OutlineVisual>();
-        if (outlineVisual != null) return outlineVisual;
+        outlineVisuals = obj.GetComponentsInChildren<OutlineVisual>();
+        if (outlineVisuals.Length > 0) return outlineVisuals;
 
-        return null;
+        return Array.Empty<OutlineVisual>();
     }
 
     /// <summary>
     /// 应用交互物状态
-    /// 应用当前场景交互物上次的最后状态
+    /// 遍历当前场景所有 IInteractable 和 OutlineVisual 设置同步值
     /// </summary>
     public void ApplyState()
     {
@@ -241,26 +229,32 @@ public class InteractableManager : MonoSingleton<InteractableManager>
 
             if(_object.gameObject.scene != currentScene) continue;
 
-            IInteractable interactScript = GetInteractScript(_object.gameObject);
+            IInteractable[] interactScripts = GetInteractScripts(_object.gameObject);
 
-            if(interactScript != null)
+            if(interactScripts.Length > 0)
             {
-                interactScript.CanInteract = _object.isCanInteract;
+                for (int i = 0; i < interactScripts.Length; i++)
+                {
+                    interactScripts[i].CanInteract = _object.isCanInteract;
+                }
             }
             else
             {
                 Debug.LogWarning($"[交互物全局管理器] 对象 {_object.gameObject.name} 缺失交互组件");
             }
 
-            OutlineVisual outlineVisual = GetOutlineVisual(_object.gameObject);
+            OutlineVisual[] outlineVisuals = GetOutlineVisuals(_object.gameObject);
 
-            if(outlineVisual != null)
+            if(outlineVisuals.Length > 0)
             {
-                outlineVisual.CanSelect = _object.isCanInteract;
+                for (int i = 0; i < outlineVisuals.Length; i++)
+                {
+                    outlineVisuals[i].CanSelect = _object.isCanInteract;
+                }
             }
             else
             {
-                Debug.LogWarning($"[交互物全局管理器] 对象 {_object.gameObject.name} 缺失交互组件OutlineVisual");
+                Debug.LogWarning($"[交互物全局管理器] 对象 {_object.gameObject.name} 缺失OutlineVisual组件");
             }
             
 
@@ -362,14 +356,20 @@ public class InteractableManager : MonoSingleton<InteractableManager>
             itemState.gameObject.SetActive(listItem.isVisuable);
             itemState.isVisuable = itemState.gameObject.activeSelf;
 
-            IInteractable interactScript = GetInteractScript(itemState.gameObject);
-            OutlineVisual outlineVisual = GetOutlineVisual(itemState.gameObject);
+            IInteractable[] interactScripts = GetInteractScripts(itemState.gameObject);
+            OutlineVisual[] outlineVisuals = GetOutlineVisuals(itemState.gameObject);
 
-            if(interactScript != null && outlineVisual != null)
+            if(interactScripts.Length > 0 && outlineVisuals.Length > 0)
             {
-                interactScript.CanInteract = listItem.isCanInteract;
-                outlineVisual.CanSelect = listItem.isCanInteract;
-                itemState.isCanInteract = interactScript.CanInteract;
+                for (int i = 0; i < interactScripts.Length; i++)
+                {
+                    interactScripts[i].CanInteract = listItem.isCanInteract;
+                }
+                for (int i = 0; i < outlineVisuals.Length; i++)
+                {
+                    outlineVisuals[i].CanSelect = listItem.isCanInteract;
+                }
+                itemState.isCanInteract = listItem.isCanInteract;
             }
             else
             {

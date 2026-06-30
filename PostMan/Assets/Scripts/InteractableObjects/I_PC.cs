@@ -37,16 +37,6 @@ public class I_PC : MonoBehaviour, IInteractable
             Debug.LogError("[I_PC.cs] 获取显示交互提示组件失败");
         }
     }
-
-    void Update()
-    {
-        if(gameObject.GetComponent<BlackScreenInteractable>().CanInteract != CanInteract)
-        {
-            gameObject.GetComponent<BlackScreenInteractable>().CanInteract = CanInteract;
-        }
-    }
-
-
     public void InteractWith(PlayerInteractor player)
     {
         if(CanInteract == false) return;

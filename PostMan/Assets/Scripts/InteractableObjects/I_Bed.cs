@@ -65,14 +65,6 @@ public class I_Bed : MonoBehaviour, IInteractable
         }
     }
 
-    void Update()
-    {
-        if(gameObject.GetComponent<BlackScreenInteractable>().CanInteract != CanInteract)
-        {
-            gameObject.GetComponent<BlackScreenInteractable>().CanInteract = CanInteract;
-        }
-    }
-
     public void InteractWith(PlayerInteractor player)
     {
         if(CanInteract == false) return;
