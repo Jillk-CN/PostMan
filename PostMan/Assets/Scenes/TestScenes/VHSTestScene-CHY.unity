@@ -346,6 +346,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phoneSound: {fileID: 0}
+  abnormalPhoneSound: {fileID: 0}
+  pickUp: {fileID: 0}
+  handUp: {fileID: 0}
   handle: {fileID: 0}
   subtitleKeyList: []
   delayTime: 0
@@ -2580,10 +2583,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2aa66bbff70f747af6e3c4bd5f297a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  is410Cabinet: 0
   doorAnimator: {fileID: 763089249}
   openSound: {fileID: 0}
   closeSound: {fileID: 0}
   stuckSound: {fileID: 0}
+  openHeavySound: {fileID: 0}
+  closeHeavySound: {fileID: 0}
+  knockLightSound: {fileID: 0}
+  knockHeavySound: {fileID: 0}
+  insideScrapeSound: {fileID: 0}
+  metalVibrateSound: {fileID: 0}
+  cabinetDropSound: {fileID: 0}
   stucked: 0
   canInteract: 1
   priority: 0
@@ -4775,8 +4786,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbe71da7cd05bcb4ab8b8e7db348125e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  is410MailBox: 0
   openSound: {fileID: 0}
   closeSound: {fileID: 0}
+  takeLetterSound: {fileID: 0}
+  insertLetterSound: {fileID: 0}
+  mailbox410OpenSound: {fileID: 0}
+  mailbox410PopSound: {fileID: 0}
+  mailbox410HitInsideSound: {fileID: 0}
   taskTransitionList: []
   canInteract: 1
   priority: 0
@@ -5681,6 +5698,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   priority: 0
+  pickSound: {fileID: 0}
 --- !u!114 &676574631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5975,6 +5993,7 @@ GameObject:
   - component: {fileID: 711645318}
   - component: {fileID: 711645317}
   - component: {fileID: 711645316}
+  - component: {fileID: 711645319}
   m_Layer: 6
   m_Name: I_Letter
   m_TagString: Untagged
@@ -6027,6 +6046,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   priority: 0
+  takeSound: {fileID: 0}
+  putSound: {fileID: 0}
+  paperSlideOutSound: {fileID: 0}
 --- !u!114 &711645315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6093,6 +6115,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   priority: -1
+--- !u!114 &711645319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711645311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d8a7a4a7ca12f4d8ee24960a08226d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInteract: 1
+  priority: 0
 --- !u!1 &722758210
 GameObject:
   m_ObjectHideFlags: 0
@@ -8565,7 +8601,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2014487608d1784b8b4da20b3a3b73d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FrightSound: {fileID: 0}
+  _PlaceBox: 0
+  _Knock: 0
+  _CheckDoor: 1
+  placeGroundSound: {fileID: 0}
+  dragSlowSound: {fileID: 0}
+  doorCreakSound: {fileID: 0}
+  door410KnockSound: {fileID: 0}
+  door410KnockBackSound: {fileID: 0}
   canInteract: 1
   priority: 0
 --- !u!114 &1067695653
@@ -9652,6 +9695,7 @@ GameObject:
   - component: {fileID: 1158752759}
   - component: {fileID: 1158752758}
   - component: {fileID: 1158752757}
+  - component: {fileID: 1158752760}
   m_Layer: 6
   m_Name: I_Box
   m_TagString: Untagged
@@ -9717,6 +9761,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   priority: 0
+  takeSound: {fileID: 0}
+  putSound: {fileID: 0}
 --- !u!65 &1158752757
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9770,6 +9816,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   priority: -1
+--- !u!114 &1158752760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158752752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d8a7a4a7ca12f4d8ee24960a08226d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInteract: 1
+  priority: 0
 --- !u!1 &1174678081
 GameObject:
   m_ObjectHideFlags: 0
@@ -10184,6 +10244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 1
   priority: 0
+  takeSound: {fileID: 0}
 --- !u!114 &1295239798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10860,6 +10921,8 @@ MonoBehaviour:
   QuitKey: 113
   canInteract: 1
   priority: 0
+  takeSound: {fileID: 0}
+  putSound: {fileID: 0}
 --- !u!114 &1394872514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15547,6 +15610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5feb1d8b07c8bd04da346c91b756352b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  takeSound: {fileID: 0}
   subtitleKey: 
   taskIndex: 0
   advanceValue: 0
@@ -16896,7 +16960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a390e4418764b7e43866db9a6a24991c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SleepSound: {fileID: 0}
+  sitDownSound: {fileID: 0}
   canInteract: 1
   priority: 0
 --- !u!114 &2113821753
