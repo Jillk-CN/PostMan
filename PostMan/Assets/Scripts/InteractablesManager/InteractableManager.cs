@@ -9,6 +9,8 @@ using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 交互物全局管理器，提供接口控制场景上交互物状态
+/// 目前只保留交互物缓存 和 对当前场景交互物状态的管理
+/// 不启用重新进入缓存过的场景时自动加载上次交互物状态的功能
 /// </summary>
 public class InteractableManager : MonoSingleton<InteractableManager>
 {
@@ -75,9 +77,6 @@ public class InteractableManager : MonoSingleton<InteractableManager>
         else if(_Sceneloaded.Contains(scene.name))
         {
             ReBuildCache(scene);
-
-            // 恢复该场景交互物的上次状态
-            ApplyState();
         }
 
         // 应用该场景待处理的状态清单（在缓存构建/重建之后执行，确保缓存已存在）
@@ -106,15 +105,28 @@ public class InteractableManager : MonoSingleton<InteractableManager>
 
             _objectState.gameObject = objectId.gameObject;
 
+            //获取交互组件，用于管理CanInteract
             IInteractable interactScript = GetInteractScript(objectId.gameObject);
 
             if(interactScript != null)
             {
-                _objectState.isCanInteract = interactScript.CanInteract;
+                //_objectState.isCanInteract = interactScript.CanInteract;
             }
             else if(interactScript == null)
             {
-                Debug.LogWarning($"[交互物全局管理器] 对象 {objectId.name} 缺失交互组件IInteractable");
+                Debug.LogWarning($"[交互物全局管理器] 对象 {objectId.name} 缺失交互组件");
+            }
+
+            //获取Outline Visual组件，用于管理是否可选中
+            OutlineVisual outlineVisual = GetOutlineVisual(objectId.gameObject);
+
+            if(outlineVisual != null)
+            {
+                _objectState.isCanInteract = outlineVisual.CanSelect;
+            }
+            else if(outlineVisual == null)
+            {
+                Debug.LogWarning($"[交互物全局管理器] 对象 {objectId.name} 缺失交互组件OutlineVisual");
             }
 
             _objectState.isVisuable = objectId.transform.gameObject.activeSelf;
@@ -197,6 +209,22 @@ public class InteractableManager : MonoSingleton<InteractableManager>
     }
 
     /// <summary>
+    /// 安全获取 OutlineVisual 
+    /// </summary>
+    private OutlineVisual GetOutlineVisual(GameObject obj)
+    {
+        if (obj == null) return null;
+
+        var outlineVisual = obj.GetComponent<OutlineVisual>();
+        if (outlineVisual != null) return outlineVisual;
+
+        outlineVisual = obj.GetComponentInChildren<OutlineVisual>();
+        if (outlineVisual != null) return outlineVisual;
+
+        return null;
+    }
+
+    /// <summary>
     /// 应用交互物状态
     /// 应用当前场景交互物上次的最后状态
     /// </summary>
@@ -221,8 +249,20 @@ public class InteractableManager : MonoSingleton<InteractableManager>
             }
             else
             {
-                Debug.LogWarning($"[交互物全局管理器] 对象 {_object.gameObject.name} 缺失交互组件IInteractable");
+                Debug.LogWarning($"[交互物全局管理器] 对象 {_object.gameObject.name} 缺失交互组件");
             }
+
+            OutlineVisual outlineVisual = GetOutlineVisual(_object.gameObject);
+
+            if(outlineVisual != null)
+            {
+                outlineVisual.CanSelect = _object.isCanInteract;
+            }
+            else
+            {
+                Debug.LogWarning($"[交互物全局管理器] 对象 {_object.gameObject.name} 缺失交互组件OutlineVisual");
+            }
+            
 
             _object.gameObject.SetActive(_object.isVisuable);
 
@@ -323,15 +363,17 @@ public class InteractableManager : MonoSingleton<InteractableManager>
             itemState.isVisuable = itemState.gameObject.activeSelf;
 
             IInteractable interactScript = GetInteractScript(itemState.gameObject);
+            OutlineVisual outlineVisual = GetOutlineVisual(itemState.gameObject);
 
-            if(interactScript != null)
+            if(interactScript != null && outlineVisual != null)
             {
                 interactScript.CanInteract = listItem.isCanInteract;
+                outlineVisual.CanSelect = listItem.isCanInteract;
                 itemState.isCanInteract = interactScript.CanInteract;
             }
             else
             {
-                Debug.LogWarning($"[交互物全局管理器] 对象 {itemState.gameObject.name} 缺失交互组件IInteractable");
+                Debug.LogWarning($"[交互物全局管理器] 对象 {itemState.gameObject.name} 缺失交互组件 或 OutlineVisual");
             }
         }
     }
