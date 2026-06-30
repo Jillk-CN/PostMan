@@ -2783,7 +2783,7 @@ MonoBehaviour:
   - _Sample_Post
   scenesToUnload:
   - TitleTestScene-CHY
-  playerStartPosition: {x: 2.76, y: 0, z: -4.54}
+  playerStartPosition: {x: 0.63440776, y: 0.100000024, z: -1.5356208}
 --- !u!114 &599888823
 MonoBehaviour:
   m_ObjectHideFlags: 0

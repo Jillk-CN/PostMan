@@ -24,17 +24,9 @@ namespace PostMan.Scene
         private SceneInitHandler initOperation;
         private void Awake()
         {
+            GameSceneManager.OnSceneSwitchCompleted += OnSceneLoad;
+        }
 
-        }
-        //测试用
-        private void Update()
-        {
-            Keyboard keyboard = Keyboard.current;
-            if (keyboard.iKey.wasPressedThisFrame)
-            {
-                OnSceneLoad();
-            }
-        }
 
         public void Register(SceneInitHandler operation)
         {
@@ -51,8 +43,14 @@ namespace PostMan.Scene
                 this.initOperation += operation;
             }
         }
-        private void OnSceneLoad()
+        private void OnSceneLoad(IReadOnlyList<string> sceneName)
         {
+            /*返回了加载的场景名称,和unity里的一样
+            foreach (var item in sceneName)
+            {
+                Debug.Log(item);    
+            }
+             */
             this.sceneOrder++;//TODO : 如果是主菜单,需要设置为0
             this.initOperation?.Invoke(this.sceneOrder, string.Empty);
             this.initOperation = null;

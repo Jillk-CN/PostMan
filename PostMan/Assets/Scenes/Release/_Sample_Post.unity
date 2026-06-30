@@ -919,7 +919,7 @@ PrefabInstance:
     - target: {fileID: 7658535512423155777, guid: b02ac8f46f2d772459f09cce5879e4da,
         type: 3}
       propertyPath: uniqueID
-      value: Door_post_close
+      value: door_post_close
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1114,7 +1114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &234967420
 Transform:
   m_ObjectHideFlags: 0
@@ -6305,7 +6305,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1761092320
 Transform:
   m_ObjectHideFlags: 0
@@ -6487,7 +6487,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1866244129
 Transform:
   m_ObjectHideFlags: 0
@@ -6516,6 +6516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   processListSO: {fileID: 11400000, guid: cda4524adcff90444be146b0bd35f60a, type: 2}
+  targetSceneOrder: 1
 --- !u!1001 &1878957072
 PrefabInstance:
   m_ObjectHideFlags: 0

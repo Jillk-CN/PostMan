@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6039ee69a41c56d458b7ae63f3377aad, type: 3}
-  m_Name: Scene1
+  m_Name: Scene2
   m_EditorClassIdentifier: 
   item:
   - gameObject: {fileID: 0}
-    uniqueID: door_post_close
+    uniqueID: mbox_street_403
     isCanInteract: 0
     isVisuable: 1
   - gameObject: {fileID: 0}
-    uniqueID: door_post_bed
+    uniqueID: mbox_street_406
     isCanInteract: 0
     isVisuable: 1

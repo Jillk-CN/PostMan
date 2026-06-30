@@ -13,6 +13,9 @@ namespace PostMan.Scene
         [Header("初始化参数,编辑器内手动配置")]
         [SerializeField]
         private InteractablesProcessListSO processListSO;
+        [SerializeField]
+        [Tooltip("玩家在哪个场景时,应用这个初始化")]
+        private int targetSceneOrder;
 
         /*旧实现,现在改为调用InteractableManager
         [SerializeField]
@@ -63,6 +66,11 @@ namespace PostMan.Scene
                 }
             } 
              */
+
+            if (targetSceneOrder!=sceneOrder)
+            {
+                return;
+            }
             InteractableManager.Instance.ApplyState(processListSO);
         }
     }
