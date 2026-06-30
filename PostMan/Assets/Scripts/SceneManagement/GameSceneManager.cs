@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -17,6 +18,16 @@ using PostMan.Player;
 /// </summary>
 public class GameSceneManager : MonoSingleton<GameSceneManager>
 {
+    // ─────────────────────────────────────────────
+    // 公开事件
+    // ─────────────────────────────────────────────
+
+    /// <summary>
+    /// 场景切换完成事件：新场景全部加载完成且旧场景全部卸载完成后触发。
+    /// 参数为本次加载的场景地址列表（只读副本）。
+    /// </summary>
+    public static event Action<IReadOnlyList<string>> OnSceneSwitchCompleted;
+
     // ─────────────────────────────────────────────
     // 调试设置
     // ─────────────────────────────────────────────
@@ -114,6 +125,13 @@ public class GameSceneManager : MonoSingleton<GameSceneManager>
 
                 Log("所有旧场景卸载完成。");
             }
+
+            // ── 阶段 3：通知外部系统场景切换已全部完成 ──
+            var loadedSnapshot = scenesToLoad != null
+                ? (IReadOnlyList<string>)scenesToLoad.AsReadOnly()
+                : Array.Empty<string>();
+            OnSceneSwitchCompleted?.Invoke(loadedSnapshot);
+            Log("场景切换完成事件已触发。");
         }
         catch (Exception e)
         {
