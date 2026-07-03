@@ -16,6 +16,8 @@ public class MovePlayerAfterTask : MonoBehaviour
     [SerializeField] private List<string> _scenesToUnload = new List<string>();
 
     public int taskIndex; // 任务索引   
+
+    [SerializeField] private bool _movePlayerAfterTaskCompletion = true; // 是否在任务完成后移动玩家
     public Vector3 targetPosition;
 
     public TaskSO task;
@@ -34,9 +36,12 @@ public class MovePlayerAfterTask : MonoBehaviour
     {
         if (taskData.Definition.taskIndex == taskIndex)
         {
-            TaskManager.Instance.StartTask(task);
-            PlayerInstance.Instance.transform.position = targetPosition;
-            GameSceneManager.Instance.SwitchScenes(_scenesToLoad, _scenesToUnload);
+            if (_movePlayerAfterTaskCompletion)
+            {
+                PlayerInstance.Instance.transform.position = targetPosition;
+            }
+                TaskManager.Instance.StartTask(task);
+                GameSceneManager.Instance.SwitchScenes(_scenesToLoad, _scenesToUnload);
         }
     }
 }
