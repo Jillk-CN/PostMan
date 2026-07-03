@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e48ebe7b33625d4f88f53d3b19c0f4d, type: 3}
+  m_Name: Dialogue06
+  m_EditorClassIdentifier: 
+  dialogueKeys:
+  - dlg_d5_player_1
+  - dlg_d5_postmaster_1
+  - dlg_d5_player_2
+  - dlg_d5_postmaster_2
+  - dlg_d5_player_3
+  - dlg_d5_postmaster_3
+  - dlg_d5_player_4
+  - dlg_d5_postmaster_4
+  - dlg_d5_player_5
+  - dlg_d5_postmaster_5
+  - dlg_d5_player_6
+  - dlg_d5_postmaster_6
+  id: 6
