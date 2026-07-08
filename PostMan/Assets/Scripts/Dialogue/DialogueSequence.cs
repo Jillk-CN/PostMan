@@ -42,8 +42,8 @@ namespace PostMan.Dialogue
         [Tooltip("对话唯一的数字id,仅用于标识,数字之间没有任何关联")]
         public int id;
         //private List<DialogueInfo> sequence;
-        [Tooltip("对话结束后的演出设置")]
-        public string dialogueEndPerformName;
+       // [Tooltip("对话结束后的演出设置")]
+       // public string dialogueEndPerformName;
         /// <summary>
         /// 获取每一句对话的数组
         /// </summary>
