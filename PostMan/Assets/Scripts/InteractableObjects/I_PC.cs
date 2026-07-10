@@ -5,6 +5,7 @@ using PostMan.Player;
 using PostMan.Common;
 using Cinemachine;
 using PostMan.UI;
+using UnityEditor.PackageManager;
 
 public class I_PC : MonoBehaviour, IInteractable
 {
@@ -81,29 +82,44 @@ public class I_PC : MonoBehaviour, IInteractable
 
         BlackScreen.Instance.BlackOut("" , 0.5f);
 
-        //退出论坛界面
-        forum.SetActive(false);
+        //退出论坛界面（用scale隐藏而非SetActive，避免中断协程）
+        forum.transform.localScale = Vector3.zero;
 
         //激活玩家正常移动视角的虚拟相机
         PlayerCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = true;
-        
+
         //失活PC视角的虚拟相机，让视角自动过渡到正常移动视角  
         PCCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = false;
 
-        yield return new WaitForSeconds(1.5f);
+        //立即恢复角色移动和交互（无需等待黑屏过渡完成）
+        if (playerMotion != null)
+        {
+            playerMotion.enabled = true;
+        }
+        if (showInteractPrompt != null)
+        {
+            showInteractPrompt.CanSelect = true;
+        }
 
-        //恢复角色移动组件
-        playerMotion.enabled = true;
+        yield return new WaitForSeconds(2f);
 
-        //恢复交互提示
-        showInteractPrompt.CanSelect = true;
+        // 再次确保移动和交互已恢复（防止其他组件在过渡期间再次禁用）
+        if (playerMotion != null)
+        {
+            playerMotion.enabled = true;
+        }
+        if (showInteractPrompt != null)
+        {
+            showInteractPrompt.CanSelect = true;
+        }
     }
 
     private IEnumerator OpenForum()
     {
         yield return new WaitForSeconds(0.5f);
 
-        //进入论坛界面
-        forum.SetActive(true);
+        //进入论坛界面（用scale显示）
+        forum.transform.localScale = Vector3.one;
+        forum.GetComponent<Forum>().playerMotion = playerMotion;
     }
 }

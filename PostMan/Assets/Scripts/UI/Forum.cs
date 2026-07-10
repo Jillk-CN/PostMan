@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using PostMan.AudioSystem;
+using PostMan.Player;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,9 +20,13 @@ public class Forum : MonoBehaviour
     private GameObject PC;
     public AudioClip clickSound;
     public AudioClip returnSound;
+    public PlayerMotion playerMotion;
 
     void Start()
     {
+        // 游戏开始时隐藏论坛UI
+        transform.localScale = Vector3.zero;
+
         for (int i = 0; i < forumPosts.Count; i++)
         {
             int index = i;
@@ -104,14 +109,23 @@ public class Forum : MonoBehaviour
         // 重置所有帖子的已读状态为未读
         ResetAllPostsReadStatus();
         
-        // 关闭论坛界面
-        gameObject.SetActive(false);
-        
         // 调用 PC 的关闭方法
         if (PC != null)
         {
             PC.GetComponent<I_PC>().ClosePC();
         }
+
+        if(TaskManager.Instance.IsTaskActive(taskTransition.currentIndex))
+        {
+            TaskManager.Instance.AdvanceTask(taskTransition.currentIndex);
+
+            TaskManager.Instance.StartTask(taskTransition.nextTask);
+
+        }
+
+        //恢复角色移动组件
+        playerMotion.enabled = true;
+
     }
     
     /// <summary>
