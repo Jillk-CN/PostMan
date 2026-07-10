@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
   - gameObject: {fileID: 0}
-    uniqueID: mbox_street_403
-    isCanInteract: 0
+    uniqueID: mbox_street_405
+    isCanInteract: 1
     isVisuable: 1
   - gameObject: {fileID: 0}
-    uniqueID: mbox_street_406
-    isCanInteract: 0
+    uniqueID: mbox_street_401
+    isCanInteract: 1
+    isVisuable: 1
+  - gameObject: {fileID: 0}
+    uniqueID: mbox_street_409
+    isCanInteract: 1
     isVisuable: 1

@@ -185,6 +185,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: I_MailBox
       objectReference: {fileID: 0}
+    - target: {fileID: 2000223434243739889, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490009437645799706, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273969567596796867, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -218,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d8a7a4a7ca12f4d8ee24960a08226d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInteract: 1
+  canInteract: 0
   priority: 7
 --- !u!1 &33190541
 GameObject:
@@ -824,151 +839,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &163145902
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 356149539}
-    m_Modifications:
-    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.945
-      objectReference: {fileID: 0}
-    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.506
-      objectReference: {fileID: 0}
-    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -13.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030647194753977809, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      propertyPath: m_Name
-      value: I_MailBox
-      objectReference: {fileID: 0}
-    - target: {fileID: 8970829447062299665, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      propertyPath: uniqueID
-      value: mbox_street_401
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1030647194753977809, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 163145905}
-    - targetCorrespondingSourceObject: {fileID: 1030647194753977809, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 163145906}
-    - targetCorrespondingSourceObject: {fileID: 1030647194753977809, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 163145907}
-  m_SourcePrefab: {fileID: 100100000, guid: eb234a6a857967b498b0f2431a717741, type: 3}
---- !u!4 &163145903 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
-    type: 3}
-  m_PrefabInstance: {fileID: 163145902}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &163145904 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1030647194753977809, guid: eb234a6a857967b498b0f2431a717741,
-    type: 3}
-  m_PrefabInstance: {fileID: 163145902}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &163145905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163145904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a595d3b50558164683e370be38476fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTask: {fileID: 11400000, guid: a4d51bd86af125c479d4192d6a9cfe8e, type: 2}
-  advanceAmount: 1
-  advanceOnce: 1
-  _canInteract: 1
-  _priority: 0
---- !u!114 &163145906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163145904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43d8a7a4a7ca12f4d8ee24960a08226d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canInteract: 1
-  priority: 7
---- !u!114 &163145907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 163145904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a595d3b50558164683e370be38476fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTask: {fileID: 11400000, guid: bd10c1c7fd66db44a89565e0c5950560, type: 2}
-  advanceAmount: 1
-  advanceOnce: 1
-  _canInteract: 1
-  _priority: 0
 --- !u!1 &302464398
 GameObject:
   m_ObjectHideFlags: 0
@@ -1517,11 +1387,11 @@ Transform:
   m_GameObject: {fileID: 356149538}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.1}
+  m_LocalPosition: {x: 0.945, y: 0.488, z: -10.790001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 163145903}
+  - {fileID: 1041318831}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &383931655
@@ -1587,6 +1457,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: I_MailBox
       objectReference: {fileID: 0}
+    - target: {fileID: 2000223434243739889, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490009437645799706, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273969567596796867, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8970829447062299665, guid: eb234a6a857967b498b0f2431a717741,
         type: 3}
       propertyPath: uniqueID
@@ -1632,7 +1517,7 @@ MonoBehaviour:
   targetTask: {fileID: 11400000, guid: a4d51bd86af125c479d4192d6a9cfe8e, type: 2}
   advanceAmount: 1
   advanceOnce: 1
-  _canInteract: 1
+  _canInteract: 0
   _priority: 0
 --- !u!114 &383931659
 MonoBehaviour:
@@ -1646,7 +1531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d8a7a4a7ca12f4d8ee24960a08226d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInteract: 1
+  canInteract: 0
   priority: 7
 --- !u!1 &384772620
 GameObject:
@@ -1663,7 +1548,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &384772621
 Transform:
   m_ObjectHideFlags: 0
@@ -2175,6 +2060,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: I_MailBox
       objectReference: {fileID: 0}
+    - target: {fileID: 2000223434243739889, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490009437645799706, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273969567596796867, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8970829447062299665, guid: eb234a6a857967b498b0f2431a717741,
         type: 3}
       propertyPath: uniqueID
@@ -2234,7 +2134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d8a7a4a7ca12f4d8ee24960a08226d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInteract: 1
+  canInteract: 0
   priority: 7
 --- !u!1001 &765184646
 PrefabInstance:
@@ -2515,6 +2415,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: I_MailBox
       objectReference: {fileID: 0}
+    - target: {fileID: 2000223434243739889, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490009437645799706, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273969567596796867, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8970829447062299665, guid: eb234a6a857967b498b0f2431a717741,
         type: 3}
       propertyPath: uniqueID
@@ -2560,7 +2475,7 @@ MonoBehaviour:
   targetTask: {fileID: 11400000, guid: 0edc64e186e701848b9680254e998dd6, type: 2}
   advanceAmount: 1
   advanceOnce: 1
-  _canInteract: 1
+  _canInteract: 0
   _priority: 0
 --- !u!114 &799288506
 MonoBehaviour:
@@ -2574,7 +2489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d8a7a4a7ca12f4d8ee24960a08226d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInteract: 1
+  canInteract: 0
   priority: 7
 --- !u!1 &841041296
 GameObject:
@@ -2855,6 +2770,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: I_MailBox
       objectReference: {fileID: 0}
+    - target: {fileID: 2000223434243739889, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490009437645799706, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273969567596796867, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970829447062299665, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: uniqueID
+      value: mbox_street_407
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2888,7 +2823,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d8a7a4a7ca12f4d8ee24960a08226d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInteract: 1
+  canInteract: 0
   priority: 7
 --- !u!1 &960769998
 GameObject:
@@ -3038,6 +2973,145 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1041318830
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 356149539}
+    m_Modifications:
+    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.288
+      objectReference: {fileID: 0}
+    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030647194753977809, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: m_Name
+      value: I_MailBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000223434243739889, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490009437645799706, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273969567596796867, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970829447062299665, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: uniqueID
+      value: mbox_street_401
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1030647194753977809, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1041318834}
+    - targetCorrespondingSourceObject: {fileID: 1030647194753977809, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1041318833}
+  m_SourcePrefab: {fileID: 100100000, guid: eb234a6a857967b498b0f2431a717741, type: 3}
+--- !u!4 &1041318831 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
+    type: 3}
+  m_PrefabInstance: {fileID: 1041318830}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1041318832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1030647194753977809, guid: eb234a6a857967b498b0f2431a717741,
+    type: 3}
+  m_PrefabInstance: {fileID: 1041318830}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1041318833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041318832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d8a7a4a7ca12f4d8ee24960a08226d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInteract: 0
+  priority: 7
+--- !u!114 &1041318834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041318832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a595d3b50558164683e370be38476fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTask: {fileID: 11400000, guid: a4d51bd86af125c479d4192d6a9cfe8e, type: 2}
+  advanceAmount: 1
+  advanceOnce: 1
+  _canInteract: 1
+  _priority: 0
 --- !u!1 &1137381039
 GameObject:
   m_ObjectHideFlags: 0
@@ -3355,7 +3429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1209852701
 Transform:
   m_ObjectHideFlags: 0
@@ -3577,6 +3651,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: I_MailBox
       objectReference: {fileID: 0}
+    - target: {fileID: 2000223434243739889, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490009437645799706, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273969567596796867, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970829447062299665, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: uniqueID
+      value: mbox_street_404
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3610,7 +3704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d8a7a4a7ca12f4d8ee24960a08226d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInteract: 1
+  canInteract: 0
   priority: 7
 --- !u!224 &1356775153 stripped
 RectTransform:
@@ -4048,10 +4142,10 @@ GameObject:
   m_Layer: 0
   m_Name: 402
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1772403599
 Transform:
   m_ObjectHideFlags: 0
@@ -4083,7 +4177,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1839195566
 Transform:
   m_ObjectHideFlags: 0
@@ -4111,7 +4205,7 @@ PrefabInstance:
     - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.945
+      value: 0.94499993
       objectReference: {fileID: 0}
     - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
         type: 3}
@@ -4131,17 +4225,17 @@ PrefabInstance:
     - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 37500813201664849, guid: eb234a6a857967b498b0f2431a717741,
         type: 3}
@@ -4162,6 +4256,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: I_MailBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000223434243739889, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490009437645799706, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273969567596796867, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970829447062299665, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: uniqueID
+      value: mbox_street_402
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4196,7 +4310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d8a7a4a7ca12f4d8ee24960a08226d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInteract: 1
+  canInteract: 0
   priority: 7
 --- !u!1 &1921139079
 GameObject:
@@ -4324,6 +4438,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: I_MailBox (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2000223434243739889, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490009437645799706, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273969567596796867, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4365,7 +4494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d8a7a4a7ca12f4d8ee24960a08226d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInteract: 1
+  canInteract: 0
   priority: 7
 --- !u!114 &1979467747
 MonoBehaviour:
@@ -4382,7 +4511,7 @@ MonoBehaviour:
   targetTask: {fileID: 11400000, guid: e9113e362def37445a3dc14c5e010d9f, type: 2}
   advanceAmount: 1
   advanceOnce: 1
-  _canInteract: 1
+  _canInteract: 0
   _priority: 0
 --- !u!114 &1979467748
 MonoBehaviour:
@@ -4399,7 +4528,7 @@ MonoBehaviour:
   targetTask: {fileID: 11400000, guid: bd10c1c7fd66db44a89565e0c5950560, type: 2}
   advanceAmount: 1
   advanceOnce: 1
-  _canInteract: 1
+  _canInteract: 0
   _priority: 0
 --- !u!1 &2049513692
 GameObject:
@@ -4600,6 +4729,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: I_MailBox
       objectReference: {fileID: 0}
+    - target: {fileID: 2000223434243739889, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490009437645799706, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7273969567596796867, guid: eb234a6a857967b498b0f2431a717741,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8970829447062299665, guid: eb234a6a857967b498b0f2431a717741,
         type: 3}
       propertyPath: uniqueID
@@ -4649,7 +4793,7 @@ MonoBehaviour:
   targetTask: {fileID: 11400000, guid: 0edc64e186e701848b9680254e998dd6, type: 2}
   advanceAmount: 1
   advanceOnce: 1
-  _canInteract: 1
+  _canInteract: 0
   _priority: 0
 --- !u!114 &2090230079
 MonoBehaviour:
@@ -4663,7 +4807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43d8a7a4a7ca12f4d8ee24960a08226d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canInteract: 1
+  canInteract: 0
   priority: 7
 --- !u!114 &2090230080
 MonoBehaviour:
@@ -4680,7 +4824,7 @@ MonoBehaviour:
   targetTask: {fileID: 11400000, guid: bd10c1c7fd66db44a89565e0c5950560, type: 2}
   advanceAmount: 1
   advanceOnce: 1
-  _canInteract: 1
+  _canInteract: 0
   _priority: 0
 --- !u!1001 &5667419012763110757
 PrefabInstance:
