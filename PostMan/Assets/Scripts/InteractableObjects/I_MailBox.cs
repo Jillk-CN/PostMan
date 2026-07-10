@@ -55,6 +55,8 @@ public class I_MailBox : MonoBehaviour, IInteractable
     {
         if(CanInteract == false) return;
         StartCoroutine(Door());
+
+        CanInteract = false;
     }
 
     private IEnumerator Door()
@@ -90,8 +92,6 @@ public class I_MailBox : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(0.3f);
 
         doorAnimator.ResetTrigger("Close");
-        
-        showInteractPrompt.CanSelect = true;
     }
 
     private IEnumerator Handle()

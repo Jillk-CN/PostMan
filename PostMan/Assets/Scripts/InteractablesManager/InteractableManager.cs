@@ -213,6 +213,22 @@ public class InteractableManager : MonoSingleton<InteractableManager>
     }
 
     /// <summary>
+    /// 安全获取物体上所有 ShowInteractPrompt 组件
+    /// </summary>
+    private ShowInteractPrompt[] GetShowInteractPrompts(GameObject obj)
+    {
+        if (obj == null) return Array.Empty<ShowInteractPrompt>();
+
+        var prompts = obj.GetComponents<ShowInteractPrompt>();
+        if (prompts.Length > 0) return prompts;
+
+        prompts = obj.GetComponentsInChildren<ShowInteractPrompt>();
+        if (prompts.Length > 0) return prompts;
+
+        return Array.Empty<ShowInteractPrompt>();
+    }
+
+    /// <summary>
     /// 应用交互物状态
     /// 遍历当前场景所有 IInteractable 和 OutlineVisual 设置同步值
     /// </summary>
@@ -244,6 +260,7 @@ public class InteractableManager : MonoSingleton<InteractableManager>
             }
 
             OutlineVisual[] outlineVisuals = GetOutlineVisuals(_object.gameObject);
+            ShowInteractPrompt[] showPrompts = GetShowInteractPrompts(_object.gameObject);
 
             if(outlineVisuals.Length > 0)
             {
@@ -256,8 +273,15 @@ public class InteractableManager : MonoSingleton<InteractableManager>
             {
                 Debug.LogWarning($"[交互物全局管理器] 对象 {_object.gameObject.name} 缺失OutlineVisual组件");
             }
-            
 
+            if(showPrompts.Length > 0)
+            {
+                for (int i = 0; i < showPrompts.Length; i++)
+                {
+                    showPrompts[i].CanSelect = _object.isCanInteract;
+                }
+            }
+            
             _object.gameObject.SetActive(_object.isVisuable);
 
             if(isTestState)
@@ -358,6 +382,7 @@ public class InteractableManager : MonoSingleton<InteractableManager>
 
             IInteractable[] interactScripts = GetInteractScripts(itemState.gameObject);
             OutlineVisual[] outlineVisuals = GetOutlineVisuals(itemState.gameObject);
+            ShowInteractPrompt[] showPrompts = GetShowInteractPrompts(itemState.gameObject);
 
             if(interactScripts.Length > 0 && outlineVisuals.Length > 0)
             {
@@ -368,6 +393,10 @@ public class InteractableManager : MonoSingleton<InteractableManager>
                 for (int i = 0; i < outlineVisuals.Length; i++)
                 {
                     outlineVisuals[i].CanSelect = listItem.isCanInteract;
+                }
+                for (int i = 0; i < showPrompts.Length; i++)
+                {
+                    showPrompts[i].CanSelect = listItem.isCanInteract;
                 }
                 itemState.isCanInteract = listItem.isCanInteract;
             }
