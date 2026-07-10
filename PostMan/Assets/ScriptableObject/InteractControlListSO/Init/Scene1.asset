@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item:
   - gameObject: {fileID: 0}
-    uniqueID: door_post_close
-    isCanInteract: 0
+    uniqueID: door_post_bed
+    isCanInteract: 1
     isVisuable: 1
   - gameObject: {fileID: 0}
-    uniqueID: door_post_bed
+    uniqueID: I_Door_3
     isCanInteract: 0
     isVisuable: 1
