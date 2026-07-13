@@ -39,9 +39,9 @@ public class MovePlayerAfterTask : MonoBehaviour
             if (_movePlayerAfterTaskCompletion)
             {
                 PlayerInstance.Instance.transform.position = targetPosition;
+                GameSceneManager.Instance.SwitchScenes(_scenesToLoad, _scenesToUnload);
             }
                 TaskManager.Instance.StartTask(task);
-                GameSceneManager.Instance.SwitchScenes(_scenesToLoad, _scenesToUnload);
         }
     }
 }
