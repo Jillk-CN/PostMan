@@ -71,6 +71,7 @@ namespace PostMan.Player
             //只在射线检测到的物体或者根物体查找
             ISelectable[] selectables =
                 hit.collider.GetComponents<ISelectable>();
+            //Debug.Log(hit.collider.name);
             //如果没找到,去根物体查找
             if (selectables.Length!=0)
             {
