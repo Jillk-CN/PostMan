@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1916248ccc0316f4b8c2b168ba6c6022
+guid: 47f50be0516d36248bc72c76df677a4d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -14,6 +14,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: E_D_L_2
     second: {fileID: 2100000, guid: 5bc5f7241f40fa54ca127a68771883ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: E_Door_l_1
+    second: {fileID: 2100000, guid: 7d22bcf96ff4bc14d983e0087813f5c3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1
