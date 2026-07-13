@@ -13,11 +13,9 @@ GameObject:
   - component: {fileID: 4698213291387305591}
   - component: {fileID: 5975085871360403960}
   - component: {fileID: 6309406180194993850}
-  - component: {fileID: 2746291183405845254}
-  - component: {fileID: 3598483547694282291}
-  - component: {fileID: 5775774318388340582}
   - component: {fileID: 2842273387251952459}
-  m_Layer: 0
+  - component: {fileID: 8123034628638180835}
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -106,52 +104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b77ec13da6bedb498930c50fe7d6744, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectDistance: 5
+  detectDistance: 1
   detectLayer:
     serializedVersion: 2
-    m_Bits: 64
---- !u!114 &2746291183405845254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2887424777433423837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa8ffc08ff8c7794485cb38d82231514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactDistance: 5
---- !u!114 &3598483547694282291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2887424777433423837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b77ec13da6bedb498930c50fe7d6744, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectDistance: 5
-  detectLayer:
-    serializedVersion: 2
-    m_Bits: 64
---- !u!114 &5775774318388340582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2887424777433423837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa8ffc08ff8c7794485cb38d82231514, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactDistance: 5
+    m_Bits: 65
 --- !u!114 &2842273387251952459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,16 +121,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundCheckDistance: 0.2
-  groundCheckRadius: 0.3
-  walkInternetTime: 1
-  runInternetTime: 0.4
-  footStepTileWalk: {fileID: 8300000, guid: a3cf5802cf8424d4195d74671b37e4a6, type: 3}
-  footStepTileRun: {fileID: 8300000, guid: a3cf5802cf8424d4195d74671b37e4a6, type: 3}
-  footStepWoodWalk: {fileID: 8300000, guid: 2a55c1aaeab88a64d8d43b44f5c0088a, type: 3}
-  footStepWoodRun: {fileID: 8300000, guid: 2a55c1aaeab88a64d8d43b44f5c0088a, type: 3}
-  footStepWetRoadWalk: {fileID: 8300000, guid: 9dd6d5a514eb76e4eaa7e5bc6fe07bc7, type: 3}
-  footStepWetRoadRun: {fileID: 8300000, guid: 9dd6d5a514eb76e4eaa7e5bc6fe07bc7, type: 3}
-  currentMaterial: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  intervalWalk: 0.5
+  intervalRun: 0.2
+--- !u!114 &8123034628638180835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2887424777433423837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8ffc08ff8c7794485cb38d82231514, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactDistance: 1
 --- !u!1 &3584005510048825822
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,7 +151,7 @@ GameObject:
   - component: {fileID: 2519913997133886429}
   - component: {fileID: 5634254302082244203}
   - component: {fileID: 5731200907465109291}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4106987589041924381}
   - component: {fileID: 8221644484248676143}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: sightPoint
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -310,7 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5304599040438429435}
   - component: {fileID: 6264969326990669865}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ShakeEffectPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +325,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7407860186210517783}
   - component: {fileID: 2571242748630306246}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: FPVcam
   m_TagString: Untagged
   m_Icon: {fileID: 0}

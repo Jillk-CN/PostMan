@@ -20,6 +20,9 @@ namespace PostMan.Player
         {
             TextPanel.Instance.ShowText(content);
         }
-
+        public void SetContent(ReadingContent content)
+        {
+            this.content = content;
+        }
     }
 }

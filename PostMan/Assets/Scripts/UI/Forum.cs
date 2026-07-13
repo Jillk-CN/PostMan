@@ -4,6 +4,7 @@ using PostMan.AudioSystem;
 using PostMan.Player;
 using UnityEngine;
 using UnityEngine.UI;
+using PostMan.InputManagement;
 
 public class Forum : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class Forum : MonoBehaviour
     private GameObject PC;
     public AudioClip clickSound;
     public AudioClip returnSound;
-    public PlayerMotion playerMotion;
+    private GameInputManager gameInputManager;
 
     void Start()
     {
@@ -41,6 +42,8 @@ public class Forum : MonoBehaviour
                 forumPosts[i].CloseButton.onClick.AddListener(() => ClosePost(index));
             }
         }
+
+        gameInputManager = FindAnyObjectByType<GameInputManager>();
     }
 
     private void OpenPost(int postIndex)
@@ -123,9 +126,22 @@ public class Forum : MonoBehaviour
 
         }
 
-        //恢复角色移动组件
-        playerMotion.enabled = true;
+        //等待所有组件完成过渡后再确保恢复移动
+        StartCoroutine(DelayedRestoreMovement());
+    }
 
+    private IEnumerator DelayedRestoreMovement()
+    {
+        // 等待帧末，让所有事件和组件在这一帧内完成处理
+        yield return new WaitForEndOfFrame();
+
+        // 再等待一帧，确保场景加载等异步操作触发的逻辑已完成
+        yield return null;
+
+        if (gameInputManager != null)
+        {
+            gameInputManager.SetPlayerAllInput(true);
+        }
     }
     
     /// <summary>

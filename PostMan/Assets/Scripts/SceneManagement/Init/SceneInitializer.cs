@@ -53,6 +53,7 @@ namespace PostMan.Scene
              */
             this.sceneOrder++;//TODO : 如果是主菜单,需要设置为0
             this.initOperation?.Invoke(this.sceneOrder, string.Empty);
+            Debug.LogWarningFormat("以记载到场景{0}", this.sceneOrder);
             this.initOperation = null;
         }
     }

@@ -6,6 +6,7 @@ using PostMan.Common;
 using Cinemachine;
 using PostMan.UI;
 using UnityEditor.PackageManager;
+using PostMan.InputManagement;
 
 public class I_PC : MonoBehaviour, IInteractable
 {
@@ -21,6 +22,7 @@ public class I_PC : MonoBehaviour, IInteractable
     public int priority;
     public bool CanInteract { get => canInteract; set => canInteract=value; }
     public int Priority { get => priority; set => priority=value; }
+    private GameInputManager gameInputManager;
 
     void Start()
     {
@@ -37,6 +39,8 @@ public class I_PC : MonoBehaviour, IInteractable
         {
             Debug.LogError("[I_PC.cs] 获取显示交互提示组件失败");
         }
+
+        gameInputManager = FindAnyObjectByType<GameInputManager>();
     }
     public void InteractWith(PlayerInteractor player)
     {
@@ -50,11 +54,10 @@ public class I_PC : MonoBehaviour, IInteractable
         //获取角色移动组件
         playerMotion = player.gameObject.GetComponent<PlayerMotion>();
 
-        //暂时禁用角色移动组件
-        playerMotion.enabled = false;
-
-        //暂时关闭交互提示
-        showInteractPrompt.CanSelect = false;
+        if (gameInputManager != null)
+        {
+            gameInputManager.SetPlayerAllInput(false);
+        }
 
         //激活PC视角的虚拟相机
         PCCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = true;
@@ -92,26 +95,12 @@ public class I_PC : MonoBehaviour, IInteractable
         PCCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = false;
 
         //立即恢复角色移动和交互（无需等待黑屏过渡完成）
-        if (playerMotion != null)
+        if (gameInputManager != null)
         {
-            playerMotion.enabled = true;
-        }
-        if (showInteractPrompt != null)
-        {
-            showInteractPrompt.CanSelect = true;
+            gameInputManager.SetPlayerAllInput(true);
         }
 
-        yield return new WaitForSeconds(2f);
-
-        // 再次确保移动和交互已恢复（防止其他组件在过渡期间再次禁用）
-        if (playerMotion != null)
-        {
-            playerMotion.enabled = true;
-        }
-        if (showInteractPrompt != null)
-        {
-            showInteractPrompt.CanSelect = true;
-        }
+        yield return null;
     }
 
     private IEnumerator OpenForum()
@@ -120,6 +109,5 @@ public class I_PC : MonoBehaviour, IInteractable
 
         //进入论坛界面（用scale显示）
         forum.transform.localScale = Vector3.one;
-        forum.GetComponent<Forum>().playerMotion = playerMotion;
     }
 }
