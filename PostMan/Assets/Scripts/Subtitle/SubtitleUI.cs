@@ -55,6 +55,8 @@ public class SubtitleUI : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        
     }
 
     void Start()
@@ -70,6 +72,8 @@ public class SubtitleUI : MonoBehaviour
             Debug.LogError("字幕系统：声音组件为空！");
             return;
         }
+
+        DontDestroyOnLoad(gameObject);
 
         //设置UI不阻挡点击
         canvasGroup.blocksRaycasts = false;
