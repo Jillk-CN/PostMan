@@ -88,6 +88,8 @@ namespace PostMan.Player
                 }
                 newTarget = hit.collider.transform.root;
             }
+            Deselect();//取消选中上一次选中的物体
+
             this.detectedObject = newTarget;
             this.detectedSelectables = selectables;
             Select();

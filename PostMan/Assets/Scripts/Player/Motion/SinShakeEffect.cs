@@ -36,15 +36,17 @@ namespace PostMan.Player
 
         #region 竖直方向的震动
         /// <summary>
-        /// 带入sin的时间
+        /// 带入sin的时间,仅用于竖直方向
         /// </summary>
-        private float x;
+        private float tVertical;
         [Header("竖直方向的参数")]
         /// <summary>
         /// 频率
         /// </summary>
         [SerializeField]
         private float frequency;
+        [Tooltip("角速度")]
+        [SerializeField]
         private float omega;
         /// <summary>
         /// 振幅
@@ -54,14 +56,26 @@ namespace PostMan.Player
         [Tooltip("从震动回到正常的复原时间,不要太长")]
         [SerializeField]
         private float backVerticalDuration;
+        [SerializeField]
         private float backVerticalElapsed;
+
+        //试了半天,这个震动效果都调不好,能力不足
+        private bool lerpingOmega;
+        private float startOmega;
+        private float targetOmega;
+        private float omegaElapsed;
+        [Tooltip("Omega变化的过渡时间")]
+        [SerializeField]
+        private float omegaLerpDuration = 0.5f;
         #endregion
+
+
+
 
         /// <summary>
         /// 当前是否在震动(水平/竖直)
         /// </summary>
         private bool shaking;
-
         private void Start()
         {
             omega = 2 * Mathf.PI * frequency;
@@ -74,6 +88,15 @@ namespace PostMan.Player
         }
         private void Update()
         {
+            if (lerpingOmega)
+            {
+                this.omega = Mathf.Lerp(startOmega, targetOmega, omegaElapsed / omegaLerpDuration);
+                omegaElapsed += Time.deltaTime;
+                if (omegaElapsed>omegaLerpDuration)
+                {
+                    lerpingOmega = false;
+                }
+            }
             //Debug.LogFormat("{0}", this.transform.localEulerAngles);
             if (!shaking)
             {
@@ -83,10 +106,10 @@ namespace PostMan.Player
             }
             //竖直方向的震动
             Vector3 shakePosition = this.transform.localPosition;
-            //y=Asin(ωx)
-            shakePosition.y = amplitude * Mathf.Sin(omega * x);
+            //y=Asin(ωt)
+            shakePosition.y = amplitude * Mathf.Sin(omega * tVertical);
             this.transform.localPosition = shakePosition;
-            x += Time.deltaTime;
+            tVertical += Time.deltaTime;
 
 
             if (!enableHorizontalShake)
@@ -118,14 +141,22 @@ namespace PostMan.Player
 
         public void StartShake()
         {
+            if (shaking)
+            {
+                return;
+            }
             shaking = true;
             horizontalElapsed = 0;
-            x = 0;
         }
         public void StopShake()
         {
+            if (!shaking)
+            {
+                return;
+            }
             shaking = false;
             backVerticalElapsed = 0;
+            this.tVertical = 0;
         }
         /// <summary>
         /// 设置水平震动方向
@@ -152,7 +183,11 @@ namespace PostMan.Player
         public void SetFrequency(float frequency)
         {
             this.frequency = frequency;
-            omega = 2 * Mathf.PI * frequency;
+            lerpingOmega = true;
+            //omega = 2 * Mathf.PI * frequency;
+            startOmega = this.omega;
+            targetOmega = 2 * Mathf.PI * frequency;
+            omegaElapsed = 0;
         }
 
         /// <summary>
@@ -160,15 +195,24 @@ namespace PostMan.Player
         /// </summary>
         private void BackVerticalTransition()
         {
-            if (backVerticalElapsed >= backVerticalDuration)
+            if (shaking || backVerticalElapsed >= backVerticalDuration) 
             {
                 return;
             }
             backVerticalElapsed += Time.deltaTime;
-            float rate = backVerticalElapsed / backVerticalDuration;
+            float rate = Mathf.Clamp01(backVerticalElapsed / backVerticalDuration);
             Vector3 shakePosition = this.transform.localPosition;
+
+            //float before = shakePosition.y;
+
             shakePosition.y =
-            Mathf.Lerp(shakePosition.y, 0, rate); 
+            Mathf.Lerp(shakePosition.y, 0, rate);
+
+           // float after = shakePosition.y;
+
+           // Debug.LogFormat
+           //     ("before : {0},after: {1},elapsed: {2}",
+           //     before, after,backVerticalElapsed);
             this.transform.localPosition = shakePosition;
 
         }

@@ -51,10 +51,12 @@ namespace PostMan.StateMachine
         public override void ExitState()
         {
             base.ExitState();
+            /*
             if (sight.enableShake)
             {
                 sight.StopShake();
             }
+             */
         }
     }
 }
