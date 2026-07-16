@@ -2055,6 +2055,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5146509770283754649, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6264969326990669865, guid: 239363dbf8b34b44f9bfbe712af6e3d2,
         type: 3}
       propertyPath: omegaLerpDuration

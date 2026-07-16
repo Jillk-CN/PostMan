@@ -7,62 +7,96 @@ using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine.XR;
 using PostMan.AudioSystem;
 
-public class I_Telephone : MonoBehaviour, IInteractable
+public class I_Telephone : MonoBehaviour
 {
     [Header("音效")]
     [SerializeField]private AudioClip phoneSound;
     [SerializeField]private AudioClip abnormalPhoneSound;
     [SerializeField]private AudioClip pickUp;
+    [SerializeField]private AudioClip putDown;
     [SerializeField]private AudioClip handUp;
 
+    //话筒
+    private Transform handle;
 
-    [Header("话筒对象")]
-    [SerializeField] private GameObject handle;
-
+    /*暂时没有字幕的功能,先隐藏掉
     [Header("字幕片段Key列表")]
     [SerializeField] private List<string> subtitleKeyList;
     [Header("延迟设置（设置为0，则字幕播放完毕后就放回话筒")]
     [SerializeField] private float delayTime = 0;
+     */
+    /// <summary>
+    /// 玩家的sightPoint子物体,名字要和变量名一样
+    /// </summary>
+    private Transform sightPoint;
+    [Tooltip("玩家拿着电话的时候的位置")]
+    [SerializeField]
+    private Vector3 holdingPosition = new Vector3(0.148f, 0.005f, 0.341f);
+    [SerializeField]
+    [Tooltip("玩家拿着电话的时候的旋转角度")]
+    private Vector3 holdingEuler = new Vector3(-233.1f, -1.809f, -69.83f);
+    private Vector3 defaultPosition;
+    private Vector3 defaultEuler;
+    private bool holding;
 
-    private PlayerMotion playerMotion;  //角色移动组件
-    private ShowInteractPrompt showInteractPrompt;  //显示交互提示组件
-    private Transform sightTrans;
-    private Vector3 defaultPosi;
-    private Quaternion defaultRota;
-
-
-    [Header("交互设置")]
-    public bool canInteract;
-    public int priority;
-    public bool CanInteract { get => canInteract; set => canInteract=value; }
-    public int Priority { get => priority; set => priority=value; }
-
-    void Start()
+    private void Start()
     {
-
+        /*
         //获取显示交互提示组件
         showInteractPrompt = gameObject.GetComponent<ShowInteractPrompt>();
         if(showInteractPrompt == null)
         {
             Debug.LogError("[I_Telephone.cs] 获取显示交互提示组件失败");
         }
+         */
 
-        handle = gameObject.transform.FindChildByName("I_P_Handle").gameObject;
+        handle = this.transform.FindChildByName(nameof(handle));
+        sightPoint = PlayerInstance.Instance.transform.FindChildByName(nameof(sightPoint));
+        defaultPosition = handle.transform.localPosition;
+        defaultEuler = handle.transform.localEulerAngles;
     }
-
-    public void InteractWith(PlayerInteractor player)
+    public void PickUp()
     {
-        if(CanInteract == false) return;
+        AudioManager.Instance.Stop(AudioTrackId.FX, fadeOut: true, fadeOutDuration: 0f);
+        AudioManager.Instance.Play(AudioTrackId.FX , pickUp);
 
-        //获取角色移动组件
-        playerMotion = player.gameObject.GetComponent<PlayerMotion>();
-        sightTrans = player.gameObject.transform.FindChildByName("sightPoint").transform;
+        handle.transform.parent = sightPoint;
+        handle.transform.localPosition = holdingPosition;
+        handle.transform.localEulerAngles = holdingEuler;
+        holding = true;
 
-
-
-        StartCoroutine(Call());
     }
+    public void PutDown()
+    {
+        AudioManager.Instance.Play(AudioTrackId.FX , putDown);
 
+        handle.transform.parent = this.transform;
+        handle.transform.localPosition = defaultPosition;
+        handle.transform.localEulerAngles = defaultEuler;
+        holding = false;
+    }
+    /// <summary>
+    /// 玩家是否拿着电话
+    /// </summary>
+    /// <returns></returns>
+    public bool Holding() 
+    {
+        return holding;
+    } 
+
+    /*
+    private IEnumerator MoveHandle()
+    {
+        float elapsed = 0;
+        while (elapsed<moveDuration)
+        {
+            yield return null;
+            elapsed += Time.deltaTime;
+        }
+    }
+     */
+    /*旧的实现
+     
     private IEnumerator Call()
     {
         AudioManager.Instance.Stop(AudioTrackId.FX, fadeOut: true, fadeOutDuration: 0f);
@@ -100,6 +134,9 @@ public class I_Telephone : MonoBehaviour, IInteractable
         showInteractPrompt.CanSelect = true;
     }
 
+     */
+
+    /*旧的实现
     private IEnumerator OrderPlaySubtitle()
     {
 
@@ -119,13 +156,5 @@ public class I_Telephone : MonoBehaviour, IInteractable
         }
     }
 
-    public void PhoneRing()
-    {
-        AudioManager.Instance.Play(AudioTrackId.FX , phoneSound , true , false , 0f , 1f);
-    }
-
-    public void AbnormalPhoneRing()
-    {
-        AudioManager.Instance.Play(AudioTrackId.FX , abnormalPhoneSound , true , false , 0f , 1f);
-    }
+     */
 }
