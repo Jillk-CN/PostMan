@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using PostMan.Player;
@@ -6,6 +7,7 @@ using UnityEngine;
 public class SubtitleInteractTrigger : MonoBehaviour , IInteractable
 {
     public string subtitleKey;
+    public float delayTime = 0f;
 
     public bool canInteract;
     public int priority;
@@ -14,6 +16,12 @@ public class SubtitleInteractTrigger : MonoBehaviour , IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
+        StartCoroutine(TypeDelay());
+    }
+
+    private IEnumerator TypeDelay()
+    {
+        yield return new WaitForSeconds(delayTime);
         SubtitleUI.Instance.TypeSubtitle(subtitleKey);
     }
 }
