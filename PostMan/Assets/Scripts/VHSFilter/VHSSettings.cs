@@ -1,8 +1,8 @@
 using System;
 
 /// <summary>
-/// VHS 滤镜参数快照（不可变值类型）。
-/// 遵循项目不可变原则：修改时通过 With* 方法返回新实例，原实例保持不变。
+/// VHS 滤镜参数快照（可序列化值类型）。
+/// 在 VHSPresetSO.settings 中于 Inspector 直接编辑；运行时只读。
 /// </summary>
 [Serializable]
 public struct VHSSettings
@@ -87,100 +87,28 @@ public struct VHSSettings
     public float crtCurve;
 
     // ─────────────────────────────────────────────
-    // 默认预设
+    // 默认预设（供 VHSPresetSO.settings 字段初始化用）
     // ─────────────────────────────────────────────
 
-    /// <summary>返回所有效果关闭的默认参数快照。</summary>
+    /// <summary>返回开启常用效果的默认参数快照，供 Inspector 字段初始化。</summary>
     public static VHSSettings Default => new VHSSettings
     {
-        bloomEnabled       = false,
+        bloomEnabled       = true,
         bloomRadius        = 0.7f,
         bloomIntensity     = 1f,
         bloomThreshold     = 1f,
-        chromaticEnabled   = false,
+        chromaticEnabled   = true,
         chromaticStrength  = 0f,
-        vignetteEnabled    = false,
+        vignetteEnabled    = true,
         vignetteStrength   = 0.4f,
         vignetteIntensity  = 0.25f,
-        noiseEnabled       = false,
+        noiseEnabled       = true,
         noiseStrength      = 0f,
-        distortionEnabled  = false,
+        distortionEnabled  = true,
         distortionStrength = 0f,
-        scanlinesEnabled   = false,
-        scanlinesStrength  = 0f,
-        crtEnabled         = false,
+        scanlinesEnabled   = true,
+        scanlinesStrength  = 1f,
+        crtEnabled         = true,
         crtCurve           = 0f,
     };
-
-    // ─────────────────────────────────────────────
-    // 不可变更新方法（返回新实例）
-    // ─────────────────────────────────────────────
-
-    /// <summary>返回更新了 bloomEnabled 的新快照。</summary>
-    public VHSSettings WithBloomEnabled(bool v)
-    { var s = this; s.bloomEnabled = v; return s; }
-
-    /// <summary>返回更新了 bloomRadius 的新快照。</summary>
-    public VHSSettings WithBloomRadius(float v)
-    { var s = this; s.bloomRadius = v; return s; }
-
-    /// <summary>返回更新了 bloomIntensity 的新快照。</summary>
-    public VHSSettings WithBloomIntensity(float v)
-    { var s = this; s.bloomIntensity = v; return s; }
-
-    /// <summary>返回更新了 bloomThreshold 的新快照。</summary>
-    public VHSSettings WithBloomThreshold(float v)
-    { var s = this; s.bloomThreshold = v; return s; }
-
-    /// <summary>返回更新了 chromaticEnabled 的新快照。</summary>
-    public VHSSettings WithChromaticEnabled(bool v)
-    { var s = this; s.chromaticEnabled = v; return s; }
-
-    /// <summary>返回更新了 chromaticStrength 的新快照。</summary>
-    public VHSSettings WithChromaticStrength(float v)
-    { var s = this; s.chromaticStrength = v; return s; }
-
-    /// <summary>返回更新了 vignetteEnabled 的新快照。</summary>
-    public VHSSettings WithVignetteEnabled(bool v)
-    { var s = this; s.vignetteEnabled = v; return s; }
-
-    /// <summary>返回更新了 vignetteStrength 的新快照。</summary>
-    public VHSSettings WithVignetteStrength(float v)
-    { var s = this; s.vignetteStrength = v; return s; }
-
-    /// <summary>返回更新了 vignetteIntensity 的新快照。</summary>
-    public VHSSettings WithVignetteIntensity(float v)
-    { var s = this; s.vignetteIntensity = v; return s; }
-
-    /// <summary>返回更新了 noiseEnabled 的新快照。</summary>
-    public VHSSettings WithNoiseEnabled(bool v)
-    { var s = this; s.noiseEnabled = v; return s; }
-
-    /// <summary>返回更新了 noiseStrength 的新快照。</summary>
-    public VHSSettings WithNoiseStrength(float v)
-    { var s = this; s.noiseStrength = v; return s; }
-
-    /// <summary>返回更新了 distortionEnabled 的新快照。</summary>
-    public VHSSettings WithDistortionEnabled(bool v)
-    { var s = this; s.distortionEnabled = v; return s; }
-
-    /// <summary>返回更新了 distortionStrength 的新快照。</summary>
-    public VHSSettings WithDistortionStrength(float v)
-    { var s = this; s.distortionStrength = v; return s; }
-
-    /// <summary>返回更新了 scanlinesEnabled 的新快照。</summary>
-    public VHSSettings WithScanlinesEnabled(bool v)
-    { var s = this; s.scanlinesEnabled = v; return s; }
-
-    /// <summary>返回更新了 scanlinesStrength 的新快照。</summary>
-    public VHSSettings WithScanlinesStrength(float v)
-    { var s = this; s.scanlinesStrength = v; return s; }
-
-    /// <summary>返回更新了 crtEnabled 的新快照。</summary>
-    public VHSSettings WithCRTEnabled(bool v)
-    { var s = this; s.crtEnabled = v; return s; }
-
-    /// <summary>返回更新了 crtCurve 的新快照。</summary>
-    public VHSSettings WithCRTCurve(float v)
-    { var s = this; s.crtCurve = v; return s; }
 }

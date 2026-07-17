@@ -40,8 +40,8 @@ namespace PostMan.UI
         // ─────────────────────────────────────────────
 
         [Header("VHS 滤镜")]
-        [Tooltip("打开 VHS 滤镜面板按钮")]
-        [SerializeField] private Button btnOpenVHS;
+        [Tooltip("VHS 总开关 Toggle")]
+        [SerializeField] private Toggle toggleVHS;
 
         // ─────────────────────────────────────────────
         // 音量设置
@@ -112,9 +112,11 @@ namespace PostMan.UI
         {
             BindButtons();
             BindControls();
-            // 整个生命周期只订阅一次，避免 SetActive(false) 触发 OnDisable 意外取消订阅
-            if (VHSPanel.Instance != null)
-                VHSPanel.Instance.OnHide += OnVHSPanelClosed;
+        }
+
+        private void Start()
+        {
+            toggleVHS.isOn = false; // 默认关闭 VHS 滤镜，避免标题场景启动时闪屏
         }
 
         private void OnEnable()
@@ -129,8 +131,6 @@ namespace PostMan.UI
         {
             UnbindButtons();
             UnbindControls();
-            if (VHSPanel.Instance != null)
-                VHSPanel.Instance.OnHide -= OnVHSPanelClosed;
         }
 
         // ─────────────────────────────────────────────
@@ -140,17 +140,16 @@ namespace PostMan.UI
         private void BindButtons()
         {
             btnBack.onClick.AddListener(OnBack);
-            btnOpenVHS.onClick.AddListener(OnOpenVHS);
         }
 
         private void UnbindButtons()
         {
             btnBack.onClick.RemoveListener(OnBack);
-            btnOpenVHS.onClick.RemoveListener(OnOpenVHS);
         }
 
         private void BindControls()
         {
+            toggleVHS.onValueChanged.AddListener(OnVHSChanged);
             sliderSensitivity.onValueChanged.AddListener(OnSensitivityChanged);
             toggleEnableShake.onValueChanged.AddListener(OnEnableShakeChanged);
             dropdownFrameRate.onValueChanged.AddListener(OnFrameRateChanged);
@@ -209,6 +208,9 @@ namespace PostMan.UI
                 PlayerPrefs.GetFloat(AudioManager.KeyBGMVolume, 1f));
             sliderSFXVolume.SetValueWithoutNotify(
                 PlayerPrefs.GetFloat(AudioManager.KeySFXVolume, 1f));
+
+            if (VHSFilterController.Instance != null)
+                toggleVHS.SetIsOnWithoutNotify(VHSFilterController.Instance.IsEnabled);
         }
 
         // ─────────────────────────────────────────────
@@ -300,29 +302,10 @@ namespace PostMan.UI
         // 控件响应：VHS / 导航
         // ─────────────────────────────────────────────
 
-        /// <summary>
-        /// 打开 VHS 滤镜三级面板。
-        /// 先隐藏本面板（SetActive false），再显示 VHSPanel，避免两面板叠层。
-        /// VHSPanel.Hide() 触发 OnHide → OnVHSPanelClosed() 重新显示本面板。
-        /// </summary>
-        private void OnOpenVHS()
+        /// <summary>切换 VHS 滤镜总开关。绑定到 toggleVHS.onValueChanged。</summary>
+        private void OnVHSChanged(bool value)
         {
-            if (VHSPanel.Instance == null)
-            {
-                Debug.LogWarning("[SettingsPanel] VHSPanel 实例不存在，请在场景中放置 VHSPanel 预制体。");
-                return;
-            }
-            PausePanel.Instance?.BlockEscToggle(); // 游戏场景：VHSPanel 打开时屏蔽 ESC（标题场景无 PausePanel，安全跳过）
-            this.gameObject.SetActive(false);   // 隐藏 SettingsPanel
-            VHSPanel.Instance.Show();           // 显示 VHSPanel
-        }
-
-        /// <summary>VHSPanel 关闭后重新激活本面板，使用户可以继续调整其他设置。</summary>
-        private void OnVHSPanelClosed()
-        {
-            this.gameObject.SetActive(true);
-            PausePanel.Instance?.UnblockEscToggle(); // 游戏场景：VHSPanel 关闭，恢复 ESC
-            GameInputManager.Instance.ShowCursor();   // 恢复标题场景的鼠标显示状态
+            VHSFilterController.Instance?.SetEnabled(value);
         }
 
         private void OnBack()

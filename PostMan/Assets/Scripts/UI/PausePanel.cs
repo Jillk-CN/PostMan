@@ -3,6 +3,7 @@ using PostMan.InputManagement;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
@@ -70,6 +71,10 @@ namespace PostMan.UI
 
         /// <summary>子面板阻断计数器：大于 0 时 ESC 不触发暂停切换。</summary>
         private int _subPanelBlockCount = 0;
+
+        public UnityEvent OpenSettingsEvent { get; private set; } = new UnityEvent();
+        public UnityEvent CloseSettingsEvent { get; private set; } = new UnityEvent();
+        public UnityEvent ReturnToTitleEvent { get; private set; } = new UnityEvent();
 
         // ─────────────────────────────────────────────
         // Unity 生命周期
@@ -169,8 +174,8 @@ namespace PostMan.UI
         {
             if (settingsPanel == null)
             {
-                Debug.LogWarning("[PausePanel] settingsPanel 未赋值，请在 Inspector 中配置。");
-                return;
+                //Debug.LogWarning("[PausePanel] settingsPanel 未赋值，请在 Inspector 中配置。");
+                //return;
             }
 
             // 注入回调：设置面板返回时重新显示暂停面板
@@ -178,14 +183,14 @@ namespace PostMan.UI
 
             BlockEscToggle(); // 设置面板打开时屏蔽 ESC
             panelContent.SetActive(false);
-            settingsPanel.gameObject.SetActive(true);
+            OpenSettingsEvent.Invoke(); // 触发外部事件，通知 SettingsPanel 显示
         }
 
         /// <summary>从设置面板返回时重新显示暂停面板。</summary>
         private void OnSettingsPanelBack()
         {
             settingsPanel.onBack = null; // 清理回调，避免下次从标题打开设置时误触发
-            settingsPanel.gameObject.SetActive(false);
+            CloseSettingsEvent.Invoke(); // 触发外部事件，通知 SettingsPanel 隐藏
             panelContent.SetActive(true);
             UnblockEscToggle(); // 设置面板关闭，恢复 ESC
         }
@@ -202,6 +207,7 @@ namespace PostMan.UI
                 pauseVolume.enabled = false;
 
             TitleUIManager.Instance?.ShowTitleUI(); // 场景切换前恢复标题 UI
+            ReturnToTitleEvent.Invoke();
             GameSceneManager.Instance.SwitchScenes(titleScenesToLoad, titleScenesToUnload);
         }
     }

@@ -1,12 +1,10 @@
-using PostMan.UI;
 using UnityEngine;
 
 namespace PostMan.InputManagement
 {
     /// <summary>
-    /// 封装 ToggleVHS 输入动作（O 键），用于切换 VHS 调节面板的显隐。
-    /// 挂载到与 GameInputManager 相同的 GameObject 上，始终活跃，
-    /// 因此可以在面板隐藏后继续检测输入。
+    /// 封装 ToggleVHS 输入动作（O 键），用于切换 VHS 滤镜开关。
+    /// 挂载到与 GameInputManager 相同的 GameObject 上，始终活跃。
     /// </summary>
     public class VHSToggleInputSource : MonoBehaviour, IInputSource
     {
@@ -35,7 +33,7 @@ namespace PostMan.InputManagement
         {
             if (GetToggle())
             {
-                VHSPanel.Instance.Toggle();
+                VHSFilterController.Instance?.Toggle();
             }
         }
 
