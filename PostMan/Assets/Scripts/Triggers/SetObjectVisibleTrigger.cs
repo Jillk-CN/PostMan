@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace PostMan.Trigger
 {
+    //稍后改一下名称
     public class SetObjectVisibleTrigger : MonoBehaviour
     {
         [SerializeField]
