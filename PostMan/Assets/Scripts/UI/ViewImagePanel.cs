@@ -16,7 +16,11 @@ namespace PostMan.UI
         private ImageViewer viewer;
         //非常不情愿地做成单例
         private Button quitButton;
+        public Button button1;
+        public Button button2;
         //输入来源
+        private CanvasGroup canvasGroup;
+        //UI控制
         private UIReturnInputSource input;
         private void Awake()
         {
@@ -25,9 +29,17 @@ namespace PostMan.UI
             quitButton.onClick.AddListener(Hide);
             viewer = this.transform.FindChildByName(nameof(viewer)).
                 GetComponent<ImageViewer>();
-            this.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
             input = GameInputManager.Instance.GetInputSystemSource<UIReturnInputSource>();
+
+            canvasGroup = gameObject.GetComponent<CanvasGroup>();
         }
+
+        void Start()
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+
         private void Update()
         {
             if (input.GetReturn())
@@ -38,7 +50,11 @@ namespace PostMan.UI
         public void ShowImage(Sprite sprite)
         {
             viewer.SetImage(sprite);
-            this.gameObject.SetActive(true);
+            canvasGroup.alpha = 1;
+            canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
+
+            //this.gameObject.SetActive(true);
 
             //没办法,由于没有好的框架,这里还要手动禁用Pause
             GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(false);
@@ -49,9 +65,13 @@ namespace PostMan.UI
         /// <summary>
         /// 隐藏笔记内容
         /// </summary>
-        private void Hide()
+        public void Hide()
         {
-            this.gameObject.SetActive(false);
+            canvasGroup.alpha = 0;
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
+
+            //this.gameObject.SetActive(false);
             GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(true);
             GameInputManager.Instance.SetInputSystemSource<UIReturnInputSource>(false);
             GameInputManager.Instance.SetPlayerAllInput(true);

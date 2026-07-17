@@ -4908,6 +4908,14 @@ MonoBehaviour:
   - m_X: 199
     m_Y: 104
     m_Width: 103
+    m_Height: 100
+  - m_X: 104
+    m_Y: 409
+    m_Width: 100
+    m_Height: 97
+  - m_X: 103
+    m_Y: 615
+    m_Width: 94
     m_Height: 102
   - m_X: 0
     m_Y: 618
