@@ -3142,7 +3142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6407d3f39a97f994f88cedd7adbe88b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visible: 1
+  active: 1
   triggerOnce: 1
   canTrigger: 1
   objects:
@@ -12327,7 +12327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6407d3f39a97f994f88cedd7adbe88b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visible: 1
+  active: 1
   triggerOnce: 1
   canTrigger: 1
   objects:

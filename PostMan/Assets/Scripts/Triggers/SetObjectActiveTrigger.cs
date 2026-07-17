@@ -2,11 +2,10 @@ using UnityEngine;
 
 namespace PostMan.Trigger
 {
-    //稍后改一下名称
-    public class SetObjectVisibleTrigger : MonoBehaviour
+    public class SetObjectActiveTrigger : MonoBehaviour
     {
         [SerializeField]
-        private bool visible;
+        private bool active;
         [SerializeField]
         private bool triggerOnce = true;
         [SerializeField]
@@ -19,7 +18,7 @@ namespace PostMan.Trigger
             {
                 foreach (var obj in objects)
                 {
-                    obj.SetActive(visible);
+                    obj.SetActive(active);
                 }
                 if (triggerOnce) 
                 {
