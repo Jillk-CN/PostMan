@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using PostMan.Common;
 using PostMan.InputManagement;
-using UnityEngine.Events;
 
 namespace PostMan.UI
 {
@@ -23,6 +22,9 @@ namespace PostMan.UI
 
         [Tooltip("语言选择二级面板（初始隐藏）")]
         [SerializeField] private GameObject languagePanelGO;
+
+        [Tooltip("设置二级面板（初始隐藏）")]
+        [SerializeField] private GameObject settingsPanelGO;
 
         // ─────────────────────────────────────────────
         // 主菜单按钮
@@ -58,9 +60,6 @@ namespace PostMan.UI
         [Tooltip("开始游戏时玩家的位置")]
         [SerializeField] private Vector3 playerStartPosition;
 
-        public UnityEvent OpenSettingsEvent { get; private set; } = new UnityEvent();
-        public UnityEvent CloseSettingsEvent { get; private set; } = new UnityEvent();
-
         // ─────────────────────────────────────────────
         // Unity 生命周期
         // ─────────────────────────────────────────────
@@ -75,6 +74,7 @@ namespace PostMan.UI
             // 初始面板状态
             mainMenuPanel.SetActive(true);
             languagePanelGO.SetActive(false);
+            settingsPanelGO.SetActive(false);
 
             // 标题场景显示鼠标
             GameInputManager.Instance.ShowCursor();
@@ -112,22 +112,22 @@ namespace PostMan.UI
         {
             mainMenuPanel.SetActive(false);
             languagePanelGO.SetActive(false);
-            CloseSettingsEvent.Invoke(); // 确保设置面板关闭
+            settingsPanelGO.SetActive(false);
         }
 
         /// <summary>返回标题时重新显示主菜单面板。</summary>
         public void ShowTitleUI()
         {
             mainMenuPanel.SetActive(true);
-            CloseSettingsEvent.Invoke(); // 确保设置面板关闭
             languagePanelGO.SetActive(false);
+            settingsPanelGO.SetActive(false);
         }
 
         /// <summary>打开设置面板。</summary>
         private void OnOpenSettings()
         {
             mainMenuPanel.SetActive(false);
-            OpenSettingsEvent.Invoke();
+            settingsPanelGO.SetActive(true);
         }
 
         /// <summary>打开语言选择面板。</summary>
@@ -158,7 +158,7 @@ namespace PostMan.UI
         public void ReturnToMainMenu()
         {
             languagePanelGO.SetActive(false);
-            CloseSettingsEvent.Invoke();
+            settingsPanelGO.SetActive(false);
             mainMenuPanel.SetActive(true);
         }
     }

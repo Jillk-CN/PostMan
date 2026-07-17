@@ -34,12 +34,7 @@
       "Bash(dir \"D:\\\\GitHub\\\\PostMan\\\\PostMan\" 2>&1 | head -30)",
       "Bash(openspec --help 2>&1 || echo \"openspec not found\")",
       "Bash(openspec version:*)",
-      "Read(//c/Users/87976/.local/bin/**)",
-      "Bash(openspec --version 2>&1; which openspec 2>&1)",
-      "Bash(New-Item -ItemType Directory -Force -Path \"D:\\\\GitHub\\\\PostMan\\\\PostMan\\\\openspec\\\\changes\\\\fix-settingpanelmanager-null-ref\" 2>&1)",
-      "Bash(find \"D:/GitHub/PostMan/PostMan/Assets/Scripts\" -name \"*SO*.cs\" -o -name \"*Config*.cs\" -o -name \"*Preset*.cs\" 2>/dev/null | head -20)",
-      "Bash(python3 -c \"import os; print\\('exists' if os.path.exists\\('D:/GitHub/PostMan/PostMan/Assets/Scripts/UI/VHSPanel.cs'\\) else 'deleted'\\)\")",
-      "Bash(powershell.exe -Command \"Test-Path 'D:\\\\GitHub\\\\PostMan\\\\PostMan\\\\Assets\\\\Scripts\\\\UI\\\\VHSPanel.cs'\")"
+      "Read(//c/Users/87976/.local/bin/**)"
     ]
   }
 }

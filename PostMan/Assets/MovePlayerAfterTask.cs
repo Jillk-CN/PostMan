@@ -18,9 +18,7 @@ public class MovePlayerAfterTask : MonoBehaviour
     public int taskIndex; // 任务索引   
 
     [SerializeField] private bool _movePlayerAfterTaskCompletion = true; // 是否在任务完成后移动玩家
-    [SerializeField] private bool _rotatePlayerAfterTaskCompletion = false; // 是否在任务完成后旋转玩家
     public Vector3 targetPosition;
-    public Vector3 targetRotation;
 
     public TaskSO task;
 
@@ -43,11 +41,7 @@ public class MovePlayerAfterTask : MonoBehaviour
                 PlayerInstance.Instance.transform.position = targetPosition;
                 GameSceneManager.Instance.SwitchScenes(_scenesToLoad, _scenesToUnload);
             }
-            if (_rotatePlayerAfterTaskCompletion)
-            {
-                PlayerInstance.Instance.transform.rotation = Quaternion.Euler(targetRotation);
-            }
-            TaskManager.Instance.StartTask(task);
+                TaskManager.Instance.StartTask(task);
         }
     }
 }
