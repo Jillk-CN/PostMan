@@ -180,6 +180,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 820404779733572555, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 820404779733572555, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 820404779733572555, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 821313437021161743, guid: 04dbafcc3e67bb24f83fd3e56b808233,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -209,6 +224,21 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetNoiseEnabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637411846258594682, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637411846258594682, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637411846258594682, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1661830020673395208, guid: 04dbafcc3e67bb24f83fd3e56b808233,
         type: 3}
@@ -270,6 +300,36 @@ PrefabInstance:
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetScanlinesEnabled
       objectReference: {fileID: 0}
+    - target: {fileID: 3104351438968849237, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104351438968849237, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104351438968849237, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219054355324944185, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219054355324944185, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3219054355324944185, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3712428338992082987, guid: 04dbafcc3e67bb24f83fd3e56b808233,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -279,6 +339,21 @@ PrefabInstance:
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetCRTEnabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896445562368279042, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896445562368279042, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3896445562368279042, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4104059355066813846, guid: 04dbafcc3e67bb24f83fd3e56b808233,
         type: 3}
@@ -525,6 +600,21 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetNoiseStrength
       objectReference: {fileID: 0}
+    - target: {fileID: 7180891287425712815, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7180891287425712815, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7180891287425712815, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7228659196261250270, guid: 04dbafcc3e67bb24f83fd3e56b808233,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -549,6 +639,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8882488672811385692, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8882488672811385692, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8882488672811385692, guid: 04dbafcc3e67bb24f83fd3e56b808233,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1283,7 +1388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tasksToStart:
-  - {fileID: 11400000, guid: 06ee844d37454024eb7f9049473f5a2f, type: 2}
+  - {fileID: 11400000, guid: ee7c0e8e7bf96724e86d628327a28275, type: 2}
 --- !u!4 &564123996
 Transform:
   m_ObjectHideFlags: 0
