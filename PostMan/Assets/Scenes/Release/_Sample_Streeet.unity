@@ -9428,12 +9428,6 @@ MonoBehaviour:
   activeAfterInteract: []
   inactiveAfterInteract:
   - {fileID: 1653406087}
---- !u!224 &1356775153 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 533769870618462412, guid: d0aa2c5753fbb2240bae21cda84893d2,
-    type: 3}
-  m_PrefabInstance: {fileID: 8583511529490920659}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1356875327
 PrefabInstance:
   m_ObjectHideFlags: 0
