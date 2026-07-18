@@ -30,8 +30,8 @@ public class Letter410Fallen : MonoBehaviour
 
     private void CheckDestroy()
     {
-        TextPanel.Instance.ShowText(content);
         ViewImagePanel.Instance.Hide();
+        TextPanel.Instance.ShowText(content);
 
         button1.onClick.RemoveListener(CheckDestroy);
         button2.onClick.RemoveListener(PutBack);

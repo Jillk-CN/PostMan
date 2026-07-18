@@ -40,6 +40,7 @@ namespace PostMan.UI
             DontDestroyOnLoad(gameObject);
         }
 
+        /*出于简便考虑,就这样先
         private void Update()
         {
             if (input.GetReturn())
@@ -47,6 +48,7 @@ namespace PostMan.UI
                 Hide();
             } 
         }
+         */
         public void ShowImage(Sprite sprite)
         {
             viewer.SetImage(sprite);

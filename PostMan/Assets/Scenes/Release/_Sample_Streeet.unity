@@ -1610,46 +1610,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1503982154}
     m_Modifications:
-    - target: {fileID: 50107061964865306, guid: b2905c08976533640972736da18a7fe4,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 50107061964865306, guid: b2905c08976533640972736da18a7fe4,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 50107061964865306, guid: b2905c08976533640972736da18a7fe4,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -2.5165005
-      objectReference: {fileID: 0}
-    - target: {fileID: 1569741686549403668, guid: b2905c08976533640972736da18a7fe4,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.0014648438
-      objectReference: {fileID: 0}
-    - target: {fileID: 2297173050357375546, guid: b2905c08976533640972736da18a7fe4,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2297173050357375546, guid: b2905c08976533640972736da18a7fe4,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2297173050357375546, guid: b2905c08976533640972736da18a7fe4,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0.567886
-      objectReference: {fileID: 0}
-    - target: {fileID: 5237681781089599096, guid: b2905c08976533640972736da18a7fe4,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 1559.57
-      objectReference: {fileID: 0}
     - target: {fileID: 5891229854854296087, guid: b2905c08976533640972736da18a7fe4,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1754,11 +1714,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TextPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 8722524890164682791, guid: b2905c08976533640972736da18a7fe4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3818,6 +3773,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1527760192}
     m_Modifications:
+    - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
+        type: 3}
+      propertyPath: canInteract
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4959504085722276633, guid: bd26fadf8a5312743add48ea3b2fb862,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3866,6 +3826,16 @@ PrefabInstance:
     - target: {fileID: 4959504085722276633, guid: bd26fadf8a5312743add48ea3b2fb862,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6892268098787299242, guid: bd26fadf8a5312743add48ea3b2fb862,
+        type: 3}
+      propertyPath: canSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225113737803085808, guid: bd26fadf8a5312743add48ea3b2fb862,
+        type: 3}
+      propertyPath: canSelect
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9013503122907628741, guid: bd26fadf8a5312743add48ea3b2fb862,
@@ -5806,6 +5776,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ImagePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218945879072985278, guid: 38023f17de2b77c45a0c2872fa2de03c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5302899903935837702, guid: 38023f17de2b77c45a0c2872fa2de03c,
         type: 3}
@@ -13012,23 +12987,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _effect: {fileID: 2666106871330283528, guid: c40be3174f62c4acf8c1216858c64956, type: 2}
   _volumeCtrl: {fileID: 0}
-  _bloomEnabledToggle: {fileID: 0}
-  _bloomRadiusSlider: {fileID: 0}
-  _bloomIntensitySlider: {fileID: 0}
-  _bloomThresholdSlider: {fileID: 0}
-  _chromaticEnabledToggle: {fileID: 0}
-  _chromaticStrengthSlider: {fileID: 0}
-  _vignetteEnabledToggle: {fileID: 0}
-  _vignetteStrengthSlider: {fileID: 0}
-  _vignetteIntensitySlider: {fileID: 0}
-  _noiseEnabledToggle: {fileID: 0}
-  _noiseStrengthSlider: {fileID: 0}
-  _distortionEnabledToggle: {fileID: 0}
-  _distortionStrengthSlider: {fileID: 0}
-  _scanlinesEnabledToggle: {fileID: 0}
-  _scanlinesStrengthSlider: {fileID: 0}
-  _crtEnabledToggle: {fileID: 0}
-  _crtCurveSlider: {fileID: 0}
+  _preset: {fileID: 0}
 --- !u!4 &1921139081
 Transform:
   m_ObjectHideFlags: 0
