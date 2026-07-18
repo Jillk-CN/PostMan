@@ -25,7 +25,9 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     [SerializeField] private AudioClip insideScrapeSound;
     [SerializeField] private AudioClip metalVibrateSound;
     [SerializeField] private AudioClip cabinetDropSound;
-    
+
+    [Header("关门提醒触发器")]
+    public GameObject closeDoorPromptTrigger;
     
     [Header("门初始设置")]
     [Tooltip("门是否卡住")]
@@ -69,6 +71,8 @@ public class I_Cabinet : MonoBehaviour, IInteractable
                 AudioManager.Instance.Play(AudioTrackId.FX , openHeavySound , false , false , 0f , 1f);
             }
 
+            closeDoorPromptTrigger.SetActive(true);
+
             StartCoroutine(OpenDoor());
         }
         else
@@ -81,6 +85,9 @@ public class I_Cabinet : MonoBehaviour, IInteractable
             {
                 AudioManager.Instance.Play(AudioTrackId.FX , closeHeavySound , false , false , 0f , 1f);
             }
+
+            closeDoorPromptTrigger.SetActive(false);
+
             StartCoroutine(CloseDoor());
         }
     }

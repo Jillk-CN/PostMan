@@ -16,8 +16,6 @@ namespace PostMan.UI
         private ImageViewer viewer;
         //非常不情愿地做成单例
         private Button quitButton;
-        public Button button1;
-        public Button button2;
         //输入来源
         private CanvasGroup canvasGroup;
         //UI控制

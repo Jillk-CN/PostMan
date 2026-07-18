@@ -1585,7 +1585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sliderSensitivity: {fileID: 32380340}
   toggleEnableShake: {fileID: 1216235178}
-  btnOpenVHS: {fileID: 1937337487}
+  toggleVHS: {fileID: 0}
   sliderMasterVolume: {fileID: 958106715}
   sliderMusicVolume: {fileID: 1524772641}
   sliderSFXVolume: {fileID: 1252796727}
@@ -2773,7 +2773,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainMenuPanel: {fileID: 1741686100}
   languagePanelGO: {fileID: 508850843}
-  settingsPanelGO: {fileID: 302028356}
   btnStartGame: {fileID: 1915845024}
   btnContinue: {fileID: 1849977993}
   btnSettings: {fileID: 1680505020}
