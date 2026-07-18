@@ -73,8 +73,6 @@ public class SubtitleUI : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
-
         //设置UI不阻挡点击
         canvasGroup.blocksRaycasts = false;
 

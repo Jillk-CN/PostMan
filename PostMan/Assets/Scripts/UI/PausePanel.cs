@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 namespace PostMan.UI
 {
@@ -70,6 +71,8 @@ namespace PostMan.UI
 
         /// <summary>子面板阻断计数器：大于 0 时 ESC 不触发暂停切换。</summary>
         private int _subPanelBlockCount = 0;
+
+        public UnityEvent ReturnToTitleEvent { get; private set; } = new UnityEvent();
 
         // ─────────────────────────────────────────────
         // Unity 生命周期
@@ -202,6 +205,7 @@ namespace PostMan.UI
                 pauseVolume.enabled = false;
 
             TitleUIManager.Instance?.ShowTitleUI(); // 场景切换前恢复标题 UI
+            ReturnToTitleEvent?.Invoke(); // 触发返回主菜单事件，供其他系统监听
             GameSceneManager.Instance.SwitchScenes(titleScenesToLoad, titleScenesToUnload);
         }
     }

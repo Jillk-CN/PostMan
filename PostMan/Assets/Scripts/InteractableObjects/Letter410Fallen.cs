@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using PostMan.Player;
+using PostMan.InputManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using PostMan.UI;
@@ -14,6 +15,9 @@ public class Letter410Fallen : MonoBehaviour
     public Button button1;
     public Button button2;
     public Button messageQuitButton;
+    public string subtitleKey1;
+    public string subtitleKey2;
+
 
     public AudioClip dropSFX;
 
@@ -30,8 +34,11 @@ public class Letter410Fallen : MonoBehaviour
 
     private void CheckDestroy()
     {
-        TextPanel.Instance.ShowText(content);
         ViewImagePanel.Instance.Hide();
+        TextPanel.Instance.ShowText(content);
+
+        SubtitleUI.Instance.TypeSubtitle(subtitleKey1);
+        GameInputManager.Instance.ShowCursor();
 
         button1.onClick.RemoveListener(CheckDestroy);
         button2.onClick.RemoveListener(PutBack);
@@ -44,6 +51,8 @@ public class Letter410Fallen : MonoBehaviour
     {
         message.SetActive(true);
         ViewImagePanel.Instance.Hide();
+
+        SubtitleUI.Instance.TypeSubtitle(subtitleKey2);
 
         AudioManager.Instance.Play(AudioTrackId.FX , dropSFX);
 

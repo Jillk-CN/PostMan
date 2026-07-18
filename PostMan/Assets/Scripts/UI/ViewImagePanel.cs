@@ -16,8 +16,6 @@ namespace PostMan.UI
         private ImageViewer viewer;
         //非常不情愿地做成单例
         private Button quitButton;
-        public Button button1;
-        public Button button2;
         //输入来源
         private CanvasGroup canvasGroup;
         //UI控制
@@ -40,6 +38,7 @@ namespace PostMan.UI
             DontDestroyOnLoad(gameObject);
         }
 
+        /*出于简便考虑,就这样先
         private void Update()
         {
             if (input.GetReturn())
@@ -47,6 +46,7 @@ namespace PostMan.UI
                 Hide();
             } 
         }
+         */
         public void ShowImage(Sprite sprite)
         {
             viewer.SetImage(sprite);

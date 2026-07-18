@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using PostMan.AudioSystem;
 using PostMan.Player;
+using PostMan.Scene;
 using UnityEngine;
 
 /// <summary>
@@ -14,8 +16,11 @@ public class IMInteractTrigger : MonoBehaviour , IInteractable
     [Header("交互物处理清单SO")]
     public InteractablesProcessListSO interactablesProcessListSO;
 
-    [Header("在哪个任务里生效（填任务索引）")]
-    public int taskIndex;
+    [Header("在哪个SceneOrder里生效")]
+    public int sceneOrder;
+
+    [Header("音效")]
+    public AudioClip sfx;
 
     [Header("交互设置")]
     public bool canInteract;
@@ -25,7 +30,7 @@ public class IMInteractTrigger : MonoBehaviour , IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
-        if(!TaskManager.Instance.IsTaskActive(taskIndex))return;
+        if(SceneInitializer.Instance.SceneOrder != sceneOrder)return;
 
         StartCoroutine(ApplyList());
     }
@@ -33,6 +38,8 @@ public class IMInteractTrigger : MonoBehaviour , IInteractable
     private IEnumerator ApplyList()
     {
         yield return new WaitForSeconds(time);
+
+        if(sfx != null)AudioManager.Instance.Play(AudioTrackId.FX , sfx);
 
         InteractableManager.Instance.ApplyState(interactablesProcessListSO);
     }
