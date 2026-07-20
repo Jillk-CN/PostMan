@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5064582308552704
-    m_Localized: Filter
+    m_Localized: VHS Filter
     m_Metadata:
       m_Items: []
   - m_Id: 5064582308552705
@@ -51,7 +51,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747012
-    m_Localized: Display Mode
+    m_Localized: Window Mode
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747013
@@ -71,11 +71,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747017
-    m_Localized: Fullscreen (Exclusive)
+    m_Localized: Fullscreen
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747018
-    m_Localized: Fullscreen (Borderless)
+    m_Localized: Borderless
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747019
@@ -164,6 +164,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 5068438916554753
     m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13696236759040000
+    m_Localized: Volume
     m_Metadata:
       m_Items: []
   references:

@@ -40,7 +40,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747012
-    m_Key: display
+    m_Key: windowMode
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747013
@@ -60,11 +60,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747017
-    m_Key: fullScreenE
+    m_Key: fullScreen
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747018
-    m_Key: fullScreenB
+    m_Key: borderless
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747019
@@ -124,7 +124,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747033
-    m_Key: chSimple
+    m_Key: zhSimple
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747034
@@ -161,6 +161,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 28142723072
     m_Key: skip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13696236759040000
+    m_Key: volume
     m_Metadata:
       m_Items: []
   m_Metadata:

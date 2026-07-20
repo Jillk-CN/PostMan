@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5064582308552704
-    m_Localized: "\u6EE4\u955C"
+    m_Localized: "VHS\u6EE4\u955C"
     m_Metadata:
       m_Items: []
   - m_Id: 5064582308552705
@@ -75,7 +75,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747018
-    m_Localized: "\u5168\u5C4F(\u7A97\u53E3)"
+    m_Localized: "\u65E0\u8FB9\u6846"
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747019
@@ -164,6 +164,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 5068438916554753
     m_Localized: "\u8FD4\u56DE"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 13696236759040000
+    m_Localized: "\u97F3\u91CF"
     m_Metadata:
       m_Items: []
   references:
