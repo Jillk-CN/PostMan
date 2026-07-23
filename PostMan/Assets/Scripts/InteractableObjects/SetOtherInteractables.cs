@@ -21,6 +21,8 @@ namespace PostMan.Player
          */
         [Header("初始化参数,编辑器内手动配置")]
         public InteractablesProcessListSO processListSO;
+        [Tooltip("只设置一次,设置完后清空SO")]
+        public bool setOnce=true;
         public void InteractWith(PlayerInteractor player)
         {
             //出于某些考量,用这个<
@@ -28,7 +30,11 @@ namespace PostMan.Player
             {
                 return;
             }
-            InteractableManager.Instance.ApplyState(processListSO);                    
+            InteractableManager.Instance.ApplyState(processListSO);
+            if (setOnce)
+            {
+                this.processListSO = null;
+            }
         }
             
     }

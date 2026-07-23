@@ -10,72 +10,72 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: ReadingMaterials Shared Data
+  m_Name: ForumContent Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: ReadingMaterials
-  m_TableCollectionNameGuidString: baf54db9044317f40999a84b92f1ca6d
+  m_TableCollectionName: ForumContent
+  m_TableCollectionNameGuidString: 7bf1ad02a77b3504482aba62085896fd
   m_Entries:
-  - m_Id: 111512600576
-    m_Key: read_1
+  - m_Id: 126630772736
+    m_Key: frm_1
     m_Metadata:
       m_Items: []
-  - m_Id: 111562932224
-    m_Key: read_2
+  - m_Id: 126668521472
+    m_Key: frm_1_cmt_1
     m_Metadata:
       m_Items: []
-  - m_Id: 111562932225
-    m_Key: read_3
+  - m_Id: 126668521473
+    m_Key: frm_1_cmt_2
     m_Metadata:
       m_Items: []
-  - m_Id: 111562932226
-    m_Key: read_4
+  - m_Id: 126668521474
+    m_Key: frm_1_cmt_3
     m_Metadata:
       m_Items: []
-  - m_Id: 111562932227
-    m_Key: read_5
+  - m_Id: 126668521475
+    m_Key: frm_2
     m_Metadata:
       m_Items: []
-  - m_Id: 111562932228
-    m_Key: read_6
+  - m_Id: 126668521476
+    m_Key: frm_2_cmt_1
     m_Metadata:
       m_Items: []
-  - m_Id: 111562932229
-    m_Key: read_7
+  - m_Id: 126668521477
+    m_Key: frm_2_cmt_2
     m_Metadata:
       m_Items: []
-  - m_Id: 111562932230
-    m_Key: read_8
+  - m_Id: 126668521478
+    m_Key: frm_2_cmt_3
     m_Metadata:
       m_Items: []
-  - m_Id: 111562932231
-    m_Key: read_9
+  - m_Id: 126668521479
+    m_Key: frm_3
     m_Metadata:
       m_Items: []
-  - m_Id: 111562932232
-    m_Key: read_10
+  - m_Id: 126668521480
+    m_Key: frm_3_cmt_1
     m_Metadata:
       m_Items: []
-  - m_Id: 111562932233
-    m_Key: read_11
+  - m_Id: 126668521481
+    m_Key: frm_3_cmt_2
     m_Metadata:
       m_Items: []
-  - m_Id: 111562932234
-    m_Key: read_12
+  - m_Id: 126668521482
+    m_Key: frm_3_cmt_3
     m_Metadata:
       m_Items: []
-  - m_Id: 12716981094989824
-    m_Key: read_13
+  - m_Id: 2453014069248
+    m_Key: searchTitle
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 2803184416911261698
+    rid: 7270803742649221122
   references:
     version: 2
     RefIds:
-    - rid: 2803184416911261698
+    - rid: 7270803742649221122
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
         asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1781769414338
+        m_CustomEpoch: 1784803129849

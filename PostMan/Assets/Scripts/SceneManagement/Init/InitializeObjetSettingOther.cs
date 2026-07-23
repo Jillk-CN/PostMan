@@ -6,17 +6,20 @@ using UnityEngine;
 namespace PostMan.Scene
 {
     //由于信件是与床交互后显示的,所以需要设置显示什么信件,当然,这个类写的很差劲
-    public class InitializeLetter : MonoBehaviour
+    public class InitializeObjetSettingOther : MonoBehaviour
     {
         [Header("初始化参数,编辑器内手动配置")]
         [SerializeField]
         [Tooltip("玩家在哪个场景时,应用这个初始化")]
         private int targetSceneOrder;
-        [Header("要显示的信件")]
+        //[Header("要显示的信件")]
         [SerializeField]
         private InteractablesProcessListSO processListSO;
+       // [SerializeField]
+       // private SetOtherInteractables showLetterInteractable;
+        [Tooltip("要设置别的可交互物体的可交互物体")]
         [SerializeField]
-        private SetOtherInteractables showLetterInteractable;
+        private SetOtherInteractables objectSetOther;
         private void OnEnable()
         {
             SceneInitializer.Instance.Register(Init); 
@@ -27,7 +30,8 @@ namespace PostMan.Scene
             {
                 return;
             }
-            showLetterInteractable.processListSO = this.processListSO;
+            //showLetterInteractable.processListSO = this.processListSO;
+            objectSetOther.processListSO = this.processListSO;
         }
 
     }

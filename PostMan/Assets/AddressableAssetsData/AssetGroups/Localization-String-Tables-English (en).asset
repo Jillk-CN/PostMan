@@ -37,6 +37,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5151dcc21e1d2143865f10ad55e4310
+    m_Address: ForumContent_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cd322186875e823428fff636ac630d4a
     m_Address: ReadingMaterials_en
     m_ReadOnly: 1

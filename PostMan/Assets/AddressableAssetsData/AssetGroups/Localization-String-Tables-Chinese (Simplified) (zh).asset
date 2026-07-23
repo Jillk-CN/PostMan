@@ -30,6 +30,12 @@ MonoBehaviour:
     - Locale-zh
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: abda5cbdd8e22214ba78c87fc0ff1d85
+    m_Address: ForumContent_zh
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-zh
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b1a39fedc9eb15a49ab8bad1d83773fe
     m_Address: SubtitleTable_zh
     m_ReadOnly: 1
