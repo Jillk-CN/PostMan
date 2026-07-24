@@ -16,13 +16,14 @@ namespace PostMan.Player
         private int priority;
         public int Priority { get => priority; set => priority=value; }
 
+        public bool showQuitButton = true;
         public void InteractWith(PlayerInteractor player)
         {
             if (image==null)
             {
                 return;
             }
-            ViewImagePanel.Instance.ShowImage(image);            
+            ViewImagePanel.Instance.ShowImage(image,showQuitButton);            
         }
     }
 }

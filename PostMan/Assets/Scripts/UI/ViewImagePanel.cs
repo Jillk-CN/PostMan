@@ -47,7 +47,7 @@ namespace PostMan.UI
             } 
         }
          */
-        public void ShowImage(Sprite sprite)
+        public void ShowImage(Sprite sprite,bool showQuitButton=true)
         {
             viewer.SetImage(sprite);
             canvasGroup.alpha = 1;
@@ -61,6 +61,8 @@ namespace PostMan.UI
             GameInputManager.Instance.SetInputSystemSource<UIReturnInputSource>(true);
             GameInputManager.Instance.SetPlayerAllInput(false);
             GameInputManager.Instance.ShowCursor();
+
+            quitButton.gameObject.SetActive(showQuitButton);
         }
         /// <summary>
         /// 隐藏笔记内容
