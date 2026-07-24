@@ -3815,6 +3815,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SubtitleUI
       objectReference: {fileID: 0}
+    - target: {fileID: 3562121952718968662, guid: bed896abda6f3714ba5c5b978119f729,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8188711914158058680, guid: bed896abda6f3714ba5c5b978119f729,
         type: 3}
       propertyPath: m_Pivot.x

@@ -7277,7 +7277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subtitleKey: stl_d2_8
   delayTime: 0
-  sceneOrder: 0
+  sceneOrder: 6
   canInteract: 1
   priority: 0
 --- !u!1 &1081374900
