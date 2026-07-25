@@ -60,5 +60,12 @@ namespace PostMan.Scene
             Debug.LogWarningFormat("以记载到场景{0}", this.sceneOrder);
             this.initOperation = null;
         }
+        /// <summary>
+        /// 设置场景计数
+        /// </summary>
+        public void SetSceneOrder(int order)
+        {
+            this.sceneOrder = order;
+        }
     }
 }
