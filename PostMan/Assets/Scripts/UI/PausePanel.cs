@@ -74,6 +74,12 @@ namespace PostMan.UI
 
         public UnityEvent ReturnToTitleEvent { get; private set; } = new UnityEvent();
 
+        /// <summary>
+        /// 点击"返回主菜单"按钮时触发的静态事件。
+        /// 在场景切换前发布，供各系统执行清理操作。
+        /// </summary>
+        public static event Action OnTitleTrigger;
+
         // ─────────────────────────────────────────────
         // Unity 生命周期
         // ─────────────────────────────────────────────
@@ -205,6 +211,7 @@ namespace PostMan.UI
                 pauseVolume.enabled = false;
 
             TitleUIManager.Instance?.ShowTitleUI(); // 场景切换前恢复标题 UI
+            OnTitleTrigger?.Invoke();                // 通知各系统执行清理（在场景切换前）
             ReturnToTitleEvent?.Invoke(); // 触发返回主菜单事件，供其他系统监听
             GameSceneManager.Instance.SwitchScenes(titleScenesToLoad, titleScenesToUnload);
         }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using PostMan.Player;
+using PostMan.UI;
 using UnityEngine;
 
 /// <summary>
@@ -39,6 +40,9 @@ public class TaskManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject); // 跨场景保留
+
+        // 返回主菜单时重置任务状态（永久订阅，与单例同生命周期）
+        PausePanel.OnTitleTrigger += ResetAll;
     }
 
     // ─────────────────────────────────────────────
@@ -149,5 +153,14 @@ public class TaskManager : MonoBehaviour
         _activeTasks.TryGetValue(taskIndex, out TaskRuntimeData data) &&
         data.Status == TaskStatus.Completed;
 
-    
+    /// <summary>
+    /// 清空所有运行时任务状态，恢复到初始状态。
+    /// 不发布任何任务事件；仅用于返回主菜单等全局重置场景。
+    /// </summary>
+    public void ResetAll()
+    {
+        _activeTasks.Clear();
+    }
+
+
 }

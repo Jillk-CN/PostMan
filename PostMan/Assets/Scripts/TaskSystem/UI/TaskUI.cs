@@ -1,5 +1,6 @@
 using System.Collections;
 using PostMan.Localization;
+using PostMan.UI;
 using TMPro;
 using UnityEngine;
 
@@ -70,6 +71,8 @@ public class TaskUI : MonoBehaviour
         TaskEventBus.OnTaskCompleted += HandleTaskCompleted;
         TaskEventBus.OnTaskFailed += HandleTaskFailed;
 
+        PausePanel.OnTitleTrigger += ForceHide;
+
         if (LocalizationManager.Instance != null)
             LocalizationManager.Instance.LocaleChanged += HandleLocaleChanged;
     }
@@ -81,6 +84,8 @@ public class TaskUI : MonoBehaviour
         TaskEventBus.OnTaskAdvanced -= HandleTaskAdvanced;
         TaskEventBus.OnTaskCompleted -= HandleTaskCompleted;
         TaskEventBus.OnTaskFailed -= HandleTaskFailed;
+
+        PausePanel.OnTitleTrigger -= ForceHide;
 
         if (LocalizationManager.Instance != null)
             LocalizationManager.Instance.LocaleChanged -= HandleLocaleChanged;
@@ -181,6 +186,22 @@ public class TaskUI : MonoBehaviour
             SlideOut();
         else
             SlideIn();
+    }
+
+    /// <summary>
+    /// 立即将任务面板移出屏幕（无动画），并重置可见状态标志。
+    /// 用于场景切换前的快速清理。
+    /// </summary>
+    public void ForceHide()
+    {
+        if (_slideCoroutine != null)
+        {
+            StopCoroutine(_slideCoroutine);
+            _slideCoroutine = null;
+        }
+        if (taskPanel != null)
+            taskPanel.anchoredPosition = new Vector2(-taskPanel.rect.width, taskPanel.anchoredPosition.y);
+        _isVisible = false;
     }
 
     /// <summary>启动滑动协程，若已有协程则先停止（打断并重新开始）。</summary>
