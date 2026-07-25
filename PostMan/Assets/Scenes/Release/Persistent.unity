@@ -267,10 +267,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTask: {fileID: 11400000, guid: 961b066e59c21cb41829a1e176c01e20, type: 2}
+  restoreOnTaskComplete: 1
   stopFadeOut: 1
   stopFadeOutDuration: 0.5
   newClip: {fileID: 8300000, guid: 9b22ca4ab00bc5641b0d0ea584b22e7e, type: 3}
-  loop: 1
+  loop: 0
   playFadeIn: 1
   playFadeInDuration: 1
   volume: 1
@@ -495,6 +496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTask: {fileID: 11400000, guid: bd10c1c7fd66db44a89565e0c5950560, type: 2}
+  restoreOnTaskComplete: 0
   stopFadeOut: 1
   stopFadeOutDuration: 0.5
   newClip: {fileID: 8300000, guid: 75c7c53d882667c489308dea9286f45c, type: 3}
@@ -719,6 +721,64 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &463616390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 463616391}
+  - component: {fileID: 463616392}
+  m_Layer: 0
+  m_Name: Street
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &463616391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463616390}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 594001965}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &463616392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463616390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7474c56f6b1cac42b73878063787bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSceneAddress: _Sample_Streeet
+  triggerOnce: 0
+  restoreOnUnload: 1
+  enableSceneOrderTrigger: 0
+  targetSceneOrder: 0
+  triggerOnce2: 0
+  stopFadeOut: 1
+  stopFadeOutDuration: 0.5
+  newClip: {fileID: 8300000, guid: f60fe1e9b65017245bc6c61cb7c2da66, type: 3}
+  newClip2: {fileID: 0}
+  loop: 1
+  playFadeIn: 1
+  playFadeInDuration: 1
+  volume: 1
 --- !u!1 &487434263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1216,6 +1276,7 @@ Transform:
   - {fileID: 612106712}
   - {fileID: 103783358}
   - {fileID: 2108352350}
+  - {fileID: 463616391}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &594427460
@@ -1626,7 +1687,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &612106712
 Transform:
   m_ObjectHideFlags: 0
@@ -1655,6 +1716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTask: {fileID: 11400000, guid: c5f123b8a3c65bd4b9cc76484c1ab257, type: 2}
+  restoreOnTaskComplete: 1
   stopFadeOut: 1
   stopFadeOutDuration: 0.5
   newClip: {fileID: 8300000, guid: 3b4abd90ab5ab3041953c071f504cf5c, type: 3}
@@ -3578,13 +3640,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1674121908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 924c7e7debc21a34dbbe73eba92d2c31, type: 3}
+  m_Script: {fileID: 11500000, guid: b7474c56f6b1cac42b73878063787bc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTask: {fileID: 11400000, guid: 9d802aa378fde904196d5468894f4689, type: 2}
+  targetSceneAddress: _Sample_Post
+  triggerOnce: 0
+  restoreOnUnload: 0
+  enableSceneOrderTrigger: 1
+  targetSceneOrder: 1
+  triggerOnce2: 0
   stopFadeOut: 1
   stopFadeOutDuration: 0.5
-  newClip: {fileID: 8300000, guid: 868722d77c38101438c38cc0bb4c867a, type: 3}
+  newClip: {fileID: 0}
+  newClip2: {fileID: 8300000, guid: 868722d77c38101438c38cc0bb4c867a, type: 3}
   loop: 1
   playFadeIn: 1
   playFadeInDuration: 1
@@ -5195,6 +5263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTask: {fileID: 11400000, guid: 27673b3626c3f5247b8980498844f452, type: 2}
+  restoreOnTaskComplete: 0
   stopFadeOut: 1
   stopFadeOutDuration: 0.5
   newClip: {fileID: 8300000, guid: 2fa0950e8cf3e8d4da624500ba34053c, type: 3}
@@ -5247,6 +5316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTask: {fileID: 11400000, guid: a4d51bd86af125c479d4192d6a9cfe8e, type: 2}
+  restoreOnTaskComplete: 0
   stopFadeOut: 1
   stopFadeOutDuration: 0.5
   newClip: {fileID: 8300000, guid: 77f50553052e575488f068ceac550aec, type: 3}

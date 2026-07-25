@@ -1,27 +1,49 @@
 using PostMan.AudioSystem;
+using PostMan.Player;
 using UnityEngine;
 
 /// <summary>
-/// 监听指定任务的启动事件，并自动切换 BGM。
-/// 将此组件挂载到场景中任意 GameObject，在 Inspector 中配置目标任务与新 BGM 片段。
-/// 支持在目标任务完成时自动还原切换前的 BGM（需启用 restoreOnTaskComplete）。
-/// 组件禁用后不再响应任务事件，可安全地在需要时关闭。
+/// 实现 IInteractable 接口，当玩家与该物体产生交互时自动切换 BGM。
+/// 将此组件挂载到带有 Collider 的场景 GameObject，在 Inspector 中配置交互参数与新 BGM 片段。
+/// 支持单次触发保护，以及任务完成时还原切换前 BGM 的功能（与 TaskBGMSwitcher 保持一致）。
 /// </summary>
-public class TaskBGMSwitcher : MonoBehaviour
+public class InteractableBGMSwitcher : MonoBehaviour, IInteractable
 {
     // ─────────────────────────────────────────────
-    // Task 触发配置
+    // 交互配置
     // ─────────────────────────────────────────────
 
-    [Header("Task 触发配置")]
+    [Header("交互配置")]
 
-    /// <summary>触发 BGM 切换的目标任务定义资产。</summary>
-    [Tooltip("当此任务启动时切换 BGM，必须赋值")]
-    [SerializeField] private TaskSO targetTask;
+    /// <summary>是否允许玩家交互；false 时 PlayerInteractor 跳过此组件。</summary>
+    [Tooltip("控制是否可被玩家交互；取消勾选后玩家无法触发此 BGM 切换")]
+    public bool canInteract = true;
 
-    /// <summary>启用后，当目标任务完成时自动停止当前 BGM 并还原任务启动前的曲目。</summary>
-    [Tooltip("勾选后，目标任务完成时停止当前 BGM 并还原任务启动前的曲目；未勾选则不做任何处理")]
+    /// <summary>交互优先级；同一物体挂多个 IInteractable 时，优先级大的先执行。</summary>
+    [Tooltip("同一物体上有多个 IInteractable 组件时，优先级大的先被调用")]
+    public int priority = 0;
+
+    /// <summary>是否只触发一次；勾选后再次交互不再切换 BGM。</summary>
+    [Tooltip("勾选后只在首次交互时切换 BGM，之后重复交互不再触发")]
+    [SerializeField] private bool interactOnce = true;
+
+    // IInteractable 属性实现
+    public bool CanInteract { get => canInteract; set => canInteract = value; }
+    public int  Priority    { get => priority;    set => priority    = value; }
+
+    // ─────────────────────────────────────────────
+    // Task 还原配置
+    // ─────────────────────────────────────────────
+
+    [Header("Task 还原配置")]
+
+    /// <summary>启用后，当目标任务完成时自动停止当前 BGM 并还原交互前的曲目。</summary>
+    [Tooltip("勾选后，目标任务完成时停止当前 BGM 并还原交互前的曲目；未勾选则不做任何处理")]
     [SerializeField] private bool restoreOnTaskComplete = false;
+
+    /// <summary>触发还原的目标任务定义资产；restoreOnTaskComplete 启用时必须赋值。</summary>
+    [Tooltip("目标任务完成时触发 BGM 还原，必须在启用 restoreOnTaskComplete 时赋值")]
+    [SerializeField] private TaskSO targetTask;
 
     // ─────────────────────────────────────────────
     // Stop 参数
@@ -43,8 +65,8 @@ public class TaskBGMSwitcher : MonoBehaviour
 
     [Header("Play 参数")]
 
-    /// <summary>任务启动后要播放的新 BGM 片段，必须赋值。</summary>
-    [Tooltip("任务启动后播放的新 BGM 片段，必须赋值")]
+    /// <summary>交互触发后要播放的新 BGM 片段，必须赋值。</summary>
+    [Tooltip("玩家交互后播放的新 BGM 片段，必须赋值")]
     [SerializeField] private AudioClip newClip;
 
     /// <summary>新 BGM 是否循环播放。</summary>
@@ -68,47 +90,38 @@ public class TaskBGMSwitcher : MonoBehaviour
     // 运行时状态
     // ─────────────────────────────────────────────
 
-    /// <summary>BGM 切换保护标志；HandleTaskStarted 成功执行后置为 true。</summary>
+    /// <summary>单次触发保护标志兼还原入口守卫；首次交互成功后置为 true。</summary>
     private bool _triggered = false;
 
-    /// <summary>任务启动前正在播放的 BGM 快照，任务完成时用于还原。</summary>
+    /// <summary>交互前正在播放的 BGM 快照，任务完成时用于还原。</summary>
     private AudioClip _previousClip;
 
     // ─────────────────────────────────────────────
     // 生命周期
     // ─────────────────────────────────────────────
 
-    private void OnEnable()
-    {
-        TaskEventBus.OnTaskStarted   += HandleTaskStarted;
-        TaskEventBus.OnTaskCompleted += HandleTaskCompleted;
-    }
-
-    private void OnDisable()
-    {
-        TaskEventBus.OnTaskStarted   -= HandleTaskStarted;
-        TaskEventBus.OnTaskCompleted -= HandleTaskCompleted;
-    }
+    private void OnEnable()  => TaskEventBus.OnTaskCompleted += HandleTaskCompleted;
+    private void OnDisable() => TaskEventBus.OnTaskCompleted -= HandleTaskCompleted;
 
     // ─────────────────────────────────────────────
-    // 事件处理
+    // IInteractable 实现
     // ─────────────────────────────────────────────
 
     /// <summary>
-    /// 接收 TaskEventBus.OnTaskStarted 事件。
-    /// 仅当启动的任务与 targetTask 的 taskIndex 匹配时执行 BGM 切换。
+    /// 玩家交互时调用。
+    /// 依次检查 newClip 非空、单次触发保护，通过后快照当前 BGM 并切换到新曲目。
     /// </summary>
-    /// <param name="data">任务运行时快照。</param>
-    private void HandleTaskStarted(TaskRuntimeData data)
+    /// <param name="player">触发交互的 PlayerInteractor。</param>
+    public void InteractWith(PlayerInteractor player)
     {
-        if (targetTask == null || newClip == null)
+        if (newClip == null)
         {
-            Debug.LogError($"[TaskBGMSwitcher] {name}：targetTask 或 newClip 未赋值，无法切换 BGM。", this);
+            Debug.LogError($"[InteractableBGMSwitcher] {name}：newClip 未赋值，无法切换 BGM。", this);
             return;
         }
 
-        // 仅响应目标任务
-        if (data.Definition.taskIndex != targetTask.taskIndex) return;
+        // 单次触发保护
+        if (interactOnce && _triggered) return;
 
         _triggered    = true;
         _previousClip = AudioManager.Instance.GetClip(AudioTrackId.BGM);
@@ -116,6 +129,10 @@ public class TaskBGMSwitcher : MonoBehaviour
         AudioManager.Instance.Stop(AudioTrackId.BGM, stopFadeOut, stopFadeOutDuration);
         AudioManager.Instance.Play(AudioTrackId.BGM, newClip, loop, playFadeIn, playFadeInDuration, volume);
     }
+
+    // ─────────────────────────────────────────────
+    // 事件处理
+    // ─────────────────────────────────────────────
 
     /// <summary>
     /// 接收 TaskEventBus.OnTaskCompleted 事件。
@@ -138,7 +155,7 @@ public class TaskBGMSwitcher : MonoBehaviour
 
         AudioManager.Instance.Stop(AudioTrackId.BGM, stopFadeOut, stopFadeOutDuration);
 
-        // 还原任务启动前的曲目（若启动前无 BGM 则只 Stop）
+        // 还原交互前的曲目（若交互前无 BGM 则只 Stop）
         if (_previousClip != null)
             AudioManager.Instance.Play(AudioTrackId.BGM, _previousClip, loop, playFadeIn, playFadeInDuration, 1f);
     }

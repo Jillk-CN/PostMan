@@ -339,7 +339,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subtitleKey: stl_d2_3
+  clip: {fileID: 8300000, guid: eaab1f4b59045ed45819461e3c9e5e39, type: 3}
   TriggerOnce: 0
+  PlayBGM: 1
 --- !u!65 &27482685
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12936,7 +12938,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subtitleKey: stl_d2_4
+  clip: {fileID: 0}
   TriggerOnce: 1
+  PlayBGM: 0
 --- !u!114 &1753596796
 MonoBehaviour:
   m_ObjectHideFlags: 0

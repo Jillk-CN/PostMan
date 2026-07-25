@@ -3,7 +3,12 @@ guid: 08f33abd0d0bba84da01f86951da7f0f
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: E_Door_S
+    second: {fileID: 2100000, guid: c2abc7d6cd0075644a657706c614d57b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1
@@ -32,7 +37,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1

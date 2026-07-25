@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using PostMan.AudioSystem;
 using UnityEngine;
 
 public class SubtitleColliderTrigger : MonoBehaviour
 {
     public string subtitleKey;
+    public AudioClip clip;
     [SerializeField]
     private bool TriggerOnce = false;
+    [SerializeField]
+    private bool PlayBGM = false;
 
     private bool haveTrigger = false;
 
@@ -27,6 +31,12 @@ public class SubtitleColliderTrigger : MonoBehaviour
         else
         {
             SubtitleUI.Instance.TypeSubtitle(subtitleKey);
+        }
+
+        if (PlayBGM)
+        {
+            AudioManager.Instance.Stop(AudioTrackId.BGM);
+            AudioManager.Instance.Play( AudioTrackId.BGM, clip, true, true);
         }
     }
 }

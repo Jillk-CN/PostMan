@@ -4176,6 +4176,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 756072887}
+    - targetCorrespondingSourceObject: {fileID: 3225866771635642581, guid: 9b8e66ee8527361429361188ef60ee29,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 756072889}
   m_SourcePrefab: {fileID: 100100000, guid: 9b8e66ee8527361429361188ef60ee29, type: 3}
 --- !u!1 &756072886 stripped
 GameObject:
@@ -4217,6 +4221,30 @@ MonoBehaviour:
   priority: 0
   processListSO: {fileID: 11400000, guid: f824338d00facf54a8b397f9658c6ac9, type: 2}
   setOnce: 1
+--- !u!114 &756072889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756072886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57eb65aefdbb3a24fb47538a659c77d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canInteract: 1
+  priority: 0
+  interactOnce: 1
+  restoreOnTaskComplete: 1
+  targetTask: {fileID: 11400000, guid: c5f123b8a3c65bd4b9cc76484c1ab257, type: 2}
+  stopFadeOut: 1
+  stopFadeOutDuration: 0.5
+  newClip: {fileID: 8300000, guid: 3b4abd90ab5ab3041953c071f504cf5c, type: 3}
+  loop: 1
+  playFadeIn: 1
+  playFadeInDuration: 1
+  volume: 1
 --- !u!1 &763794647
 GameObject:
   m_ObjectHideFlags: 0
@@ -6587,7 +6615,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subtitleKey: stl_d2_16
+  clip: {fileID: 0}
   TriggerOnce: 1
+  PlayBGM: 0
 --- !u!1 &1148425723
 GameObject:
   m_ObjectHideFlags: 0
@@ -6860,7 +6890,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subtitleKey: stl_d2_11
+  clip: {fileID: 0}
   TriggerOnce: 1
+  PlayBGM: 0
 --- !u!65 &1203071295
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10520,7 +10552,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   subtitleKey: stl_d2_15
+  clip: {fileID: 0}
   TriggerOnce: 0
+  PlayBGM: 0
 --- !u!65 &2127530612
 BoxCollider:
   m_ObjectHideFlags: 0
