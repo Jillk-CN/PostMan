@@ -7197,6 +7197,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1024742210
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024742212}
+  - component: {fileID: 1024742211}
+  m_Layer: 0
+  m_Name: MovePlayerAfterTask15
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1024742211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024742210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 738d2455c2cf52745929659620b57f82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scenesToLoad:
+  - _Sample_Post
+  _scenesToUnload:
+  - _Sample_Streeet
+  taskIndex: 15
+  _movePlayerAfterTaskCompletion: 1
+  _rotatePlayerAfterTaskCompletion: 0
+  targetPosition: {x: -0.635, y: 0, z: -1.34}
+  targetRotation: {x: 0, y: 0, z: 0}
+  task: {fileID: 11400000, guid: d9c714df27df4254fa96b138a347b1cf, type: 2}
+--- !u!4 &1024742212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024742210}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1038194803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16025,6 +16079,7 @@ SceneRoots:
   - {fileID: 1163721664}
   - {fileID: 600464302}
   - {fileID: 1677389516}
+  - {fileID: 1024742212}
   - {fileID: 2025002720}
   - {fileID: 296535159}
   - {fileID: 2010611177}
