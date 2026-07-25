@@ -15,7 +15,7 @@ MonoBehaviour:
   item:
   - gameObject: {fileID: 0}
     uniqueID: door_post_bed
-    isCanInteract: 0
+    isCanInteract: 1
     isVisuable: 1
   - gameObject: {fileID: 0}
     uniqueID: I_Door_3
