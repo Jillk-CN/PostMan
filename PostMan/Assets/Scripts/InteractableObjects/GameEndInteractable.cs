@@ -48,6 +48,7 @@ public class GameEndInteractable : MonoBehaviour,IInteractable
         {
             GameSceneManager.Instance.SwitchScenes(load.ToList(), unload.ToList(),
                 Vector2.zero);
+            PausePanel.Instance.Publish();
             grp.interactable = false;
             grp.blocksRaycasts = false;
         });

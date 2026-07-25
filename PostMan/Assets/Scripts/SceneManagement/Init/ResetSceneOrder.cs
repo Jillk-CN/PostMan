@@ -7,6 +7,6 @@ public class ResetSceneOrder : MonoBehaviour
 {
     private void Awake()
     {
-        SceneInitializer.Instance.SetSceneOrder(0);
+        SceneInitializer.Instance.SetSceneOrder(-1);
     }
 }

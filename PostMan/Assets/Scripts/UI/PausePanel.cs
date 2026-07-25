@@ -215,5 +215,9 @@ namespace PostMan.UI
             ReturnToTitleEvent?.Invoke(); // 触发返回主菜单事件，供其他系统监听
             GameSceneManager.Instance.SwitchScenes(titleScenesToLoad, titleScenesToUnload);
         }
+        public void Publish()
+        {
+            OnTitleTrigger?.Invoke();                // 通知各系统执行清理（在场景切换前）
+        }
     }
 }
