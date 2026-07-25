@@ -8996,7 +8996,7 @@ MonoBehaviour:
   bgmTrackId: 0
   bgmClip: {fileID: 8300000, guid: 2efee9fb47458074283b21baf63e0688, type: 3}
   loop: 1
-  volume: 1
+  volume: 0.3
   fadeInDuration: 1
   fadeOutDuration: 1
   isFadeIn: 1
