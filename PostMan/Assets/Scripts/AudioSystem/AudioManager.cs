@@ -178,6 +178,18 @@ namespace PostMan.AudioSystem
                 source.Stop();
         }
 
+        /// <summary>
+        /// 获取指定音轨当前加载的 AudioClip。
+        /// 若音轨未配置或 AudioSource 为空则返回 null。
+        /// </summary>
+        /// <param name="trackId">目标音轨 ID</param>
+        /// <returns>当前 AudioClip；音轨未播放时也可能为 null</returns>
+        public AudioClip GetClip(AudioTrackId trackId)
+        {
+            if (!TryGetSource(trackId, out AudioSource source)) return null;
+            return source.clip;
+        }
+
         // ─────────────────────────────────────────────
         // 公开 API：音量控制
         // ─────────────────────────────────────────────

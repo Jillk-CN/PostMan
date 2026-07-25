@@ -34,7 +34,8 @@
       "Bash(dir \"D:\\\\GitHub\\\\PostMan\\\\PostMan\" 2>&1 | head -30)",
       "Bash(openspec --help 2>&1 || echo \"openspec not found\")",
       "Bash(openspec version:*)",
-      "Read(//c/Users/87976/.local/bin/**)"
+      "Read(//c/Users/87976/.local/bin/**)",
+      "Bash(dir D:\\\\GitHub\\\\PostMan\\\\PostMan 2>&1)"
     ]
   }
 }
