@@ -15,6 +15,12 @@ public class Forum : MonoBehaviour
     [Header("帖子列表")]
     [SerializeField]
     private List<ForumPost> forumPosts;
+
+    [Header("字幕Key列表")]
+    public string subtitleAfterPost1;
+    public string subtitleAfterPost2;
+    public string subtitleAfterPost3;
+    public string subtitleAfterClose;
     
     [Header("交互物PC，手动拖拽")]
     [SerializeField]
@@ -126,6 +132,8 @@ public class Forum : MonoBehaviour
 
         }
 
+        SubtitleUI.Instance.TypeSubtitle(subtitleAfterClose);
+
         //等待所有组件完成过渡后再确保恢复移动
         StartCoroutine(DelayedRestoreMovement());
     }
@@ -170,5 +178,18 @@ public class Forum : MonoBehaviour
         }
 
         CloseForum();
+    }
+
+    public void TypeSubtitleAfterPost1()
+    {
+        SubtitleUI.Instance.TypeSubtitle(subtitleAfterPost1);
+    }
+    public void TypeSubtitleAfterPost2()
+    {
+        SubtitleUI.Instance.TypeSubtitle(subtitleAfterPost2);
+    }
+    public void TypeSubtitleAfterPost3()
+    {
+        SubtitleUI.Instance.TypeSubtitle(subtitleAfterPost3);
     }
 }

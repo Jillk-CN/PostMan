@@ -40,7 +40,7 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     public int Priority { get => priority; set => priority = value; }
 
     // 门的状态
-    private bool isOpen = false;
+    public bool isOpen = false;
 
     void Update()
     {

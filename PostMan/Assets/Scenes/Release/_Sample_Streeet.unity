@@ -430,6 +430,7 @@ Transform:
   m_Children:
   - {fileID: 1374058315}
   - {fileID: 295106963}
+  - {fileID: 1707663052}
   m_Father: {fileID: 2049513693}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &70982110
@@ -6965,6 +6966,7 @@ MonoBehaviour:
   subtitleKey: stl_d2_10
   delayTime: 3
   sceneOrder: 0
+  triggerOnce: 0
   canInteract: 1
   priority: 0
 --- !u!1001 &986152305
@@ -7834,7 +7836,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subtitleKey: stl_d2_8
   delayTime: 0
-  sceneOrder: 6
+  sceneOrder: 5
+  triggerOnce: 0
   canInteract: 1
   priority: 0
 --- !u!1 &1081374900
@@ -11478,12 +11481,12 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1272157626}
   - {fileID: 946417544}
   - {fileID: 955234752}
   - {fileID: 1160121138}
   - {fileID: 314942382}
   - {fileID: 765184647}
+  - {fileID: 1272157626}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -11852,7 +11855,7 @@ PrefabInstance:
     - target: {fileID: 5030904986680036236, guid: 0758d56e1f9581b4ab1d418b760a3a24,
         type: 3}
       propertyPath: m_Name
-      value: Task7Box
+      value: 410Box
       objectReference: {fileID: 0}
     - target: {fileID: 5030904986680036236, guid: 0758d56e1f9581b4ab1d418b760a3a24,
         type: 3}
@@ -11948,6 +11951,7 @@ MonoBehaviour:
   subtitleKey: stl_d2_13
   delayTime: 0
   sceneOrder: 8
+  triggerOnce: 0
   canInteract: 1
   priority: 0
 --- !u!114 &1540961742
@@ -12642,7 +12646,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subtitleKey: stl_d2_7
   delayTime: 2
-  sceneOrder: 0
+  sceneOrder: 5
+  triggerOnce: 0
   canInteract: 1
   priority: 0
 --- !u!1 &1677389514
@@ -12736,6 +12741,54 @@ Transform:
   - {fileID: 1598609877}
   m_Father: {fileID: 2049513693}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1707663051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1707663052}
+  - component: {fileID: 1707663053}
+  m_Layer: 0
+  m_Name: scene10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1707663052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707663051}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 33190543}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1707663053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707663051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba782ceffc28f845871ff501a69f813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeOnInit: 1
+  targetSceneOrder: 10
+  objects:
+  - {fileID: 1540961740}
 --- !u!1 &1710050859
 GameObject:
   m_ObjectHideFlags: 0
