@@ -26,11 +26,13 @@ namespace PostMan.Scene
         /// </summary>
         public int SceneOrder => sceneOrder;
         private SceneInitHandler initOperation;
+        [SerializeField]
+        [Tooltip("在切换到这个场景的时候会重置计数")]
+        private string resetSceneName;
         private void Awake()
         {
             GameSceneManager.OnSceneSwitchCompleted += OnSceneLoad;
         }
-
 
         public void Register(SceneInitHandler operation)
         {
@@ -55,7 +57,11 @@ namespace PostMan.Scene
                 Debug.Log(item);    
             }
              */
-            this.sceneOrder++;//TODO : 如果是主菜单,需要设置为0
+            this.sceneOrder++;
+            if (sceneName[0]==resetSceneName)
+            {
+                this.sceneOrder = 0;
+            }
             this.initOperation?.Invoke(this.sceneOrder, string.Empty);
             Debug.LogWarningFormat("以记载到场景{0}", this.sceneOrder);
             this.initOperation = null;
