@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace PostMan.Scene
 {
+    /// <summary>
+    /// 出于某些原因,在street场景会用这个脚本来初始化
+    /// </summary>
     public class DirectlyInitInteractables : MonoBehaviour
     {
         [SerializeField]

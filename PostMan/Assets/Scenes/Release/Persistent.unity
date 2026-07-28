@@ -2516,7 +2516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 521b6a071693f6c4fbc44d57c18f25ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneOrder: 10
+  sceneOrder: 0
   resetSceneName: TitleTestScene-CHY
 --- !u!4 &1119737601
 Transform:
