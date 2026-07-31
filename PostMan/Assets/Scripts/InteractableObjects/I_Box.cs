@@ -37,6 +37,6 @@ public class I_Box : MonoBehaviour , IInteractable
     {
         yield return new WaitForSeconds(5f);
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

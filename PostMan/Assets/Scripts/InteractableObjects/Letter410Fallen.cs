@@ -14,9 +14,11 @@ public class Letter410Fallen : MonoBehaviour
     public GameObject photo;
     public Button button1;
     public Button button2;
+    public Button button3;
     public Button messageQuitButton;
     public string subtitleKey1;
     public string subtitleKey2;
+    public string subtitleKey3;
 
 
     public AudioClip dropSFX;
@@ -28,6 +30,7 @@ public class Letter410Fallen : MonoBehaviour
 
         button1.onClick.AddListener(CheckDestroy);
         button2.onClick.AddListener(PutBack);
+        button3.onClick.AddListener(TypeSTL);
         messageQuitButton.onClick.AddListener(DropPhoto);
 
     }
@@ -70,5 +73,12 @@ public class Letter410Fallen : MonoBehaviour
         AudioManager.Instance.Play(AudioTrackId.FX , dropSFX);
 
         messageQuitButton.onClick.RemoveListener(DropPhoto);
+    }
+
+    private void TypeSTL()
+    {
+        SubtitleUI.Instance.TypeSubtitle(subtitleKey3);
+
+        button3.onClick.RemoveListener(TypeSTL);
     }
 }

@@ -294,6 +294,7 @@ MonoBehaviour:
   activeAfterInteract: []
   inactiveAfterInteract:
   - {fileID: 1440324434}
+  interactOnce: 1
 --- !u!114 &27047466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,9 +417,11 @@ MonoBehaviour:
   photo: {fileID: 1080221830}
   button1: {fileID: 946417546}
   button2: {fileID: 946417545}
+  button3: {fileID: 946417548}
   messageQuitButton: {fileID: 314942383}
   subtitleKey1: stl_d2_5
   subtitleKey2: stl_d2_6
+  subtitleKey3: 
   dropSFX: {fileID: 8300000, guid: 6b69c27d2b50df64db51634423d52d7a, type: 3}
 --- !u!1 &33190541
 GameObject:
@@ -2500,6 +2503,7 @@ MonoBehaviour:
   activeAfterInteract: []
   inactiveAfterInteract:
   - {fileID: 380977505}
+  interactOnce: 1
 --- !u!114 &383931662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4724,6 +4728,7 @@ MonoBehaviour:
   activeAfterInteract: []
   inactiveAfterInteract:
   - {fileID: 2015661796}
+  interactOnce: 1
 --- !u!114 &728370734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5736,6 +5741,7 @@ MonoBehaviour:
   activeAfterInteract: []
   inactiveAfterInteract:
   - {fileID: 1151758680}
+  interactOnce: 1
 --- !u!114 &799288508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6588,6 +6594,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 946417543}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &946417548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5344152990794077951, guid: 38023f17de2b77c45a0c2872fa2de03c,
+    type: 3}
+  m_PrefabInstance: {fileID: 946417543}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &955234751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6947,6 +6965,7 @@ MonoBehaviour:
   activeAfterInteract: []
   inactiveAfterInteract:
   - {fileID: 1163247875}
+  interactOnce: 1
 --- !u!1 &960769998
 GameObject:
   m_ObjectHideFlags: 0
@@ -7951,6 +7970,7 @@ MonoBehaviour:
   activeAfterInteract: []
   inactiveAfterInteract:
   - {fileID: 577638212}
+  interactOnce: 1
 --- !u!114 &1041318837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10539,6 +10559,7 @@ MonoBehaviour:
   activeAfterInteract: []
   inactiveAfterInteract:
   - {fileID: 1653406087}
+  interactOnce: 1
 --- !u!1001 &1356875327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12466,7 +12487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorKnockTrigger: {fileID: 1769643016}
-  boxKnockSFX: {fileID: 0}
+  boxKnockSFX: {fileID: 8300000, guid: 7786002579e63984f80985d9aa172440, type: 3}
   sceneOrder: 14
   canInteract: 1
   priority: 0
@@ -13445,7 +13466,7 @@ PrefabInstance:
     - target: {fileID: 5464622975590172146, guid: b2ba5c125d0a4374985b89bfe89f7d3c,
         type: 3}
       propertyPath: sceneOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6283048366896179043, guid: b2ba5c125d0a4374985b89bfe89f7d3c,
         type: 3}
@@ -15454,6 +15475,7 @@ MonoBehaviour:
   priority: 7
   activeAfterInteract: []
   inactiveAfterInteract: []
+  interactOnce: 1
 --- !u!1001 &1919406356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16903,6 +16925,7 @@ MonoBehaviour:
   activeAfterInteract: []
   inactiveAfterInteract:
   - {fileID: 154820876}
+  interactOnce: 1
 --- !u!1 &2092558188
 GameObject:
   m_ObjectHideFlags: 0

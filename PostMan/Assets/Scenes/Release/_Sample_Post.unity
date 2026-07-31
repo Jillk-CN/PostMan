@@ -3752,6 +3752,11 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 0.046449453
       objectReference: {fileID: 0}
+    - target: {fileID: 5464622975590172146, guid: b2ba5c125d0a4374985b89bfe89f7d3c,
+        type: 3}
+      propertyPath: sceneOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6283048366896179043, guid: b2ba5c125d0a4374985b89bfe89f7d3c,
         type: 3}
       propertyPath: m_Name
@@ -3787,6 +3792,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 528681554}
+    - targetCorrespondingSourceObject: {fileID: 6283048366896179043, guid: b2ba5c125d0a4374985b89bfe89f7d3c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 528681555}
+    - targetCorrespondingSourceObject: {fileID: 6283048366896179043, guid: b2ba5c125d0a4374985b89bfe89f7d3c,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 528681556}
     - targetCorrespondingSourceObject: {fileID: 6283048366896179043, guid: b2ba5c125d0a4374985b89bfe89f7d3c,
         type: 3}
       insertIndex: -1
@@ -3916,6 +3929,42 @@ MonoBehaviour:
   subtitleKey: stl_d4_7
   delayTime: 0
   sceneOrder: 13
+  triggerOnce: 1
+  canInteract: 1
+  priority: 0
+--- !u!114 &528681555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528681548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe314ff0f4c3c0b4c95d3072afdc381b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subtitleKey: stl_d5_2
+  delayTime: 2
+  sceneOrder: 15
+  triggerOnce: 1
+  canInteract: 1
+  priority: 0
+--- !u!114 &528681556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528681548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe314ff0f4c3c0b4c95d3072afdc381b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subtitleKey: stl_d5_3
+  delayTime: 2
+  sceneOrder: 17
   triggerOnce: 1
   canInteract: 1
   priority: 0
@@ -6564,6 +6613,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6147368619725233418, guid: 3b1dcc304f4afad49bc7f10d45e0f4de,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 958206488}
+    - targetCorrespondingSourceObject: {fileID: 6147368619725233418, guid: 3b1dcc304f4afad49bc7f10d45e0f4de,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 958206481}
     - targetCorrespondingSourceObject: {fileID: 6147368619725233418, guid: 3b1dcc304f4afad49bc7f10d45e0f4de,
         type: 3}
@@ -6581,6 +6634,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 958206487}
+    - targetCorrespondingSourceObject: {fileID: 6147368619725233418, guid: 3b1dcc304f4afad49bc7f10d45e0f4de,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 958206489}
   m_SourcePrefab: {fileID: 100100000, guid: 3b1dcc304f4afad49bc7f10d45e0f4de, type: 3}
 --- !u!1 &958206480 stripped
 GameObject:
@@ -6707,6 +6764,43 @@ MonoBehaviour:
   subtitleKey: stl_d4_10
   delayTime: 6
   sceneOrder: 13
+  triggerOnce: 1
+  canInteract: 1
+  priority: 0
+--- !u!114 &958206488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958206480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa4a1d9093de5cf409ac5f05498555ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  interactablesProcessListSO: {fileID: 11400000, guid: 5b981c17edcef354ea2f9b57fa945329,
+    type: 2}
+  sceneOrder: 11
+  sfx: {fileID: 0}
+  canInteract: 1
+  priority: 0
+--- !u!114 &958206489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 958206480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe314ff0f4c3c0b4c95d3072afdc381b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subtitleKey: stl_d5_1
+  delayTime: 6
+  sceneOrder: 15
   triggerOnce: 1
   canInteract: 1
   priority: 0
@@ -9702,7 +9796,6 @@ MonoBehaviour:
   - {fileID: 1397427768}
   - {fileID: 2112577354}
   - {fileID: 2111151610}
-  - {fileID: 6898038963425975420}
 --- !u!1 &1494617921
 GameObject:
   m_ObjectHideFlags: 0
