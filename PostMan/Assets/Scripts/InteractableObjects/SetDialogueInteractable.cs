@@ -1,31 +1,30 @@
 using PostMan.Dialogue;
+using PostMan.Player;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-namespace PostMan.Player
+namespace PostMan.InteractableObject
 {
-    public class StartDialogueInteractable : MonoBehaviour,IInteractable
+    public class SetDialogueInteractable : MonoBehaviour,IInteractable
     {
+
         [SerializeField]
-        private DialogueSequence sequence;
+        private StartDialogueInteractable dialogueInteractable;
+        [SerializeField]
+        private DialogueSequence dialogue;
         [SerializeField]
         private bool canInteract = true;
         public bool CanInteract { get => this.canInteract; set => this.canInteract = value; }
         [SerializeField]
         private int priority;
         public int Priority { get => priority; set => priority=value; }
-
         public void InteractWith(PlayerInteractor player)
         {
-            DialogueManager.Instance.StartDialogue(sequence, 
-                this.GetComponents<IPerformDataProvider>().ToList());
+            dialogueInteractable.SetDialogue(dialogue);        
         }
-        public void SetDialogue(DialogueSequence sequence)
-        {
-            this.sequence = sequence; 
-        }
+            
+
 
     }
 }

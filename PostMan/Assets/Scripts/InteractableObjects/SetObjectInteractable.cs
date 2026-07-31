@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Purchasing;
 using UnityEngine;
 
 namespace PostMan.Player
@@ -19,6 +20,9 @@ namespace PostMan.Player
         [Tooltip("交互完之后,这些的物体将禁止交互")]
         [SerializeField]
         private GameObject[] inactiveAfterInteract;
+
+        [SerializeField]
+        private bool interactOnce=true;//屎山代码
         public void InteractWith(PlayerInteractor player)
         {
             foreach (var obj in activeAfterInteract)
@@ -30,7 +34,10 @@ namespace PostMan.Player
                 obj.SetActive(false);
             }
             //出于屎山代码,这里加上这一句
-            this.canInteract = false;
+            if (interactOnce)
+            {
+                this.canInteract = false;
+            }
         }
             
 
