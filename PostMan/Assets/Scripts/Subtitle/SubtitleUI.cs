@@ -52,7 +52,7 @@ public class SubtitleUI : MonoBehaviour
         }
         else if(Instance != this)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             return;
         }
 

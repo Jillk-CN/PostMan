@@ -271,6 +271,10 @@ MonoBehaviour:
     m_Localized: I should answer the phone.<2>
     m_Metadata:
       m_Items: []
+  - m_Id: 22437616954171392
+    m_Localized: It's time to pack up.<1.5>
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

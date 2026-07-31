@@ -17,6 +17,9 @@ public class I_Door_S : MonoBehaviour, IInteractable
     [Tooltip("蹲下查看宠物门")]
     public bool _CheckDoor = true;
 
+    [Header("交互物管理清单SO")]
+    [SerializeField]private InteractablesProcessListSO Task18listSO;
+
     [Header("音效")]
     [SerializeField] private AudioClip placeGroundSound;
     [SerializeField] private AudioClip dragSlowSound;
@@ -66,6 +69,7 @@ public class I_Door_S : MonoBehaviour, IInteractable
     public void InteractWith(PlayerInteractor player)
     {
         if(CanInteract == false) return;
+
         if(_PlaceBox && !_CheckDoor && !_Knock)
         {
             StartCoroutine(PlaceBox());
@@ -84,6 +88,11 @@ public class I_Door_S : MonoBehaviour, IInteractable
             return;
         }
 
+        ///summary
+        /// 暂时
+        return;
+        ///
+        
         if(_CheckDoor && !_Knock && !_PlaceBox)
         {
             showInteractPrompt.CanSelect = false;
@@ -163,7 +172,7 @@ public class I_Door_S : MonoBehaviour, IInteractable
     /// </summary>
     private IEnumerator PlaceBox()
     {
-        //在门前放置箱子
+        InteractableManager.Instance.ApplyState(Task18listSO);
 
         AudioManager.Instance.Play(AudioTrackId.FX , placeGroundSound);
 

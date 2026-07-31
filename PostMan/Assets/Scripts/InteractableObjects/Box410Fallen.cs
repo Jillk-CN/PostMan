@@ -35,7 +35,9 @@ public class Box410Fallen : MonoBehaviour
 
     private void TransSprite()
     {
-        imageViewer.SetImage(sprite);
+        //imageViewer.SetImage(sprite);
+
+        ViewImagePanel.Instance.ShowImage(sprite,true);
 
         SubtitleUI.Instance.TypeSubtitle(subtitleKey1);
 

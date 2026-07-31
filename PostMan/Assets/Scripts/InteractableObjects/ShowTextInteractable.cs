@@ -1,3 +1,4 @@
+using PostMan.Scene;
 using PostMan.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ namespace PostMan.Player
 {
     public class ShowTextInteractable : MonoBehaviour,IInteractable
     {
+        public int sceneOrder;
         [SerializeField]
         private bool canInteract = true;
         public bool CanInteract { get => this.canInteract; set => this.canInteract = value; }
@@ -18,6 +20,8 @@ namespace PostMan.Player
         private ReadingContent content;
         public void InteractWith(PlayerInteractor player)
         {
+            if(sceneOrder != SceneInitializer.Instance.SceneOrder)return;
+
             TextPanel.Instance.ShowText(content);
         }
         public void SetContent(ReadingContent content)

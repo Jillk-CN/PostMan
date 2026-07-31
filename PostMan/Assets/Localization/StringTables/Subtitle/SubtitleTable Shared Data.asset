@@ -255,6 +255,10 @@ MonoBehaviour:
     m_Key: stl_d6_10
     m_Metadata:
       m_Items: []
+  - m_Id: 22437616954171392
+    m_Key: stl_d4_10
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

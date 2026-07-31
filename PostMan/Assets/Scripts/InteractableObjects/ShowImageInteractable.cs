@@ -1,3 +1,4 @@
+using PostMan.Scene;
 using PostMan.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,6 +11,8 @@ namespace PostMan.Player
         [SerializeField]
         private Sprite image;
         [SerializeField]
+        private int sceneOrder = 0;
+        [SerializeField]
         private bool canInteract = true;
         public bool CanInteract { get => this.canInteract; set => this.canInteract = value; }
         [SerializeField]
@@ -19,6 +22,8 @@ namespace PostMan.Player
         public bool showQuitButton = true;
         public void InteractWith(PlayerInteractor player)
         {
+            if(sceneOrder != SceneInitializer.Instance.SceneOrder)return;
+            
             if (image==null)
             {
                 return;

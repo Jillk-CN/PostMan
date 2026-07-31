@@ -35,7 +35,7 @@ public class I_Box : MonoBehaviour , IInteractable
     //延迟销毁，避免交互系统访问被销毁的组件导致报错
     private IEnumerator DelayDestory()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
 
         Destroy(gameObject);
     }
