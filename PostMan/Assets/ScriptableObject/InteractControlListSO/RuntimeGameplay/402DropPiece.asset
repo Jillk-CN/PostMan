@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6039ee69a41c56d458b7ae63f3377aad, type: 3}
-  m_Name: 409DroppedMessage
+  m_Name: 402DropPiece
   m_EditorClassIdentifier: 
   item:
   - gameObject: {fileID: 0}
-    uniqueID: 409DroppedMessage
+    uniqueID: 402DroppedPiece
     isCanInteract: 1
     isVisuable: 1

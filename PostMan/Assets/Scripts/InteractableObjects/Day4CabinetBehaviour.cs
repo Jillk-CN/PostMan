@@ -26,7 +26,7 @@ public class Day4CabinetBehaviour : MonoBehaviour , IInteractable
     {
         if(sceneOrder != SceneInitializer.Instance.SceneOrder)return;
 
-        if(GetComponent<I_Cabinet>().isOpen)return;
+        if(!GetComponent<I_Cabinet>().isOpen)return;
 
         if(triggerOnce && haveTrigger)return;
 
@@ -39,10 +39,11 @@ public class Day4CabinetBehaviour : MonoBehaviour , IInteractable
     {
         GetComponent<I_Cabinet>().stucked = true;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         AudioManager.Instance.Play(AudioTrackId.FX , knockSFX);
 
+        yield return new WaitForSeconds(2f);
         SubtitleUI.Instance.TypeSubtitle(subtitleKey);
     }
 }

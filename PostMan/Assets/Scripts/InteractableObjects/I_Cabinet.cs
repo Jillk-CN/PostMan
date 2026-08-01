@@ -4,6 +4,7 @@ using UnityEngine;
 using PostMan.Player;
 using PostMan.Common;
 using PostMan.AudioSystem;
+using System;
 
 public class I_Cabinet : MonoBehaviour, IInteractable
 {
@@ -20,11 +21,6 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     [SerializeField] private AudioClip stuckSound;
     [SerializeField] private AudioClip openHeavySound;
     [SerializeField] private AudioClip closeHeavySound;
-    [SerializeField] private AudioClip knockLightSound;
-    [SerializeField] private AudioClip knockHeavySound;
-    [SerializeField] private AudioClip insideScrapeSound;
-    [SerializeField] private AudioClip metalVibrateSound;
-    [SerializeField] private AudioClip cabinetDropSound;
 
     [Header("关门提醒触发器")]
     public GameObject closeDoorPromptTrigger;
@@ -99,7 +95,7 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     {
         doorAnimator.SetTrigger("Open_Side_2");
         
-        
+        OnDoorOpen?.Invoke();
 
         yield return new WaitForSeconds(0.3f);
         
@@ -119,7 +115,7 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     {
         doorAnimator.SetTrigger("Close_Side_2");
         
-        
+        OnDoorClose?.Invoke();
 
         yield return new WaitForSeconds(0.4f);
         
@@ -161,41 +157,7 @@ public class I_Cabinet : MonoBehaviour, IInteractable
         canInteract = true;
     }
 
-    public void OpenHeavy()
-    {
-        AudioManager.Instance.Play(AudioTrackId.FX , openHeavySound);
-        StartCoroutine(OpenDoor());
-    }
+    public event Action OnDoorOpen;
 
-    public void CloseHeavy()
-    {
-        AudioManager.Instance.Play(AudioTrackId.FX , closeHeavySound);
-        StartCoroutine(CloseDoor());
-    }
-
-    public void KnockLight()
-    {
-        AudioManager.Instance.Play(AudioTrackId.FX , knockLightSound);
-    }
-
-    public void KnockHeavy()
-    {
-        AudioManager.Instance.Play(AudioTrackId.FX , knockHeavySound);
-    }
-
-    public void InsideScrape()
-    {
-        AudioManager.Instance.Play(AudioTrackId.FX , insideScrapeSound);
-    }
-
-    public void MetalVibrate()
-    {
-        AudioManager.Instance.Play(AudioTrackId.FX , metalVibrateSound);
-        StartCoroutine(Stuck());
-    }
-
-    public void CabinetDrop()
-    {
-        AudioManager.Instance.Play(AudioTrackId.FX , cabinetDropSound);
-    }
+    public event Action OnDoorClose;
 }
