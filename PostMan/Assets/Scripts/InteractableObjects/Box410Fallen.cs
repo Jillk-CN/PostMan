@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using PostMan.AudioSystem;
 using PostMan.Common;
+using PostMan.Scene;
 using PostMan.UI;
 using TMPro;
 using UnityEngine;
@@ -22,6 +23,8 @@ public class Box410Fallen : MonoBehaviour
 
     void OnEnable()
     {
+        if(SceneInitializer.Instance.SceneOrder != 8)return;
+        
         imageViewer = imagePanel.transform.GetComponentInChildren<ImageViewer>();
 
         checkButton = imagePanel.transform.FindChildByName("extraButton (1)");
