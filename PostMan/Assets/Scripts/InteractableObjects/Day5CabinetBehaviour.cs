@@ -28,6 +28,8 @@ public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
 
     void Start()
     {
+        if(sceneOrder != SceneInitializer.Instance.SceneOrder)return;
+
         i_Cabinet = gameObject.GetComponent<I_Cabinet>();
 
         StartCoroutine(PlaySound());

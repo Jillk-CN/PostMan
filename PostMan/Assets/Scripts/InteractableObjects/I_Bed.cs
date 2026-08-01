@@ -8,6 +8,7 @@ using Cinemachine;
 using PostMan.UI;
 using PostMan.AudioSystem;
 using System;
+using PostMan.Scene;
 
 
 namespace PostMan.InteractableObject
@@ -177,7 +178,7 @@ namespace PostMan.InteractableObject
             animator.SetTrigger("WakeUp");
 
             //播放起床音效
-            if(WakeUpSound != null)
+            if(WakeUpSound != null && SceneInitializer.Instance.SceneOrder != 19)
             {
                 AudioManager.Instance.Play(AudioTrackId.FX , WakeUpSound , false , false , 0f , 1f);
             }
