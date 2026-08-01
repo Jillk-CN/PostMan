@@ -210,10 +210,14 @@ namespace PostMan.UI
             if (pauseVolume != null)
                 pauseVolume.enabled = false;
 
-            TitleUIManager.Instance?.ShowTitleUI(); // 场景切换前恢复标题 UI
             OnTitleTrigger?.Invoke();                // 通知各系统执行清理（在场景切换前）
             ReturnToTitleEvent?.Invoke(); // 触发返回主菜单事件，供其他系统监听
-            GameSceneManager.Instance.SwitchScenes(titleScenesToLoad, titleScenesToUnload);
+            BlackScreen.Instance?.BlackIn("", 1f, () =>
+            {
+                GameSceneManager.Instance.SwitchScenes(titleScenesToLoad, titleScenesToUnload);
+                BlackScreen.Instance?.BlackOut("", 1f); // 场景切换后黑屏淡出
+                TitleUIManager.Instance?.ShowTitleUI(); // 恢复标题 UI
+            }); // 黑屏过渡
         }
     }
 }

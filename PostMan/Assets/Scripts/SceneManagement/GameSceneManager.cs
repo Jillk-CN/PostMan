@@ -11,6 +11,7 @@ using UnityEngine.SceneManagement;
 using PostMan.Common;
 using PostMan.InputManagement;
 using PostMan.Player;
+using PostMan.UI;
 
 /// <summary>
 /// 全局场景管理器，基于 Addressables 实现异步场景加载与卸载。
@@ -82,6 +83,8 @@ public class GameSceneManager : MonoSingleton<GameSceneManager>
 
         _isSwitching = true;
 
+        GameInputManager.Instance?.SetPlayerAllInput(false); // 切换场景时禁用玩家输入，防止误操作
+
         try
         {
             // ── 阶段 1：并行加载所有目标场景 ──
@@ -141,7 +144,10 @@ public class GameSceneManager : MonoSingleton<GameSceneManager>
         {
             // 无论成功或失败，都释放锁
             _isSwitching = false;
+            GameInputManager.Instance?.SetPlayerAllInput(true); // 切换完成后重新启用玩家输入
+            
         }
+
     }
 
     // ─────────────────────────────────────────────

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using PostMan.Player;
+using PostMan.UI;
 
 /// <summary>
 /// 交互式场景切换组件。
@@ -79,10 +80,15 @@ public class InteractableSceneChange : MonoBehaviour, IInteractable
         _hasInteracted = true;
 
         Debug.Log($"[InteractableSceneChange] 玩家 {player.name} 触发交互，开始切换场景。");
-        GameSceneManager.Instance?.SwitchScenes(
-            _scenesToLoad,
-            _scenesToUnload,
-            _useSpawnPoint ? _spawnPoint : (Vector3?)null
-        );
+        BlackScreen.Instance?.BlackIn("", 1f, () =>
+        {
+            GameSceneManager.Instance?.SwitchScenes(
+                _scenesToLoad,
+                _scenesToUnload,
+                _useSpawnPoint ? _spawnPoint : (Vector3?)null
+            );
+            BlackScreen.Instance?.BlackOut("", 1f);
+        });
+        
     }
 }

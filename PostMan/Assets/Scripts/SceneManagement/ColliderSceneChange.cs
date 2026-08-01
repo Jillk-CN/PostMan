@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using PostMan.UI;
 
 /// <summary>
 /// 碰撞触发式场景切换组件。
@@ -70,10 +71,14 @@ public class ColliderSceneChange : MonoBehaviour
         _hasTriggered = true;
 
         Debug.Log($"[ColliderSceneChange] 被 {other.name} 触发，开始切换场景。");
-        GameSceneManager.Instance?.SwitchScenes(
-            _scenesToLoad,
-            _scenesToUnload,
-            _useSpawnPoint ? _spawnPoint : (Vector3?)null
-        );
+        BlackScreen.Instance?.BlackIn("", 1f, () =>
+        {
+            GameSceneManager.Instance?.SwitchScenes(
+                _scenesToLoad,
+                _scenesToUnload,
+                _useSpawnPoint ? _spawnPoint : (Vector3?)null
+            );
+            BlackScreen.Instance?.BlackOut("", 1f);
+        });
     }
 }

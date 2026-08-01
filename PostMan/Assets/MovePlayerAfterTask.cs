@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using PostMan.Player;
 using UnityEngine;
+using PostMan.UI;
 
 public class MovePlayerAfterTask : MonoBehaviour
 {
@@ -40,10 +41,14 @@ public class MovePlayerAfterTask : MonoBehaviour
         {
             if (_movePlayerAfterTaskCompletion)
             {
-                PlayerInstance.Instance.transform.position = targetPosition;
-                GameSceneManager.Instance.SwitchScenes(_scenesToLoad, _scenesToUnload);
+                
+                BlackScreen.Instance?.BlackIn("", 1f, () =>
+                {
+                    GameSceneManager.Instance.SwitchScenes(_scenesToLoad, _scenesToUnload, targetPosition);
+                    BlackScreen.Instance?.BlackOut("", 1f);
+                });
             }
-                TaskManager.Instance.StartTask(task);
+            TaskManager.Instance.StartTask(task);
             if (_rotatePlayerAfterTaskCompletion)
             {
                 PlayerInstance.Instance.transform.rotation = Quaternion.Euler(targetRotation);

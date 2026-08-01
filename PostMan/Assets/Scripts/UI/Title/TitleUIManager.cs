@@ -109,9 +109,13 @@ namespace PostMan.UI
         /// <summary>开始游戏：切换至游戏场景。</summary>
         private void OnStartGame()
         {
+            BlackScreen.Instance?.BlackIn("", 1f, () =>
+            {
+                GameSceneManager.Instance.SwitchScenes(scenesToLoad, scenesToUnload, playerStartPosition);
+                BlackScreen.Instance?.BlackOut("", 1f);
+            });
             GameInputManager.Instance.HideCursor(); // 进入游戏前隐藏鼠标
             HideTitleUI(); // 隐藏标题 UI，避免残留在游戏场景
-            GameSceneManager.Instance.SwitchScenes(scenesToLoad, scenesToUnload, playerStartPosition);
         }
 
         /// <summary>开始游戏时隐藏标题 UI（Canvas 保留在 DontDestroyOnLoad，仅隐藏内容）。</summary>

@@ -69,9 +69,10 @@ namespace PostMan.UI
         /// <param name="text"></param>
         /// <param name="fadeInTime"></param>
         public void BlackIn(string text="",
-            float fadeInTime=0.1f)
+            float fadeInTime=0.1f,
+            Action completed=null)
         {
-            fadeEffect.FadeIn(fadeInTime);
+            fadeEffect.FadeIn(fadeInTime, completed);
             blackText.text = text;
         }
 
