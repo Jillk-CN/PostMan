@@ -74,11 +74,14 @@ namespace PostMan.UI
         private void Start()
         {
             DontDestroyOnLoad(gameObject); // 标题场景 UI 保留在 DontDestroyOnLoad，避免切换场景时被销毁
-
             // 初始面板状态
             mainMenuPanel.SetActive(true);
             languagePanelGO.SetActive(false);
             CloseSettingsEvent?.Invoke(); // 初始关闭设置面板事件
+            if (TitleUIManager.Instance!=this)
+            {
+                Destroy(this.gameObject);
+            }
 
             // 标题场景显示鼠标
             GameInputManager.Instance.ShowCursor();
