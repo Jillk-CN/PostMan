@@ -199,6 +199,15 @@ MonoBehaviour:
     m_Localized: Not this.
     m_Metadata:
       m_Items: []
+  - m_Id: 16596238667931648
+    m_Localized: 'Handover point.
+
+      Received.
+
+      Please allow the new manager
+      to enter.'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

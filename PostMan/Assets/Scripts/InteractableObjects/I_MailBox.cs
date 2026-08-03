@@ -146,4 +146,9 @@ public class I_MailBox : MonoBehaviour, IInteractable
     {
         AudioManager.Instance.Play(AudioTrackId.FX , mailbox410HitInsideSound);
     }
+
+    public void OpenDoorPublic()
+    {
+        StartCoroutine(Door());
+    }
 }
