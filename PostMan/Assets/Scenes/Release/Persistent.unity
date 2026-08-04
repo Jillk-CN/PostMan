@@ -235,6 +235,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SubtitleUI
       objectReference: {fileID: 0}
+    - target: {fileID: 7053094364694586242, guid: bed896abda6f3714ba5c5b978119f729,
+        type: 3}
+      propertyPath: audioClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7053094364694586242, guid: bed896abda6f3714ba5c5b978119f729,
+        type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 02cf4366d752b5c4c83efc06929ef027, type: 3}
     - target: {fileID: 8188711914158058680, guid: bed896abda6f3714ba5c5b978119f729,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1130,12 +1140,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -1180,6 +1190,7 @@ RectTransform:
   - {fileID: 57010136}
   - {fileID: 1648457828}
   - {fileID: 72692466}
+  - {fileID: 446415980}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

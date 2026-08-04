@@ -10,7 +10,13 @@ namespace PostMan.Player
     {
         private void Start()
         {
+            StartCoroutine(DisablePlayerNextFrame());
+        }
+        private IEnumerator DisablePlayerNextFrame()
+        {
+            yield return null;
             GameInputManager.Instance.SetPlayerAllInput(false);
+
         }
     }
 }

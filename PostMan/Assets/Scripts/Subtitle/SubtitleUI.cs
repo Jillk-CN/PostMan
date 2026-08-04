@@ -154,9 +154,12 @@ public class SubtitleUI : MonoBehaviour
         }
 
         string text = LocalizationManager.Instance.GetLocalizedString(LocalizationManager.TableName.SubtitleTable,subtitleKey);
-
+        if (string.IsNullOrEmpty(text))
+        {
+            return;
+        }
         SubtitleContent[] subtitles = LocalizationManager.Instance.GetLocalizedSubtitles(text);
-
+         
         currentCoroutine = StartCoroutine(TypeText(subtitles , delayTime));
     }
 

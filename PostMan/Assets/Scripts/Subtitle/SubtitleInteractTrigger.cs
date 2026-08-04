@@ -25,8 +25,8 @@ public class SubtitleInteractTrigger : MonoBehaviour , IInteractable
 
         if(SceneInitializer.Instance.SceneOrder != sceneOrder)return;
 
-        StartCoroutine(TypeDelay());
-
+        //StartCoroutine(TypeDelay());
+        SubtitleUI.Instance.TypeSubtitle(subtitleKey,delayTime);
         haveTrigger = true;
     }
 
