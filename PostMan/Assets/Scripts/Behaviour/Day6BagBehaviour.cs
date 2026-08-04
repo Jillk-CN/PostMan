@@ -27,6 +27,7 @@ public class Day6BagBehaviour : MonoBehaviour
     private I_Bag i_Bag;
     private PlayerMotion playerMotion;
     private Transform player;
+    private bool isTrigger = false;
     private float distance;
     private float minDistance;
     private UnityEngine.SceneManagement.Scene persistent;
@@ -86,7 +87,7 @@ public class Day6BagBehaviour : MonoBehaviour
     {
         if(sceneOrder != SceneInitializer.Instance.SceneOrder)return;
 
-        if (player == null || mailBox410 == null) return;
+        if (player == null || mailBox410 == null || isTrigger == false) return;
 
         distance = Vector3.Distance(player.position , mailBox410.transform.position);
 
@@ -109,6 +110,8 @@ public class Day6BagBehaviour : MonoBehaviour
         if (hasTriggered) return;
 
         if (i_Bag == null) return;
+
+        isTrigger = true;
 
         hasTriggered = true;
 

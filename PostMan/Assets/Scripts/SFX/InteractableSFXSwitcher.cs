@@ -27,8 +27,6 @@ public class InteractableSFXSwitcher : MonoBehaviour , IInteractable
     public void InteractWith(PlayerInteractor player)
     {
         if(triggerOnce && haveTrigger)return;
-        
-        haveTrigger = true;
 
         if(SceneInitializer.Instance.SceneOrder != sceneOrder)return;
 
@@ -38,8 +36,15 @@ public class InteractableSFXSwitcher : MonoBehaviour , IInteractable
             return;
         }
 
-        AudioManager.Instance.Play(AudioTrackId.FX , sfx , false ,false , 0f , delayTime);
-
+        StartCoroutine(DelayPlayAudio());
         
+        haveTrigger = true;
+        
+    }
+
+    private IEnumerator DelayPlayAudio()
+    {
+        yield return new WaitForSeconds(delayTime); 
+        AudioManager.Instance.Play(AudioTrackId.FX , sfx , false ,false , 0f , 1f);
     }
 }

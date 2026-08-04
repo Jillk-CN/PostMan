@@ -24,6 +24,7 @@ public class I_Cabinet : MonoBehaviour, IInteractable
 
     [Header("关门提醒触发器")]
     public GameObject closeDoorPromptTrigger;
+    public GameObject cabinetAirWall;
     
     [Header("门初始设置")]
     [Tooltip("门是否卡住")]
@@ -69,6 +70,8 @@ public class I_Cabinet : MonoBehaviour, IInteractable
 
             closeDoorPromptTrigger.SetActive(true);
 
+            cabinetAirWall.SetActive(true);
+
             StartCoroutine(OpenDoor());
         }
         else
@@ -83,6 +86,8 @@ public class I_Cabinet : MonoBehaviour, IInteractable
             }
 
             closeDoorPromptTrigger.SetActive(false);
+
+            cabinetAirWall.SetActive(false);
 
             StartCoroutine(CloseDoor());
         }

@@ -37,9 +37,11 @@ public class Day4CabinetBehaviour : MonoBehaviour , IInteractable
 
     private IEnumerator Knock()
     {
+        yield return new WaitForSeconds(1f);
+
         GetComponent<I_Cabinet>().stucked = true;
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
 
         AudioManager.Instance.Play(AudioTrackId.FX , knockSFX);
 

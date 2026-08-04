@@ -21,9 +21,15 @@ public class Day6MailBox410Behaviour : MonoBehaviour , IInteractable
     
     void Start()
     {
-        if(sceneOrder != SceneInitializer.Instance.SceneOrder)return;
-        
+        // 查找背包（SceneOrder 可能尚未就绪，这里只做查找，不强制禁用）
+        FindBag();
+    }
+
+    private void FindBag()
+    {
         persistent = SceneManager.GetSceneByName("Persistent");
+
+        if (!persistent.IsValid()) return;
 
         GameObject[] rootObjects = persistent.GetRootGameObjects();
 
@@ -36,19 +42,23 @@ public class Day6MailBox410Behaviour : MonoBehaviour , IInteractable
                 break;
             }
         }
-
-        // 空值检查
-        if (i_Bag == null)
-        {
-            Debug.LogWarning("[Day6MailBox410Behaviour] 未找到 I_Bag 组件，功能已禁用");
-            enabled = false;
-            return;
-        }
     }
 
     public void InteractWith(PlayerInteractor player)
     {
         if(sceneOrder != SceneInitializer.Instance.SceneOrder)return;
+
+        // 确保 i_Bag 非空，为空时重新查找
+        if (i_Bag == null)
+        {
+            FindBag();
+        }
+
+        if (i_Bag == null)
+        {
+            Debug.LogWarning("[Day6MailBox410Behaviour] 未找到 I_Bag 组件，无法执行交互");
+            return;
+        }
 
         Bag = i_Bag.QuitBag();
 
@@ -56,12 +66,14 @@ public class Day6MailBox410Behaviour : MonoBehaviour , IInteractable
 
         Bag.SetActive(false);
 
+        Bag.transform.position = new Vector3(Bag.transform.position.x ,Bag.transform.position.y + 0.918f ,Bag.transform.position.z);
+
         StartCoroutine(Behaviour());
     }
 
     private IEnumerator Behaviour()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
 
         gameObject.GetComponent<I_MailBox>().OpenDoorPublic();
 

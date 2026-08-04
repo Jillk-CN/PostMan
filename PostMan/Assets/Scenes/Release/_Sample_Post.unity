@@ -481,6 +481,7 @@ MonoBehaviour:
   _scenesToLoad: []
   _scenesToUnload: []
   taskIndex: 28
+  _controlByOutside: 0
   _movePlayerAfterTaskCompletion: 0
   _rotatePlayerAfterTaskCompletion: 0
   targetPosition: {x: -0.635, y: 0, z: -1.34}
@@ -5301,6 +5302,7 @@ MonoBehaviour:
   _scenesToLoad: []
   _scenesToUnload: []
   taskIndex: 8
+  _controlByOutside: 0
   _movePlayerAfterTaskCompletion: 0
   _rotatePlayerAfterTaskCompletion: 0
   targetPosition: {x: -0.635, y: 0, z: -1.34}
@@ -5384,6 +5386,7 @@ MonoBehaviour:
   _scenesToLoad: []
   _scenesToUnload: []
   taskIndex: 9
+  _controlByOutside: 0
   _movePlayerAfterTaskCompletion: 0
   _rotatePlayerAfterTaskCompletion: 0
   targetPosition: {x: -0.635, y: 0, z: -1.34}
@@ -5745,6 +5748,7 @@ MonoBehaviour:
   _scenesToLoad: []
   _scenesToUnload: []
   taskIndex: 16
+  _controlByOutside: 0
   _movePlayerAfterTaskCompletion: 0
   _rotatePlayerAfterTaskCompletion: 0
   targetPosition: {x: -0.635, y: 0, z: -1.34}
@@ -6809,7 +6813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneOrder: 9
   sfx: {fileID: 8300000, guid: 478ec803cb6c780438533a5115519419, type: 3}
-  delayTime: 4
+  delayTime: 2.5
   triggerOnce: 1
   canInteract: 1
   priority: 1
@@ -6918,6 +6922,7 @@ MonoBehaviour:
   _scenesToLoad: []
   _scenesToUnload: []
   taskIndex: 30
+  _controlByOutside: 0
   _movePlayerAfterTaskCompletion: 0
   _rotatePlayerAfterTaskCompletion: 0
   targetPosition: {x: -0.635, y: 0, z: -1.34}
@@ -8756,6 +8761,7 @@ MonoBehaviour:
   _scenesToLoad: []
   _scenesToUnload: []
   taskIndex: 12
+  _controlByOutside: 0
   _movePlayerAfterTaskCompletion: 0
   _rotatePlayerAfterTaskCompletion: 0
   targetPosition: {x: -0.635, y: 0, z: -1.34}
@@ -8835,6 +8841,21 @@ PrefabInstance:
       propertyPath: uniqueID
       value: Cabinet_post
       objectReference: {fileID: 0}
+    - target: {fileID: 2648339223557775922, guid: 7142fb2024bccb944aa3de253af7c394,
+        type: 3}
+      propertyPath: m_Size.z
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648339223557775922, guid: 7142fb2024bccb944aa3de253af7c394,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 2715028689604972108, guid: 7142fb2024bccb944aa3de253af7c394,
+        type: 3}
+      propertyPath: cabinetAirWall
+      value: 
+      objectReference: {fileID: 1329626223}
     - target: {fileID: 2715028689604972108, guid: 7142fb2024bccb944aa3de253af7c394,
         type: 3}
       propertyPath: closeDoorPromptTrigger
@@ -9270,6 +9291,7 @@ MonoBehaviour:
   _scenesToLoad: []
   _scenesToUnload: []
   taskIndex: 10
+  _controlByOutside: 0
   _movePlayerAfterTaskCompletion: 0
   _rotatePlayerAfterTaskCompletion: 0
   targetPosition: {x: -0.635, y: 0, z: -1.34}
@@ -10494,7 +10516,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -10547,6 +10569,7 @@ MonoBehaviour:
   _scenesToLoad: []
   _scenesToUnload: []
   taskIndex: 27
+  _controlByOutside: 0
   _movePlayerAfterTaskCompletion: 0
   _rotatePlayerAfterTaskCompletion: 0
   targetPosition: {x: -0.635, y: 0, z: -1.34}
@@ -12384,6 +12407,7 @@ MonoBehaviour:
   _scenesToLoad: []
   _scenesToUnload: []
   taskIndex: 22
+  _controlByOutside: 0
   _movePlayerAfterTaskCompletion: 0
   _rotatePlayerAfterTaskCompletion: 0
   targetPosition: {x: -0.635, y: 0, z: -1.34}
@@ -12917,6 +12941,7 @@ MonoBehaviour:
   _scenesToLoad: []
   _scenesToUnload: []
   taskIndex: 29
+  _controlByOutside: 0
   _movePlayerAfterTaskCompletion: 0
   _rotatePlayerAfterTaskCompletion: 0
   targetPosition: {x: -0.635, y: 0, z: -1.34}
@@ -13256,7 +13281,7 @@ Transform:
   m_GameObject: {fileID: 7774815497799697096}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.700607, z: -0, w: 0.71354747}
-  m_LocalPosition: {x: 6.931, y: 1.158, z: -6.002}
+  m_LocalPosition: {x: 6.931, y: 1.158, z: -6.096}
   m_LocalScale: {x: 0.65529, y: 0.65529, z: 0.65529}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13580,7 +13605,7 @@ MonoBehaviour:
   shakeSound: {fileID: 0}
   shakeSoundLoopInterval: 0.5
   shakeSoundVolume: 1
-  shakeIntensity: 0.1
+  shakeIntensity: 0.05
 --- !u!114 &2582015120907004761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14188,7 +14213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457e88612351c214daa5d462fa8b5a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueID: 
+  uniqueID: CabinetBag
 --- !u!4 &5141168826024067012
 Transform:
   m_ObjectHideFlags: 0
