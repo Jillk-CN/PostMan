@@ -66,7 +66,7 @@ public class Day6MailBox410Behaviour : MonoBehaviour , IInteractable
 
         Bag.SetActive(false);
 
-        Bag.transform.position = new Vector3(Bag.transform.position.x ,Bag.transform.position.y + 0.918f ,Bag.transform.position.z);
+        Bag.transform.position = new Vector3(Bag.transform.position.x ,Bag.transform.position.y + 0.818f ,Bag.transform.position.z);
 
         StartCoroutine(Behaviour());
     }

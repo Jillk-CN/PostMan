@@ -45,18 +45,23 @@ public class SubtitleUI : MonoBehaviour
     void Awake()
     {
         //全局单例实现
-        if(Instance == null)
+        //场景切换的顺序是“先加载新场景、再卸载旧场景”，
+        //所以当新场景里已有字幕系统时，让新实例接管并销毁旧实例，
+        //避免旧场景卸载后 Instance 仍指向已销毁的对象（表现为“字幕系统为空”）。
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
-            //DontDestroyOnLoad(Instance);
+            Destroy(Instance.gameObject);
         }
-        else if(Instance != this)
-        {
-            //Destroy(gameObject);
-            return;
-        }
+        Instance = this;
+    }
 
-        
+    void OnDestroy()
+    {
+        //实例被销毁时清空静态引用，避免后续调用拿到已销毁的对象
+        if (Instance == this)
+        {
+            Instance = null;
+        }
     }
 
     void Start()

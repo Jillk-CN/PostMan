@@ -34,13 +34,14 @@ public class Day3CabinetBehaviour : MonoBehaviour , IInteractable
     {
         if(SceneInitializer.Instance.SceneOrder != sceneOrder)return;
 
+        //只有门开着时才算触发；门没开时直接返回，且不能把 haveTrigger 置为 true。
+        //否则“开门”那一次交互会把 haveTrigger 标记掉，门开后再交互会被 triggerOnce
+        //提前拦截，Behaviour()（两段音效+字幕）永远执行不到。
+        if(i_Cabinet == null || !i_Cabinet.isOpen)return;
+
         if(triggerOnce && haveTrigger)return;
-        
-        if(i_Cabinet.isOpen)
-        {
-            StartCoroutine(Behaviour());
-        }
-        
+
+        StartCoroutine(Behaviour());
         haveTrigger = true;
     }
 
