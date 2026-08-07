@@ -87,7 +87,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 111562932227
-    m_Localized: null
+    m_Localized: 'No deliveries this morning.
+
+
+      Rest.
+
+
+      - Postmaster'
     m_Metadata:
       m_Items: []
   - m_Id: 111562932228
@@ -189,27 +195,6 @@ MonoBehaviour:
       One item is still missing.
 
       Bring it tomorrow.'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15612572387041280
-    m_Localized: The letter has been accepted.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15618085514436608
-    m_Localized: Not this.
-    m_Metadata:
-      m_Items: []
-  - m_Id: 16596238667931648
-    m_Localized: 'Handover point.
-
-      Received.
-
-      Please allow the new manager
-      to enter.'
-    m_Metadata:
-      m_Items: []
-  - m_Id: 16993711777439744
-    m_Localized: Received. Will continue tomorrow.
     m_Metadata:
       m_Items: []
   references:

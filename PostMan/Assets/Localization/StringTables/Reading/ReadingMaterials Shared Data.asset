@@ -67,22 +67,6 @@ MonoBehaviour:
     m_Key: read_13
     m_Metadata:
       m_Items: []
-  - m_Id: 15612572387041280
-    m_Key: read_14
-    m_Metadata:
-      m_Items: []
-  - m_Id: 15618085514436608
-    m_Key: read_15
-    m_Metadata:
-      m_Items: []
-  - m_Id: 16596238667931648
-    m_Key: read_16
-    m_Metadata:
-      m_Items: []
-  - m_Id: 16993711777439744
-    m_Key: read_17
-    m_Metadata:
-      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
