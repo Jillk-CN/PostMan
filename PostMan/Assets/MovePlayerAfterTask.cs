@@ -92,6 +92,7 @@ public class MovePlayerAfterTask : MonoBehaviour
                 PlayerInstance.Instance.transform.rotation = Quaternion.Euler(targetRotation);
             }
 
+            if(task != null)
             TaskManager.Instance.StartTask(task);
         }
     }

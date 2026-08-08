@@ -3925,6 +3925,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxWalk: {fileID: 8300000, guid: a3cf5802cf8424d4195d74671b37e4a6, type: 3}
   sfxRun: {fileID: 8300000, guid: a3cf5802cf8424d4195d74671b37e4a6, type: 3}
+--- !u!1 &569953140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 569953142}
+  - component: {fileID: 569953141}
+  m_Layer: 0
+  m_Name: MovePlayerAfterTask31
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &569953141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569953140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 738d2455c2cf52745929659620b57f82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _scenesToLoad:
+  - _Sample_Post
+  _scenesToUnload:
+  - _Sample_Streeet
+  taskIndex: 31
+  _controlByOutside: 0
+  _movePlayerAfterTaskCompletion: 1
+  _rotatePlayerAfterTaskCompletion: 0
+  targetPosition: {x: -4.54, y: 0.06, z: -4.74}
+  targetRotation: {x: 0, y: 90, z: 0}
+  task: {fileID: 0}
+--- !u!4 &569953142
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569953140}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &577638212
 GameObject:
   m_ObjectHideFlags: 0
@@ -17962,6 +18017,7 @@ SceneRoots:
   - {fileID: 446234463}
   - {fileID: 2010611177}
   - {fileID: 385543192}
+  - {fileID: 569953142}
   - {fileID: 2049513693}
   - {fileID: 1753596794}
   - {fileID: 369906966}
