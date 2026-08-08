@@ -1,3 +1,4 @@
+using PostMan.InputManagement;
 using PostMan.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,6 +22,8 @@ namespace PostMan.Dialogue
             yield return new WaitForSeconds(1f);
             GameSceneManager.Instance.SwitchScenes(data.scenesToLoad, data.scenesToUnload);
             BlackScreen.Instance.BlackOut("", 1f);
+            TitleUIManager.Instance?.ShowTitleUI(); // 恢复标题 UI
+            GameInputManager.Instance.ShowCursor();
         }
         public override void ReceiveData(IPerformDataProvider data)
         {
