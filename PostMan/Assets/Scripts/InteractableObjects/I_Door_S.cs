@@ -8,12 +8,18 @@ using UnityEngine.Rendering.Universal;
 using PostMan.AudioSystem;
 using PostMan.Scene;
 using System;
+using UnityEngine.XR;
+using UnityEditor.PackageManager;
 
 
 namespace PostMan.InteractableObject
 {
     public class I_Door_S : MonoBehaviour, IInteractable
     {
+        [Header("GameObject")]
+        public GameObject blackHand;
+        public GameObject blackHandPalm;
+        public GameObject Box;
         [Header("当前410门需要执行的动作\n（执行后自动复位，一次交互只能执行一个行为，单选）")]
         [Tooltip("放下包裹，黑手拖包裹")]
         public bool _PlaceBox = false;
@@ -23,9 +29,6 @@ namespace PostMan.InteractableObject
         public bool _CheckDoor = false;
         [Header("门状态应用清单")]
         public List<DoorState> doorStateList = new List<DoorState>();
-
-        [Header("交互物管理清单SO")]
-        [SerializeField]private InteractablesProcessListSO Task18listSO;
 
         [Header("音效")]
         [SerializeField] private AudioClip placeGroundSound;
@@ -40,6 +43,7 @@ namespace PostMan.InteractableObject
         private ShowInteractPrompt showInteractPrompt;  //显示交互提示组件
         private Animator cameraAnimator;  //虚拟相机(SquatCamera)上的动画组件
         private Animator doorAnimator;  //宠物门上的动画组件
+        private Animator handAnimator;   //黑手上的动画组件
         private Coroutine currentCoroutine;
 
         public bool canInteract;
@@ -68,7 +72,8 @@ namespace PostMan.InteractableObject
             //获取动画组件
             cameraAnimator = gameObject.transform.FindChildByName("SquatCamera").GetComponent<Animator>();
             doorAnimator = gameObject.transform.FindChildByName("I_D_SD").GetComponent<Animator>();
-            if(cameraAnimator == null || doorAnimator == null)
+            handAnimator = blackHand.GetComponent<Animator>();
+            if(cameraAnimator == null || doorAnimator == null || handAnimator == null)
             {
                 Debug.LogError("[I_Door_S.cs] 获取动画组件失败");
             }
@@ -190,15 +195,42 @@ namespace PostMan.InteractableObject
         /// </summary>
         private IEnumerator PlaceBox()
         {
-            InteractableManager.Instance.ApplyState(Task18listSO);
+            Box.SetActive(true);
 
             AudioManager.Instance.Play(AudioTrackId.FX , placeGroundSound);
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1f);
+
+            doorAnimator.SetTrigger("Open");
+
+            AudioManager.Instance.Play(AudioTrackId.FX , doorCreakSound);
+
+            yield return new WaitForSeconds(1.5f);
+
+            doorAnimator.ResetTrigger("Open");
 
             //黑手拖包裹动作
+            handAnimator.SetTrigger("Drap");
+
+            yield return new WaitForSeconds(2.11f);
+
+            Box.transform.parent = blackHandPalm.transform;
 
             AudioManager.Instance.Play(AudioTrackId.FX , dragSlowSound);
+
+            yield return new WaitForSeconds(3f);
+
+            handAnimator.ResetTrigger("Drap");
+
+            doorAnimator.SetTrigger("Close");
+
+            yield return new WaitForSeconds(3f);
+
+            doorAnimator.ResetTrigger("Close");
+
+            Box.transform.parent = gameObject.transform;
+
+            Box.SetActive(false);
         }
 
         private IEnumerator KnockDoor()
