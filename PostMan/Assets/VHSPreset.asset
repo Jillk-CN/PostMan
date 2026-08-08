@@ -15,19 +15,19 @@ MonoBehaviour:
   enabledByDefault: 1
   settings:
     bloomEnabled: 1
-    bloomRadius: 0.7
+    bloomRadius: 45.6
     bloomIntensity: 1
-    bloomThreshold: 1
+    bloomThreshold: 12.7
     chromaticEnabled: 1
-    chromaticStrength: 0.2
+    chromaticStrength: -0.44
     vignetteEnabled: 1
-    vignetteStrength: 0.5
-    vignetteIntensity: 0.3
+    vignetteStrength: 0.26
+    vignetteIntensity: 0.49
     noiseEnabled: 1
-    noiseStrength: 0.05
+    noiseStrength: 2.01
     distortionEnabled: 1
-    distortionStrength: 0.01
+    distortionStrength: 1.8
     scanlinesEnabled: 1
-    scanlinesStrength: 1
+    scanlinesStrength: 3.85
     crtEnabled: 1
-    crtCurve: 0.2
+    crtCurve: 0.59
