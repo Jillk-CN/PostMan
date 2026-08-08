@@ -218,9 +218,11 @@ namespace PostMan.InteractableObject
 
             AudioManager.Instance.Play(AudioTrackId.FX , dragSlowSound);
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(1.9f);
 
             handAnimator.ResetTrigger("Drap");
+
+            yield return new WaitForSeconds(3f);
 
             doorAnimator.SetTrigger("Close");
 

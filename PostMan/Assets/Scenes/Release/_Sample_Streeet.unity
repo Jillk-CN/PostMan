@@ -4790,7 +4790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePlayerAfterTask: {fileID: 296535158}
-  sceneOrder: 15
+  sceneOrder: 12
   delayTime: 10
   canInteract: 0
   priority: 0
