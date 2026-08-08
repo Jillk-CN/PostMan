@@ -1036,13 +1036,13 @@ MonoBehaviour:
   targetSceneAddress: _Sample_Streeet
   triggerOnce: 0
   restoreOnUnload: 1
-  enableSceneOrderTrigger: 0
-  targetSceneOrder: 0
+  enableSceneOrderTrigger: 1
+  targetSceneOrder: 20
   triggerOnce2: 0
   stopFadeOut: 1
   stopFadeOutDuration: 0.5
   newClip: {fileID: 8300000, guid: f60fe1e9b65017245bc6c61cb7c2da66, type: 3}
-  newClip2: {fileID: 0}
+  newClip2: {fileID: 8300000, guid: 2fa0950e8cf3e8d4da624500ba34053c, type: 3}
   loop: 1
   playFadeIn: 1
   playFadeInDuration: 1
@@ -5407,7 +5407,7 @@ MonoBehaviour:
   restoreOnTaskComplete: 0
   stopFadeOut: 1
   stopFadeOutDuration: 0.5
-  newClip: {fileID: 8300000, guid: 2fa0950e8cf3e8d4da624500ba34053c, type: 3}
+  newClip: {fileID: 8300000, guid: 2420eab26687fb549b283789d1988ef0, type: 3}
   loop: 1
   playFadeIn: 1
   playFadeInDuration: 1
