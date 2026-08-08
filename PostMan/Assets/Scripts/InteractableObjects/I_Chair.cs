@@ -4,6 +4,8 @@ using UnityEngine;
 using PostMan.Player;
 using PostMan.Common;
 using Cinemachine;
+using PostMan.Dialogue;
+using System.Linq;
 
 public class I_Chair : MonoBehaviour, IInteractable
 {
@@ -18,6 +20,8 @@ public class I_Chair : MonoBehaviour, IInteractable
     private Animator animator;  //虚拟相机(SitCamera)上的动画组件
     private Coroutine currentCoroutine;
 
+    [SerializeField]
+    private DialogueSequence dialogue;
     public bool canInteract;
     public int priority;
     public bool CanInteract { get => canInteract; set => canInteract=value; }
@@ -87,6 +91,8 @@ public class I_Chair : MonoBehaviour, IInteractable
         animator.ResetTrigger("Sit");
 
         //最终对话（未完成，等待对话系统接口）
+        DialogueManager.Instance.StartDialogue(dialogue,
+            this.GetComponents<IPerformDataProvider>().ToList());
     }
 
 }

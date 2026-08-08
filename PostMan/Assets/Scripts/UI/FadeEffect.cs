@@ -39,8 +39,8 @@ namespace PostMan.UI
             {
                 StopCoroutine(fadeCoroutine);
             }
-            fadeCoroutine = StartCoroutine(Fade(0, 1,duration));
             fadeCallback = fadeEnd;
+            fadeCoroutine = StartCoroutine(Fade(0, 1,duration));
         }
         /// <summary>
         /// 淡出
@@ -53,8 +53,8 @@ namespace PostMan.UI
             {
                 StopCoroutine(fadeCoroutine);
             }
-            fadeCoroutine = StartCoroutine(Fade(1, 0,duration));
             fadeCallback = fadeEnd;
+            fadeCoroutine = StartCoroutine(Fade(1, 0,duration));
         }
         /// <summary>
         /// 过渡的协程
