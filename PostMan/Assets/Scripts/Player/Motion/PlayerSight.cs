@@ -30,9 +30,12 @@ namespace PostMan.Player
         private float cameraRotationAngle=0;
         #endregion
         private PlayerSightInputSource sightInput;
-        #region 震动相关设置
+
         [Header("震动效果相关设置")]
-        private SinShakeEffect shakeEffect;
+        private HorizontalShakeEffect shakeHorizontal;
+        private CurveVerticalShakeEffect shakeVertical;
+        /*
+        #region 震动相关设置
         [Header("移动时的震动")]
         [Tooltip("走路震动振幅")]
         [SerializeField]
@@ -48,6 +51,7 @@ namespace PostMan.Player
         [SerializeField]
         private float frequencyRun;
         #endregion
+         */
         private void Awake()
         {
             // 在任何 Start() 执行前完成赋值，避免 PlayerMotion.Start() 先于本脚本
@@ -57,7 +61,8 @@ namespace PostMan.Player
 
         private void Start()
         {
-            shakeEffect = this.GetComponentInChildren<SinShakeEffect>();
+            shakeHorizontal = this.GetComponentInChildren<HorizontalShakeEffect>();
+            shakeVertical = this.GetComponentInChildren<CurveVerticalShakeEffect>();
             // 从 PlayerPrefs 读取标题场景保存的设置，缺省保留 Inspector 配置值
             sensitivity = PlayerPrefs.GetFloat("MouseSensitivity", sensitivity);
             enableShake = PlayerPrefs.GetInt("EnableShake", enableShake ? 1 : 0) == 1;
@@ -99,15 +104,15 @@ namespace PostMan.Player
         }
 
         //下面的这些震动方法在对应运动状态开始时调用一次即可,否则会出现一些问题
+        //这得让状态类一值调用了
 
         /// <summary>
         ///应用走路时的震动 
         /// </summary>
         public void ApplyWalkShake()
         {
-            shakeEffect.amplitude = amplitudeWalk;
-            shakeEffect.SetFrequency(frequencyWalk);
-            shakeEffect.StartShake();
+            shakeHorizontal.StartShake();
+            shakeVertical.SetCurve(shakeVertical.GetCurvePreset(true));
             //shakeEffect.SetNoise(amplitudeWalk, frequencyWalk);
         }
         /// <summary>
@@ -116,9 +121,8 @@ namespace PostMan.Player
         public void ApplyRunShake()
         {
            // hasShake = true;
-            shakeEffect.amplitude = amplitudeRun;
-            shakeEffect.SetFrequency(frequencyRun);
-            shakeEffect.StartShake();
+            shakeHorizontal.StartShake();
+            shakeVertical.SetCurve(shakeVertical.GetCurvePreset(false));
             //shakeEffect.SetNoise(amplitudeRun, frequencyRun);
         }
         /// <summary>
@@ -127,7 +131,8 @@ namespace PostMan.Player
         public void StopShake()
         {
             // hasShake = false;
-            shakeEffect.StopShake();
+            shakeHorizontal.StopShake();
+            shakeVertical.SetCurve(null);
             //shakeEffect.Mute();
         }
 
@@ -140,15 +145,15 @@ namespace PostMan.Player
         {
             if (moveVector.x>0)
             {
-                shakeEffect.SetHorizontalDirection(SinShakeEffect.LEFT);
+                shakeHorizontal.SetHorizontalDirection(HorizontalShakeEffect.LEFT);
             }
             else if(moveVector.x<0)
             {
-                shakeEffect.SetHorizontalDirection(SinShakeEffect.RIGHT);
+                shakeHorizontal.SetHorizontalDirection(HorizontalShakeEffect.RIGHT);
             }
             else
             {
-                shakeEffect.SetHorizontalDirection(0);
+                shakeHorizontal.SetHorizontalDirection(0);
             }
         }
 
@@ -157,7 +162,7 @@ namespace PostMan.Player
         /// </summary>
         public void DisableShake()
         {
-            shakeEffect.StopShake();
+            shakeHorizontal.StopShake();
             //shakeEffect.Mute(true);
             this.enableShake = false;    
         }
