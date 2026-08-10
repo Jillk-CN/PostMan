@@ -52,6 +52,7 @@ namespace PostMan.Player
             //切换时,先过渡回0,然后重新引用曲线
             this.currentCurve = curve;
             startBackY = this.transform.localPosition.y;
+            this.t = 0;
             if (startBackY==0)
             {
                 return;
