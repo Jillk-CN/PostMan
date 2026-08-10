@@ -28,6 +28,8 @@ public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
 
     void Start()
     {
+        Debug.Log("SceneOrder: " + SceneInitializer.Instance.SceneOrder);
+
         if(sceneOrder != SceneInitializer.Instance.SceneOrder)return;
 
         i_Cabinet = gameObject.GetComponent<I_Cabinet>();
@@ -41,6 +43,8 @@ public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
 
     public void InteractWith(PlayerInteractor player)
     {
+        Debug.Log("SceneOrder: " + SceneInitializer.Instance.SceneOrder);
+        
         if(sceneOrder != SceneInitializer.Instance.SceneOrder)return;
 
         loop = false;
@@ -78,10 +82,17 @@ public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
 
     private void OnDoorOpenSecondTime()
     {
+        StartCoroutine(FaceJump());
+
+        i_Cabinet.OnDoorOpen -= OnDoorOpenSecondTime;
+    }
+
+    private IEnumerator FaceJump()
+    {
+        yield return new WaitForSeconds(1f);
+        
         AudioManager.Instance.Play(AudioTrackId.FX , faceJump);
 
         SubtitleUI.Instance.TypeSubtitle(subtitleKey3 , 3f);
-
-        i_Cabinet.OnDoorOpen -= OnDoorOpenSecondTime;
     }
 }

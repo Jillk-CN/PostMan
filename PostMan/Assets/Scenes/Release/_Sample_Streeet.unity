@@ -3959,7 +3959,7 @@ MonoBehaviour:
   _scenesToUnload:
   - _Sample_Streeet
   taskIndex: 31
-  _controlByOutside: 0
+  _controlByOutside: 1
   _movePlayerAfterTaskCompletion: 1
   _rotatePlayerAfterTaskCompletion: 0
   targetPosition: {x: -4.54, y: 0.06, z: -4.74}
@@ -16713,6 +16713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287eca2a29104254b880b022de7de8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movePlayerAfterTask31: {fileID: 569953141}
   sceneOrder: 20
   canInteract: 0
   priority: 0

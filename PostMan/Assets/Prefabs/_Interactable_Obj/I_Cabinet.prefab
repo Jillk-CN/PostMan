@@ -249,7 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   is410Cabinet: 0
-  doorAnimator: {fileID: 1042221489865451400}
+  doorAnimator: {fileID: 3135624827028332926}
   openSound: {fileID: 8300000, guid: 9b96064adc1a638498e45f9774c7e231, type: 3}
   closeSound: {fileID: 8300000, guid: a201fae13dba9df418767b11a27e7f1b, type: 3}
   stuckSound: {fileID: 8300000, guid: e90e989c578ae5c4d96e1b27cc6b0f4d, type: 3}
@@ -502,8 +502,39 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bcee63a723fc84646b704ccb9165eda5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3135624827028332926}
   m_SourcePrefab: {fileID: 100100000, guid: bcee63a723fc84646b704ccb9165eda5, type: 3}
+--- !u!1 &6043869467432000553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bcee63a723fc84646b704ccb9165eda5,
+    type: 3}
+  m_PrefabInstance: {fileID: 6854842105858105720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3135624827028332926
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6043869467432000553}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 47ab2608dc06b8943a2a10a9940639d9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &6389468703534958227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bcee63a723fc84646b704ccb9165eda5,

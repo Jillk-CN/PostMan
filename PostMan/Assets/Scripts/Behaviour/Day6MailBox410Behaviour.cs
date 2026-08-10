@@ -4,9 +4,14 @@ using PostMan.Scene;
 using PostMan.Player;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using PostMan.Common;
+using Cinemachine;
+using PostMan.InputManagement;
+using PostMan.UI;
 
 public class Day6MailBox410Behaviour : MonoBehaviour , IInteractable
 {
+    public MovePlayerAfterTask movePlayerAfterTask31;
     [Header("SceneOrder")]
     public int sceneOrder;
     [Header("交互设置")]
@@ -68,10 +73,10 @@ public class Day6MailBox410Behaviour : MonoBehaviour , IInteractable
 
         Bag.transform.position = new Vector3(Bag.transform.position.x ,Bag.transform.position.y + 0.818f ,Bag.transform.position.z);
 
-        StartCoroutine(Behaviour());
+        StartCoroutine(Behaviour(player));
     }
 
-    private IEnumerator Behaviour()
+    private IEnumerator Behaviour(PlayerInteractor player)
     {
         yield return new WaitForSeconds(3f);
 
@@ -79,5 +84,36 @@ public class Day6MailBox410Behaviour : MonoBehaviour , IInteractable
 
         Bag.SetActive(true);
 
+        GameObject blackHand = Bag.transform.FindChildByName("Black_Hand_m").gameObject;
+
+        Animator blackHandAnimator = blackHand.GetComponent<Animator>();
+
+        CinemachineVirtualCamera bagVirtualCamera = Bag.transform.FindChildByName("BagVirtualCamera").GetComponent<CinemachineVirtualCamera>();
+
+        CinemachineVirtualCamera playerVirtualCamera = player.gameObject.transform.FindChildByName("FPVcam").GetComponent<CinemachineVirtualCamera>();
+
+        GameInputManager.Instance.SetPlayerAllInput(false);
+
+        bagVirtualCamera.enabled = true;
+
+        playerVirtualCamera.enabled = false;
+
+        yield return new WaitForSeconds(2f);
+
+        blackHand.SetActive(true);
+
+        blackHandAnimator.SetTrigger("FaceJump");
+
+        yield return new WaitForSeconds(1.12f);
+        
+        BlackScreen.Instance.BlackIn("" , 0.1f);
+
+        yield return new WaitForSeconds(0.2f);
+
+        movePlayerAfterTask31.DelayMovingPlayerAfterTaskCompletion();
+
+        yield return new WaitForSeconds(0.5f);
+
+        blackHandAnimator.ResetTrigger("FaceJump");
     }
 }
