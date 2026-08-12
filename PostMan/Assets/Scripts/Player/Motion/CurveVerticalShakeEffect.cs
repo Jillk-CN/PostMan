@@ -21,14 +21,23 @@ namespace PostMan.Player
         private float backElapsed;
         //归零刚开始时的y 
         private float startBackY;
-
         private AnimationCurve currentCurve;
         //切换曲线过渡中
         private bool transitioning;
         //代入曲线函数求值的自变量
         private float t;
+
+        private float previousY;
+        private int movingDirection;//朝正方向运动或静止为0,朝负方向运动为1
+
+        [Header("曲线过渡完成后,从哪些关键帧开始求值,第一个是正方向")]
+        [SerializeField]
+        private int[] resetKeyFrameIndex;//假设两个曲线大致是一样的
+
         private void Update()
         {
+            RecordDirection();
+
             if (transitioning)
             {
                 BackTransition();
@@ -52,7 +61,7 @@ namespace PostMan.Player
             //切换时,先过渡回0,然后重新引用曲线
             this.currentCurve = curve;
             startBackY = this.transform.localPosition.y;
-            this.t = 0;
+            ResetTime(curve);
             if (startBackY==0)
             {
                 return;
@@ -94,13 +103,38 @@ namespace PostMan.Player
             {
                 this.transitioning = false;
                 newPos.y = 0;
-                this.t = 0;
+                ResetTime(this.currentCurve);
             }
             else
             {
                 newPos.y = Mathf.Lerp(startBackY, 0, backElapsed / backDuration);
             }
             this.transform.localPosition = newPos;
+        }
+        //重置自变量t
+        private void ResetTime(AnimationCurve curve)
+        {
+            if (curve==null)
+            {
+                this.t = 0;
+                return;
+            }
+            Keyframe key = curve[resetKeyFrameIndex[movingDirection]];
+            this.t = key.time;
+        }
+        private void RecordDirection()
+        {
+            float direction=this.transform.localPosition.y-previousY;
+            if (direction>=0)
+            {
+                this.movingDirection = 0;
+            }
+            else
+            {
+                this.movingDirection = 1;
+            }
+
+            previousY = this.transform.localPosition.y;            
         }
     }
 }

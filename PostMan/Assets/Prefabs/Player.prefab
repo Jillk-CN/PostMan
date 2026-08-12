@@ -224,7 +224,7 @@ GameObject:
   m_Layer: 2
   m_Name: sightPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -327,15 +327,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 7.7780213
-      outSlope: 7.7780213
+      inSlope: 1.530914
+      outSlope: 1.530914
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.20224133
+      outWeight: 0.19804199
     - serializedVersion: 3
-      time: 0.125
-      value: 0.5
+      time: 0.25
+      value: 0.25
       inSlope: 0.020807719
       outSlope: 0.020807719
       tangentMode: 0
@@ -343,17 +343,17 @@ MonoBehaviour:
       inWeight: 0.444543
       outWeight: 0.1424632
     - serializedVersion: 3
-      time: 0.25298288
+      time: 0.5061407
       value: 0
-      inSlope: -6.638787
-      outSlope: -6.638787
+      inSlope: -1.5740845
+      outSlope: -1.5740845
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.19916101
+      outWeight: 0.16763775
     - serializedVersion: 3
-      time: 0.375
-      value: -0.5
+      time: 0.75
+      value: -0.25
       inSlope: 0.0041269413
       outSlope: 0.0041269413
       tangentMode: 0
@@ -361,13 +361,13 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.29295802
     - serializedVersion: 3
-      time: 0.50043064
+      time: 1
       value: 0
-      inSlope: 7.5720983
-      outSlope: 7.5720983
+      inSlope: 1.9950985
+      outSlope: 1.9950985
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.16347308
+      inWeight: 0.15671563
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 1
@@ -378,15 +378,15 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 13.700196
-      outSlope: 13.700196
+      inSlope: 3.781613
+      outSlope: 3.781613
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.19606681
+      outWeight: 0.09566906
     - serializedVersion: 3
-      time: 0.06241608
-      value: 0.5
+      time: 0.12488337
+      value: 0.25
       inSlope: 0.020807719
       outSlope: 0.020807719
       tangentMode: 0
@@ -394,17 +394,17 @@ MonoBehaviour:
       inWeight: 0.444543
       outWeight: 0.1424632
     - serializedVersion: 3
-      time: 0.1263216
+      time: 0.25283423
       value: 0
-      inSlope: -12.328473
-      outSlope: -12.328473
+      inSlope: -2.8896265
+      outSlope: -2.8896265
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.20659727
+      outWeight: 0.121935785
     - serializedVersion: 3
-      time: 0.18724824
-      value: -0.5
+      time: 0.37465012
+      value: -0.25
       inSlope: 0.0041269413
       outSlope: 0.0041269413
       tangentMode: 0
@@ -412,18 +412,19 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.29295802
     - serializedVersion: 3
-      time: 0.24987936
+      time: 0.49953347
       value: 0
-      inSlope: 12.433929
-      outSlope: 12.433929
+      inSlope: 3.5465777
+      outSlope: 3.5465777
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.1915216
+      inWeight: 0.12411112
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 1
     m_RotationOrder: 4
   backDuration: 0.2
+  resetKeyFrameIndex: 0000000002000000
 --- !u!1 &8863931885647507635
 GameObject:
   m_ObjectHideFlags: 0

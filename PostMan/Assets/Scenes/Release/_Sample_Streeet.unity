@@ -2355,7 +2355,7 @@ MonoBehaviour:
   vcam: {fileID: 0}
   startPosition: 0
   endPosition: 1
-  moveDuration: 2
+  moveDuration: 1.5
 --- !u!1001 &375824813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4183,7 +4183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1055677083}
-  m_PathPosition: 1.18
+  m_PathPosition: 0
   m_PositionUnits: 2
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -8636,12 +8636,9 @@ MonoBehaviour:
   m_Looped: 0
   m_Waypoints:
   - position: {x: -0.12381458, y: 1.5518976, z: -0.19201851}
-    tangent: {x: 1.3904476, y: -1.2731574, z: -0.20429134}
+    tangent: {x: 1.694808, y: -1.4589859, z: -0.20429134}
     roll: 0
-  - position: {x: 1.5397863, y: 0.604478, z: -0.33225727}
-    tangent: {x: 0.4799261, y: -0.2560681, z: -0.22759914}
-    roll: 0
-  - position: {x: 2, y: 0.523998, z: -0.9939518}
+  - position: {x: 1.6064739, y: 0.523998, z: -1.0360937}
     tangent: {x: 0.047677994, y: -0.049652338, z: -0.32039928}
     roll: 0
 --- !u!4 &1055677084
@@ -11773,6 +11770,9 @@ MonoBehaviour:
   - {fileID: 1753596791}
   - {fileID: 27482683}
   - {fileID: 453723568}
+  - {fileID: 154820876}
+  - {fileID: 2015661796}
+  - {fileID: 1163247875}
 --- !u!1001 &1376276401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16768,6 +16768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287eca2a29104254b880b022de7de8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  faceJumpSFX: {fileID: 0}
   movePlayerAfterTask31: {fileID: 569953141}
   sceneOrder: 20
   canInteract: 0
