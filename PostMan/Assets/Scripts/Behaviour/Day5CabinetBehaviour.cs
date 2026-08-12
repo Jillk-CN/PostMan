@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using PostMan.AudioSystem;
 using PostMan.Player;
 using PostMan.Scene;
+using PostMan.UI;
 using UnityEngine;
 
 public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
 {
+    
+    [Header("Animator")]
+    public Animator blackHandAnimator;
+    
     [Header("SubtitleKey")]
     public string subtitleKey1;
     public string subtitleKey2;
@@ -92,6 +97,18 @@ public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
         yield return new WaitForSeconds(1f);
         
         AudioManager.Instance.Play(AudioTrackId.FX , faceJump);
+
+        blackHandAnimator.SetTrigger("PAT");
+
+        yield return new WaitForSeconds(3f);
+
+        BlackScreen.Instance.BlackInOut("" , 0.1f , 0.3f , 0.1f);
+
+        yield return new WaitForSeconds(0.9f);
+
+        StartCoroutine(i_Cabinet.CloseDoor());
+
+        blackHandAnimator.ResetTrigger("PAT");
 
         SubtitleUI.Instance.TypeSubtitle(subtitleKey3 , 3f);
     }

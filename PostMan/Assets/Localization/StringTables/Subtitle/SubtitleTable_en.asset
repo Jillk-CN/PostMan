@@ -275,6 +275,10 @@ MonoBehaviour:
     m_Localized: It's time to pack up.<1.5>
     m_Metadata:
       m_Items: []
+  - m_Id: 26476979610509312
+    m_Localized: I'm a little scared, I need to hurry back to the post office.<1.5>
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

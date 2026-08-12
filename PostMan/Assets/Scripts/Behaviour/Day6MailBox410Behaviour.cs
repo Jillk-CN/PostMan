@@ -8,9 +8,11 @@ using PostMan.Common;
 using Cinemachine;
 using PostMan.InputManagement;
 using PostMan.UI;
+using PostMan.AudioSystem;
 
 public class Day6MailBox410Behaviour : MonoBehaviour , IInteractable
 {
+    public AudioClip faceJumpSFX;
     public MovePlayerAfterTask movePlayerAfterTask31;
     [Header("SceneOrder")]
     public int sceneOrder;
@@ -104,11 +106,15 @@ public class Day6MailBox410Behaviour : MonoBehaviour , IInteractable
 
         blackHandAnimator.SetTrigger("FaceJump");
 
-        yield return new WaitForSeconds(1.12f);
-        
-        BlackScreen.Instance.BlackIn("" , 0.1f);
+        AudioManager.Instance.Play(AudioTrackId.FX , faceJumpSFX);
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(1.12f);
+
+        GameInputManager.Instance.SetPlayerAllInput(true);
+
+        playerVirtualCamera.enabled = true;
+
+        bagVirtualCamera.enabled = false;
 
         movePlayerAfterTask31.DelayMovingPlayerAfterTaskCompletion();
 

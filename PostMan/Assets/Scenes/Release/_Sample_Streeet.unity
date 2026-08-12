@@ -498,6 +498,24 @@ Transform:
   - {fileID: 2035818033}
   m_Father: {fileID: 2049513693}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &46010363 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
+    type: 3}
+  m_PrefabInstance: {fileID: 645133565}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645133567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2014487608d1784b8b4da20b3a3b73d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &46010364 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5352638278749947739, guid: bd26fadf8a5312743add48ea3b2fb862,
+    type: 3}
+  m_PrefabInstance: {fileID: 645133565}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &70982110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4453,9 +4471,19 @@ PrefabInstance:
       objectReference: {fileID: 140766543}
     - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
         type: 3}
+      propertyPath: _PlaceBox
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
+        type: 3}
       propertyPath: _CheckDoor
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
+        type: 3}
+      propertyPath: blackHand_B
+      value: 
+      objectReference: {fileID: 46010364}
     - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
         type: 3}
       propertyPath: canInteract
@@ -4467,6 +4495,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 16598c2e4eea8b845878e7d4830ac5c5,
         type: 2}
+    - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
+        type: 3}
+      propertyPath: Day4AMSubtitleKey
+      value: stl_d4_11
+      objectReference: {fileID: 0}
     - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
         type: 3}
       propertyPath: doorStateList.Array.size
@@ -4617,6 +4650,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 645133570}
+    - targetCorrespondingSourceObject: {fileID: 9013503122907628741, guid: bd26fadf8a5312743add48ea3b2fb862,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 645133572}
     - targetCorrespondingSourceObject: {fileID: 6637158213920417071, guid: bd26fadf8a5312743add48ea3b2fb862,
         type: 3}
       insertIndex: -1
@@ -4683,7 +4720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movePlayerAfterTask: {fileID: 296535158}
   sceneOrder: 12
-  delayTime: 10
+  delayTime: 15
   canInteract: 0
   priority: 0
 --- !u!114 &645133571
@@ -4704,6 +4741,24 @@ MonoBehaviour:
   triggerOnce: 1
   canInteract: 0
   priority: 0
+--- !u!114 &645133572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645133567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f12206f5122d814e87dbecb8b79b40f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  i_Door_S: {fileID: 46010363}
+  movePlayerAfterTask: {fileID: 296535158}
+  interactDelayMovingAfterTask: {fileID: 645133570}
+  SceneOrder: 12
+  canInteract: 0
+  priority: 5
 --- !u!1 &649789781 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6637158213920417071, guid: bd26fadf8a5312743add48ea3b2fb862,

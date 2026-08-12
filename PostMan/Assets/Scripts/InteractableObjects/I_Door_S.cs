@@ -10,6 +10,7 @@ using PostMan.Scene;
 using System;
 using UnityEngine.XR;
 using UnityEditor.PackageManager;
+using PostMan.UI;
 
 
 namespace PostMan.InteractableObject
@@ -17,9 +18,10 @@ namespace PostMan.InteractableObject
     public class I_Door_S : MonoBehaviour, IInteractable
     {
         [Header("GameObject")]
-        public GameObject blackHand;
-        public GameObject blackHandPalm;
+        public GameObject blackHand_m;
+        public GameObject blackHandPalm_m;
         public GameObject Box;
+        public GameObject blackHand_B;
         [Header("当前410门需要执行的动作\n（执行后自动复位，一次交互只能执行一个行为，单选）")]
         [Tooltip("放下包裹，黑手拖包裹")]
         public bool _PlaceBox = false;
@@ -37,13 +39,17 @@ namespace PostMan.InteractableObject
         [SerializeField] private AudioClip door410KnockSound;
         [SerializeField] private AudioClip door410KnockBackSound;
 
+        [Header("SubtitleKey")]
+        public string Day4AMSubtitleKey;
+
         private Transform SquatCamera; //用于蹲下动作挂载的虚拟相机
         private Transform PlayerCamera; //角色正常移动时的虚拟相机
         private PlayerMotion playerMotion;  //角色移动组件
         private ShowInteractPrompt showInteractPrompt;  //显示交互提示组件
         private Animator cameraAnimator;  //虚拟相机(SquatCamera)上的动画组件
         private Animator doorAnimator;  //宠物门上的动画组件
-        private Animator handAnimator;   //黑手上的动画组件
+        private Animator hand_mAnimator;   //黑手上的动画组件
+        private Animator hand_BAnimator;
         private Coroutine currentCoroutine;
 
         public bool canInteract;
@@ -72,8 +78,9 @@ namespace PostMan.InteractableObject
             //获取动画组件
             cameraAnimator = gameObject.transform.FindChildByName("SquatCamera").GetComponent<Animator>();
             doorAnimator = gameObject.transform.FindChildByName("I_D_SD").GetComponent<Animator>();
-            handAnimator = blackHand.GetComponent<Animator>();
-            if(cameraAnimator == null || doorAnimator == null || handAnimator == null)
+            hand_mAnimator = blackHand_m.GetComponent<Animator>();
+            hand_BAnimator = blackHand_B.GetComponent<Animator>();
+            if(cameraAnimator == null || doorAnimator == null || hand_mAnimator == null || hand_BAnimator == null)
             {
                 Debug.LogError("[I_Door_S.cs] 获取动画组件失败");
             }
@@ -160,14 +167,24 @@ namespace PostMan.InteractableObject
 
             AudioManager.Instance.Play(AudioTrackId.FX , doorCreakSound);
 
-            //Day4黑手惊吓（未完成）
+            yield return new WaitForSeconds(1.2f);
 
-            yield return new WaitForSeconds(3f);
+            hand_BAnimator.SetTrigger("Search");
+
+            yield return new WaitForSeconds(4.1f);
+
+            BlackScreen.Instance.BlackInOut("" , 0.1f , 0.8f , 0.1f);
+
+            yield return new WaitForSeconds(1f);
+
+            hand_BAnimator.ResetTrigger("Search");
 
             doorAnimator.ResetTrigger("Open");
             doorAnimator.SetTrigger("Close");
 
             yield return new WaitForSeconds(3f);
+
+            SubtitleUI.Instance.TypeSubtitle(Day4AMSubtitleKey);
 
             doorAnimator.ResetTrigger("Close");
             cameraAnimator.SetTrigger("Up");
@@ -210,17 +227,17 @@ namespace PostMan.InteractableObject
             doorAnimator.ResetTrigger("Open");
 
             //黑手拖包裹动作
-            handAnimator.SetTrigger("Drap");
+            hand_mAnimator.SetTrigger("Drap");
 
             yield return new WaitForSeconds(2.11f);
 
-            Box.transform.parent = blackHandPalm.transform;
+            Box.transform.parent = blackHandPalm_m.transform;
 
             AudioManager.Instance.Play(AudioTrackId.FX , dragSlowSound);
 
             yield return new WaitForSeconds(1.9f);
 
-            handAnimator.ResetTrigger("Drap");
+            hand_mAnimator.ResetTrigger("Drap");
 
             yield return new WaitForSeconds(3f);
 

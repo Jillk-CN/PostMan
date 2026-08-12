@@ -116,7 +116,7 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     /// <summary>
     /// 关门
     /// </summary>
-    IEnumerator CloseDoor()
+    public IEnumerator CloseDoor()
     {
         doorAnimator.SetTrigger("Close_Side_2");
         
