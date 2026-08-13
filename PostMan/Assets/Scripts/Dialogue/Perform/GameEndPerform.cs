@@ -14,14 +14,14 @@ namespace PostMan.Dialogue
         public GameEndDataProvider data;
         public override void Perform()
         {
-            BlackScreen.Instance.BlackIn("The End",0f, () => 
+            BlackScreen.Instance.BlackIn(data.gameEndText,0f, () => 
             { data.StartCoroutine(DelaySwitch()); });
         }
         private IEnumerator DelaySwitch()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(data.delaySwitchTime);
             GameSceneManager.Instance.SwitchScenes(data.scenesToLoad, data.scenesToUnload);
-            BlackScreen.Instance.BlackOut("", 1f);
+            BlackScreen.Instance.BlackOut("", data.blackDuration);
             TitleUIManager.Instance?.ShowTitleUI(); // 恢复标题 UI
             GameInputManager.Instance.ShowCursor();
         }
