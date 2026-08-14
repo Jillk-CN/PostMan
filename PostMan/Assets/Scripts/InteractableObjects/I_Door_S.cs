@@ -51,6 +51,10 @@ namespace PostMan.InteractableObject
         private Animator hand_mAnimator;   //黑手上的动画组件
         private Animator hand_BAnimator;
         private Coroutine currentCoroutine;
+        private bool isPlaceBoxRunning = false;
+
+        /// <summary>PlaceBox 演出是否正在进行中（供其他组件等待/判断，避免叠加触发）</summary>
+        public bool IsPlaceBoxRunning => isPlaceBoxRunning;
 
         public bool canInteract;
         public int priority;
@@ -217,6 +221,8 @@ namespace PostMan.InteractableObject
         /// </summary>
         private IEnumerator PlaceBox()
         {
+            isPlaceBoxRunning = true;
+
             try
             {
                 blackHand_m.SetActive(true);
@@ -265,7 +271,7 @@ namespace PostMan.InteractableObject
             }
             finally
             {
-                
+                isPlaceBoxRunning = false;
             }
         }
 

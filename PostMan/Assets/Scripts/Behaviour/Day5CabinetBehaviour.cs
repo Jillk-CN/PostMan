@@ -71,6 +71,8 @@ public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
         i_Cabinet.OnDoorOpen += OnDoorOpenFirstTime;
 
         i_Cabinet.OnDoorClose += OnDoorClose;
+
+        blackHandAnimator.gameObject.SetActive(false);
     }
 
     public void InteractWith(PlayerInteractor player)
@@ -105,7 +107,7 @@ public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
     {
         AudioManager.Instance.Play(AudioTrackId.FX , hurryKnock);
 
-        SubtitleUI.Instance.TypeSubtitle(subtitleKey2);
+        SubtitleUI.Instance.TypeSubtitle(subtitleKey2 , 1f);
 
         i_Cabinet.OnDoorClose -= OnDoorClose;
 
@@ -121,6 +123,8 @@ public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
 
     private IEnumerator FaceJump()
     {
+        blackHandAnimator.gameObject.SetActive(true);
+
         yield return new WaitForSeconds(1f);
         
         AudioManager.Instance.Play(AudioTrackId.FX , faceJump);
@@ -138,5 +142,7 @@ public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
         blackHandAnimator.ResetTrigger("PAT");
 
         SubtitleUI.Instance.TypeSubtitle(subtitleKey3 , 3f);
+
+        blackHandAnimator.gameObject.SetActive(false);
     }
 }

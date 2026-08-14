@@ -42,8 +42,10 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     void Start()
     {
         OnDoorOpen += ()=>closeDoorPromptTrigger.SetActive(true);
+        OnDoorOpen += ()=>cabinetAirWall.SetActive(true);
 
         OnDoorClose += ()=>closeDoorPromptTrigger.SetActive(false);
+        OnDoorClose += ()=>cabinetAirWall.SetActive(false);
     }
 
     void Update()
@@ -75,10 +77,6 @@ public class I_Cabinet : MonoBehaviour, IInteractable
                 AudioManager.Instance.Play(AudioTrackId.FX , openHeavySound , false , false , 0f , 1f);
             }
 
-            
-
-            cabinetAirWall.SetActive(true);
-
             StartCoroutine(OpenDoor());
         }
         else
@@ -91,10 +89,6 @@ public class I_Cabinet : MonoBehaviour, IInteractable
             {
                 AudioManager.Instance.Play(AudioTrackId.FX , closeHeavySound , false , false , 0f , 1f);
             }
-
-            
-
-            cabinetAirWall.SetActive(false);
 
             StartCoroutine(CloseDoor());
         }

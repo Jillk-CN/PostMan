@@ -52,8 +52,20 @@ public class Day4Door410Behaviour : MonoBehaviour , IInteractable
         
         interactDelayMovingAfterTask.Cancel();
 
-        i_Door_S._CheckDoor = true;
+        StartCoroutine(DelaySetCheckDoor());
         
         hasInteract = true;
+    }
+    
+    private IEnumerator DelaySetCheckDoor()
+    {
+        //等 PlaceBox 演出完全结束（运行锁释放）再置 _CheckDoor，
+        //避免 SquatDown 在 PlaceBox 还在播放时叠加启动
+        while (i_Door_S.IsPlaceBoxRunning)
+        {
+            yield return null;
+        }
+
+        i_Door_S._CheckDoor = true;
     }
 }
