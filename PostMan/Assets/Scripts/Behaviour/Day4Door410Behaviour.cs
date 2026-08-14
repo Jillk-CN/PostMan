@@ -19,7 +19,27 @@ public class Day4Door410Behaviour : MonoBehaviour , IInteractable
     public int Priority { get => priority; set => priority=value; }
     private bool hasInteract = false;
 
-    void Start()
+    void OnEnable()
+    {
+        GameSceneManager.OnSceneSwitchCompleted += OnSceneSwitchCompleted;
+        TryActivate();
+    }
+
+    void OnDisable()
+    {
+        GameSceneManager.OnSceneSwitchCompleted -= OnSceneSwitchCompleted;
+    }
+
+    private void OnSceneSwitchCompleted(IReadOnlyList<string> loadedScenes)
+    {
+        TryActivate();
+    }
+
+    /// <summary>
+    /// SceneOrder 是在场景加载完成、OnSceneSwitchCompleted 触发后才 +1 的，
+    /// 所以不能在 Awake/Start/OnEnable 里直接判断；在事件回调里判断才能拿到本场景的次序。
+    /// </summary>
+    private void TryActivate()
     {
         if(SceneOrder != SceneInitializer.Instance.SceneOrder)return;
 
@@ -29,10 +49,11 @@ public class Day4Door410Behaviour : MonoBehaviour , IInteractable
     public void InteractWith(PlayerInteractor player)
     {
         if(SceneOrder != SceneInitializer.Instance.SceneOrder || hasInteract || i_Door_S._PlaceBox)return;
-
-        i_Door_S._CheckDoor = true;
+        
         interactDelayMovingAfterTask.Cancel();
 
+        i_Door_S._CheckDoor = true;
+        
         hasInteract = true;
     }
 }

@@ -59,8 +59,6 @@ namespace PostMan.InteractableObject
 
         void Start()
         {
-            
-
             //获取睡觉视角的虚拟相机
             SquatCamera = gameObject.transform.FindChildByName("SquatCamera");
             if(SquatCamera == null)
@@ -85,7 +83,9 @@ namespace PostMan.InteractableObject
                 Debug.LogError("[I_Door_S.cs] 获取动画组件失败");
             }
 
+            blackHand_m.SetActive(false);
 
+            blackHand_B.SetActive(false);
         }
 
         public void InteractWith(PlayerInteractor player)
@@ -156,6 +156,8 @@ namespace PostMan.InteractableObject
 
         private IEnumerator SquatDown()
         {
+            blackHand_B.SetActive(true);
+
             yield return new WaitForSeconds(1.5f);
 
             cameraAnimator.SetTrigger("Down");
@@ -187,6 +189,9 @@ namespace PostMan.InteractableObject
             SubtitleUI.Instance.TypeSubtitle(Day4AMSubtitleKey);
 
             doorAnimator.ResetTrigger("Close");
+
+            blackHand_B.SetActive(false);
+
             cameraAnimator.SetTrigger("Up");
 
             yield return new WaitForSeconds(1f);
@@ -212,44 +217,56 @@ namespace PostMan.InteractableObject
         /// </summary>
         private IEnumerator PlaceBox()
         {
-            Box.SetActive(true);
+            try
+            {
+                blackHand_m.SetActive(true);
 
-            AudioManager.Instance.Play(AudioTrackId.FX , placeGroundSound);
+                Box.SetActive(true);
 
-            yield return new WaitForSeconds(1f);
+                AudioManager.Instance.Play(AudioTrackId.FX , placeGroundSound);
 
-            doorAnimator.SetTrigger("Open");
+                yield return new WaitForSeconds(1f);
 
-            AudioManager.Instance.Play(AudioTrackId.FX , doorCreakSound);
+                doorAnimator.SetTrigger("Open");
 
-            yield return new WaitForSeconds(1.5f);
+                AudioManager.Instance.Play(AudioTrackId.FX , doorCreakSound);
 
-            doorAnimator.ResetTrigger("Open");
+                yield return new WaitForSeconds(1.5f);
 
-            //黑手拖包裹动作
-            hand_mAnimator.SetTrigger("Drap");
+                doorAnimator.ResetTrigger("Open");
 
-            yield return new WaitForSeconds(2.11f);
+                //黑手拖包裹动作
+                //先清除可能残留的 trigger，避免上一次未消费的 Drap flag 导致动画自动重播
+                hand_mAnimator.ResetTrigger("Drap");
+                hand_mAnimator.SetTrigger("Drap");
 
-            Box.transform.parent = blackHandPalm_m.transform;
+                yield return new WaitForSeconds(2.11f);
 
-            AudioManager.Instance.Play(AudioTrackId.FX , dragSlowSound);
+                Box.transform.parent = blackHandPalm_m.transform;
 
-            yield return new WaitForSeconds(1.9f);
+                AudioManager.Instance.Play(AudioTrackId.FX , dragSlowSound);
 
-            hand_mAnimator.ResetTrigger("Drap");
+                yield return new WaitForSeconds(3f);
 
-            yield return new WaitForSeconds(3f);
+                //Drap 片段此时已播放完毕，再清一次，防止状态机回到默认状态后残留 flag 再次触发
+                hand_mAnimator.ResetTrigger("Drap");
 
-            doorAnimator.SetTrigger("Close");
+                doorAnimator.SetTrigger("Close");
 
-            yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(3f);
 
-            doorAnimator.ResetTrigger("Close");
+                doorAnimator.ResetTrigger("Close");
 
-            Box.transform.parent = gameObject.transform;
+                Box.transform.parent = gameObject.transform;
 
-            Box.SetActive(false);
+                Box.SetActive(false);
+
+                blackHand_m.SetActive(false);
+            }
+            finally
+            {
+                
+            }
         }
 
         private IEnumerator KnockDoor()

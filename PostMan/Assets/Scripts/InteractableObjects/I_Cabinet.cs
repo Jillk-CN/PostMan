@@ -39,6 +39,13 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     // 门的状态
     public bool isOpen = false;
 
+    void Start()
+    {
+        OnDoorOpen += ()=>closeDoorPromptTrigger.SetActive(true);
+
+        OnDoorClose += ()=>closeDoorPromptTrigger.SetActive(false);
+    }
+
     void Update()
     {
         doorAnimator.SetBool("Stucked", stucked);
@@ -68,7 +75,7 @@ public class I_Cabinet : MonoBehaviour, IInteractable
                 AudioManager.Instance.Play(AudioTrackId.FX , openHeavySound , false , false , 0f , 1f);
             }
 
-            closeDoorPromptTrigger.SetActive(true);
+            
 
             cabinetAirWall.SetActive(true);
 
@@ -85,7 +92,7 @@ public class I_Cabinet : MonoBehaviour, IInteractable
                 AudioManager.Instance.Play(AudioTrackId.FX , closeHeavySound , false , false , 0f , 1f);
             }
 
-            closeDoorPromptTrigger.SetActive(false);
+            
 
             cabinetAirWall.SetActive(false);
 

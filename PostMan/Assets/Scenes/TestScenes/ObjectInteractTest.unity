@@ -709,6 +709,12 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &292191819 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5352638278749947739, guid: bd26fadf8a5312743add48ea3b2fb862,
+    type: 3}
+  m_PrefabInstance: {fileID: 1782458760290907795}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &634072461 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9068418192293711782, guid: 87840444fb592ae44bbadeb03b1a395d,
@@ -2745,6 +2751,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
+        type: 3}
+      propertyPath: _PlaceBox
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
+        type: 3}
+      propertyPath: blackHand_B
+      value: 
+      objectReference: {fileID: 292191819}
     - target: {fileID: 4959504085722276633, guid: bd26fadf8a5312743add48ea3b2fb862,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -31,11 +31,38 @@ public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
     
     private I_Cabinet i_Cabinet;
 
-    void Start()
+    private bool hasStarted = false;
+
+    void OnEnable()
     {
+        GameSceneManager.OnSceneSwitchCompleted += OnSceneSwitchCompleted;
+        TryStart();
+    }
+
+    void OnDisable()
+    {
+        GameSceneManager.OnSceneSwitchCompleted -= OnSceneSwitchCompleted;
+    }
+
+    private void OnSceneSwitchCompleted(IReadOnlyList<string> loadedScenes)
+    {
+        TryStart();
+    }
+
+    /// <summary>
+    /// SceneOrder 是在场景加载完成、OnSceneSwitchCompleted 触发后才 +1 的，
+    /// 所以不能在 Start 里直接判断，否则拿到的还是上一个场景的次序。
+    /// 在事件回调里判断才能拿到本场景对应的 SceneOrder。
+    /// </summary>
+    private void TryStart()
+    {
+        if(hasStarted) return;
+
         Debug.Log("SceneOrder: " + SceneInitializer.Instance.SceneOrder);
 
         if(sceneOrder != SceneInitializer.Instance.SceneOrder)return;
+
+        hasStarted = true;
 
         i_Cabinet = gameObject.GetComponent<I_Cabinet>();
 

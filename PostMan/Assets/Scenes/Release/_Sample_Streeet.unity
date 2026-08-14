@@ -4503,7 +4503,7 @@ PrefabInstance:
     - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
         type: 3}
       propertyPath: doorStateList.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
         type: 3}
@@ -4720,7 +4720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movePlayerAfterTask: {fileID: 296535158}
   sceneOrder: 12
-  delayTime: 15
+  delayTime: 20
   canInteract: 0
   priority: 0
 --- !u!114 &645133571
@@ -14116,6 +14116,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 5464622975590172146, guid: b2ba5c125d0a4374985b89bfe89f7d3c,
         type: 3}
+      propertyPath: priority
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464622975590172146, guid: b2ba5c125d0a4374985b89bfe89f7d3c,
+        type: 3}
       propertyPath: sceneOrder
       value: 12
       objectReference: {fileID: 0}
@@ -14182,7 +14187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subtitleKey: stl_d4_2
   delayTime: 0
-  sceneOrder: 11
+  sceneOrder: 12
   triggerOnce: 1
   canInteract: 1
   priority: 0
