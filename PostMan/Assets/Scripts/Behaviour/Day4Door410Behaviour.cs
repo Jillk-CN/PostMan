@@ -9,7 +9,7 @@ public class Day4Door410Behaviour : MonoBehaviour , IInteractable
 {
     public I_Door_S i_Door_S;
     public MovePlayerAfterTask movePlayerAfterTask;
-    public InteractDelayMovingAfterTask interactDelayMovingAfterTask;
+    public GameObject goBackPostTrigger;
 
     [Header("交互设置")]
     public int SceneOrder;
@@ -49,8 +49,8 @@ public class Day4Door410Behaviour : MonoBehaviour , IInteractable
     public void InteractWith(PlayerInteractor player)
     {
         if(SceneOrder != SceneInitializer.Instance.SceneOrder || hasInteract || i_Door_S._PlaceBox)return;
-        
-        interactDelayMovingAfterTask.Cancel();
+
+        goBackPostTrigger.SetActive(true);
 
         StartCoroutine(DelaySetCheckDoor());
         
