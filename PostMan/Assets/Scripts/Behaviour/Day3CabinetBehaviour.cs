@@ -26,6 +26,8 @@ public class Day3CabinetBehaviour : MonoBehaviour , IInteractable
     
     void Start()
     {
+        if(SceneInitializer.Instance.SceneOrder != sceneOrder)return;
+        
         i_Cabinet = GetComponent<I_Cabinet>();
 
         i_Cabinet.OnDoorOpen += OnOpen;

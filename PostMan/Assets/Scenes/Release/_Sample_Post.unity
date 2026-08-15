@@ -8167,6 +8167,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: I_Bed
       objectReference: {fileID: 0}
+    - target: {fileID: 6931617983749580470, guid: 3b1dcc304f4afad49bc7f10d45e0f4de,
+        type: 3}
+      propertyPath: canSelect
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12010,7 +12015,7 @@ MonoBehaviour:
   subtitleKey3: stl_d5_10
   knock: {fileID: 8300000, guid: 478ec803cb6c780438533a5115519419, type: 3}
   hurryKnock: {fileID: 8300000, guid: edf8cdc1f8543a24483400edb7b934c6, type: 3}
-  faceJump: {fileID: 0}
+  faceJump: {fileID: 8300000, guid: 478ec803cb6c780438533a5115519419, type: 3}
   sceneOrder: 19
   canInteract: 1
   priority: 0
