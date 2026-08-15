@@ -70,7 +70,7 @@ namespace PostMan.UI
         private PauseInputSource pauseInput;
 
         /// <summary>子面板阻断计数器：大于 0 时 ESC 不触发暂停切换。</summary>
-        private int _subPanelBlockCount = 0;
+        [SerializeField] private int _subPanelBlockCount = 0;
 
         public UnityEvent ReturnToTitleEvent { get; private set; } = new UnityEvent();
 
@@ -204,6 +204,7 @@ namespace PostMan.UI
         /// </summary>
         private void OnReturnToTitle()
         {
+            Hide();
             Time.timeScale = 1f;
             GameInputManager.Instance.ShowCursor();
 

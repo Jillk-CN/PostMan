@@ -109,6 +109,7 @@ namespace PostMan.UI
         /// <summary>开始游戏：切换至游戏场景。</summary>
         private void OnStartGame()
         {
+            SettingPanelManager.Instance?.pausePanel.SetActive(true); // 确保 PausePanel 在游戏场景中可用
             BlackScreen.Instance?.BlackIn("", 1f, () =>
             {
                 GameSceneManager.Instance.SwitchScenes(scenesToLoad, scenesToUnload, playerStartPosition);
