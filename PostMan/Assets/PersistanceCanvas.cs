@@ -1,13 +1,14 @@
 using UnityEngine;
 using PostMan.UI;
 using System;
+using PostMan.Common;
 
-public class SettingPanelManager : MonoBehaviour
+public class SettingPanelManager : MonoSingleton<SettingPanelManager>
 {
     [SerializeField]
     private GameObject settingPanel;
-    [SerializeField]
-    private GameObject pausePanel;
+    
+    public GameObject pausePanel;
 
     private void Start()
     {
