@@ -3239,7 +3239,7 @@ MonoBehaviour:
   _scenesToUnload:
   - _Sample_Streeet
   taskIndex: 21
-  _controlByOutside: 0
+  _controlByOutside: 1
   _movePlayerAfterTaskCompletion: 1
   _rotatePlayerAfterTaskCompletion: 0
   targetPosition: {x: -0.635, y: 0, z: -1.34}
@@ -7356,12 +7356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &946417547 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3764330416269016161, guid: 38023f17de2b77c45a0c2872fa2de03c,
-    type: 3}
-  m_PrefabInstance: {fileID: 946417543}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &946417548 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5344152990794077951, guid: 38023f17de2b77c45a0c2872fa2de03c,
@@ -12988,6 +12982,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3265932847054759003, guid: 0758d56e1f9581b4ab1d418b760a3a24,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3265932847054759003, guid: 0758d56e1f9581b4ab1d418b760a3a24,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3265932847054759003, guid: 0758d56e1f9581b4ab1d418b760a3a24,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.86
+      objectReference: {fileID: 0}
     - target: {fileID: 5030904986680036236, guid: 0758d56e1f9581b4ab1d418b760a3a24,
         type: 3}
       propertyPath: m_Name
@@ -13064,11 +13073,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5030904986680036236, guid: 0758d56e1f9581b4ab1d418b760a3a24,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1540961748}
+    - targetCorrespondingSourceObject: {fileID: 5030904986680036236, guid: 0758d56e1f9581b4ab1d418b760a3a24,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1540961743}
     - targetCorrespondingSourceObject: {fileID: 5030904986680036236, guid: 0758d56e1f9581b4ab1d418b760a3a24,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1540961742}
+      addedObject: {fileID: 1540961749}
     - targetCorrespondingSourceObject: {fileID: 5030904986680036236, guid: 0758d56e1f9581b4ab1d418b760a3a24,
         type: 3}
       insertIndex: -1
@@ -13081,6 +13094,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1540961745}
+    - targetCorrespondingSourceObject: {fileID: 5030904986680036236, guid: 0758d56e1f9581b4ab1d418b760a3a24,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1540961747}
   m_SourcePrefab: {fileID: 100100000, guid: 0758d56e1f9581b4ab1d418b760a3a24, type: 3}
 --- !u!1 &1540961740 stripped
 GameObject:
@@ -13106,23 +13123,6 @@ MonoBehaviour:
   triggerOnce: 0
   canInteract: 1
   priority: 0
---- !u!114 &1540961742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1540961740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a365610244eda67439864c8ee93794fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: df08e7dbd206f4b4a8515cd7b4cb9055, type: 3}
-  sceneOrder: 8
-  canInteract: 1
-  priority: 0
-  showQuitButton: 0
 --- !u!114 &1540961743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13191,6 +13191,57 @@ MonoBehaviour:
   sceneOrder: 14
   canInteract: 1
   priority: 0
+--- !u!114 &1540961747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540961740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18e3dcec9018ce14dbe0c9d49505230f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movePlayerAfterTask: {fileID: 446234462}
+  sceneOrder: 14
+  delayTime: 5
+  canInteract: 0
+  priority: 0
+--- !u!114 &1540961748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540961740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a595d3b50558164683e370be38476fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTask: {fileID: 11400000, guid: bd10c1c7fd66db44a89565e0c5950560, type: 2}
+  advanceAmount: 1
+  advanceOnce: 0
+  _canInteract: 1
+  _priority: 0
+--- !u!114 &1540961749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1540961740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a595d3b50558164683e370be38476fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTask: {fileID: 11400000, guid: 8c2685e22b8a2144991ab80d83fa4931, type: 2}
+  advanceAmount: 1
+  advanceOnce: 1
+  _canInteract: 1
+  _priority: 0
 --- !u!1001 &1567826490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14422,7 +14473,7 @@ Transform:
   m_GameObject: {fileID: 1735395204}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.83, y: 1.372, z: -13.36}
+  m_LocalPosition: {x: 9.84, y: 1.372, z: -13.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15327,11 +15378,11 @@ MonoBehaviour:
   interactableObjects:
   - {fileID: 728370730}
   - {fileID: 27047463}
-  - {fileID: 1979467738}
+  - {fileID: 1540961740}
   selectableObjects:
   - {fileID: 728370730}
   - {fileID: 27047463}
-  - {fileID: 1979467738}
+  - {fileID: 1540961740}
 --- !u!1001 &1809055139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16737,10 +16788,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1030647194753977809, guid: eb234a6a857967b498b0f2431a717741,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1979467748}
-    - targetCorrespondingSourceObject: {fileID: 1030647194753977809, guid: eb234a6a857967b498b0f2431a717741,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1979467757}
     - targetCorrespondingSourceObject: {fileID: 1030647194753977809, guid: eb234a6a857967b498b0f2431a717741,
         type: 3}
@@ -16789,23 +16836,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   priority: 7
---- !u!114 &1979467748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1979467738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a595d3b50558164683e370be38476fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTask: {fileID: 11400000, guid: 8c2685e22b8a2144991ab80d83fa4931, type: 2}
-  advanceAmount: 1
-  advanceOnce: 1
-  _canInteract: 1
-  _priority: 0
 --- !u!114 &1979467749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16905,7 +16935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287eca2a29104254b880b022de7de8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faceJumpSFX: {fileID: 0}
+  faceJumpSFX: {fileID: 8300000, guid: 478ec803cb6c780438533a5115519419, type: 3}
   movePlayerAfterTask31: {fileID: 569953141}
   sceneOrder: 20
   canInteract: 0
@@ -17388,7 +17418,6 @@ GameObject:
   - component: {fileID: 2053742120}
   - component: {fileID: 2053742119}
   - component: {fileID: 2053742118}
-  - component: {fileID: 2053742121}
   - component: {fileID: 2053742123}
   - component: {fileID: 2053742122}
   m_Layer: 6
@@ -17452,24 +17481,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2053742121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053742117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d27001da9244c45bc7d04681fb6ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imagePanel: {fileID: 946417547}
-  button: {fileID: 946417546}
-  subtitleKey1: stl_d2_14
-  subtitleKey2: 
-  knockSFX: {fileID: 8300000, guid: cc8ff9b588a159241972bf1dfbaed1fd, type: 3}
-  sprite: {fileID: 1699964136, guid: d12a24d053961de459557f6746ed9d50, type: 3}
 --- !u!114 &2053742122
 MonoBehaviour:
   m_ObjectHideFlags: 0

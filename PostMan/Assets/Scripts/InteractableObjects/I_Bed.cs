@@ -50,7 +50,6 @@ namespace PostMan.InteractableObject
 
         void Start()
         {
-
             //获取睡觉视角的虚拟相机
             SleepCamera = gameObject.transform.FindChildByName("SleepCamera");
             if(SleepCamera == null)
@@ -132,9 +131,6 @@ namespace PostMan.InteractableObject
                 yield return currentWakeUpCoroutine = StartCoroutine(WakeUp());
             }
 
-            //重新启用允许交互
-            showInteractPrompt.CanSelect = true;
-
             //激活玩家正常移动视角的虚拟相机
             PlayerCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = true;
 
@@ -143,6 +139,9 @@ namespace PostMan.InteractableObject
 
             //启用角色移动组件
             playerMotion.enabled = true;
+
+            //更新交互提示
+            UpdateInteractPrompt();
         }
 
         private IEnumerator Sleep()
@@ -222,6 +221,11 @@ namespace PostMan.InteractableObject
                     break;
                 }
             }
+        }
+
+        private void UpdateInteractPrompt()
+        {
+            showInteractPrompt.CanSelect = canInteract;
         }
         
     }
