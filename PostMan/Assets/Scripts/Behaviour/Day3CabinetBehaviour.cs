@@ -24,14 +24,37 @@ public class Day3CabinetBehaviour : MonoBehaviour , IInteractable
     public bool CanInteract { get => canInteract; set => canInteract=value; }
     public int Priority { get => priority; set => priority=value; }
     
-    void Start()
+    private bool hasStarted = false;
+
+    void OnEnable()
     {
+        GameSceneManager.OnSceneSwitchCompleted += OnSceneSwitchCompleted;
+        TryStart();
+    }
+
+    void OnDisable()
+    {
+        GameSceneManager.OnSceneSwitchCompleted -= OnSceneSwitchCompleted;
+    }
+
+    private void OnSceneSwitchCompleted(IReadOnlyList<string> loadedScenes)
+    {
+        TryStart();
+    }
+
+    
+    private void TryStart()
+    {
+        if(hasStarted) return;
+
         if(SceneInitializer.Instance.SceneOrder != sceneOrder)return;
         
         i_Cabinet = GetComponent<I_Cabinet>();
 
         i_Cabinet.OnDoorOpen += OnOpen;
         i_Cabinet.OnDoorClose += OnClose;
+
+        hasStarted = true;
     }
 
 
@@ -60,7 +83,7 @@ public class Day3CabinetBehaviour : MonoBehaviour , IInteractable
 
         SubtitleUI.Instance.TypeSubtitle(subtitle2);
 
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(5f);
 
         AudioManager.Instance.Play(AudioTrackId.FX , sfx);
 

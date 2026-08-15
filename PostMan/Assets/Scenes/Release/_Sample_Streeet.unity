@@ -494,6 +494,7 @@ Transform:
   - {fileID: 295106963}
   - {fileID: 1707663052}
   - {fileID: 1319499276}
+  - {fileID: 263568215}
   - {fileID: 312733213}
   - {fileID: 2035818033}
   m_Father: {fileID: 2049513693}
@@ -1283,6 +1284,54 @@ MonoBehaviour:
   targetSceneOrder: 12
   objects:
   - {fileID: 341833948}
+--- !u!1 &263568214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 263568215}
+  - component: {fileID: 263568216}
+  m_Layer: 0
+  m_Name: scene14
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &263568215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263568214}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 33190543}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &263568216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263568214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fba782ceffc28f845871ff501a69f813, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeOnInit: 1
+  targetSceneOrder: 14
+  objects:
+  - {fileID: 1540961740}
 --- !u!1001 &264277325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3239,7 +3288,7 @@ MonoBehaviour:
   _scenesToUnload:
   - _Sample_Streeet
   taskIndex: 21
-  _controlByOutside: 1
+  _controlByOutside: 0
   _movePlayerAfterTaskCompletion: 1
   _rotatePlayerAfterTaskCompletion: 0
   targetPosition: {x: -0.635, y: 0, z: -1.34}
@@ -11236,7 +11285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   extraButton: {fileID: 946417546}
   content: {fileID: 1697448446}
-  Side: {fileID: 1699964136, guid: d12a24d053961de459557f6746ed9d50, type: 3}
+  Side: {fileID: 21300000, guid: df929c257a0cd554fb4eec25acaf18ba, type: 3}
   subtitleKey: stl_d5_5
   mailBox404: {fileID: 1336125696}
 --- !u!4 &1346972306
@@ -13085,19 +13134,11 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5030904986680036236, guid: 0758d56e1f9581b4ab1d418b760a3a24,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1540961744}
-    - targetCorrespondingSourceObject: {fileID: 5030904986680036236, guid: 0758d56e1f9581b4ab1d418b760a3a24,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1540961741}
     - targetCorrespondingSourceObject: {fileID: 5030904986680036236, guid: 0758d56e1f9581b4ab1d418b760a3a24,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1540961745}
-    - targetCorrespondingSourceObject: {fileID: 5030904986680036236, guid: 0758d56e1f9581b4ab1d418b760a3a24,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1540961747}
   m_SourcePrefab: {fileID: 100100000, guid: 0758d56e1f9581b4ab1d418b760a3a24, type: 3}
 --- !u!1 &1540961740 stripped
 GameObject:
@@ -13140,22 +13181,6 @@ MonoBehaviour:
   advanceOnce: 1
   _canInteract: 1
   _priority: 0
---- !u!114 &1540961744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1540961740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2161f1bf206046a4795add0bf0af1698, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneOrder: 14
-  canInteract: 1
-  priority: 0
-  content: {fileID: 11400000, guid: 043d908a941502c469097e1147852cda, type: 2}
 --- !u!114 &1540961745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13190,23 +13215,6 @@ MonoBehaviour:
   boxKnockSFX: {fileID: 8300000, guid: 7786002579e63984f80985d9aa172440, type: 3}
   sceneOrder: 14
   canInteract: 1
-  priority: 0
---- !u!114 &1540961747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1540961740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18e3dcec9018ce14dbe0c9d49505230f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movePlayerAfterTask: {fileID: 446234462}
-  sceneOrder: 14
-  delayTime: 5
-  canInteract: 0
   priority: 0
 --- !u!114 &1540961748
 MonoBehaviour:
@@ -13645,7 +13653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a365610244eda67439864c8ee93794fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: df08e7dbd206f4b4a8515cd7b4cb9055, type: 3}
+  image: {fileID: 21300000, guid: e69ef15fb301aac469a702e87bf9176e, type: 3}
   sceneOrder: 18
   canInteract: 1
   priority: 0

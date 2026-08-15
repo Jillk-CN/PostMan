@@ -99,6 +99,7 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     /// </summary>
     IEnumerator OpenDoor()
     {
+        Debug.Log("Cabinet: Open");
 
         doorAnimator.SetTrigger("Open_Side_2");
         
@@ -120,6 +121,7 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     /// </summary>
     public IEnumerator CloseDoor()
     {
+        Debug.Log("Cabinet: Close");
 
         doorAnimator.SetTrigger("Close_Side_2");
         
@@ -141,9 +143,9 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     /// </summary>
     IEnumerator Stuck()
     {
+        Debug.Log("Cabinet: Stuck");
+
         doorAnimator.SetTrigger("Stuck_Side_1");
-        
-        
 
         yield return new WaitForSeconds(0.3f);
 

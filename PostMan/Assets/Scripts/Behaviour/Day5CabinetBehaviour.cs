@@ -105,13 +105,20 @@ public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
 
     private void OnDoorClose()
     {
-        AudioManager.Instance.Play(AudioTrackId.FX , hurryKnock);
-
-        SubtitleUI.Instance.TypeSubtitle(subtitleKey2 , 1f);
+        StartCoroutine(OnDoorCloseBehaviour());
 
         i_Cabinet.OnDoorClose -= OnDoorClose;
 
         i_Cabinet.OnDoorOpen += OnDoorOpenSecondTime;
+    }
+
+    private IEnumerator OnDoorCloseBehaviour()
+    {
+        yield return new WaitForSeconds(1.5f);
+
+        AudioManager.Instance.Play(AudioTrackId.FX , hurryKnock);
+
+        SubtitleUI.Instance.TypeSubtitle(subtitleKey2);
     }
 
     private void OnDoorOpenSecondTime()

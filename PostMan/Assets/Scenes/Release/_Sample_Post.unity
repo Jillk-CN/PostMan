@@ -1698,8 +1698,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3729603946703729270, guid: 7910d05d5592aa54dacd31dce8cde01b,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 195873323}
   m_SourcePrefab: {fileID: 100100000, guid: 7910d05d5592aa54dacd31dce8cde01b, type: 3}
+--- !u!1 &195873322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3729603946703729270, guid: 7910d05d5592aa54dacd31dce8cde01b,
+    type: 3}
+  m_PrefabInstance: {fileID: 195873321}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &195873323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195873322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe314ff0f4c3c0b4c95d3072afdc381b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subtitleKey: stl_d6_2
+  delayTime: 0
+  sceneOrder: 19
+  triggerOnce: 1
+  canInteract: 1
+  priority: 0
 --- !u!1001 &197430315
 PrefabInstance:
   m_ObjectHideFlags: 0
