@@ -91,11 +91,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607632
-    m_Localized: "\u7B2C\u56DB\u5929\u9001\u4FE1#\u524D\u5F80\u8857\u533A\u9001\u4FE1"
+    m_Localized: "\u7B2C\u56DB\u5929\u9001\u4FE1#\u524D\u5F80\u8857\u533A\u9001\u4FE1\n\uFF08406\u3001409\u3001410\uFF09"
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607633
-    m_Localized: "\u8C03\u67E5410#\u8E72\u4E0B\u67E5\u770B\u95E8\u5185\n\uFF08406\u3001409\u3001410\uFF09"
+    m_Localized: "\u8C03\u67E5410#\u8E72\u4E0B\u67E5\u770B\u95E8\u5185"
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607634

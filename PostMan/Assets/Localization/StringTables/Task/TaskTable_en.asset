@@ -103,13 +103,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607632
-    m_Localized: Day Four Delivery#Head to the neighborhood and make the deliveries.
+    m_Localized: 'Day Four Delivery#Head to the neighborhood and make the deliveries.
+
+      (406,409,410)'
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607633
-    m_Localized: 'Investigate 410#Crouch down and look inside.
-
-      (406,409,410)'
+    m_Localized: Investigate 410#Crouch down and look inside.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607634
