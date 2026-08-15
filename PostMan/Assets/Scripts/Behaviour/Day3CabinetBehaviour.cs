@@ -27,6 +27,9 @@ public class Day3CabinetBehaviour : MonoBehaviour , IInteractable
     void Start()
     {
         i_Cabinet = GetComponent<I_Cabinet>();
+
+        i_Cabinet.OnDoorOpen += OnOpen;
+        i_Cabinet.OnDoorClose += OnClose;
     }
 
 
@@ -41,15 +44,13 @@ public class Day3CabinetBehaviour : MonoBehaviour , IInteractable
 
         if(triggerOnce && haveTrigger)return;
 
-        StartCoroutine(Behaviour());
+        
         haveTrigger = true;
     }
 
     private IEnumerator Behaviour()
     {
-        SubtitleUI.Instance.TypeSubtitle(subtitle1);
-
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
 
         AudioManager.Instance.Play(AudioTrackId.FX , sfx);
 
@@ -60,5 +61,18 @@ public class Day3CabinetBehaviour : MonoBehaviour , IInteractable
         yield return new WaitForSeconds(2.5f);
 
         AudioManager.Instance.Play(AudioTrackId.FX , sfx);
+
+        i_Cabinet.OnDoorOpen -= OnOpen;
+        i_Cabinet.OnDoorClose -= OnClose;
+    }
+
+    private void OnOpen()
+    {
+        SubtitleUI.Instance.TypeSubtitle(subtitle1);
+    }
+
+    private void OnClose()
+    {
+        StartCoroutine(Behaviour());
     }
 }

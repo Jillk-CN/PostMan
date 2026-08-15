@@ -1411,6 +1411,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2159808257864178025, guid: 7910d05d5592aa54dacd31dce8cde01b,
+        type: 3}
+      propertyPath: uniqueID
+      value: CabinetBag
+      objectReference: {fileID: 0}
     - target: {fileID: 3729603946703729270, guid: 7910d05d5592aa54dacd31dce8cde01b,
         type: 3}
       propertyPath: m_Name
