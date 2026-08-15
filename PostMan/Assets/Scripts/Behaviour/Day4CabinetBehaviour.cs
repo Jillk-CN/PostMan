@@ -5,7 +5,7 @@ using PostMan.Player;
 using PostMan.Scene;
 using UnityEngine;
 
-public class Day4CabinetBehaviour : MonoBehaviour , IInteractable
+public class Day4CabinetBehaviour : MonoBehaviour
 {
     [Header("SubtitleKey")]
     public string subtitleKey;
@@ -14,25 +14,13 @@ public class Day4CabinetBehaviour : MonoBehaviour , IInteractable
 
     [Header("启用的SceneOrder")]
     public int sceneOrder;
-    [Header("交互设置")]
-    public bool triggerOnce;
-    private bool haveTrigger = false;
-    public bool canInteract;
-    public int priority;
-    public bool CanInteract { get => canInteract; set => canInteract=value; }
-    public int Priority { get => priority; set => priority=value; }
+    private I_Cabinet i_Cabinet;
 
-    public void InteractWith(PlayerInteractor player)
+    void Start()
     {
         if(sceneOrder != SceneInitializer.Instance.SceneOrder)return;
 
-        if(!GetComponent<I_Cabinet>().isOpen)return;
-
-        if(triggerOnce && haveTrigger)return;
-
-        StartCoroutine(Knock());
-
-        haveTrigger = true;
+        i_Cabinet.OnDoorClose += OnDoorClose;
     }
 
     private IEnumerator Knock()
@@ -47,5 +35,12 @@ public class Day4CabinetBehaviour : MonoBehaviour , IInteractable
 
         yield return new WaitForSeconds(2f);
         SubtitleUI.Instance.TypeSubtitle(subtitleKey);
+
+        i_Cabinet.OnDoorClose -= OnDoorClose;
+    }
+
+    private void OnDoorClose()
+    {
+        StartCoroutine(Knock());
     }
 }

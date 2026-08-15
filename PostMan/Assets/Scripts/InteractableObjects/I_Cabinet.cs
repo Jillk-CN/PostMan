@@ -99,6 +99,8 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     /// </summary>
     IEnumerator OpenDoor()
     {
+        isOpen = true;
+
         doorAnimator.SetTrigger("Open_Side_2");
         
         OnDoorOpen?.Invoke();
@@ -106,7 +108,6 @@ public class I_Cabinet : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(0.3f);
         
         doorAnimator.SetBool("Opened_Side_2", true);
-        isOpen = true;
 
         doorAnimator.ResetTrigger("Open_Side_2");
         
@@ -119,6 +120,8 @@ public class I_Cabinet : MonoBehaviour, IInteractable
     /// </summary>
     public IEnumerator CloseDoor()
     {
+        isOpen = false;
+        
         doorAnimator.SetTrigger("Close_Side_2");
         
         OnDoorClose?.Invoke();
@@ -126,7 +129,6 @@ public class I_Cabinet : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(0.4f);
         
         doorAnimator.SetBool("Opened_Side_2", false);
-        isOpen = false;
 
         doorAnimator.ResetTrigger("Close_Side_2");
         
