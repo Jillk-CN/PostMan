@@ -17,16 +17,19 @@ namespace PostMan.Player
         [SerializeField]
         private float interactDistance;
         private PlayerDetector detector;
-
+        private PlayerInteractInputSource input;
         private void Start()
         {
             detector = this.GetComponent<PlayerDetector>();
+            input = GameInputManager.Instance?.
+                GetInputSystemSource<PlayerInteractInputSource>();
         }
 
         private void Update()
         {
-            var input = GameInputManager.Instance?.GetInputSystemSource<PlayerInteractInputSource>();
-            if (input != null && input.GetInteract())
+            //设计之初,假定了只要按住交互键就是在交互,这给可交互物体的实现带来不便
+            //事实上,应该约定好按下一次就是交互一次
+            if (input.GetInteract())
             {
                 Interact();
             }

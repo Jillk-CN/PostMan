@@ -5,7 +5,7 @@ using UnityEngine;
 namespace PostMan.Player
 {
     /// <summary>
-    /// 挂载需要震动的物体上
+    /// 水平方向的震动偏移,挂载需要震动的物体上
     /// </summary>
     public class HorizontalShakeEffect :MonoBehaviour
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 namespace PostMan.Player
 {
     /// <summary>
-    /// 自定义曲线效果的震动
+    /// 自定义曲线效果的震动,挂载需要震动的物体上
     /// </summary>
     public class CurveVerticalShakeEffect : MonoBehaviour
     {
