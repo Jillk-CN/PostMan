@@ -117,7 +117,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607635
-    m_Localized: Day Four Collection#Go out and collect today's items.
+    m_Localized: 'Day Four Collection#Go out and collect today''s items.
+
+      (405,408,410)'
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607636

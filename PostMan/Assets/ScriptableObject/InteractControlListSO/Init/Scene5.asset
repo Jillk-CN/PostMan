@@ -18,19 +18,11 @@ MonoBehaviour:
     isCanInteract: 1
     isVisuable: 1
   - gameObject: {fileID: 0}
-    uniqueID: I_Door_3
-    isCanInteract: 0
-    isVisuable: 1
-  - gameObject: {fileID: 0}
     uniqueID: door_post_cabinet
     isCanInteract: 0
     isVisuable: 1
   - gameObject: {fileID: 0}
     uniqueID: door_post_cabinet
-    isCanInteract: 0
-    isVisuable: 1
-  - gameObject: {fileID: 0}
-    uniqueID: I_Door_2
     isCanInteract: 0
     isVisuable: 1
   - gameObject: {fileID: 0}

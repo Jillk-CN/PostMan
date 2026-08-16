@@ -159,7 +159,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5064582312747039
-    m_Localized: resume
+    m_Localized: Resume
     m_Metadata:
       m_Items: []
   - m_Id: 5068438916554753
@@ -168,6 +168,18 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 13696236759040000
     m_Localized: Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23420982669099008
+    m_Localized: Check for Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23420982727819264
+    m_Localized: Put Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23420982727819265
+    m_Localized: Check Side
     m_Metadata:
       m_Items: []
   references:

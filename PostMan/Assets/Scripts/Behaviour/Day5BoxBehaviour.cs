@@ -23,7 +23,7 @@ public class Day5BoxBehaviour : MonoBehaviour
 
         extraButton.onClick.AddListener(CheckSide);
 
-        content.text = "查看侧面";
+        //content.text = "查看侧面";
     }
 
     private void CheckSide()

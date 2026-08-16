@@ -1,3 +1,4 @@
+using PostMan.AudioSystem;
 using PostMan.Common;
 using PostMan.Dialogue;
 using System.Collections;
@@ -26,10 +27,9 @@ namespace PostMan.UI
 
         #region 打字机音效
 
-        /*
         [Tooltip("音轨")]
         [SerializeField]
-        private AudioTrack track;
+        private AudioTrackId track;
         [Tooltip("音频")]
         [SerializeField]
         private AudioClip typeClip;
@@ -37,12 +37,11 @@ namespace PostMan.UI
         [SerializeField]
         private float volume=1f;
 
-        [Tooltip("对话开始几秒后停止打字机音效")]
+        [Tooltip("打字机音效间隔")]
         [SerializeField]
         private float interval=0.1f;
         private float elapsed;
 
-         */
         #endregion
 
         protected override void Init()
@@ -65,14 +64,12 @@ namespace PostMan.UI
             {
                 return;
             }
-            //elapsed += Time.deltaTime;
-            /*
+            elapsed += Time.deltaTime;
             if (elapsed>interval)
             {
                 PlayTypeSound();
                 elapsed = 0;
             }
-             */
         }
 
         /// <summary>
@@ -138,27 +135,10 @@ namespace PostMan.UI
             speakerText.text = dialogueNode.GetSpeaker();    
         }
 
-        /*
         private void PlayTypeSound()
         {
-            GameEventBus.Publish<PlaySoundEvent>(new PlaySoundEvent()
-            {
-                Clip = typeClip,
-                Volume = volume,
-                IsLoop = false,
-                Track=track
-            });
+            AudioManager.Instance.Play
+                (track, typeClip,false,false,0.5f,volume);
         }
-         */
-        /*
-         
-        private void StopTypeSound()
-        {
-            GameEventBus.Publish<PauseSoundEvent>(new PauseSoundEvent()
-            {
-                Track = track
-            });
-        }
-         */
     }
 }
