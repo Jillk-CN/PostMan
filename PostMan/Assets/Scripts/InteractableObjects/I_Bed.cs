@@ -9,6 +9,7 @@ using PostMan.UI;
 using PostMan.AudioSystem;
 using System;
 using PostMan.Scene;
+using PostMan.InputManagement;
 
 
 namespace PostMan.InteractableObject
@@ -36,7 +37,6 @@ namespace PostMan.InteractableObject
 
         private Transform SleepCamera; //用于睡觉动作挂载的虚拟相机
         private Transform PlayerCamera; //角色正常移动时的虚拟相机
-        private PlayerMotion playerMotion;  //角色移动组件
         private ShowInteractPrompt showInteractPrompt;  //显示交互提示组件
         private Animator animator;  //虚拟相机(SleepCamera)上的动画组件
         private bool Sleeping = false;
@@ -79,11 +79,11 @@ namespace PostMan.InteractableObject
             //获取玩家正常移动视角的虚拟相机
             PlayerCamera = player.gameObject.transform.FindChildByName("FPVcam");
 
-            //获取角色移动组件
-            playerMotion = player.gameObject.GetComponent<PlayerMotion>();
+            //暂时禁用角色移动
+            GameInputManager.Instance.SetPlayerAllInput(false);
 
-            //暂时禁用角色移动组件
-            playerMotion.enabled = false;
+            //禁用ESC键输入
+            GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(false);
 
             //激活睡觉视角的虚拟相机
             SleepCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = true;
@@ -137,8 +137,11 @@ namespace PostMan.InteractableObject
             //失活睡觉视角的虚拟相机，让视角自动过渡到玩家正常视角
             SleepCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = false;
 
-            //启用角色移动组件
-            playerMotion.enabled = true;
+            //启用角色移动
+            GameInputManager.Instance.SetPlayerAllInput(true);
+
+            //启用ESC键输入
+            GameInputManager.Instance.SetInputSystemSource<PauseInputSource>(true);
 
             //更新交互提示
             UpdateInteractPrompt();
