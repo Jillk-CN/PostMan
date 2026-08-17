@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using PostMan.AudioSystem;
 using PostMan.Player;
 using PostMan.Scene;
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class InteractableSFXSwitcher : MonoBehaviour , IInteractable

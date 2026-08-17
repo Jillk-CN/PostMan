@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using PostMan.Player;
 using PostMan.Common;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
-using UnityEngine.XR;
 using PostMan.AudioSystem;
 
 public class I_Telephone : MonoBehaviour

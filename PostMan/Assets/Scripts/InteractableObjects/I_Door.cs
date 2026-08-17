@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PostMan.Player;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
-using UnityEditor.PackageManager;
 using PostMan.AudioSystem;
 
 public class I_Door : MonoBehaviour, IInteractable

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using PostMan.AudioSystem;
 using PostMan.Scene;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 public class ColliderSFXSwitcher : MonoBehaviour
