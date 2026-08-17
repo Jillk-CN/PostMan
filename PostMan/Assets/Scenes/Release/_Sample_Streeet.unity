@@ -17219,7 +17219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 287eca2a29104254b880b022de7de8f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  faceJumpSFX: {fileID: 8300000, guid: 478ec803cb6c780438533a5115519419, type: 3}
+  faceJumpSFX: {fileID: 8300000, guid: 25a699518dcb24f488071c7fc41c611b, type: 3}
   movePlayerAfterTask31: {fileID: 569953141}
   sceneOrder: 20
   canInteract: 0

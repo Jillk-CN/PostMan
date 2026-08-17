@@ -12046,7 +12046,7 @@ MonoBehaviour:
   subtitleKey3: stl_d5_10
   knock: {fileID: 8300000, guid: 478ec803cb6c780438533a5115519419, type: 3}
   hurryKnock: {fileID: 8300000, guid: edf8cdc1f8543a24483400edb7b934c6, type: 3}
-  faceJump: {fileID: 8300000, guid: 478ec803cb6c780438533a5115519419, type: 3}
+  faceJump: {fileID: 8300000, guid: 93972c0565c30ce4bbe8c27b15126753, type: 3}
   sceneOrder: 19
   canInteract: 1
   priority: 0
