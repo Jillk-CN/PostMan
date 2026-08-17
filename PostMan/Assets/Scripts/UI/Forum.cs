@@ -21,6 +21,12 @@ public class Forum : MonoBehaviour
     public string subtitleAfterPost2;
     public string subtitleAfterPost3;
     public string subtitleAfterClose;
+
+    [Header("搜索框对象")]
+    public GameObject searchBar;
+    public GameObject post1Button;
+    public GameObject post2Button;
+    public GameObject post3Button;
     
     [Header("交互物PC，手动拖拽")]
     [SerializeField]
@@ -59,6 +65,11 @@ public class Forum : MonoBehaviour
         if (post.postUI != null)
         {
             post.postUI.SetActive(true);
+
+            searchBar.SetActive(false);
+            post1Button.SetActive(false);
+            post2Button.SetActive(false);
+            post3Button.SetActive(false);
         }
 
         if(clickSound != null)
@@ -81,6 +92,11 @@ public class Forum : MonoBehaviour
         if (post.postUI != null)
         {
             post.postUI.SetActive(false);
+            
+            searchBar.SetActive(true);
+            post1Button.SetActive(true);
+            post2Button.SetActive(true);
+            post3Button.SetActive(true);
         }
         
         if (!post.readed)

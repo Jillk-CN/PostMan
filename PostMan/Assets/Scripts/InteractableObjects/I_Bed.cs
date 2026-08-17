@@ -22,6 +22,8 @@ namespace PostMan.InteractableObject
     /// </summary>
     public class I_Bed : MonoBehaviour, IInteractable
     {
+        [Header("后仓门脚本")]
+        [SerializeField] private I_Door backRoomDoor;
         [Header("音效")]
         [Tooltip("躺下音效")]
         [SerializeField] private AudioClip SleepSound;
@@ -48,6 +50,9 @@ namespace PostMan.InteractableObject
         public bool CanInteract { get => canInteract; set => canInteract=value; }
         public int Priority { get => priority; set => priority=value; }
 
+        public event Action OnSleep;
+        public event Action OnWakeUp;
+
         void Start()
         {
             //获取睡觉视角的虚拟相机
@@ -70,6 +75,8 @@ namespace PostMan.InteractableObject
             {
                 Debug.LogError("[I_Bed.cs] 获取动画组件失败");
             }
+
+            OnSleep += backRoomDoor.PublicCloseDoor;
         }
 
         public void InteractWith(PlayerInteractor player)
@@ -149,7 +156,8 @@ namespace PostMan.InteractableObject
 
         private IEnumerator Sleep()
         {
-
+            OnSleep?.Invoke();
+            
             //执行躺下动作
             animator.SetTrigger("Sleep");
 
@@ -173,6 +181,8 @@ namespace PostMan.InteractableObject
 
         private IEnumerator WakeUp()
         {
+            OnWakeUp?.Invoke();
+
             // 黑屏淡出
             BlackScreen.Instance.BlackOut("", 2f);
 

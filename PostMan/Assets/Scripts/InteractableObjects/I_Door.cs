@@ -73,7 +73,7 @@ public class I_Door : MonoBehaviour, IInteractable
         else if(doorAnimator.GetBool("Opened_Side_1") == true )
             //&& DetectPlayerSide(PlayerTF) < 0)
         {
-            StartCoroutine(CloseDoor1());
+            StartCoroutine(CloseDoor1(true));
         }
 
         else if(doorAnimator.GetBool("Stucked") == true 
@@ -92,7 +92,7 @@ public class I_Door : MonoBehaviour, IInteractable
         else if(doorAnimator.GetBool("Opened_Side_2") == true)
             //&& DetectPlayerSide(PlayerTF) > 0)
         {
-            StartCoroutine(CloseDoor2());
+            StartCoroutine(CloseDoor2(true));
         }
 
         else if(doorAnimator.GetBool("Stucked") == true 
@@ -126,10 +126,10 @@ public class I_Door : MonoBehaviour, IInteractable
     /// <summary>
     /// 门绕门轴顺时针关闭
     /// </summary>
-    IEnumerator CloseDoor1()
+    IEnumerator CloseDoor1(bool _playSFX)
     {
         doorAnimator.SetTrigger("Close_Side_1");
-        if(closeSound != null)
+        if(closeSound != null && _playSFX)
         {
             AudioManager.Instance.Play(AudioTrackId.FX , closeSound , false , false , 0f , 1f);
         }
@@ -181,10 +181,10 @@ public class I_Door : MonoBehaviour, IInteractable
     /// <summary>
     /// 门绕门轴逆时针关闭
     /// </summary>
-    IEnumerator CloseDoor2()
+    IEnumerator CloseDoor2(bool _playSFX)
     {
         doorAnimator.SetTrigger("Close_Side_2");
-        if(closeSound != null)
+        if(closeSound != null && _playSFX)
         {
             AudioManager.Instance.Play(AudioTrackId.FX , closeSound , false , false , 0f , 1f);
         }
@@ -240,6 +240,20 @@ public class I_Door : MonoBehaviour, IInteractable
         yield return new WaitForSeconds(1.2f);
 
         CanInteract = true;
+    }
+
+    public void PublicCloseDoor()
+    {
+        if(doorAnimator.GetBool("Opened_Side_1") == true )
+            //&& DetectPlayerSide(PlayerTF) < 0)
+        {
+            StartCoroutine(CloseDoor1(false));
+        }
+        else if(doorAnimator.GetBool("Opened_Side_2") == true)
+            //&& DetectPlayerSide(PlayerTF) > 0)
+        {
+            StartCoroutine(CloseDoor2(false));
+        }
     }
 
 }
