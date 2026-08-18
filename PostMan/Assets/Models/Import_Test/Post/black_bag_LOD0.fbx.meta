@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: black_bag
+    second: {fileID: 2100000, guid: c899c89443beff24287e38c151306567, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: tripo_mat_c95b61e3
     second: {fileID: 2100000, guid: a2fa6f770f2ae8c48baa72664dda71d6, type: 2}
   materials:
