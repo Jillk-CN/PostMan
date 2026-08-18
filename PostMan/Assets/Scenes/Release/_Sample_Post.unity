@@ -10625,6 +10625,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1207809809 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 140864138187463718, guid: 7142fb2024bccb944aa3de253af7c394,
+    type: 3}
+  m_PrefabInstance: {fileID: 1296128255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1224674067
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11528,6 +11534,11 @@ PrefabInstance:
       propertyPath: uniqueID
       value: Cabinet_post
       objectReference: {fileID: 0}
+    - target: {fileID: 140864138187463718, guid: 7142fb2024bccb944aa3de253af7c394,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 267358938105887569, guid: 7142fb2024bccb944aa3de253af7c394,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12257,6 +12268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 055b1ce1eeb443a40b631aa7fe571090, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  plane: {fileID: 1207809809}
   subtitle1: stl_d3_11
   subtitle2: stl_d3_12
   sfx: {fileID: 8300000, guid: 478ec803cb6c780438533a5115519419, type: 3}
