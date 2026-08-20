@@ -78,7 +78,10 @@ public class Day3CabinetBehaviour : MonoBehaviour , IInteractable
 
     private IEnumerator Behaviour()
     {
-        yield return new WaitForSeconds(0.5f);
+        i_Cabinet.OnDoorOpen -= OnOpen;
+        i_Cabinet.OnDoorClose -= OnClose;
+        
+        yield return new WaitForSeconds(1f);
 
         AudioManager.Instance.Play(AudioTrackId.FX , sfx);
 
@@ -86,12 +89,9 @@ public class Day3CabinetBehaviour : MonoBehaviour , IInteractable
 
         SubtitleUI.Instance.TypeSubtitle(subtitle2);
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
 
         AudioManager.Instance.Play(AudioTrackId.FX , sfx);
-
-        i_Cabinet.OnDoorOpen -= OnOpen;
-        i_Cabinet.OnDoorClose -= OnClose;
     }
 
     private void OnOpen()

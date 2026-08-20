@@ -86,6 +86,8 @@ public class Day6MailBox410Behaviour : MonoBehaviour , IInteractable
 
         Bag.SetActive(true);
 
+        yield return new WaitForSeconds(2f);
+
         GameObject blackHand = Bag.transform.FindChildByName("Black_Hand_m").gameObject;
 
         Animator blackHandAnimator = blackHand.GetComponent<Animator>();

@@ -31,7 +31,7 @@ public class Day5BoxBehaviour : MonoBehaviour
         
         ViewImagePanel.Instance.ShowImage(Side , true);
 
-        SubtitleUI.Instance.TypeSubtitle(subtitleKey , 4f);
+        SubtitleUI.Instance.TypeSubtitle(subtitleKey , 2f);
 
         extraButton.onClick.RemoveListener(CheckSide);
 

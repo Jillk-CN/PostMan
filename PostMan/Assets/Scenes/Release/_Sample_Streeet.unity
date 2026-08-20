@@ -17845,7 +17845,7 @@ MonoBehaviour:
   interactablesProcessListSO: {fileID: 11400000, guid: 81bafe8566d3df042afca30fdf82e87c,
     type: 2}
   sceneOrder: 8
-  sfx: {fileID: 8300000, guid: 6b69c27d2b50df64db51634423d52d7a, type: 3}
+  sfx: {fileID: 8300000, guid: 4c18f7685b5d4504fa9ba4bc7529915f, type: 3}
   triggerOnce: 1
 --- !u!65 &2053742119
 BoxCollider:

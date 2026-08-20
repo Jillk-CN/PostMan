@@ -11,7 +11,9 @@ public class SubtitleUI : MonoBehaviour
     public static SubtitleUI Instance;  //全局单例
     public TextMeshProUGUI ContentBox;  //获取文本框对象
     //public GameObject BackGround;  //获取UI背景
-    private Coroutine currentCoroutine;
+    private Coroutine currentCoroutine;    //当前字幕播放主协程(TypeText)
+    private Coroutine openUICoroutine;     //当前淡入协程(OpenUI)引用
+    private Coroutine closeUICoroutine;    //当前淡出协程(CloseUI)引用
     public bool isTyping = false;
     
 
@@ -146,17 +148,30 @@ public class SubtitleUI : MonoBehaviour
     /// <param name="delayTime"></param>
     public void TypeSubtitle(string subtitleKey , float delayTime = 0f)
     {
-
+        //暂停当前字幕播放主协程（TypeText），停止时会级联暂停其正在运行的子协程
         if(currentCoroutine != null)
         {
             StopCoroutine(currentCoroutine);
-
-            //重置 UI 状态
-            canvasGroup.alpha = 0f;
-            ContentBox.maxVisibleCharacters = 0;
-            ContentBox.text = "";
             currentCoroutine = null;
         }
+
+        //暂停 OpenUI / CloseUI 淡入淡出协程（必须在新字幕协程启动之前暂停，
+        //保证新字幕开始播放时这两个协程已经暂停）
+        if(openUICoroutine != null)
+        {
+            StopCoroutine(openUICoroutine);
+            openUICoroutine = null;
+        }
+        if(closeUICoroutine != null)
+        {
+            StopCoroutine(closeUICoroutine);
+            closeUICoroutine = null;
+        }
+
+        //重置 UI 透明度与显示状态，让 UI 重新执行 淡入->播放->淡出 的过程
+        canvasGroup.alpha = 0f;
+        ContentBox.maxVisibleCharacters = 0;
+        ContentBox.text = "";
 
         string text = LocalizationManager.Instance.GetLocalizedString(LocalizationManager.TableName.SubtitleTable,subtitleKey);
         if (string.IsNullOrEmpty(text))
@@ -175,8 +190,10 @@ public class SubtitleUI : MonoBehaviour
 
         yield return new WaitForSeconds(delayTime);
 
-        //开启UI
-        yield return StartCoroutine(OpenUI(FadeInTime));
+        //开启UI（记录OpenUI协程引用，便于新字幕播放时及时暂停）
+        openUICoroutine = StartCoroutine(OpenUI(FadeInTime));
+        yield return openUICoroutine;
+        openUICoroutine = null;
 
         int ConLength;
 
@@ -229,8 +246,10 @@ public class SubtitleUI : MonoBehaviour
         //延迟退出
         yield return new WaitForSeconds(DelayOutTime);
 
-        //关闭UI
-        yield return StartCoroutine(CloseUI(FadeOutTime));
+        //关闭UI（记录CloseUI协程引用，便于新字幕播放时及时暂停）
+        closeUICoroutine = StartCoroutine(CloseUI(FadeOutTime));
+        yield return closeUICoroutine;
+        closeUICoroutine = null;
 
     }
 }

@@ -129,6 +129,8 @@ namespace PostMan.InteractableObject
             {
                 showInteractPrompt.CanSelect = false;
 
+                canInteract = false;
+
                 //获取玩家正常移动视角的虚拟相机
                 PlayerCamera = player.gameObject.transform.FindChildByName("FPVcam");
 
@@ -202,6 +204,8 @@ namespace PostMan.InteractableObject
 
             //重新启用允许交互
             showInteractPrompt.CanSelect = true;
+
+            canInteract = true;
 
             //激活玩家正常移动视角的虚拟相机
             PlayerCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = true;
