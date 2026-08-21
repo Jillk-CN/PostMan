@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6fb3a35d924e72f418bc66f69379ff95
+guid: 44d4f7e49c1384f48b9a422793b27571
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,28 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: tripo_mat_4df0cf0d
-    second: {fileID: 2100000, guid: 273be6a918bfe3d4aaa7cad9ffdba83f, type: 2}
+      name: Cabinet
+    second: {fileID: 2100000, guid: 638242175f410e448b2c46d35e79c889, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: tripo_mat_836ebc4a
-    second: {fileID: 2100000, guid: 50ce4a85248077741abf66096957d4a6, type: 2}
+      name: window
+    second: {fileID: 2100000, guid: fcb12fdcb01dd7a42954b3f634e40909, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: tripo_mat_8a8a5d5c
-    second: {fileID: 2100000, guid: 4984aa97da4632a4b9561f3081da5bbd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tripo_mat_8f63acc9
-    second: {fileID: 2100000, guid: a4fbb4c467e65f943b6218ce6689523c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: tripo_mat_ae90692d
-    second: {fileID: 2100000, guid: c6ebdcde174babb47a6fa0d739a73b3d, type: 2}
+      name: windows
+    second: {fileID: 2100000, guid: c204044b24907b54b8ac8bb5d6e9c546, type: 2}
   materials:
     materialImportMode: 2
     materialName: 1
