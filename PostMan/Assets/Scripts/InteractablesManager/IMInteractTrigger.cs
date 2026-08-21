@@ -27,12 +27,19 @@ public class IMInteractTrigger : MonoBehaviour , IInteractable
     public int priority;
     public bool CanInteract { get => canInteract; set => canInteract=value; }
     public int Priority { get => priority; set => priority=value; }
+    public bool _InteractOnce = false;
+    private bool hasInteract = false;
 
     public void InteractWith(PlayerInteractor player)
     {
-        if(SceneInitializer.Instance.SceneOrder != sceneOrder)return;
+        if(SceneInitializer.Instance.SceneOrder != sceneOrder || hasInteract)return;
 
         StartCoroutine(ApplyList());
+
+        if(_InteractOnce)
+        {
+            hasInteract = true;
+        }
     }
 
     private IEnumerator ApplyList()

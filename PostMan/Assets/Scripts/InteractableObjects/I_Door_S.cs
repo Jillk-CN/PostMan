@@ -44,6 +44,7 @@ namespace PostMan.InteractableObject
         private Transform PlayerCamera; //角色正常移动时的虚拟相机
         private PlayerMotion playerMotion;  //角色移动组件
         private ShowInteractPrompt showInteractPrompt;  //显示交互提示组件
+        private OutlineVisual outlineVisual;    //高亮显示组件
         private Animator cameraAnimator;  //虚拟相机(SquatCamera)上的动画组件
         private Animator doorAnimator;  //宠物门上的动画组件
         private Animator hand_mAnimator;   //黑手上的动画组件
@@ -70,7 +71,8 @@ namespace PostMan.InteractableObject
 
             //获取显示交互提示组件
             showInteractPrompt = gameObject.GetComponent<ShowInteractPrompt>();
-            if(showInteractPrompt == null)
+            outlineVisual = gameObject.GetComponent<OutlineVisual>();
+            if(showInteractPrompt == null || outlineVisual == null)
             {
                 Debug.LogError("[I_Door_S.cs] 获取显示交互提示组件失败");
             }
@@ -162,6 +164,8 @@ namespace PostMan.InteractableObject
         {
             blackHand_B.SetActive(true);
 
+            outlineVisual.CanSelect = false;
+
             yield return new WaitForSeconds(1.5f);
 
             cameraAnimator.SetTrigger("Down");
@@ -188,7 +192,7 @@ namespace PostMan.InteractableObject
             doorAnimator.ResetTrigger("Open");
             doorAnimator.SetTrigger("Close");
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2.5f);
 
             SubtitleUI.Instance.TypeSubtitle(Day4AMSubtitleKey);
 
@@ -207,6 +211,8 @@ namespace PostMan.InteractableObject
 
             canInteract = true;
 
+            outlineVisual.CanSelect = true;
+
             //激活玩家正常移动视角的虚拟相机
             PlayerCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = true;
 
@@ -224,6 +230,12 @@ namespace PostMan.InteractableObject
         private IEnumerator PlaceBox()
         {
             isPlaceBoxRunning = true;
+
+            outlineVisual.CanSelect = false;
+            
+            showInteractPrompt.CanSelect = false;
+
+            canInteract = false;
 
             try
             {
@@ -254,10 +266,16 @@ namespace PostMan.InteractableObject
 
                 AudioManager.Instance.Play(AudioTrackId.FX , dragSlowSound);
 
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(2.5f);
 
                 //Drap 片段此时已播放完毕，再清一次，防止状态机回到默认状态后残留 flag 再次触发
                 hand_mAnimator.ResetTrigger("Drap");
+
+                outlineVisual.CanSelect = true;
+            
+            showInteractPrompt.CanSelect = true;
+
+            canInteract = true;
 
                 doorAnimator.SetTrigger("Close");
 
