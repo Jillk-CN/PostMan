@@ -13770,6 +13770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plane: {fileID: 1207809809}
+  plane1: {fileID: 1441537527}
   subtitle1: stl_d3_11
   subtitle2: stl_d3_12
   sfx: {fileID: 8300000, guid: 478ec803cb6c780438533a5115519419, type: 3}
@@ -14805,6 +14806,12 @@ MonoBehaviour:
   - {fileID: 1397427768}
   - {fileID: 2112577354}
   - {fileID: 2111151610}
+--- !u!1 &1441537527 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1874909185848150183, guid: 7142fb2024bccb944aa3de253af7c394,
+    type: 3}
+  m_PrefabInstance: {fileID: 1296128255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1494617921
 GameObject:
   m_ObjectHideFlags: 0
@@ -16460,8 +16467,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1716969914}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 2.12, y: 1.56, z: -2.69}
+  m_LocalRotation: {x: 0, y: 0.82050216, z: 0, w: 0.57164353}
+  m_LocalPosition: {x: 2.12, y: 1.5, z: -2.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

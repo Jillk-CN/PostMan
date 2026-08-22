@@ -8,6 +8,7 @@ using UnityEngine;
 public class Day3CabinetBehaviour : MonoBehaviour , IInteractable
 {
     public GameObject plane;
+    public GameObject plane1;
     private I_Cabinet i_Cabinet;
     private bool isOpen;
     [Header("字幕Key")]
@@ -56,6 +57,8 @@ public class Day3CabinetBehaviour : MonoBehaviour , IInteractable
         i_Cabinet.OnDoorClose += OnClose;
 
         plane.SetActive(true);
+
+        plane1.SetActive(true);
 
         hasStarted = true;
     }
