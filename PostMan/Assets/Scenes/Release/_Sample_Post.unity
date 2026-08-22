@@ -19747,6 +19747,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: I_Chair
       objectReference: {fileID: 0}
+    - target: {fileID: 605911443570200941, guid: 07fb766211bbcbd4088e47ff1c933203,
+        type: 3}
+      propertyPath: m_Priority
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3529084853066683161, guid: 07fb766211bbcbd4088e47ff1c933203,
         type: 3}
       propertyPath: dialogue

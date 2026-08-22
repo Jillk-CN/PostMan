@@ -6,6 +6,7 @@ using PostMan.Common;
 using Cinemachine;
 using PostMan.Dialogue;
 using System.Linq;
+using PostMan.InputManagement;
 
 public class I_Chair : MonoBehaviour, IInteractable
 {
@@ -64,13 +65,14 @@ public class I_Chair : MonoBehaviour, IInteractable
         playerMotion = player.gameObject.GetComponent<PlayerMotion>();
 
         //暂时禁用角色移动组件
-        playerMotion.enabled = false;
+        //playerMotion.enabled = false;
+        GameInputManager.Instance.SetPlayerAllInput(false);
 
         //激活坐下视角的虚拟相机
         SitCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = true;
 
         //失活玩家正常移动视角的虚拟相机，让视角自动过渡到坐下视角
-        PlayerCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = false;
+        //PlayerCamera.gameObject.GetComponent<CinemachineVirtualCamera>().enabled = false;
 
         if(currentCoroutine != null)
         {
