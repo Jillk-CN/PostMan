@@ -8,15 +8,18 @@ namespace PostMan.Player
 {
     public class DisablePlayer : MonoBehaviour
     {
+        private PlayerSightInputSource input;
         private void Start()
         {
-            StartCoroutine(DisablePlayerNextFrame());
+            input = GameInputManager.Instance.
+                GetInputSystemSource<PlayerSightInputSource>();
         }
-        private IEnumerator DisablePlayerNextFrame()
+        private void Update()
         {
-            yield return null;
-            GameInputManager.Instance.SetPlayerAllInput(false);
-
+            if (input.Enabled)
+            {
+                GameInputManager.Instance.SetPlayerAllInput(false);
+            }    
         }
     }
 }

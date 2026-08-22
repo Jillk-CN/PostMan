@@ -23,24 +23,19 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2201979777441792
-    m_Localized: 'First Delivery#Retrieve the items from the sorting cabinet and
-      deliver them to the designated addresses.
-
-      (401,405,409)'
+    m_Localized: null
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607616
-    m_Localized: 'First Collection#Collect the items from the designated addresses.
-
-      (403,406)'
+    m_Localized: null
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607617
-    m_Localized: Pack the Mailbag#Retrieve the outgoing mail from the sorting cabinet.
+    m_Localized: null
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607618
-    m_Localized: 'Day Two Delivery#Head to the neighborhood and make the deliveries.
+    m_Localized: 'Day One Delivery#Head to the neighborhood and make the deliveries.
 
       (403,405,407,410)'
     m_Metadata:
@@ -54,7 +49,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607621
-    m_Localized: 'Day Two Collection#Collect the regular items and the package from
+    m_Localized: 'Day One Collection#Collect the regular items and the package from
       410.
 
       (401,403,410)'
@@ -77,7 +72,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607626
-    m_Localized: Day Three Delivery#Check the front desk for instructions.
+    m_Localized: Day Two Delivery#Check the front desk for instructions.
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607627
@@ -89,7 +84,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607629
-    m_Localized: 'Day Three Collection#Go out and collect the mail.
+    m_Localized: 'Day Two Collection#Go out and collect the mail.
 
       (401,406,408,410)'
     m_Metadata:
@@ -103,7 +98,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607632
-    m_Localized: 'Day Four Delivery#Head to the neighborhood and make the deliveries.
+    m_Localized: 'Day Three Delivery#Head to the neighborhood and make the deliveries.
 
       (406,409,410)'
     m_Metadata:
@@ -117,7 +112,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607635
-    m_Localized: 'Day Four Collection#Go out and collect today''s items.
+    m_Localized: 'Day Three Collection#Go out and collect today''s items.
 
       (405,408,410)'
     m_Metadata:
@@ -131,13 +126,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607638
-    m_Localized: 'Day Five Delivery#Head to the neighborhood and make the deliveries.
+    m_Localized: 'Day Four Delivery#Head to the neighborhood and make the deliveries.
 
       (403,405,407)'
     m_Metadata:
       m_Items: []
   - m_Id: 2201979802607639
-    m_Localized: 'Day Five Collection#Go out and collect the mail.
+    m_Localized: 'Day Four Collection#Go out and collect the mail.
 
       (401,402,403,404,410)'
     m_Metadata:
