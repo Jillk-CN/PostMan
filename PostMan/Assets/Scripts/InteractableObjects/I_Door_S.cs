@@ -9,6 +9,8 @@ using PostMan.AudioSystem;
 using PostMan.Scene;
 using System;
 using PostMan.UI;
+using UnityEngine.InputSystem;
+using PostMan.InputManagement;
 
 
 namespace PostMan.InteractableObject
@@ -41,6 +43,7 @@ namespace PostMan.InteractableObject
         public string Day4AMSubtitleKey;
 
         private Transform SquatCamera; //用于蹲下动作挂载的虚拟相机
+        private CinemachineVirtualCamera placeCamera;
         private Transform PlayerCamera; //角色正常移动时的虚拟相机
         private PlayerMotion playerMotion;  //角色移动组件
         private ShowInteractPrompt showInteractPrompt;  //显示交互提示组件
@@ -62,11 +65,12 @@ namespace PostMan.InteractableObject
 
         void Start()
         {
-            //获取睡觉视角的虚拟相机
+            //获取虚拟相机
             SquatCamera = gameObject.transform.FindChildByName("SquatCamera");
-            if(SquatCamera == null)
+            placeCamera = gameObject.transform.FindChildByName("PlaceCamera").GetComponent<CinemachineVirtualCamera>();
+            if(SquatCamera == null || placeCamera == null)
             {
-                Debug.LogError("[I_Door_S.cs] 获取床虚拟相机失败");
+                Debug.LogError("[I_Door_S.cs] 获取虚拟相机失败");
             }
 
             //获取显示交互提示组件
@@ -229,16 +233,20 @@ namespace PostMan.InteractableObject
         /// </summary>
         private IEnumerator PlaceBox()
         {
-            isPlaceBoxRunning = true;
-
-            outlineVisual.CanSelect = false;
-            
-            showInteractPrompt.CanSelect = false;
-
-            canInteract = false;
-
             try
             {
+                GameInputManager.Instance.SetPlayerAllInput(false);
+
+                placeCamera.enabled = true;
+
+                isPlaceBoxRunning = true;
+
+                outlineVisual.CanSelect = false;
+            
+                showInteractPrompt.CanSelect = false;
+
+                canInteract = false;
+
                 blackHand_m.SetActive(true);
 
                 Box.SetActive(true);
@@ -273,15 +281,19 @@ namespace PostMan.InteractableObject
 
                 outlineVisual.CanSelect = true;
             
-            showInteractPrompt.CanSelect = true;
+                showInteractPrompt.CanSelect = true;
 
-            canInteract = true;
+                canInteract = true;
 
                 doorAnimator.SetTrigger("Close");
 
-                yield return new WaitForSeconds(3f);
+                yield return new WaitForSeconds(2f);
 
                 doorAnimator.ResetTrigger("Close");
+
+                placeCamera.enabled = false;
+
+                GameInputManager.Instance.SetPlayerAllInput(true);
 
                 Box.transform.parent = gameObject.transform;
 

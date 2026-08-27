@@ -259,7 +259,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 0
@@ -712,6 +712,18 @@ Animator:
 --- !u!1 &292191819 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5352638278749947739, guid: bd26fadf8a5312743add48ea3b2fb862,
+    type: 3}
+  m_PrefabInstance: {fileID: 1782458760290907795}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &406257262 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1397542053246914943, guid: bd26fadf8a5312743add48ea3b2fb862,
+    type: 3}
+  m_PrefabInstance: {fileID: 1782458760290907795}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &406257263 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 830572436046295751, guid: bd26fadf8a5312743add48ea3b2fb862,
     type: 3}
   m_PrefabInstance: {fileID: 1782458760290907795}
   m_PrefabAsset: {fileID: 0}
@@ -2753,14 +2765,29 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
         type: 3}
+      propertyPath: Box
+      value: 
+      objectReference: {fileID: 406257262}
+    - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
+        type: 3}
       propertyPath: _PlaceBox
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
         type: 3}
       propertyPath: blackHand_B
       value: 
       objectReference: {fileID: 292191819}
+    - target: {fileID: 502985167910176373, guid: bd26fadf8a5312743add48ea3b2fb862,
+        type: 3}
+      propertyPath: canInteract
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2763755430664680680, guid: bd26fadf8a5312743add48ea3b2fb862,
+        type: 3}
+      propertyPath: m_LookAt
+      value: 
+      objectReference: {fileID: 406257263}
     - target: {fileID: 4959504085722276633, guid: bd26fadf8a5312743add48ea3b2fb862,
         type: 3}
       propertyPath: m_LocalPosition.x

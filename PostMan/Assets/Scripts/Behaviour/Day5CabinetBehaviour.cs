@@ -8,6 +8,8 @@ using UnityEngine;
 
 public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
 {
+    [Header("GameObject")]
+    public GameObject airWall;
     
     [Header("Animator")]
     public Animator blackHandAnimator;
@@ -81,6 +83,8 @@ public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
         
         if(sceneOrder != SceneInitializer.Instance.SceneOrder)return;
 
+        airWall.SetActive(true);
+
         loop = false;
     }
 
@@ -148,7 +152,9 @@ public class Day5CabinetBehaviour : MonoBehaviour , IInteractable
 
         blackHandAnimator.ResetTrigger("PAT");
 
-        SubtitleUI.Instance.TypeSubtitle(subtitleKey3 , 3f);
+        SubtitleUI.Instance.TypeSubtitle(subtitleKey3 , 1.5f);
+
+        airWall.SetActive(false);
 
         blackHandAnimator.gameObject.SetActive(false);
     }
